@@ -5,6 +5,7 @@ import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import GlobalHeroBanner from "@/components/layout/GlobalHeroBanner";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</Script>
       </head>
       <body>
+        <GlobalHeroBanner />
         {children}
         <Analytics />
       </body>
