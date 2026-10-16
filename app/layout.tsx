@@ -36,7 +36,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.widgetTracker("send","pageview");
         `}</Script>
       </head>
-        {/* Facebook Pixel */}
+                {/* Google Tag */}
+        {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
+          <>
+            <Script
+              id="google-tag"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-tag-config" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
+              `}
+            </Script>
+          </>
+        )}
+{/* Facebook Pixel */}
         {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
           <Script id="facebook-pixel" strategy="afterInteractive">
             {`
