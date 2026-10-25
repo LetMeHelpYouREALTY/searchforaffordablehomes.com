@@ -19,9 +19,9 @@ export const agentInfo = {
   name: "Dr. Jan Duffy",
   title: "REALTOR®",
   license: "S.0197614.LLC",
-  phone: "(702) 500-1942",
-  phoneFormatted: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: "(702) 903-1952",
+  phoneFormatted: "(702) 903-1952",
+  phoneTel: "tel:+17029031952",
   email: "homes@heyberkshire.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
