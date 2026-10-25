@@ -1,7 +1,9 @@
 import { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/site-config";
+import { neighborhoods } from "@/lib/neighborhoods";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://heyberkshire.com";
+  const baseUrl = siteConfig.url;
   const lastModified = new Date();
 
   // Core pages
@@ -56,16 +58,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Neighborhood pages
   const neighborhoodPages = [
     { url: `${baseUrl}/neighborhoods`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/summerlin`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/henderson`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/green-valley`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/the-ridges`, priority: 0.8, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/southern-highlands`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/north-las-vegas`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/skye-canyon`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/centennial-hills`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/inspirada`, priority: 0.7, changeFrequency: "weekly" as const },
-    { url: `${baseUrl}/neighborhoods/mountains-edge`, priority: 0.7, changeFrequency: "weekly" as const },
+    ...neighborhoods.map((n) => ({
+      url: `${baseUrl}/neighborhoods/${n.slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    })),
   ];
 
   const allPages = [...corePages, ...servicePages, ...buyerPersonaPages, ...sellerPersonaPages, ...fiftyPlusCommunityPages, ...neighborhoodPages];
