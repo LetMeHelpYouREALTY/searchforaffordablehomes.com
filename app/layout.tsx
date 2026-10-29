@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
   const config = getDomainConfig(domain);
   return {
-    title: `${config.neighborhood} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
+    title: `${config.neighborhood} | Dr. Jan Duffy, REALTOR®`,
     description: config.description,
     keywords: config.keywords,
     openGraph: {
