@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const domain = headers().get("x-domain") || "";
+  const domain = (await headers()).get("x-domain") || "";
   const config = getDomainConfig(domain);
   return {
     title: `${config.neighborhood} | Dr. Jan Duffy, REALTOR® | BHHS Nevada`,
@@ -21,7 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
@@ -36,28 +40,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.widgetTracker("send","pageview");
         `}</Script>
       </head>
-                {/* Google Tag */}
-        {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
-          <>
-            <Script
-              id="google-tag"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-tag-config" strategy="afterInteractive">
-              {`
+      {/* Google Tag */}
+      {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
+        <>
+          <Script
+            id="google-tag"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-tag-config" strategy="afterInteractive">
+            {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
               `}
-            </Script>
-          </>
-        )}
-{/* Facebook Pixel */}
-        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
-          <Script id="facebook-pixel" strategy="afterInteractive">
-            {`
+          </Script>
+        </>
+      )}
+      {/* Facebook Pixel */}
+      {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+        <Script id="facebook-pixel" strategy="afterInteractive">
+          {`
               !function(f,b,e,v,n,t,s)
               {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -69,8 +73,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
               fbq('track', 'PageView');
             `}
-          </Script>
-        )}
+        </Script>
+      )}
       <body>
         {children}
         <Analytics />
