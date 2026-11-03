@@ -19,7 +19,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Relocating from California to Las Vegas | Berkshire Hathaway HomeServices",
+  title: "Relocating from California to Las Vegas",
   description:
     "Moving from California to Las Vegas? Zero state income tax, 40-60% lower home prices, same sunshine. Dr. Jan Duffy helps CA relocators find their perfect Las Vegas home. Call (702) 500-1942.",
   keywords: [
@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     "California relocator Las Vegas",
     "no state income tax Nevada",
     "Las Vegas homes California buyers",
-    "Berkshire Hathaway HomeServices relocation",
   ],
 };
 
@@ -49,7 +48,7 @@ const faqSchema = {
       name: "What neighborhoods do California relocators prefer in Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "California buyers typically gravitate toward Summerlin (similar to Irvine/coastal communities), Henderson (family-friendly like San Diego suburbs), and The Ridges (comparable to Newport Coast luxury). These areas offer the quality and amenities California buyers expect.",
+        text: "California buyers typically gravitate toward Summerlin (similar to Irvine/coastal communities), Henderson (master-planned suburbs similar to San Diego's), and The Ridges (comparable to Newport Coast luxury). These areas offer the quality and amenities California buyers expect.",
       },
     },
     {
@@ -235,7 +234,7 @@ export default function CaliforniaRelocatorPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    "The Irvine of Las Vegas" - Master-planned perfection with top schools,
+                    "The Irvine of Las Vegas" - Master-planned perfection with nearby public schools,
                     Downtown Summerlin shopping, and Red Rock Canyon views.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
@@ -244,7 +243,7 @@ export default function CaliforniaRelocatorPage() {
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Top-rated schools
+                      Nearby public schools
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -272,10 +271,10 @@ export default function CaliforniaRelocatorPage() {
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
                     Henderson = San Diego suburbs meets tech corridor. Google's data center,
-                    top schools, and "America's Safest City" accolades.
+                    named public schools, and an online police crime map.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Tech workers, young families, San Diego relocators
+                    <strong>Popular with:</strong> Tech commuters, San Diego relocators
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
@@ -284,7 +283,7 @@ export default function CaliforniaRelocatorPage() {
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      Lowest crime rates
+                      Public crime maps online
                     </li>
                     <li className="flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
@@ -403,7 +402,7 @@ export default function CaliforniaRelocatorPage() {
                 </h3>
                 <p className="text-slate-600">
                   California buyers typically gravitate toward Summerlin (similar to Irvine/coastal
-                  communities), Henderson (family-friendly like San Diego suburbs), and The Ridges
+                  communities), Henderson (master-planned suburbs similar to San Diego's), and The Ridges
                   (comparable to Newport Coast luxury). These areas offer the quality and amenities
                   California buyers expect.
                 </p>
@@ -435,7 +434,7 @@ export default function CaliforniaRelocatorPage() {
                 <p className="text-slate-600">
                   Nevada public schools overall rank lower than California's, but individual schools
                   in Summerlin and Henderson rate highly. Many California families choose areas with
-                  top-rated schools or consider private options. Dr. Jan provides school-specific
+                  nearby public schools or consider private options. Dr. Jan provides school-specific
                   guidance for every neighborhood.
                 </p>
               </div>
@@ -449,12 +448,12 @@ export default function CaliforniaRelocatorPage() {
                 "I've helped hundreds of California families make the move to Las Vegas. The most
                 common reaction? 'Why didn't we do this sooner?' Between the tax savings, the space,
                 and the lifestyle, most clients can't believe what their California equity buys here.
-                As a <strong>Berkshire Hathaway HomeServices</strong> agent, I coordinate with our
+                As a local REALTOR®, I coordinate with our
                 California offices to make the transition seamless—you don't have to figure this
                 out alone."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -483,9 +482,6 @@ export default function CaliforniaRelocatorPage() {
                 Schedule Consultation
               </Link>
             </div>
-            <p className="mt-6 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>

@@ -22,7 +22,7 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Sun City Anthem Homes for Sale | Berkshire Hathaway HomeServices",
+  title: "Sun City Anthem Homes for Sale",
   description:
     "Henderson's premier 55+ community. Sun City Anthem homes from $350K-$1.2M. 2 championship golf courses, stunning mountain views. Dr. Jan Duffy. Call (702) 500-1942.",
   keywords: [
@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     "Sun City Anthem Henderson",
     "55 plus communities Henderson",
     "active adult Henderson",
-    "Berkshire Hathaway Sun City Anthem",
   ],
 };
 
@@ -164,7 +163,7 @@ export default function SunCityAnthemPage() {
               </h2>
               <p>
                 <strong>Sun City Anthem</strong> brings the legendary Sun City lifestyle to Henderson,
-                Nevada's safest and most desirable city. Built by Del Webb from 1998-2008, this
+                Nevada's second-largest city. Built by Del Webb from 1998-2008, this
                 7,100+ home community offers stunning mountain views, championship golf, and
                 resort-caliber amenities—all within Henderson's renowned safety and quality of life.
               </p>
@@ -175,7 +174,7 @@ export default function SunCityAnthemPage() {
                 the adjacent Revere Golf Club—provide world-class golf experiences.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices</strong> agents know Sun City Anthem intimately.
+                Local agents who know Sun City Anthem intimately make a difference.
                 Dr. Jan Duffy helps buyers understand the community's various phases, elevation differences,
                 and which neighborhoods offer the best mountain or Strip views.
               </p>
@@ -192,14 +191,14 @@ export default function SunCityAnthemPage() {
                     Why Henderson Matters
                   </h3>
                   <p className="text-slate-700 mb-4">
-                    Henderson consistently ranks as one of America's safest cities. For 55+ buyers,
+                    Henderson Police publish crime data online. For 55+ buyers,
                     this translates to peace of mind, stable property values, and a community that
                     attracts similar residents who value safety and quality of life.
                   </p>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="text-center bg-white rounded-lg p-4">
                       <div className="text-2xl font-bold text-green-600">#2</div>
-                      <div className="text-sm text-slate-600">Safest Large City</div>
+                      <div className="text-sm text-slate-600">Crime Map Online</div>
                     </div>
                     <div className="text-center bg-white rounded-lg p-4">
                       <div className="text-2xl font-bold text-green-600">A+</div>
@@ -303,11 +302,11 @@ export default function SunCityAnthemPage() {
                 "Sun City Anthem combines everything Henderson is known for—safety, quality, and
                 stunning scenery—with the Del Webb lifestyle. The views from the upper sections
                 are spectacular, and the Anthem Center rivals any resort clubhouse I've seen.
-                As a <strong>Berkshire Hathaway HomeServices</strong> agent, I help buyers find
+                As a local REALTOR®, I help buyers find
                 the right balance of views, price, and proximity to amenities."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>

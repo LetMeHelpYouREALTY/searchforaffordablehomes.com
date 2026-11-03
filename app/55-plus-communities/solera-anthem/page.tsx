@@ -19,19 +19,18 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Solera at Anthem Homes for Sale | Intimate Guard-Gated 55+ Henderson | Dr. Jan Duffy",
   description:
-    "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, close-knit atmosphere. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+    "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, close-knit atmosphere. Dr. Jan Duffy, REALTOR®. Call (702) 500-1942.",
   keywords: [
     "Solera at Anthem homes for sale",
     "Solera Anthem Henderson",
     "guard-gated 55+ community Henderson",
     "Henderson 55+ communities",
     "intimate 55+ community Las Vegas",
-    "Berkshire Hathaway Solera Anthem",
   ],
   openGraph: {
     title: "Solera at Anthem - Intimate Guard-Gated 55+ in Henderson",
     description:
-      "Close-knit community with guard-gated security. Lower HOA fees, Henderson safety. From $380K. Dr. Jan Duffy, BHHS.",
+      "Close-knit community with guard-gated security. Lower HOA fees, Henderson safety. From $380K. Dr. Jan Duffy, REALTOR®.",
     type: "website",
   },
 };
@@ -91,7 +90,7 @@ export default function SoleraAnthemPage() {
             </h1>
             <p className="text-xl text-slate-600">
               The close-knit alternative to mega-communities. Guard-gated security
-              in Henderson's safest neighborhood.
+              in Henderson.
             </p>
           </div>
 
@@ -149,8 +148,7 @@ export default function SoleraAnthemPage() {
                 community demographic.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>{" "}
-                helps buyers who value community over amenity overload. Dr. Jan
+                Dr. Jan Duffy helps buyers who value community over amenity overload. Dr. Jan
                 Duffy understands why some buyers prefer Solera's intimate scale
                 and all-55+ requirement to larger developments.
               </p>
@@ -250,7 +248,7 @@ export default function SoleraAnthemPage() {
           {/* Henderson Location */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Henderson: America's Safest Large City
+              Henderson: Crime Data You Can Check
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
@@ -261,7 +259,7 @@ export default function SoleraAnthemPage() {
                       Top Safety Rankings
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Henderson consistently ranks as one of the safest large
+                      Henderson Police publish a 90-day crime map online within the
                       cities in America. Double security: Henderson's safety plus
                       Solera's guard gate.
                     </p>
@@ -345,7 +343,7 @@ export default function SoleraAnthemPage() {
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
                   <strong className="text-slate-900">
-                    Guard-gated in America's safest city
+                    Guard-gated entry in Henderson
                   </strong>
                   <p className="text-slate-600 text-sm">
                     Double layer of security: Henderson's safety record plus 24/7
@@ -376,12 +374,12 @@ export default function SoleraAnthemPage() {
                 overwhelming. It's intimate, genuinely guard-gated, and everyone
                 is actually 55+. The community feels like a neighborhood, not a
                 small city. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent, I often
+                local REALTOR®, I often
                 recommend Solera to buyers who prioritize community connection
                 over endless amenities."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>

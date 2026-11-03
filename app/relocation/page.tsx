@@ -21,9 +21,9 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
+  title: "Relocating to Las Vegas",
   description:
-    "Moving to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 500-1942.",
+    "Moving to Las Vegas? Dr. Jan Duffy provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 500-1942.",
   keywords: [
     "relocating to Las Vegas",
     "moving to Las Vegas",
@@ -53,13 +53,13 @@ const popularRelocationAreas = [
   {
     name: "Summerlin",
     best: "Families, professionals",
-    highlights: "Top-rated schools, 150+ parks, Red Rock Canyon proximity, master-planned living",
+    highlights: "Nearby public schools, 150+ parks, Red Rock Canyon proximity, master-planned living",
     from: "$500K",
   },
   {
     name: "Henderson",
     best: "Families, retirees",
-    highlights: "Lowest crime rates, excellent schools, community feel, diverse neighborhoods",
+    highlights: "Public crime maps online, nearby public schools, community feel, diverse neighborhoods",
     from: "$450K",
   },
   {
@@ -70,7 +70,7 @@ const popularRelocationAreas = [
   },
   {
     name: "Skye Canyon",
-    best: "Young families",
+    best: "Buyers who want more bedrooms",
     highlights: "Newest construction, mountain trail access, modern amenities, growing area",
     from: "$500K",
   },
@@ -92,7 +92,7 @@ const relocationServices = [
   "Personalized neighborhood matching based on your priorities",
   "School district research and tour coordination",
   "Virtual home tours before you arrive",
-  "Coordination with your current BHHS agent",
+  "Coordination with your current local REALTOR®",
   "Cost of living and budget comparison",
   "Commute time analysis to your workplace",
   "Community and lifestyle matching",
@@ -116,19 +116,18 @@ export default function RelocationPage() {
           {/* Hero */}
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Top 1% Las Vegas REALTOR®
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Relocating to Las Vegas?
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              <strong>Berkshire Hathaway HomeServices</strong> makes your move seamless. With
-              50,000+ agents nationwide, we coordinate your relocation from anywhere in the country.
+              Dr. Jan Duffy makes your move seamless. With a nationwide referral network, she coordinates your relocation from anywhere in the country.
               Whether you're moving from California, the Midwest, or across the globe, Dr. Jan Duffy 
               provides comprehensive relocation services to ensure your transition is stress-free.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
-              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> 50,000+ Agent Network</span>
+              <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Nationwide Referral Network</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Virtual Home Tours</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> School Research</span>
             </div>
@@ -175,12 +174,12 @@ export default function RelocationPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Moving to a new city is stressful enough. I handle everything from neighborhood
                 tours to school research to contractor referrals so you can focus on your new
-                beginning. And because Berkshire Hathaway HomeServices has agents nationwide, I can
+                beginning. And through a nationwide referral network, I can
                 coordinate with your agent back home to make the transition seamless. My goal is to 
                 make Las Vegas feel like home before you even arrive."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
               </cite>
             </div>
           </section>
@@ -246,7 +245,7 @@ export default function RelocationPage() {
               Las Vegas Schools & Education
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              For families with children, school quality is often the top priority when 
+              Many buyers ask about schools; check current CCSD and state ratings when 
               relocating. Las Vegas offers a range of public, charter, and private school 
               options. Dr. Jan provides detailed school research to help you make informed decisions.
             </p>
@@ -254,7 +253,7 @@ export default function RelocationPage() {
               <div className="bg-white border border-slate-200 rounded-xl p-6">
                 <h3 className="font-bold text-lg text-slate-900 mb-4 flex items-center">
                   <School className="h-5 w-5 text-blue-600 mr-2" />
-                  Top-Rated School Areas
+                  School Attendance Zones
                 </h3>
                 <ul className="space-y-2 text-slate-700">
                   <li className="flex items-start">
@@ -338,14 +337,13 @@ export default function RelocationPage() {
             </div>
           </section>
 
-          {/* BHHS Network */}
+          {/* Referral Network */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              The Berkshire Hathaway HomeServices Advantage
+              The Dr. Jan Duffy Advantage
             </h2>
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              With 50,000+ agents in 1,500+ offices worldwide, Berkshire Hathaway HomeServices 
-              provides seamless coordination for relocations. Your agent back home can connect 
+              A nationwide referral network provides seamless coordination for relocations. Your agent back home can connect 
               directly with Dr. Jan to ensure a smooth transition—no gaps, no miscommunication.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
@@ -353,7 +351,7 @@ export default function RelocationPage() {
                 <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Nationwide Network</h3>
                 <p className="text-slate-600 text-sm">
-                  Seamless referrals from any BHHS agent in the country directly to Dr. Jan
+                  Seamless referrals from any local REALTOR® in the country directly to Dr. Jan
                 </p>
               </div>
               <div className="text-center p-6 bg-slate-50 rounded-xl">
@@ -367,7 +365,7 @@ export default function RelocationPage() {
                 <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
                 <h3 className="font-bold text-lg mb-2">Trusted Referrals</h3>
                 <p className="text-slate-600 text-sm">
-                  Not using BHHS? Dr. Jan can recommend a trusted agent in your area
+                  Need an agent back home? Dr. Jan can recommend a trusted agent in your area
                 </p>
               </div>
             </div>
@@ -390,7 +388,7 @@ export default function RelocationPage() {
                 },
                 {
                   q: "What are the best areas for families relocating to Las Vegas?",
-                  a: "Summerlin, Henderson (especially Green Valley and Inspirada), and Skye Canyon consistently rank highest for families due to excellent schools, low crime, and family-friendly amenities. Dr. Jan can match you with the right area based on your specific priorities—schools, commute, budget, and lifestyle.",
+                  a: "Summerlin, Henderson (especially Green Valley and Inspirada), and Skye Canyon are popular for their parks, trails, and newer schools. School ratings and police crime maps are public, and Dr. Jan can match you with the right area based on your specific priorities—commute, budget, size, and lifestyle.",
                 },
                 {
                   q: "How does the cost of living compare to California?",
@@ -398,7 +396,7 @@ export default function RelocationPage() {
                 },
                 {
                   q: "Do you help coordinate the sale of my current home too?",
-                  a: "Yes! Through the BHHS referral network, Dr. Jan can connect you with a trusted agent in your current city. This coordination ensures both transactions stay on track with synchronized timelines for a seamless transition.",
+                  a: "Yes! Through a nationwide referral network, Dr. Jan can connect you with a trusted agent in your current city. This coordination ensures both transactions stay on track with synchronized timelines for a seamless transition.",
                 },
                 {
                   q: "What's the job market like in Las Vegas?",
@@ -406,7 +404,7 @@ export default function RelocationPage() {
                 },
                 {
                   q: "Is Las Vegas safe for families?",
-                  a: "Yes, particularly in the suburban communities. Henderson consistently ranks as one of America's safest cities. Summerlin, Green Valley, and Inspirada also have very low crime rates. Dr. Jan can provide detailed crime statistics for any neighborhood you're considering.",
+                  a: "Henderson Police and LVMPD both publish crime data online, so you can compare Summerlin, Green Valley, Inspirada, and any other neighborhood yourself. Dr. Jan can point you to those sources for any area you're considering.",
                 },
               ].map((faq, index) => (
                 <div key={index} className="bg-slate-50 rounded-lg p-6">
@@ -421,7 +419,7 @@ export default function RelocationPage() {
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Planning Your Move to Las Vegas?</h2>
             <p className="text-xl text-slate-300 mb-8">
-              Let Dr. Jan Duffy and Berkshire Hathaway HomeServices make your relocation stress-free.
+              Let Dr. Jan Duffy make your relocation stress-free.
               Whether you're moving next month or exploring options, a free consultation can help 
               you understand the Las Vegas market and plan your transition.
             </p>
@@ -440,9 +438,6 @@ export default function RelocationPage() {
                 Schedule Consultation
               </Link>
             </div>
-            <p className="mt-4 text-slate-400 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
           </section>
         </div>
 

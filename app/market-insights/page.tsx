@@ -17,7 +17,7 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Real Estate Market Insights 2026 | Berkshire Hathaway HomeServices",
+  title: "Las Vegas Real Estate Market Insights 2026",
   description:
     "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 500-1942.",
   keywords: [
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     "Nevada economic outlook",
     "California to Las Vegas migration",
     "Las Vegas tech hub",
-    "Berkshire Hathaway market insights",
   ],
 };
 
@@ -297,7 +296,7 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Red Rock views, Downtown Summerlin, and top schools maintain premium positioning.
+                  Red Rock views, Downtown Summerlin, and nearby public schools maintain premium positioning.
                   Limited new inventory keeps values strong.
                 </p>
                 <div className="text-sm text-slate-500">
@@ -327,7 +326,7 @@ export default function MarketInsightsPage() {
                   </span>
                 </div>
                 <p className="text-slate-600 text-sm mb-3">
-                  Family-friendly community with the valley's largest park. New construction
+                  Community with the valley's largest park. New construction
                   competing with resales. Solid appreciation.
                 </p>
                 <div className="text-sm text-slate-500">
@@ -412,11 +411,11 @@ export default function MarketInsightsPage() {
                 from reactive ones. Las Vegas is no longer just a gaming and tourism economy.
                 Tech investment, California migration, and economic diversification are reshaping
                 which neighborhoods will outperform. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent, I help clients position
+                local REALTOR®, I help clients position
                 themselves for where the market is going, not just where it's been."
               </blockquote>
               <cite className="text-slate-300 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>

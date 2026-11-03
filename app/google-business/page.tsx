@@ -27,21 +27,20 @@ import {
 } from "@/lib/gbp-schema";
 
 export const metadata: Metadata = {
-  title: "Dr. Jan Duffy, REALTOR® Las Vegas | Berkshire Hathaway HomeServices",
+  title: "Dr. Jan Duffy, REALTOR® Las Vegas",
   description:
-    "Dr. Jan Duffy is a trusted Las Vegas REALTOR® with Berkshire Hathaway HomeServices Nevada Properties. Specializing in Summerlin, Henderson, 55+ communities, California relocation, and luxury homes. Call (702) 500-1942.",
+    "Dr. Jan Duffy is a trusted Las Vegas REALTOR®. Specializing in Summerlin, Henderson, 55+ communities, California relocation, and luxury homes. Call (702) 500-1942.",
   keywords: [
     "Dr. Jan Duffy realtor",
     "Las Vegas real estate agent",
-    "Berkshire Hathaway HomeServices Las Vegas",
     "Summerlin realtor",
     "Henderson real estate agent",
     "55+ communities Las Vegas",
     "California relocation Las Vegas",
   ],
   openGraph: {
-    title: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    description: "Trusted Las Vegas REALTOR® serving since 2008. Summerlin, Henderson, luxury homes, 55+ communities.",
+    title: "Dr. Jan Duffy - Las Vegas REALTOR®",
+    description: "Trusted Las Vegas REALTOR® in real estate since 1983. Summerlin, Henderson, luxury homes, 55+ communities.",
     url: "https://heyberkshire.com/google-business",
     type: "profile",
   },
@@ -71,13 +70,13 @@ export default function GoogleBusinessPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <Award className="h-6 w-6 text-yellow-400" />
-                    <span className="text-yellow-400 font-semibold">Berkshire Hathaway HomeServices</span>
+                    <span className="text-yellow-400 font-semibold">Top 1% Las Vegas REALTOR®</span>
                   </div>
                   <h1 className="text-4xl md:text-5xl font-bold mb-4">
                     Dr. Jan Duffy
                   </h1>
-                  <p className="text-xl text-blue-200 mb-2">REALTOR® | License {businessInfo.license}</p>
-                  <p className="text-slate-300 mb-6">Nevada Properties</p>
+                  <p className="text-xl text-blue-200 mb-2">REALTOR® | In Real Estate Since 1983</p>
+                  <p className="text-slate-300 mb-6">Top 1% Las Vegas REALTOR®</p>
                   
                   {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">
@@ -269,7 +268,7 @@ export default function GoogleBusinessPage() {
                 Mention your neighborhood, type of transaction, and what made the experience valuable.
               </p>
               <a
-                href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review"
+                href="https://search.google.com/local/writereview?placeid=ChIJ7XLw8ta5yIARjTZPjgHJWVQ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"

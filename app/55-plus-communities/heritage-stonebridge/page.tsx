@@ -19,19 +19,18 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Heritage at Stonebridge Homes for Sale | Guard-Gated 55+ Summerlin | Dr. Jan Duffy",
   description:
-    "Heritage at Stonebridge - boutique guard-gated 55+ community in Summerlin. Homes from $400K-$750K. Near Downtown Summerlin, Red Rock Canyon. Dr. Jan Duffy, BHHS. Call (702) 500-1942.",
+    "Heritage at Stonebridge - boutique guard-gated 55+ community in Summerlin. Homes from $400K-$750K. Near Downtown Summerlin, Red Rock Canyon. Dr. Jan Duffy, REALTOR®. Call (702) 500-1942.",
   keywords: [
     "Heritage at Stonebridge homes for sale",
     "Heritage Stonebridge Summerlin",
     "guard-gated 55+ community Las Vegas",
     "Summerlin 55+ communities",
     "boutique 55+ community Las Vegas",
-    "Berkshire Hathaway Heritage Stonebridge",
   ],
   openGraph: {
     title: "Heritage at Stonebridge - Guard-Gated 55+ Living in Summerlin",
     description:
-      "Boutique community with premium Summerlin location. Guard-gated security, near Downtown Summerlin. From $400K. Dr. Jan Duffy, BHHS.",
+      "Boutique community with premium Summerlin location. Guard-gated security, near Downtown Summerlin. From $400K. Dr. Jan Duffy, REALTOR®.",
     type: "website",
   },
 };
@@ -148,8 +147,7 @@ export default function HeritageAtStonebridgePage() {
                 rather than committing to a community course.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>{" "}
-                helps buyers who value privacy and location over massive amenity
+                Dr. Jan Duffy helps buyers who value privacy and location over massive amenity
                 complexes. Dr. Jan Duffy understands why Heritage at Stonebridge
                 appeals to buyers seeking a more exclusive, intimate 55+
                 experience.
@@ -376,12 +374,12 @@ export default function HeritageAtStonebridgePage() {
                 privacy without the sprawl of larger 55+ communities. The
                 guard-gated security is genuine—not just a code anyone can get.
                 And the location in Summerlin is simply unbeatable. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent, I help
+                local REALTOR®, I help
                 buyers who prioritize quality over quantity find their perfect
                 fit here."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
