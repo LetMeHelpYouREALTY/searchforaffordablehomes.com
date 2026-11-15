@@ -20,7 +20,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Las Vegas Real Estate Market Insights 2026",
   description:
-    "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 222-1964.",
+    "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 500-1942.",
   keywords: [
     "Las Vegas real estate trends 2026",
     "Las Vegas market forecast",
@@ -37,7 +37,7 @@ const reportSchema = {
   author: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy",
-    worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
+    worksFor: "Affordable Homes Las Vegas",
   },
   datePublished: "2026-01-23",
   about: {
@@ -490,11 +490,11 @@ export default function MarketInsightsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-white text-purple-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-purple-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <Link
                 href="/market-report"

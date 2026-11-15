@@ -5,9 +5,9 @@ Agent: Dr. Jan Duffy
 License: S.0197614.LLC
 Site: https://heyberkshire.com
 Location: Las Vegas, Nevada, USA
-Phone: (702) 222-1964
+Phone: (702) 500-1942
 
-Brokerage: Berkshire Hathaway HomeServices Nevada Properties
+Brokerage:
 Site: https://www.bhhs.com
 
 /* THANKS */

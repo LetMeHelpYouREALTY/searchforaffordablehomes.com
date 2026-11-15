@@ -23,7 +23,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "New Construction Las Vegas | Buyer's Guide",
   description:
-    "Free buyer representation on new construction homes in Las Vegas. Dr. Jan Duffy helps you navigate builder contracts, negotiate upgrades, and secure incentives. Call (702) 222-1964.",
+    "Free buyer representation on new construction homes in Las Vegas. Dr. Jan Duffy helps you navigate builder contracts, negotiate upgrades, and secure incentives. Call (702) 500-1942.",
   keywords: [
     "new homes Las Vegas",
     "new construction Henderson",
@@ -59,7 +59,7 @@ const faqSchema = {
       name: "Do I have to register Dr. Jan Duffy as my agent on the first visit?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, most builders require your agent to accompany you or be registered on your FIRST visit. If you visit alone and sign the guest registry, you may forfeit your right to free representation. Call (702) 222-1964 to register Dr. Jan Duffy as your buyer's agent before visiting any model home.",
+        text: "Yes, most builders require your agent to accompany you or be registered on your FIRST visit. If you visit alone and sign the guest registry, you may forfeit your right to free representation. Call (702) 500-1942 to register Dr. Jan Duffy as your buyer's agent before visiting any model home.",
       },
     },
     {
@@ -269,8 +269,8 @@ export default function NewConstructionPage() {
                   <p className="text-amber-800 text-sm">
                     Most builders require agent registration on your{" "}
                     <strong>first visit</strong>. Call{" "}
-                    <a href="tel:+17022221964" className="font-bold underline">
-                      (702) 222-1964
+                    <a href="tel:+17025001942" className="font-bold underline">
+                      (702) 500-1942
                     </a>{" "}
                     to register Dr. Jan Duffy as your buyer's agent before
                     visiting any model home—or you may lose your right to free
@@ -491,10 +491,10 @@ export default function NewConstructionPage() {
                   <p className="text-slate-600">
                     Call{" "}
                     <a
-                      href="tel:+17022221964"
+                      href="tel:+17025001942"
                       className="text-blue-600 font-semibold hover:underline"
                     >
-                      (702) 222-1964
+                      (702) 500-1942
                     </a>{" "}
                     to register Dr. Jan Duffy as your buyer's agent before any
                     builder visits. We'll discuss your needs, budget, and
@@ -626,10 +626,10 @@ export default function NewConstructionPage() {
                   the guest registry, you may forfeit your right to free
                   representation. Call{" "}
                   <a
-                    href="tel:+17022221964"
+                    href="tel:+17025001942"
                     className="text-blue-600 font-semibold hover:underline"
                   >
-                    (702) 222-1964
+                    (702) 500-1942
                   </a>{" "}
                   to register Dr. Jan Duffy as your buyer's agent before
                   visiting any model home.
@@ -712,7 +712,7 @@ export default function NewConstructionPage() {
               Ready to Tour New Construction?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Call <strong>(702) 222-1964</strong> to register Dr. Jan Duffy as
+              Call <strong>(702) 500-1942</strong> to register Dr. Jan Duffy as
               your buyer's agent
               <strong> before</strong> visiting any model home—or you may lose
               your right to free professional representation. Current incentive
@@ -720,11 +720,11 @@ export default function NewConstructionPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <Link
                 href="/contact"

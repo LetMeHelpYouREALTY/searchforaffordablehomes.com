@@ -18,8 +18,8 @@
 - [ ] Metadata (title, description) is present and optimized
 - [ ] JSON-LD schema markup included (if applicable)
 - [ ] H1 tag present and keyword-optimized
-- [ ] Berkshire Hathaway HomeServices branding consistent
-- [ ] Phone number is correct: **(702) 222-1964** for CTAs
+- [ ] GBP NAP aligned (Affordable Homes Las Vegas / (702) 500-1942 / 8850 W. Sunset); Berkshire + license footer-only
+- [ ] Phone number is correct: **(702) 500-1942** for CTAs
 
 ## Quality Checklist
 - [ ] Code builds without errors (`npm run build`)
@@ -37,4 +37,4 @@
 <!-- Any other context for reviewers -->
 
 ---
-**Dr. Jan Duffy** | Berkshire Hathaway HomeServices Nevada Properties
+**Dr. Jan Duffy** |

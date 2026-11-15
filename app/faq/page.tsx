@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "FAQ | Affordable Homes Las Vegas",
   description:
-    "FAQs about buying an affordable home in Las Vegas, down payments, neighborhoods under $500K, and working with Dr. Jan Duffy. Call (702) 222-1964.",
+    "FAQs about buying an affordable home in Las Vegas, down payments, neighborhoods under $500K, and working with Dr. Jan Duffy. Call (702) 500-1942.",
   keywords: [
     "affordable homes Las Vegas FAQ",
     "buying a home Las Vegas",
@@ -141,7 +141,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 222-1964 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 8850 W. Sunset, Suite 200, Las Vegas, NV 89148.",
       },
       {
         q: "What areas does Dr. Jan cover?",
@@ -163,7 +163,7 @@ const allFaqs = faqCategories.flatMap((category) =>
 const pageSchemas = combineSchemas(
   generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
-    name: "Frequently Asked Questions | Berkshire Hathaway HomeServices Las Vegas",
+    name: "Frequently Asked Questions | Affordable Homes Las Vegas",
     description:
       "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy.",
     url: "/faq",
@@ -225,11 +225,11 @@ export default function FAQPage() {
               real estate or working with her.
             </p>
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001942"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 222-1964
+              Call (702) 500-1942
             </a>
           </section>
         </div>

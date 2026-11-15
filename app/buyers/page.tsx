@@ -33,7 +33,7 @@ import {
 export const metadata: Metadata = {
   title: "Buy an Affordable Home in Las Vegas | Buyer Guide — Dr. Jan Duffy",
   description:
-    "Luxury-level buyer representation for affordable Las Vegas homes. Pre-approval, neighborhood matching, offers, and closing. Call (702) 222-1964.",
+    "Luxury-level buyer representation for affordable Las Vegas homes. Pre-approval, neighborhood matching, offers, and closing. Call (702) 500-1942.",
   keywords: [
     "buy affordable home Las Vegas",
     "Las Vegas home buyer agent",
@@ -103,7 +103,7 @@ export default function BuyersPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16 pt-32">
             <p className="text-sm tracking-[0.2em] uppercase text-amber-200/90 mb-3">
-              Buyer Representation · Berkshire Hathaway HomeServices Nevada
+              Buyer Representation · Affordable Homes Las Vegas
               Properties
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl mb-5 leading-tight">

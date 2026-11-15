@@ -230,7 +230,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     neighborhood: "Las Vegas",
     tagline: "Just Call Dr. Jan — Las Vegas Real Estate",
     description:
-      "Ready to buy or sell in Las Vegas? Just call Dr. Jan Duffy at 702-222-1964.",
+      "Ready to buy or sell in Las Vegas? Just call Dr. Jan Duffy at 702-500-1942.",
     heroHeadline: "Just Call Dr. Jan",
     heroSubheadline:
       "Since 1983. 500+ families. No runaround — just expert Las Vegas real estate guidance.",
@@ -240,7 +240,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Direct Access",
     ctaHeadline: "I Answer My Own Phone",
     ctaSubheadline:
-      "No assistant, no callback queue. Call or text 702-222-1964 and reach me directly.",
+      "No assistant, no callback queue. Call or text 702-500-1942 and reach me directly.",
   },
   "lasvegashomeexpert.com": {
     domain: "lasvegashomeexpert.com",
@@ -451,7 +451,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Affordable Home Specialist",
     ctaHeadline: "Start Your Affordable Home Search",
     ctaSubheadline:
-      "Call or text Dr. Jan at 702-222-1964 — white-glove buyer help at entry-level prices.",
+      "Call or text Dr. Jan at 702-500-1942 — white-glove buyer help at entry-level prices.",
   },
   "searchforhomesinhenderson.com": {
     domain: "searchforhomesinhenderson.com",
@@ -556,7 +556,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Cash Offer Specialist",
     ctaHeadline: "Get Your Cash Offer Today",
     ctaSubheadline:
-      "Call 702-222-1964 for a no-obligation cash offer on your Las Vegas home.",
+      "Call 702-500-1942 for a no-obligation cash offer on your Las Vegas home.",
   },
   "suncitysummerlinhomesforsale.com": {
     domain: "suncitysummerlinhomesforsale.com",
@@ -707,7 +707,7 @@ export const DEFAULT_CONFIG: DomainConfig = {
   ctaBadge: "Affordable Home Specialist",
   ctaHeadline: "Start Your Affordable Home Search",
   ctaSubheadline:
-    "Call or text Dr. Jan at 702-222-1964 — white-glove buyer help at entry-level prices.",
+    "Call or text Dr. Jan at 702-500-1942 — white-glove buyer help at entry-level prices.",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {

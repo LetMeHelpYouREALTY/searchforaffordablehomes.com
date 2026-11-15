@@ -123,7 +123,7 @@ export function ReviewSchema({
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": "https://heyberkshire.com#organization",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Dr. Jan Duffy -",
   };
 
   if (aggregateRating) {

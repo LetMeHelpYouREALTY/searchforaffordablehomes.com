@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Henderson | Nevada Real Estate",
   description:
-    "Find Henderson homes with Dr. Jan Duffy. She specializes in Henderson's master-planned communities. Median price $485K. Call (702) 222-1964.",
+    "Find Henderson homes with Dr. Jan Duffy. She specializes in Henderson's master-planned communities. Median price $485K. Call (702) 500-1942.",
   keywords: [
     "Henderson homes for sale",
     "Henderson real estate agent",
@@ -61,7 +61,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Why choose Berkshire Hathaway HomeServices for Henderson real estate?",
+      name: "Why choose Affordable Homes Las Vegas for Henderson real estate?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Dr. Jan Duffy serves Henderson buyers and sellers. Our agents like Dr. Jan Duffy know every community, school district, and HOA. That local knowledge provides trust and resources that benefit both buyers and sellers.",
@@ -523,11 +523,11 @@ export default function HendersonPage() {
               guidance and local market insights.
             </p>
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001942"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 222-1964
+              Call (702) 500-1942
             </a>
           </section>
         </div>

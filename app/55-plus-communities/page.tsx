@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   title:
     "55+ Active Adult Communities Las Vegas | Sun City, Del Webb, Heritage | Dr. Jan Duffy",
   description:
-    "Find your perfect 55+ community in Las Vegas. Sun City Summerlin, Sun City Aliante, Del Webb Lake Las Vegas, Heritage at Stonebridge, Solera, Trilogy. Dr. Jan Duffy specializes in active adult living. Call (702) 222-1964.",
+    "Find your perfect 55+ community in Las Vegas. Sun City Summerlin, Sun City Aliante, Del Webb Lake Las Vegas, Heritage at Stonebridge, Solera, Trilogy. Dr. Jan Duffy specializes in active adult living. Call (702) 500-1942.",
   keywords: [
     "55+ communities Las Vegas",
     "active adult communities Las Vegas",
@@ -108,10 +108,10 @@ const faqSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+  name: "Dr. Jan Duffy -",
   description:
     "55+ community specialist helping active adults find their perfect Las Vegas retirement home",
-  telephone: "(702) 222-1964",
+  telephone: "(702) 500-1942",
   url: "https://heyberkshire.com/55-plus-communities",
   areaServed: {
     "@type": "City",
@@ -373,11 +373,11 @@ export default function FiftyFiveCommunitiesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <a
                 href="http://drjanduffy.realscout.com/"
@@ -634,7 +634,7 @@ export default function FiftyFiveCommunitiesPage() {
                       </Link>
                     ) : (
                       <a
-                        href="tel:+17022221964"
+                        href="tel:+17025001942"
                         className="block text-center bg-slate-600 text-white py-3 px-4 rounded-md font-semibold hover:bg-slate-700 transition-colors"
                       >
                         Call for {community.name} Info
@@ -874,11 +874,11 @@ export default function FiftyFiveCommunitiesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call/Text (702) 222-1964
+                Call/Text (702) 500-1942
               </a>
               <Link
                 href="/contact"

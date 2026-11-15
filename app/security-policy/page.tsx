@@ -25,7 +25,7 @@ export default function SecurityPolicyPage() {
               Our Commitment to Security
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              At Berkshire Hathaway HomeServices Nevada Properties, we take the
+              At, we take the
               security of our systems and the privacy of our clients seriously.
               This page outlines our security practices and provides information
               for security researchers.
@@ -58,8 +58,8 @@ export default function SecurityPolicyPage() {
                 </li>
                 <li>
                   <strong>Phone:</strong>{" "}
-                  <a href="tel:+17022221964" className="underline">
-                    (702) 222-1964
+                  <a href="tel:+17025001942" className="underline">
+                    (702) 500-1942
                   </a>
                 </li>
                 <li>
@@ -256,7 +256,7 @@ export default function SecurityPolicyPage() {
                 <strong>Dr. Jan Duffy</strong>
               </p>
               <p className="mb-2">
-                Berkshire Hathaway HomeServices Nevada Properties
+               
               </p>
               <p className="mb-2">
                 Email:{" "}
@@ -269,8 +269,8 @@ export default function SecurityPolicyPage() {
               </p>
               <p>
                 Phone:{" "}
-                <a href="tel:+17022221964" className="text-blue-600 underline">
-                  (702) 222-1964
+                <a href="tel:+17025001942" className="text-blue-600 underline">
+                  (702) 500-1942
                 </a>
               </p>
             </div>

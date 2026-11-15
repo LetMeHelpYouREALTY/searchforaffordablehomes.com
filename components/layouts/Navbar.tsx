@@ -66,11 +66,10 @@ export default function Navbar() {
             />
             <span className="flex min-w-0 flex-col">
               <span className="truncate text-sm font-bold leading-tight text-slate-900 transition-colors hover:text-blue-600 md:text-base lg:text-lg">
-                Las Vegas Affordable Homes
+                {SITE_BRAND.name}
               </span>
               <span className="hidden text-xs text-slate-500 sm:block">
-                by {SITE_BRAND.agent} · {SITE_BRAND.brokerage.split(" ")[0]}{" "}
-                Hathaway
+                by {SITE_BRAND.agent}
               </span>
             </span>
           </Link>
@@ -144,9 +143,9 @@ export default function Navbar() {
             </div>
 
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17022221964" className="flex items-center gap-2">
+              <Link href="tel:+17025001942" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">(702) 222-1964</span>
+                <span className="hidden xl:inline">(702) 500-1942</span>
                 <span className="xl:hidden">Call</span>
               </Link>
             </Button>
@@ -155,7 +154,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-3">
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17022221964">
+              <Link href="tel:+17025001942">
                 <Phone className="h-4 w-4" />
               </Link>
             </Button>
@@ -225,11 +224,11 @@ export default function Navbar() {
                   className="bg-blue-600 hover:bg-blue-700 w-full"
                 >
                   <Link
-                    href="tel:+17022221964"
+                    href="tel:+17025001942"
                     className="flex items-center justify-center gap-2"
                   >
                     <Phone className="h-4 w-4" />
-                    Call Dr. Jan: (702) 222-1964
+                    Call Dr. Jan: (702) 500-1942
                   </Link>
                 </Button>
               </div>

@@ -18,19 +18,20 @@ export function agentOrganizationSchema() {
   return {
     "@type": "RealEstateAgent",
     "@id": `${BASE}#organization`,
-    name: `${SITE_BRAND.agent} - ${SITE_BRAND.brokerage}`,
+    name: SITE_BRAND.name,
     alternateName: [
-      SITE_BRAND.name,
       SITE_BRAND.shortName,
-      "Dr. Jan Duffy",
+      SITE_BRAND.agent,
       "Search for Affordable Homes",
     ],
+    description: SITE_BRAND.gbpDescription,
     url: BASE,
     telephone: SITE_BRAND.phoneTel,
     email: SITE_BRAND.email,
     image: `${BASE}${SITE_BRAND.portraitSrc}`,
     logo: `${BASE}${SITE_BRAND.logoSrc}`,
     priceRange: "$$",
+    foundingDate: SITE_BRAND.foundingDate,
     address: {
       "@type": "PostalAddress",
       streetAddress: SITE_BRAND.address.street,
@@ -47,41 +48,31 @@ export function agentOrganizationSchema() {
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "10:00",
-        closes: "16:00",
+        dayOfWeek: [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ],
+        opens: "08:00",
+        closes: "20:00",
       },
     ],
-    areaServed: [
-      { "@type": "City", name: "Las Vegas" },
-      { "@type": "City", name: "Henderson" },
-      { "@type": "City", name: "North Las Vegas" },
-      { "@type": "Place", name: "Summerlin" },
-      { "@type": "AdministrativeArea", name: "Clark County" },
-    ],
-    hasCredential: {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "license",
-      identifier: SITE_BRAND.license,
-    },
+    areaServed: SITE_BRAND.serviceAreas.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
+    knowsLanguage: [...SITE_BRAND.languages],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
       reviewCount: "200",
       bestRating: "5",
     },
-    sameAs: [
-      "https://www.facebook.com/drjanduffy",
-      "https://www.instagram.com/drjanduffy",
-      "https://www.linkedin.com/in/drjanduffy",
-      SITE_BRAND.gbpShareUrl,
-    ],
+    sameAs: [...SITE_BRAND.socialProfiles, SITE_BRAND.gbpShareUrl],
   };
 }
 

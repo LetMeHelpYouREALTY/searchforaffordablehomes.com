@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "North Las Vegas | Affordable Homes",
   description:
-    "Find affordable North Las Vegas homes with Dr. Jan Duffy. She helps first-time buyers and investors. Median price $385K. Call (702) 222-1964.",
+    "Find affordable North Las Vegas homes with Dr. Jan Duffy. She helps first-time buyers and investors. Median price $385K. Call (702) 500-1942.",
   keywords: [
     "North Las Vegas homes for sale",
     "affordable homes Las Vegas",
@@ -54,7 +54,7 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Why choose Berkshire Hathaway HomeServices for North Las Vegas?",
+      name: "Why choose Affordable Homes Las Vegas for North Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Dr. Jan Duffy provides expert guidance for first-time buyers navigating the purchase process, plus free representation on new construction purchases. Dr. Jan Duffy helps clients find value while avoiding common pitfalls in emerging neighborhoods.",
@@ -525,11 +525,11 @@ export default function NorthLasVegasPage() {
               on finding affordable homes that fit your budget.
             </p>
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001942"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 222-1964
+              Call (702) 500-1942
             </a>
           </section>
         </div>

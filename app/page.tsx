@@ -80,17 +80,15 @@ export default async function Home() {
               {config.heroHeadline}
             </h1>
             <p className="aeo-answer text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed">
-              Under-$500K Las Vegas homes with luxury-level buyer representation
-              — private tours, comps before every offer, and closing advocacy
-              from Dr. Jan Duffy. {MARKET_SNAPSHOT.valleyMedianNote}
+              {SITE_BRAND.gbpDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-slate-950 px-7 py-3.5 font-semibold transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <Link
                 href="/buyers"
@@ -122,10 +120,10 @@ export default async function Home() {
               <MapPin className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
               <div>
                 <p className="font-semibold text-slate-900">
-                  {SITE_BRAND.agent}
+                  {SITE_BRAND.name}
                 </p>
                 <p>{SITE_BRAND.address.full}</p>
-                <p>License {SITE_BRAND.license}</p>
+                <p>Open daily 8:00 AM–8:00 PM · {SITE_BRAND.agent}</p>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -170,10 +168,11 @@ export default async function Home() {
                 Why use a luxury realtor to buy an affordable Las Vegas home?
               </h2>
               <p className="aeo-answer text-lg text-slate-700 mb-6 leading-relaxed">
-                Affordable deals still need sharp negotiation. Dr. Jan Duffy
-                brings Berkshire Hathaway–backed process discipline to
-                under-$500K purchases so you do not overpay, miss credits, or
-                waive protections that matter at closing.
+                Affordable deals still need sharp negotiation. {SITE_BRAND.name}{" "}
+                helps you compare price, square footage, and HOA dues across
+                Mountain&apos;s Edge, Southern Highlands, and Rhodes Ranch so
+                you do not overpay, miss credits, or waive protections that
+                matter at closing.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
@@ -371,9 +370,8 @@ export default async function Home() {
                 Where is Dr. Jan Duffy’s Las Vegas office?
               </h2>
               <p className="aeo-answer text-slate-700 mb-4">
-                Berkshire Hathaway HomeServices Nevada Properties is at{" "}
-                {SITE_BRAND.address.full}. Hours: Mon–Fri 9am–6pm, Sat 10am–4pm,
-                Sunday by appointment.
+                {SITE_BRAND.name} is at {SITE_BRAND.address.full}. Hours: 8:00
+                AM–8:00 PM daily. Call or text {SITE_BRAND.phoneDisplay}.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
@@ -402,7 +400,7 @@ export default async function Home() {
             </div>
             <div className="aspect-video w-full overflow-hidden bg-slate-200">
               <iframe
-                title="Map to Dr. Jan Duffy office at 9406 W Lake Mead Blvd Las Vegas"
+                title="Map to Affordable Homes Las Vegas at 8850 W. Sunset Suite 200"
                 src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE_BRAND.address.full)}&z=15&output=embed`}
                 className="w-full h-full border-0"
                 loading="lazy"
@@ -438,7 +436,7 @@ export default async function Home() {
               Call {SITE_BRAND.phoneDisplay}
             </a>
             <p className="mt-6 text-white/70 text-sm">
-              {SITE_BRAND.agent} | REALTOR® | License {SITE_BRAND.license} |{" "}
+              {SITE_BRAND.name} · {SITE_BRAND.agent}, REALTOR® ·{" "}
               {SITE_BRAND.address.full}
             </p>
           </div>

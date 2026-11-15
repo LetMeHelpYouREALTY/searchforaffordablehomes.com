@@ -1,7 +1,7 @@
 # Real Estate Website Transformation Summary
 
 ## Overview
-Successfully transformed the FAQ Generator project into a comprehensive real estate website for Dr. Jan Duffy and Berkshire Hathaway HomeServices Nevada Properties.
+Successfully transformed the FAQ Generator project into a comprehensive real estate website for Dr. Jan Duffy and
 
 ## What Was Done
 

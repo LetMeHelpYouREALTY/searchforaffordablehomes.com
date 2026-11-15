@@ -25,7 +25,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Real Estate Services Las Vegas | Affordable Home Buying",
   description:
-    "Luxury-level real estate services for affordable Las Vegas home buyers — buying, selling, new construction, relocation. Call (702) 222-1964.",
+    "Luxury-level real estate services for affordable Las Vegas home buyers — buying, selling, new construction, relocation. Call (702) 500-1942.",
   keywords: [
     "Las Vegas real estate services",
     "affordable home buying Las Vegas",
@@ -44,8 +44,8 @@ const servicesSchema = {
     "Buyer representation for affordable Las Vegas homes plus selling, new construction, relocation, and 55+ community guidance.",
   provider: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17022221964",
+    name: "Dr. Jan Duffy -",
+    telephone: "+17025001942",
   },
   areaServed:
     "Las Vegas, Henderson, Summerlin, North Las Vegas, Clark County NV",
@@ -572,11 +572,11 @@ export default function ServicesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <Link
                 href="/contact"

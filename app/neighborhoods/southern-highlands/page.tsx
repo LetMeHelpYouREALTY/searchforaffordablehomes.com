@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Southern Highlands | Las Vegas Golf Community",
   description:
-    "Find Southern Highlands homes with Dr. Jan Duffy. She specializes in this premier golf community. Median price $750K. Call (702) 222-1964.",
+    "Find Southern Highlands homes with Dr. Jan Duffy. She specializes in this premier golf community. Median price $750K. Call (702) 500-1942.",
   keywords: [
     "Southern Highlands homes for sale",
     "Southern Highlands golf",
@@ -510,11 +510,11 @@ export default function SouthernHighlandsPage() {
               expert guidance in this premier golf community.
             </p>
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001942"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 222-1964
+              Call (702) 500-1942
             </a>
           </section>
         </div>

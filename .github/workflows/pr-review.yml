@@ -326,23 +326,26 @@ jobs:
                   issues.push(`❌ **${file.filename}**: Missing metadata export (SEO)`);
                 }
                 
-                // Client CTA phone is (702) 222-1964; FUB/professional line is (702) 500-1942
-                // Flag retired/wrong numbers only
+                // GBP phone is (702) 500-1942 — flag retired numbers only
                 if (content.includes('702-500-1955') || content.includes('7025001955')) {
-                  issues.push(`❌ **${file.filename}**: Contains retired phone number (use (702) 222-1964 for CTAs)`);
+                  issues.push(`❌ **${file.filename}**: Contains retired phone number (use (702) 500-1942)`);
+                }
+                // Flag wrong CTA line that drifted from GBP
+                if (content.includes('702-222-1964') || content.includes('(702) 222-1964') || content.includes('+17022221964')) {
+                  issues.push(`❌ **${file.filename}**: Wrong phone — GBP CTA is (702) 500-1942`);
                 }
                 const hasCtaPhone =
-                  content.includes('702-222-1964') ||
-                  content.includes('7022221964') ||
-                  content.includes('(702) 222-1964') ||
-                  content.includes('+17022221964');
+                  content.includes('702-500-1942') ||
+                  content.includes('7025001942') ||
+                  content.includes('(702) 500-1942') ||
+                  content.includes('+17025001942');
                 const looksLikeClientPage =
                   file.filename.includes('/contact/') ||
                   file.filename.includes('/buyers') ||
                   file.filename === 'app/page.tsx' ||
                   file.filename.includes('/services/');
                 if (looksLikeClientPage && !hasCtaPhone) {
-                  warnings.push(`⚠️ **${file.filename}**: Client CTA pages should include (702) 222-1964`);
+                  warnings.push(`⚠️ **${file.filename}**: Client CTA pages should include (702) 500-1942`);
                 }
                 
                 // Check for JSON-LD schema (inline or SchemaScript / section-schemas helpers)
@@ -362,9 +365,13 @@ jobs:
                   warnings.push(`⚠️ **${file.filename}**: No H1 tag found`);
                 }
                 
-                // Check for Berkshire Hathaway branding
-                if (!content.includes('Berkshire Hathaway') && !content.includes('BHHS')) {
-                  warnings.push(`⚠️ **${file.filename}**: Missing Berkshire Hathaway branding`);
+                // Berkshire Hathaway + license are footer-only; warn if pages hardcode brokerage outside Footer
+                if (
+                  file.filename.startsWith('app/') &&
+                  file.filename !== 'app/why-berkshire-hathaway/page.tsx' &&
+                  (content.includes('Berkshire Hathaway') || content.includes('BHHS') || content.includes('S.0197614'))
+                ) {
+                  warnings.push(`⚠️ **${file.filename}**: Berkshire/license should appear in the site footer only`);
                 }
                 
               } catch (e) {
@@ -507,8 +514,8 @@ jobs:
             - [ ] Code follows project conventions
             - [ ] Tests pass with adequate coverage (80%+)
             - [ ] SEO metadata is present and optimized
-            - [ ] Phone numbers are correct: (702) 222-1964 for CTAs (FUB line 500-1942 only when intentional)
-            - [ ] Berkshire Hathaway branding is consistent
+            - [ ] Phone numbers match GBP: (702) 500-1942
+            - [ ] Berkshire Hathaway + license appear in the footer only
             - [ ] Mobile responsive design verified
             - [ ] No console errors
             

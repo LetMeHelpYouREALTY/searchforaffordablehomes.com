@@ -85,17 +85,17 @@ export function generateRealEstateAgentSchema() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${BASE_URL}#organization`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: siteConfig.name,
     alternateName: [
-      "HeyBerkshire",
-      "BHHS Nevada Properties",
-      "Berkshire Hathaway HomeServices",
+      "Affordable Homes Las Vegas",
+      "Dr. Jan Duffy",
+      "Search for Affordable Homes",
     ],
     url: BASE_URL,
     logo: `${BASE_URL}/images/dr-jan-duffy.jpg`,
     image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
     description: siteConfig.description,
-    telephone: "+1-702-222-1964",
+    telephone: "+1-702-500-1942",
     email: agentInfo.email,
     priceRange: "$385K - $10M+",
     address: {
@@ -165,18 +165,6 @@ export function generateRealEstateAgentSchema() {
       identifier: agentInfo.license,
     },
     sameAs: Object.values(socialProfiles),
-    parentOrganization: {
-      "@type": "Organization",
-      "@id": `${BASE_URL}#parent-organization`,
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-      url: "https://www.bfrre.com",
-      parentOrganization: {
-        "@type": "Organization",
-        name: "Berkshire Hathaway HomeServices",
-        url: "https://www.bhhs.com",
-        sameAs: "https://en.wikipedia.org/wiki/Berkshire_Hathaway_HomeServices",
-      },
-    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: agentStats.averageRating.toString(),
@@ -194,31 +182,26 @@ export function generateRealEstateAgentSchema() {
       "Relocation services",
       "55+ communities",
       "First-time homebuyers",
+      "Mountain's Edge",
+      "Southern Highlands",
+      "Rhodes Ranch",
     ],
-    slogan: "Your Berkshire Hathaway HomeServices expert in Las Vegas",
+    slogan: "Affordable Homes Las Vegas — entry-level prices, clear guidance",
   };
 }
 
 /**
- * Generate Organization schema for BHHS brand
+ * Generate Organization schema for GBP brand
  */
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": `${BASE_URL}#parent-organization`,
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.bfrre.com",
+    "@id": `${BASE_URL}#organization`,
+    name: siteConfig.name,
+    url: siteConfig.url,
     logo: `${BASE_URL}/favicon-32x32.png`,
-    parentOrganization: {
-      "@type": "Organization",
-      name: "Berkshire Hathaway HomeServices",
-      url: "https://www.bhhs.com",
-      sameAs: [
-        "https://en.wikipedia.org/wiki/Berkshire_Hathaway_HomeServices",
-        "https://www.linkedin.com/company/berkshire-hathaway-homeservices/",
-      ],
-    },
+    description: siteConfig.description,
   };
 }
 
@@ -315,7 +298,7 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": `${BASE_URL}#organization`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Dr. Jan Duffy -",
     aggregateRating: generateAggregateRatingSchema(
       agentStats.averageRating,
       agentStats.reviewCount,

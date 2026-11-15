@@ -1,41 +1,115 @@
 /**
  * Hyperlocal AEO/GEO content for SearchForAffordableHomes.com
- * Answer-first copy for AI citation + classic SEO.
- * Market figures date-stamped Nov 2026 from Parallel CLI research
- * (GLVAR / local MLS public reports via Parallel web search).
+ * NAP / hours / brand MUST mirror Google Business Profile:
+ * https://share.google/BQPiVVuYidhVW5iAD
  * Fair Housing: describe sq ft, amenities, commute — never protected-class proxies.
  */
 
 export const SITE_BRAND = {
   domain: "searchforaffordablehomes.com",
   url: "https://www.searchforaffordablehomes.com",
-  /** Primary logo / brand name */
-  name: "Las Vegas Affordable Homes by Dr. Jan Duffy",
-  shortName: "Las Vegas Affordable Homes",
+  /** GBP business name — primary brand everywhere except footer brokerage line */
+  name: "Affordable Homes Las Vegas",
+  shortName: "Affordable Homes Las Vegas",
   agent: "Dr. Jan Duffy",
+  /** Footer-only disclosures */
   license: "S.0197614.LLC",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
-  /** Client-facing CTA line */
-  phoneDisplay: "(702) 222-1964",
-  phoneTel: "+17022221964",
+  /** GBP phone + SMS */
+  phoneDisplay: "(702) 500-1942",
+  phoneTel: "+17025001942",
+  smsHref: "sms:+17025001942",
   email: "homes@heyberkshire.com",
   portraitSrc: "/images/agent/dr-jan-duffy-portrait.png",
   logoSrc: "/images/logos/las-vegas-affordable-homes-logo.png",
+  /** GBP business location */
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
+    street: "8850 W. Sunset, Suite 200",
     city: "Las Vegas",
     state: "NV",
-    zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    zip: "89148",
+    full: "8850 W. Sunset, Suite 200, Las Vegas, NV 89148",
   },
-  geo: { lat: 36.2074, lng: -115.3009 },
+  /** Corona Del Mar Corporate Center / 8850 W Sunset Rd */
+  geo: { lat: 36.07166, lng: -115.28462 },
+  /** GBP main hours: daily 8:00 AM–8:00 PM */
   hours: [
-    { days: "Monday-Friday", opens: "09:00", closes: "18:00" },
-    { days: "Saturday", opens: "10:00", closes: "16:00" },
+    {
+      days: "Sunday-Saturday",
+      opens: "08:00",
+      closes: "20:00",
+    },
   ],
-  gbpShareUrl: "https://share.google/EKseIMipYVhXaSKRc",
+  foundingDate: "2013-09",
+  gbpShareUrl: "https://share.google/BQPiVVuYidhVW5iAD",
   calendlyShowingUrl: "https://calendly.com/drjanduffy/showing",
   calendlyAppointmentUrl: "https://calendly.com/drjanduffy/appointment",
+  categories: {
+    primary: "Real estate agent",
+    secondary: [
+      "Real estate agency",
+      "Real estate consultant",
+      "Property management company",
+    ],
+  },
+  /** Official GBP description (verbatim for NAP/content alignment) */
+  gbpDescription:
+    "Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Buyers compare condos, townhomes, and single-family homes by price, square footage, and HOA dues, and get guidance on Nevada down payment assistance programs through participating lenders. New-construction buyers get representation paid by the builder. Sellers get pricing built on recent nearby sales. Book a consultation or a private tour.",
+  socialProfiles: [
+    "https://www.linkedin.com/company/drjanduffy/",
+    "https://www.facebook.com/DrJanDuffyLasVegasStrip/",
+    "https://twitter.com/DrJanDuffy",
+    "https://www.youtube.com/@DrDuffy",
+    "https://www.pinterest.com/DrJanDuffy/",
+    "https://www.instagram.com/drjanduffy/",
+  ] as const,
+  serviceAreas: [
+    "Nevada, USA",
+    "Las Vegas, NV, USA",
+    "Enterprise, NV, USA",
+    "Winchester, NV, USA",
+    "Clark County, NV, USA",
+    "Desert Hills, NV, USA",
+    "Las Vegas, NV 89134, USA",
+    "Las Vegas, NV 89135, USA",
+    "Las Vegas, NV 89144, USA",
+    "Las Vegas, NV 89148, USA",
+    "Summerlin South, NV, USA",
+    "Sovana, Spring Valley, NV, USA",
+    "Arden, Enterprise, NV 89139, USA",
+    "Summerlin West, Las Vegas, NV, USA",
+    "Rhodes Ranch, Spring Valley, NV, USA",
+    "Queensridge, Las Vegas, NV 89145, USA",
+    "Boulder Junction, Paradise, NV 89118, USA",
+    "Mountain's Edge, Enterprise, NV 89139, USA",
+    "Canyon Gate Master, Las Vegas, NV 89117, USA",
+    "Southern Highlands, Enterprise, NV 89141, USA",
+  ] as const,
+  languages: [
+    "English",
+    "Spanish",
+    "Arabic",
+    "Mandarin",
+    "Romanian",
+    "Vietnamese",
+    "American Sign Language",
+    "Filipino",
+    "Ukrainian",
+    "Russian",
+  ] as const,
+  attributes: {
+    accessibility: [
+      "Wheelchair accessible seating",
+      "Wheelchair accessible restroom",
+      "Wheelchair accessible parking lot",
+      "Wheelchair accessible entrance",
+    ],
+    amenities: ["Gender-neutral restroom"],
+    crowd: ["LGBTQ+ friendly", "Transgender safespace"],
+    highlights: ["Identifies as veteran-owned", "Identifies as women-owned"],
+    planning: ["Appointment not required"],
+    serviceOptions: ["Onsite services available", "Offers online appointments"],
+  },
 } as const;
 
 export const MARKET_SNAPSHOT = {
@@ -46,10 +120,45 @@ export const MARKET_SNAPSHOT = {
     "Las Vegas metro single-family closed medians ran roughly $470K–$490K in mid-to-late 2026 public GLVAR summaries (near $486K trailing-90-day). Under-$500K remains the deepest buyer inventory band; condos/townhomes often list near the high-$200Ks.",
   daysOnMarket: "about 28–45 days to close after acceptance",
   inventoryBand:
-    "Hundreds of single-family actives under $400K in North Las Vegas and East Valley ZIPs (MLS snapshots Sep 2026); valley-wide under-$500K is still the primary entry band",
+    "Hundreds of single-family actives under $400K in North Las Vegas and East Valley ZIPs (MLS snapshots Sep 2026); southwest corridors (Mountain's Edge, Southern Highlands, Rhodes Ranch) remain core entry-level search areas",
 };
 
 export const AFFORDABLE_NEIGHBORHOODS = [
+  {
+    name: "Mountain's Edge",
+    slug: "mountains-edge",
+    priceBand: "$320,000–$480,000",
+    medianHint: "Southwest Enterprise entry band near 89139",
+    description:
+      "Primary GBP focus area for entry-level single-family and townhome inventory with parks, schools, and Beltway access.",
+    highlights: [
+      "Southwest Las Vegas entry prices",
+      "Condos, townhomes & SFH",
+      "Compare HOA dues before you buy",
+    ],
+  },
+  {
+    name: "Southern Highlands",
+    slug: "southern-highlands",
+    priceBand: "$380,000–$500,000+",
+    medianHint: "Enterprise 89141 — golf-community edge of the affordable band",
+    description:
+      "Buyers weigh golf-community amenities against price, square footage, and HOA dues while staying in southwest Las Vegas.",
+    highlights: ["Resort-style amenities", "89141 ZIP", "New & resale mix"],
+  },
+  {
+    name: "Rhodes Ranch",
+    slug: "neighborhoods",
+    priceBand: "$350,000–$490,000",
+    medianHint: "Spring Valley / southwest corridor near Sunset",
+    description:
+      "Close to the Affordable Homes Las Vegas office on W. Sunset — strong for comparing condos, townhomes, and single-family by price and HOA.",
+    highlights: [
+      "Near 8850 W. Sunset office",
+      "HOA comparison friendly",
+      "Southwest commute corridors",
+    ],
+  },
   {
     name: "North Las Vegas",
     slug: "north-las-vegas",
@@ -79,125 +188,92 @@ export const AFFORDABLE_NEIGHBORHOODS = [
     ],
   },
   {
-    name: "Mountain's Edge",
-    slug: "mountains-edge",
-    priceBand: "$350,000–$500,000",
-    medianHint:
-      "Southwest corridor value; metro southwest entry near ~$390K in 2026 guides",
-    description:
-      "Master-planned southwest Las Vegas with HOA amenities and 215 Beltway commute access below Summerlin premiums.",
-    highlights: ["HOA amenities", "Newer inventory", "Southwest 215 access"],
-  },
-  {
-    name: "Centennial Hills",
-    slug: "centennial-hills",
-    priceBand: "$340,000–$480,000",
-    medianHint: "89131 mid-$300Ks list medians in Sep 2026 MLS ZIP snapshots",
-    description:
-      "Northwest Las Vegas with mountain proximity, parks, shopping corridors, and established floor plans below comparable Summerlin pricing.",
-    highlights: [
-      "Northwest location",
-      "Parks & trails nearby",
-      "Resale + newer stock",
-    ],
-  },
-  {
-    name: "Cadence (Henderson)",
+    name: "Henderson (entry)",
     slug: "henderson",
-    priceBand: "$350,000–$500,000",
+    priceBand: "$375,000–$500,000",
     medianHint:
-      "Henderson entry points near ~$360K; city medians higher than NLV",
+      "Citywide medians run higher; under-$500K focuses on condos/townhomes and older SFH",
     description:
-      "Henderson master-planned new construction with multiple builders and mid-$300Ks entry points reported in 2026 buyer guides.",
-    highlights: ["New construction", "Henderson location", "Multiple builders"],
+      "City services and master-plan pockets; under-$500K often means attached product or smaller lots versus Summerlin west pricing.",
+    highlights: ["City amenities", "Green Valley adjacent", "Attached options"],
   },
-  {
-    name: "Skye Canyon",
-    slug: "skye-canyon",
-    priceBand: "$355,000–$550,000",
-    medianHint:
-      "89166 mid-$350Ks list medians in Sep 2026 ZIP snapshots; mixes new + resale",
-    description:
-      "Northwest master-planned community with mountain views, modern amenities, and mixed new/resale inventory.",
-    highlights: ["Master-planned amenities", "Mountain views", "New + resale"],
-  },
-] as const;
+];
 
 export const BUYER_SERVICE_STEPS = [
   {
     heading: "How do I get pre-approved to buy an affordable Las Vegas home?",
     answer:
-      "Start with a local lender pre-approval so your budget is clear before tours. FHA can start at 3.5% down, VA may offer 0% down for eligible buyers, and Nevada down-payment assistance programs can reduce cash to close.",
+      "Start with a local lender pre-approval so your budget is clear before tours. FHA can start at 3.5% down, VA may offer 0% down for eligible buyers, and Nevada down-payment assistance programs can reduce cash to close through participating lenders.",
     h3: "Loan programs that keep payments realistic",
   },
   {
     heading: "Where should I search for affordable homes in Las Vegas?",
     answer:
-      "Focus first on North Las Vegas, Mountain’s Edge, Centennial Hills, East Valley corridors, and Henderson’s Cadence for the strongest under-$500K selection. Dr. Jan Duffy filters MLS + RealScout alerts to your price, beds, and commute.",
+      "Focus first on Mountain's Edge, Southern Highlands, Rhodes Ranch, North Las Vegas, and southwest corridors. Affordable Homes Las Vegas filters MLS + RealScout alerts by price, square footage, and HOA dues.",
     h3: "Hyperlocal search, not generic listings",
   },
   {
     heading:
-      "What does luxury-level buyer representation look like on an affordable purchase?",
+      "What does buyer representation look like on an affordable purchase?",
     answer:
-      "You get the same white-glove process used on higher-priced deals: private showings, comps before every offer, inspection advocacy, and closing coordination — at no buyer-side fee in typical seller-paid commission structures.",
-    h3: "White-glove process, entry-level price point",
+      "Private showings, comps before every offer, inspection advocacy, and closing coordination. New-construction buyers get representation paid by the builder when registered early.",
+    h3: "Clear process, entry-level price point",
+  },
+] as const;
+
+export const HOW_TO_BUY_STEPS = [
+  {
+    name: "Get pre-approved",
+    text: "Confirm budget with a Nevada lender who knows down payment assistance programs. Affordable Homes Las Vegas can introduce participating lenders.",
+  },
+  {
+    name: "Compare homes by the numbers",
+    text: "Filter Mountain's Edge, Southern Highlands, Rhodes Ranch, and valley-wide inventory by price, square footage, and HOA dues — not just photos.",
+  },
+  {
+    name: "Tour with a plan",
+    text: "Book a private tour or consultation. New-construction buyers should register representation first so the builder pays the buyer-agent fee.",
+  },
+  {
+    name: "Write a competitive offer",
+    text: "Use recent nearby sales for pricing. Sellers get CMA-based pricing; buyers get negotiation grounded in the same comps.",
+  },
+  {
+    name: "Inspect and close",
+    text: "Complete inspections, negotiate credits, clear title, and collect keys in about 30–45 days with financing.",
   },
 ] as const;
 
 export const AFFORDABLE_HOME_FAQS: Array<{ question: string; answer: string }> =
   [
     {
-      question: "What is an affordable home price in Las Vegas in 2026?",
+      question: "What does Affordable Homes Las Vegas help buyers find?",
       answer:
-        "Most buyers searching for affordable Las Vegas homes target under $500,000. Mid-to-late 2026 GLVAR summaries put the metro single-family closed median near $470K–$490K, so under-$500K is still the main entry band — with North Las Vegas and East Valley ZIPs holding most of the under-$400K stock.",
+        "Entry-level priced homes across southwest Las Vegas — including Mountain's Edge, Southern Highlands, and Rhodes Ranch — plus valley-wide condos, townhomes, and single-family homes. Compare by price, square footage, and HOA dues.",
     },
     {
-      question: "Which Las Vegas neighborhoods have more affordable homes?",
+      question: "Do you help with Nevada down payment assistance?",
       answer:
-        "North Las Vegas (Eldorado, Craig Ranch, Aliante, Tule Springs), East Las Vegas corridors (including 89121–89122–89142), Mountain’s Edge, Centennial Hills, Henderson’s Cadence, and Skye Canyon show the strongest under-$500K selection versus Summerlin or The Ridges.",
+        "Yes. Buyers get guidance on Nevada down payment assistance programs through participating lenders. Call or text (702) 500-1942 to start.",
     },
     {
-      question: "Do I need a large down payment to buy in Las Vegas?",
+      question: "Is new-construction buyer representation free to me?",
       answer:
-        "Not always. FHA loans can require 3.5% down, many conventional programs start near 3%, and eligible VA buyers may finance with 0% down. Dr. Jan Duffy connects buyers with lenders who also review Nevada assistance options.",
+        "For most builders, buyer representation is paid by the builder when you register your agent before the first visit. Book a consult or private tour to get registered.",
     },
     {
-      question: "Is buyer representation free when I buy an affordable home?",
+      question: "Where is the Affordable Homes Las Vegas office?",
       answer:
-        "In most Las Vegas transactions, the seller pays the listing-side commission structure that covers buyer representation. Confirm current offer terms with Dr. Jan before you write — you’ll know the cost picture before you commit.",
+        "8850 W. Sunset, Suite 200, Las Vegas, NV 89148. Hours are 8:00 AM–8:00 PM daily. Call (702) 500-1942 or book online.",
     },
     {
-      question: "How long does it take to buy a home in Las Vegas?",
+      question: "How do sellers get pricing?",
       answer:
-        "From accepted offer to keys usually takes 30–45 days with financing. Cash closings can finish in about 7–14 days. Well-priced affordable homes often move in roughly a month of market time.",
+        "Sellers get pricing built on recent nearby sales (comparative market analysis), then a marketing plan matched to the property.",
     },
     {
       question: "Who is Dr. Jan Duffy?",
       answer:
-        "Dr. Jan Duffy is a REALTOR® (license S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Call (702) 222-1964 for a buyer consult.",
+        "Dr. Jan Duffy leads Affordable Homes Las Vegas. Call or text (702) 500-1942, or visit 8850 W. Sunset, Suite 200, Las Vegas, NV 89148 (open daily 8:00 AM–8:00 PM).",
     },
   ];
-
-export const HOW_TO_BUY_STEPS = [
-  {
-    name: "Get pre-approved",
-    text: "Confirm budget with a Las Vegas lender and collect your pre-approval letter.",
-  },
-  {
-    name: "Define search criteria",
-    text: "Set max price, beds/baths, commute corridors, and must-have amenities with Dr. Jan.",
-  },
-  {
-    name: "Tour matched homes",
-    text: "Tour MLS and off-market matches in North Las Vegas, southwest, northwest, and Henderson value bands.",
-  },
-  {
-    name: "Write a data-backed offer",
-    text: "Use fresh comps, inspection strategy, and terms that protect your deposit.",
-  },
-  {
-    name: "Inspect and close",
-    text: "Complete inspections, negotiate credits, clear title, and collect keys in 30–45 days typical.",
-  },
-] as const;

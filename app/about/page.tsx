@@ -22,7 +22,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Las Vegas",
   description:
-    "Meet Dr. Jan Duffy, your trusted agent. In real estate since 1983, $127M+ in transactions, Henderson & Summerlin specialist. Call (702) 222-1964.",
+    "Meet Dr. Jan Duffy, your trusted agent. In real estate since 1983, $127M+ in transactions, Henderson & Summerlin specialist. Call (702) 500-1942.",
   keywords: [
     "Dr. Jan Duffy",
     "Las Vegas realtor",
@@ -39,24 +39,19 @@ const personSchema = {
   jobTitle: "REALTOR®",
   description:
     "Licensed real estate agent serving Las Vegas, Henderson, and Summerlin, in real estate since 1983.",
-  telephone: "+17022221964",
+  telephone: "+17025001942",
   email: "homes@heyberkshire.com",
   url: "https://heyberkshire.com/about",
   worksFor: {
     "@type": "RealEstateAgent",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Affordable Homes Las Vegas",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "8850 W. Sunset, Suite 200",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
-      postalCode: "89134",
+      postalCode: "89148",
     },
-  },
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "Real Estate License",
-    credentialNumber: "S.0197614.LLC",
   },
   knowsAbout: [
     "Las Vegas real estate",
@@ -196,11 +191,11 @@ export default function AboutPage() {
                   </h3>
                   <div className="space-y-3">
                     <a
-                      href="tel:+17022221964"
+                      href="tel:+17025001942"
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Phone className="h-5 w-5 mr-3 text-blue-600" />
-                      <span className="font-semibold">(702) 222-1964</span>
+                      <span className="font-semibold">(702) 500-1942</span>
                     </a>
                     <a
                       href="mailto:homes@heyberkshire.com"
@@ -212,14 +207,14 @@ export default function AboutPage() {
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
                       <address className="not-italic">
-                        9406 W Lake Mead Blvd, Suite 100
+                        8850 W. Sunset, Suite 200
                         <br />
-                        Las Vegas, NV 89134
+                        Las Vegas, NV 89148
                       </address>
                     </div>
                     <div className="flex items-center text-slate-700">
                       <Clock className="h-5 w-5 mr-3 text-blue-600" />
-                      Mon-Fri 9am-6pm, Sat 10am-4pm, Sun by appointment
+                      Open daily 8:00 AM–8:00 PM
                     </div>
                   </div>
                 </div>
@@ -493,11 +488,11 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <Link
                 href="/contact"
