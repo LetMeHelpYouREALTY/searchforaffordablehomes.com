@@ -355,8 +355,8 @@ export default function SunCityAnthemPage() {
                 for—safety, quality, and stunning scenery—with the Del Webb
                 lifestyle. The views from the upper sections are spectacular,
                 and the Anthem Center rivals any resort clubhouse I've seen. As
-                a local REALTOR®, I help buyers find the right balance of views,
-                price, and proximity to amenities."
+                a local REALTOR®, I help buyers find the right balance of
+                views, price, and proximity to amenities."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®

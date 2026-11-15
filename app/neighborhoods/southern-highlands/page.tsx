@@ -438,8 +438,8 @@ export default function SouthernHighlandsPage() {
                 surprise buyers—especially those relocating from California. You
                 get championship golf, guard-gated security, mountain views, and
                 nearby public schools, all just 15 minutes from the Strip. As a
-                local REALTOR®, I help clients see beyond the golf course to the
-                community's full potential."
+                local REALTOR®, I help clients see beyond the golf course to
+                the community's full potential."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®

@@ -379,8 +379,8 @@ export default function TrilogySummerlinPage() {
                 "Trilogy at Summerlin is for buyers who want more than a 55+
                 community—they want a lifestyle. The on-site restaurant, spa,
                 and contemporary homes create an experience you simply can't
-                find elsewhere. As a local REALTOR® serving luxury 55+ buyers, I
-                recommend Trilogy to those who appreciate quality and won't
+                find elsewhere. As a local REALTOR® serving luxury 55+ buyers,
+                I recommend Trilogy to those who appreciate quality and won't
                 settle for ordinary."
               </blockquote>
               <cite className="text-slate-900 font-semibold">

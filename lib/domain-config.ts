@@ -413,7 +413,8 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     domain: "samaritanpharma.com",
     neighborhood: "Las Vegas",
     tagline: "Las Vegas Real Estate",
-    description: "Las Vegas real estate services from Dr. Jan Duffy, REALTOR®.",
+    description:
+      "Las Vegas real estate services from Dr. Jan Duffy, REALTOR®.",
     heroHeadline: "Las Vegas Homes for Sale",
     heroSubheadline:
       "Expert Las Vegas real estate guidance from Dr. Jan Duffy.",
