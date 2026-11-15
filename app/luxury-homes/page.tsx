@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -182,7 +183,9 @@ export default function LuxuryHomesPage() {
             </div>
           </div>
 
-          {/* Luxury Stats */}
+      <RealScoutListings />
+
+{/* Luxury Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-4 text-center">
               Las Vegas Luxury Market Statistics | January 2026
@@ -222,8 +225,7 @@ export default function LuxuryHomesPage() {
               </div>
             </div>
           </section>
-
-          {/* Why Dr. Jan for Luxury */}
+{/* Why Dr. Jan for Luxury */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Why Choose Dr. Jan Duffy for Luxury Real Estate
@@ -522,7 +524,7 @@ export default function LuxuryHomesPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

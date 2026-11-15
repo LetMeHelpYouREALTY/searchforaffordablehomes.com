@@ -437,7 +437,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
       "Buy an affordable home in Las Vegas with luxury-level buyer representation from Dr. Jan Duffy. Search under-$500K homes in North Las Vegas, Mountain's Edge, Centennial Hills, and Henderson.",
     heroHeadline: "Buy an Affordable Home in Las Vegas",
     heroSubheadline:
-      "Luxury realtor service for under-$500K buyers — private tours, data-backed offers, and closing advocacy from Dr. Jan Duffy.",
+      "Las Vegas Affordable Homes by Dr. Jan Duffy — luxury realtor service for under-$500K buyers with private tours, data-backed offers, and closing advocacy.",
     keywords: [
       "affordable homes Las Vegas",
       "homes under 500000 Las Vegas",

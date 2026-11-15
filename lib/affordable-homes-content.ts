@@ -9,7 +9,9 @@
 export const SITE_BRAND = {
   domain: "searchforaffordablehomes.com",
   url: "https://www.searchforaffordablehomes.com",
-  name: "Search for Affordable Homes Las Vegas",
+  /** Primary logo / brand name */
+  name: "Las Vegas Affordable Homes by Dr. Jan Duffy",
+  shortName: "Las Vegas Affordable Homes",
   agent: "Dr. Jan Duffy",
   license: "S.0197614.LLC",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
@@ -17,6 +19,8 @@ export const SITE_BRAND = {
   phoneDisplay: "(702) 222-1964",
   phoneTel: "+17022221964",
   email: "homes@heyberkshire.com",
+  portraitSrc: "/images/agent/dr-jan-duffy-portrait.png",
+  logoSrc: "/images/logos/las-vegas-affordable-homes-logo.png",
   address: {
     street: "9406 W Lake Mead Blvd, Suite 100",
     city: "Las Vegas",
@@ -30,6 +34,8 @@ export const SITE_BRAND = {
     { days: "Saturday", opens: "10:00", closes: "16:00" },
   ],
   gbpShareUrl: "https://share.google/EKseIMipYVhXaSKRc",
+  calendlyShowingUrl: "https://calendly.com/drjanduffy/showing",
+  calendlyAppointmentUrl: "https://calendly.com/drjanduffy/appointment",
 } as const;
 
 export const MARKET_SNAPSHOT = {

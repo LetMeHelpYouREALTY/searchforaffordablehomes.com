@@ -13,6 +13,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import SchemaScript from "@/components/SchemaScript";
@@ -73,7 +74,7 @@ export default async function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/55 to-slate-900/30" />
           <div className="relative z-10 container mx-auto px-4 pb-16 pt-32 md:py-28">
             <p className="text-sm md:text-base tracking-[0.2em] uppercase text-amber-200/90 mb-4 font-medium">
-              {SITE_BRAND.agent} · {SITE_BRAND.brokerage}
+              {SITE_BRAND.shortName} · {SITE_BRAND.agent}
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl leading-[1.1] mb-5">
               {config.heroHeadline}
@@ -108,6 +109,8 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        <RealScoutListings />
 
         {/* NAP / GEO strip */}
         <section
@@ -155,8 +158,8 @@ export default async function Home() {
           <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
-                src="/images/agent/luxury-realtor-professional.jpg"
-                alt="Professional luxury realtor ready to represent affordable Las Vegas home buyers"
+                src="/images/agent/dr-jan-duffy-portrait.png"
+                alt="Dr. Jan Duffy — Las Vegas Affordable Homes by Dr. Jan Duffy"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -352,8 +355,6 @@ export default async function Home() {
             </div>
           </div>
         </section>
-
-        <RealScoutListings />
         <ReviewsSection />
 
         <FAQSection
@@ -443,6 +444,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

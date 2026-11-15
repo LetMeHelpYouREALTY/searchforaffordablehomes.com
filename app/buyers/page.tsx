@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import FAQSection from "@/components/sections/FAQSection";
 import SchemaScript from "@/components/SchemaScript";
 import {
@@ -138,6 +139,8 @@ export default function BuyersPage() {
           </div>
         </section>
 
+        <RealScoutListings />
+
         <section className="py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-3">
@@ -235,9 +238,6 @@ export default function BuyersPage() {
             </div>
           </div>
         </section>
-
-        <RealScoutListings />
-
         <FAQSection
           faqs={AFFORDABLE_HOME_FAQS}
           title="Buyer FAQs for affordable Las Vegas homes"
@@ -267,6 +267,7 @@ export default function BuyersPage() {
           </div>
         </section>
       </main>
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

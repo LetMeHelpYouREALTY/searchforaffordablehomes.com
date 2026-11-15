@@ -1,4 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import {
@@ -77,7 +79,10 @@ export default function GoogleBusinessPage() {
                       Top 1% Las Vegas REALTOR®
                     </span>
                   </div>
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
+
+      <RealScoutListings />
+
+<h1 className="text-4xl md:text-5xl font-bold mb-4">
                     Dr. Jan Duffy
                   </h1>
                   <p className="text-xl text-blue-200 mb-2">
@@ -148,8 +153,7 @@ export default function GoogleBusinessPage() {
               </div>
             </div>
           </section>
-
-          {/* Business Hours */}
+{/* Business Hours */}
           <section className="max-w-5xl mx-auto mb-16">
             <div className="bg-slate-50 rounded-xl p-6">
               <div className="flex items-center gap-2 mb-4">
@@ -414,6 +418,7 @@ export default function GoogleBusinessPage() {
           Last Updated: January 2026
         </div>
       </main>
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -142,7 +143,9 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Agent Profile */}
+      <RealScoutListings />
+
+{/* Agent Profile */}
           <section className="mb-16">
             <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
               <div>
@@ -314,8 +317,7 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-
-          {/* Specializations Section */}
+{/* Specializations Section */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
               Areas of Specialization
@@ -512,7 +514,7 @@ export default function AboutPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

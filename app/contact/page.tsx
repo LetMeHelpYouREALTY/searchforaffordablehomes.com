@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import {
   Phone,
   Mail,
@@ -71,6 +72,8 @@ export default function ContactPage() {
               9am–6pm, Sat 10am–4pm.
             </p>
           </div>
+
+          <RealScoutListings />
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info & Map */}
@@ -284,7 +287,6 @@ export default function ContactPage() {
               ))}
             </div>
           </section>
-
           {/* Quick Contact Options */}
           <section className="max-w-4xl mx-auto mt-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
@@ -352,7 +354,7 @@ export default function ContactPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

@@ -1,4 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Footer from "@/components/layouts/Footer";
 import Image from "next/image";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
@@ -40,7 +42,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
+<main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="mb-6 text-sm">
@@ -80,7 +82,9 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
             </div>
           </div>
 
-          {/* Main Image */}
+      <RealScoutListings />
+
+{/* Main Image */}
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
             <Image
               src={property.image}
@@ -169,6 +173,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
           </div>
         </div>
       </main>
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

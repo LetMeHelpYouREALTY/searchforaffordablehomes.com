@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -72,6 +73,9 @@ export default function MarketInsightsPage() {
               <TrendingUp className="h-4 w-4 mr-2" />
               2026 Economic & Real Estate Analysis
             </div>
+
+      <RealScoutListings />
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Market Insights
             </h1>
@@ -80,8 +84,7 @@ export default function MarketInsightsPage() {
               Las Vegas real estate in 2026 and beyond.
             </p>
           </div>
-
-          {/* Key Drivers */}
+{/* Key Drivers */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">
               5 Forces Driving Las Vegas Real Estate in 2026
@@ -119,8 +122,7 @@ export default function MarketInsightsPage() {
               </div>
             </div>
           </section>
-
-          {/* Tech Transformation */}
+{/* Tech Transformation */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="flex items-center mb-6">
               <Cpu className="h-8 w-8 text-purple-600 mr-3" />
@@ -507,7 +509,7 @@ export default function MarketInsightsPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

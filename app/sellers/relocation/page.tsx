@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -54,6 +55,9 @@ export default function RelocationPage() {
               <Plane className="h-4 w-4 mr-2" />
               Nationwide Referral Network
             </div>
+
+      <RealScoutListings />
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               New Opportunity?
               <br />
@@ -90,8 +94,7 @@ export default function RelocationPage() {
               agents in your new city at no extra cost.
             </p>
           </section>
-
-          {/* How We Help */}
+{/* How We Help */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               How We Handle Your Relocation Sale
@@ -615,7 +618,7 @@ export default function RelocationPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

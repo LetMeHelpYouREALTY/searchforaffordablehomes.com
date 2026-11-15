@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -20,7 +21,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Luxury Homes Las Vegas",
   description:
-    "Las Vegas luxury real estate from $1.2M to $10M+. Guard-gated estates, Strip penthouses, and custom homes. Dr. Jan Duffy provides discrete, expert representation. Call (702) 500-1942.",
+    "Las Vegas luxury real estate from $1.2M to $10M+. Guard-gated estates, Strip penthouses, and custom homes. Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties provides discrete, expert representation. Call (702) 222-1964.",
   keywords: [
     "luxury homes Las Vegas",
     "The Ridges Las Vegas",
@@ -92,6 +93,9 @@ export default function LuxuryHomesPage() {
               <Star className="h-4 w-4 mr-2" />
               $1.2M - $10M+
             </div>
+
+      <RealScoutListings />
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Luxury Real Estate
             </h1>
@@ -99,15 +103,14 @@ export default function LuxuryHomesPage() {
               Guard-gated estates. Strip penthouses. Uncompromising privacy.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17022221964"
               className="inline-flex items-center bg-slate-900 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-800 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Schedule a Private Preview → (702) 500-1942
+              Schedule a Private Preview → (702) 222-1964
             </a>
           </div>
-
-          {/* Market Performance */}
+{/* Market Performance */}
           <section className="mb-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">
               Las Vegas Luxury Market Performance
@@ -148,8 +151,7 @@ export default function LuxuryHomesPage() {
               environment, and world-class amenities.
             </p>
           </section>
-
-          {/* Luxury Communities */}
+{/* Luxury Communities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Premier Luxury Communities
@@ -445,11 +447,11 @@ export default function LuxuryHomesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17022221964"
                 className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-100 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                (702) 500-1942
+                (702) 222-1964
               </a>
               <Link
                 href="/contact"
@@ -464,7 +466,7 @@ export default function LuxuryHomesPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

@@ -1,4 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import {
@@ -182,6 +184,9 @@ export default function ListingsPage() {
             </div>
           </div>
 
+      <RealScoutListings />
+
+
           {/* RealScout Widget - Live MLS Listings */}
           <section className="mb-16">
             <div className="max-w-7xl mx-auto">
@@ -197,8 +202,7 @@ export default function ListingsPage() {
               />
             </div>
           </section>
-
-          {/* Popular Searches Section */}
+{/* Popular Searches Section */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Popular Property Searches in Las Vegas
@@ -604,6 +608,7 @@ export default function ListingsPage() {
           Last Updated: January 2026
         </div>
       </main>
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

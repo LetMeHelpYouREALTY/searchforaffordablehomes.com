@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,13 +51,27 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Brand Logo */}
-          <Link href="/" className="flex flex-col">
-            <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
-              Dr. Jan Duffy
-              <span className="text-blue-600"> REALTOR®</span>
-            </span>
-            <span className="text-xs text-slate-500 hidden sm:block">
-              Search for Affordable Homes
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 min-w-0"
+            aria-label={SITE_BRAND.name}
+          >
+            <Image
+              src={SITE_BRAND.logoSrc}
+              alt=""
+              width={48}
+              height={48}
+              className="h-11 w-11 rounded-full border-2 border-amber-500 object-cover shrink-0"
+              priority
+            />
+            <span className="flex min-w-0 flex-col">
+              <span className="truncate text-sm font-bold leading-tight text-slate-900 transition-colors hover:text-blue-600 md:text-base lg:text-lg">
+                Las Vegas Affordable Homes
+              </span>
+              <span className="hidden text-xs text-slate-500 sm:block">
+                by {SITE_BRAND.agent} · {SITE_BRAND.brokerage.split(" ")[0]}{" "}
+                Hathaway
+              </span>
             </span>
           </Link>
 

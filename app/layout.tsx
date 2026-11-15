@@ -6,6 +6,7 @@ import { getDomainConfig } from "@/lib/domain-config";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { SITE_BRAND } from "@/lib/affordable-homes-content";
+import CalendlyBadge from "@/components/calendly/CalendlyBadge";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
@@ -13,15 +14,30 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(SITE_BRAND.url),
     // No title.template — child pages already include full branded titles
-    title: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR®`,
+    title: `${config.heroHeadline} | ${SITE_BRAND.name}`,
     description: config.description,
     keywords: config.keywords,
+    icons: {
+      icon: [
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     openGraph: {
       title: config.heroHeadline,
       description: config.description,
       type: "website",
       locale: "en_US",
       siteName: SITE_BRAND.name,
+      images: [
+        {
+          url: `${SITE_BRAND.url}${SITE_BRAND.logoSrc}`,
+          width: 1270,
+          height: 1282,
+          alt: SITE_BRAND.name,
+        },
+      ],
     },
   };
 }
@@ -37,6 +53,15 @@ export default function RootLayout({
         {/* RealScout — load once globally (em.realscout.com script + www.realscout.com API) */}
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.js"
+          strategy="afterInteractive"
+        />
+        {/* Calendly — load once globally */}
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
           strategy="afterInteractive"
         />
         {/* WidgetTracker */}
@@ -87,6 +112,12 @@ export default function RootLayout({
       )}
       <body>
         {children}
+        <CalendlyBadge
+          url={SITE_BRAND.calendlyShowingUrl}
+          text="Schedule with Dr. Jan"
+          color="#1e3a8a"
+          textColor="#ffffff"
+        />
         <Analytics />
       </body>
     </html>

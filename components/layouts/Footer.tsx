@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -7,6 +8,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,10 +19,27 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="font-bold text-xl mb-4">Dr. Jan Duffy, REALTOR®</h3>
-            <p className="text-slate-300 mb-4 text-sm">
-              Your trusted real estate partner in Las Vegas, Henderson, and
-              Summerlin. In real estate since 1983.
+            <div className="mb-4 flex items-center gap-3">
+              <Image
+                src={SITE_BRAND.logoSrc}
+                alt=""
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full border-2 border-amber-500 object-cover"
+              />
+              <div>
+                <h3 className="text-lg font-bold leading-tight">
+                  {SITE_BRAND.shortName}
+                </h3>
+                <p className="text-sm text-slate-400">
+                  by {SITE_BRAND.agent}, REALTOR®
+                </p>
+              </div>
+            </div>
+            <p className="mb-4 text-sm text-slate-300">
+              Affordable Las Vegas homes with luxury-level buyer representation.
+              Berkshire Hathaway HomeServices Nevada Properties. In real estate
+              since 1983.
             </p>
             <div className="flex space-x-4">
               <a

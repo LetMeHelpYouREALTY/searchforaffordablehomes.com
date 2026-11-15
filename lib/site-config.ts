@@ -2,12 +2,12 @@
 // Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
-  name: "Search for Affordable Homes",
+  name: "Las Vegas Affordable Homes by Dr. Jan Duffy",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
   tagline: "Affordable Las Vegas Homes — Luxury Buyer Representation",
   /** Full brand line for titles and OG */
   brandLine:
-    "Search for Affordable Homes Las Vegas | Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
+    "Las Vegas Affordable Homes by Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   url: "https://www.searchforaffordablehomes.com",

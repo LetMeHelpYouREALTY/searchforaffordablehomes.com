@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -150,7 +151,9 @@ export default function RelocationPage() {
             </div>
           </div>
 
-          {/* Why Las Vegas */}
+      <RealScoutListings />
+
+{/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-4 text-center">
               Why People Are Moving to Las Vegas
@@ -193,8 +196,7 @@ export default function RelocationPage() {
               </div>
             </div>
           </section>
-
-          {/* Expert Quote */}
+{/* Expert Quote */}
           <section className="mb-16 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
               Expert Relocation Guidance
@@ -538,7 +540,7 @@ export default function RelocationPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

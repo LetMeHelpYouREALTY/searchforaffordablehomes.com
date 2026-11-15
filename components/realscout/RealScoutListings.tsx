@@ -1,22 +1,35 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
+/**
+ * RealScout office listings — place immediately below the hero on every page.
+ */
 export default function RealScoutListings() {
   return (
-    <section className="py-16 md:py-24 bg-slate-50">
+    <section
+      className="border-b border-slate-200 bg-slate-50 py-12 md:py-16"
+      aria-labelledby="office-listings-heading"
+    >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 md:mb-10 md:flex-row md:items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Featured Affordable Homes
+            <p className="mb-2 text-sm font-medium uppercase tracking-[0.15em] text-amber-700">
+              {SITE_BRAND.shortName} · Live MLS
+            </p>
+            <h2
+              id="office-listings-heading"
+              className="mb-2 text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl"
+            >
+              Affordable Homes for Sale
             </h2>
-            <p className="text-slate-600 text-lg">
-              Featured affordable homes under $500,000 in Las Vegas and
-              Henderson
+            <p className="text-base text-slate-600 md:text-lg">
+              Under-$500K listings across Las Vegas, Henderson, and North Las
+              Vegas — updated from the MLS via RealScout.
             </p>
           </div>
-          <Button asChild variant="outline" className="mt-4 md:mt-0">
+          <Button asChild variant="outline" className="shrink-0">
             <a
               href="http://drjanduffy.realscout.com/"
               target="_blank"
@@ -27,7 +40,6 @@ export default function RealScoutListings() {
           </Button>
         </div>
 
-        {/* RealScout Widget - using dangerouslySetInnerHTML per rules */}
         <div
           dangerouslySetInnerHTML={{
             __html: `<realscout-office-listings 

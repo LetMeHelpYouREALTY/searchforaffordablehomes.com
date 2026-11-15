@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -93,7 +94,9 @@ export default function InvestmentPropertiesPage() {
             </p>
           </div>
 
-          {/* Why Las Vegas */}
+      <RealScoutListings />
+
+{/* Why Las Vegas */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Why Invest in Las Vegas?
@@ -123,8 +126,7 @@ export default function InvestmentPropertiesPage() {
               </div>
             </div>
           </section>
-
-          {/* Market Stats */}
+{/* Market Stats */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Investment Property Markets | January 2026
@@ -540,7 +542,7 @@ export default function InvestmentPropertiesPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );

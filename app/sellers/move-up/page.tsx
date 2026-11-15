@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -53,6 +54,9 @@ export default function MoveUpSellerPage() {
               <TrendingUp className="h-4 w-4 mr-2" />
               Your Equity Unlocks Your Dream Home
             </div>
+
+      <RealScoutListings />
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Ready for Your Next Chapter?
             </h1>
@@ -68,8 +72,7 @@ export default function MoveUpSellerPage() {
               Start Your Upgrade → (702) 500-1942
             </a>
           </div>
-
-          {/* Equity Section */}
+{/* Equity Section */}
           <section className="mb-16 bg-green-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">
               Your Equity Position is Stronger Than You Think
@@ -103,8 +106,7 @@ export default function MoveUpSellerPage() {
               <strong> We help you access it strategically.</strong>
             </p>
           </section>
-
-          {/* Upgrade Path */}
+{/* Upgrade Path */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Common Upgrade Paths We Help With
@@ -453,7 +455,7 @@ export default function MoveUpSellerPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+<ScheduleConsultSection />
       <Footer />
     </>
   );
