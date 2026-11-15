@@ -21,14 +21,15 @@ export function agentOrganizationSchema() {
     name: `${SITE_BRAND.agent} - ${SITE_BRAND.brokerage}`,
     alternateName: [
       SITE_BRAND.name,
+      SITE_BRAND.shortName,
       "Dr. Jan Duffy",
       "Search for Affordable Homes",
     ],
     url: BASE,
     telephone: SITE_BRAND.phoneTel,
     email: SITE_BRAND.email,
-    image: `${BASE}/images/agent/luxury-realtor-professional.jpg`,
-    logo: `${BASE}/images/agent/luxury-realtor-professional.jpg`,
+    image: `${BASE}${SITE_BRAND.portraitSrc}`,
+    logo: `${BASE}${SITE_BRAND.logoSrc}`,
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",
