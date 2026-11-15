@@ -25,7 +25,7 @@ import {
 export const metadata: Metadata = {
   title: "Sun City Anthem Homes for Sale",
   description:
-    "Henderson's premier 55+ community. Sun City Anthem homes from $350K-$1.2M. 2 championship golf courses, stunning mountain views. Dr. Jan Duffy. Call (702) 222-1964.",
+    "Henderson's premier 55+ community. Sun City Anthem homes from $350K-$1.2M. 2 championship golf courses, stunning mountain views. Dr. Jan Duffy. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "Sun City Anthem homes for sale",
     "Sun City Anthem Henderson",

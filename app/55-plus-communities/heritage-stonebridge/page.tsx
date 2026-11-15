@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title:
     "Heritage at Stonebridge Homes for Sale | Guard-Gated 55+ Summerlin | Dr. Jan Duffy",
   description:
-    "Heritage at Stonebridge - boutique guard-gated 55+ community in Summerlin. Homes from $400K-$750K. Near Downtown Summerlin, Red Rock Canyon. Dr. Jan Duffy, REALTOR®. Call (702) 222-1964.",
+    "Heritage at Stonebridge - boutique guard-gated 55+ community in Summerlin. Homes from $400K-$750K. Near Downtown Summerlin, Red Rock Canyon. Dr. Jan Duffy, REALTOR®. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "Heritage at Stonebridge homes for sale",
     "Heritage Stonebridge Summerlin",

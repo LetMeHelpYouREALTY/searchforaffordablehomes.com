@@ -19,7 +19,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free Home Valuation Las Vegas | What's Your Home Worth?",
   description:
-    "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 222-1964.",
+    "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "home valuation Las Vegas",
     "what is my home worth Las Vegas",

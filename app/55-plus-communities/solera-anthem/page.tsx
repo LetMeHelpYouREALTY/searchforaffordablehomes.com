@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title:
     "Solera at Anthem Homes for Sale | Intimate Guard-Gated 55+ Henderson | Dr. Jan Duffy",
   description:
-    "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, close-knit atmosphere. Dr. Jan Duffy, REALTOR®. Call (702) 222-1964.",
+    "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, close-knit atmosphere. Dr. Jan Duffy, REALTOR®. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "Solera at Anthem homes for sale",
     "Solera Anthem Henderson",

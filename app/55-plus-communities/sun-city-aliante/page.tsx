@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title:
     "Sun City Aliante Homes for Sale | Most Affordable Sun City | Dr. Jan Duffy",
   description:
-    "Sun City Aliante - the most affordable Sun City in Las Vegas. Homes from $280K-$550K with full amenities. 18-hole golf course, pools, fitness center. Dr. Jan Duffy, REALTOR®. Call (702) 222-1964.",
+    "Sun City Aliante - the most affordable Sun City in Las Vegas. Homes from $280K-$550K with full amenities. 18-hole golf course, pools, fitness center. Dr. Jan Duffy, REALTOR®. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "Sun City Aliante homes for sale",
     "Sun City Aliante Las Vegas",

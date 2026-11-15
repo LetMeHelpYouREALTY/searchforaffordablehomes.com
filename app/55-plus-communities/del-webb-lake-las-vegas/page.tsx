@@ -17,7 +17,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Del Webb at Lake Las Vegas Homes",
   description:
-    "Lakefront 55+ living at Del Webb Lake Las Vegas. Homes from $400K-$900K. Resort amenities, stunning lake and mountain views. Dr. Jan Duffy. Call (702) 222-1964.",
+    "Lakefront 55+ living at Del Webb Lake Las Vegas. Homes from $400K-$900K. Resort amenities, stunning lake and mountain views. Dr. Jan Duffy. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "Del Webb Lake Las Vegas",
     "Lake Las Vegas 55 plus",
@@ -26,9 +26,27 @@ export const metadata: Metadata = {
   ],
 };
 
+const communitySchema = {
+  "@context": "https://schema.org",
+  "@type": "Place",
+  name: "Del Webb at Lake Las Vegas",
+  description:
+    "Lakefront 55+ active adult community at Lake Las Vegas with resort amenities",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Henderson",
+    addressRegion: "NV",
+    postalCode: "89011",
+  },
+};
+
 export default function DelWebbLakeLasVegasPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">

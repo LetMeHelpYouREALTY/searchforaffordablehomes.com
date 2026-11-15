@@ -20,7 +20,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sun City Summerlin Homes for Sale",
   description:
-    "Nevada's largest 55+ community. Sun City Summerlin homes from $320K-$850K. 3 golf courses, 4 rec centers, 100+ clubs. Dr. Jan Duffy, 55+ specialist. Call (702) 222-1964.",
+    "Nevada's largest 55+ community. Sun City Summerlin homes from $320K-$850K. 3 golf courses, 4 rec centers, 100+ clubs. Dr. Jan Duffy, 55+ specialist. Call (702) 222-1964. Berkshire Hathaway HomeServices Nevada Properties.",
   keywords: [
     "Sun City Summerlin homes for sale",
     "Sun City Summerlin Las Vegas",
