@@ -19,7 +19,11 @@ export function agentOrganizationSchema() {
     "@type": "RealEstateAgent",
     "@id": `${BASE}#organization`,
     name: `${SITE_BRAND.agent} - ${SITE_BRAND.brokerage}`,
-    alternateName: [SITE_BRAND.name, "Dr. Jan Duffy", "Search for Affordable Homes"],
+    alternateName: [
+      SITE_BRAND.name,
+      "Dr. Jan Duffy",
+      "Search for Affordable Homes",
+    ],
     url: BASE,
     telephone: SITE_BRAND.phoneTel,
     email: SITE_BRAND.email,
@@ -87,14 +91,6 @@ export function websiteSchema() {
     url: BASE,
     name: SITE_BRAND.name,
     publisher: { "@id": `${BASE}#organization` },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${BASE}/listings?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
@@ -119,7 +115,11 @@ export function webPageSchema(opts: {
     },
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: opts.speakableCssSelectors ?? ["h1", ".aeo-answer", ".faq-answer"],
+      cssSelector: opts.speakableCssSelectors ?? [
+        "h1",
+        ".aeo-answer",
+        ".faq-answer",
+      ],
     },
   };
 }
@@ -146,7 +146,13 @@ export function buyerServiceSchema() {
     description:
       "Luxury-level buyer representation for affordable Las Vegas homes under $500,000, including pre-approval guidance, neighborhood matching, offer strategy, and closing coordination.",
     provider: { "@id": `${BASE}#organization` },
-    areaServed: ["Las Vegas", "North Las Vegas", "Henderson", "Summerlin", "Clark County NV"],
+    areaServed: [
+      "Las Vegas",
+      "North Las Vegas",
+      "Henderson",
+      "Summerlin",
+      "Clark County NV",
+    ],
     offers: {
       "@type": "Offer",
       price: "0",

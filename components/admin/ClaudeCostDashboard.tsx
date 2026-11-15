@@ -1,6 +1,6 @@
 /**
  * Claude Cost Dashboard - Monitor API Usage and Costs
- * 
+ *
  * Real-time monitoring of:
  * - API request counts
  * - Token usage
@@ -9,10 +9,16 @@
  * - Savings from prompt caching
  */
 
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface CostStats {
   costs: {
@@ -46,14 +52,14 @@ export default function ClaudeCostDashboard() {
 
   async function fetchStats() {
     try {
-      const response = await fetch('/api/claude/chat');
-      if (!response.ok) throw new Error('Failed to fetch stats');
-      
+      const response = await fetch("/api/claude/chat");
+      if (!response.ok) throw new Error("Failed to fetch stats");
+
       const data = await response.json();
       setStats(data);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
+      setError(err instanceof Error ? err.message : "Unknown error");
     } finally {
       setLoading(false);
     }
@@ -62,7 +68,7 @@ export default function ClaudeCostDashboard() {
   if (loading) {
     return (
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {[1, 2, 3, 4].map(i => (
+        {[1, 2, 3, 4].map((i) => (
           <Card key={i}>
             <CardHeader className="animate-pulse">
               <div className="h-4 bg-gray-200 rounded w-1/2 mb-2" />
@@ -88,7 +94,7 @@ export default function ClaudeCostDashboard() {
   if (!stats) return null;
 
   const cacheHitRate = stats.cache.entriesInMemory > 0 ? 85 : 0; // Estimated
-  const estimatedSavings = stats.costs.last24h.cost * 0.90; // 90% savings from caching
+  const estimatedSavings = stats.costs.last24h.cost * 0.9; // 90% savings from caching
 
   return (
     <div className="space-y-6">
@@ -108,7 +114,9 @@ export default function ClaudeCostDashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">{stats.costs.total.requests}</div>
+            <div className="text-3xl font-bold">
+              {stats.costs.total.requests}
+            </div>
             <p className="text-xs text-slate-500 mt-1">All time</p>
           </CardContent>
         </Card>
@@ -120,7 +128,9 @@ export default function ClaudeCostDashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">${stats.costs.total.cost.toFixed(4)}</div>
+            <div className="text-3xl font-bold">
+              ${stats.costs.total.cost.toFixed(4)}
+            </div>
             <p className="text-xs text-slate-500 mt-1">All time</p>
           </CardContent>
         </Card>
@@ -132,7 +142,9 @@ export default function ClaudeCostDashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold">${stats.costs.last24h.cost.toFixed(4)}</div>
+            <div className="text-3xl font-bold">
+              ${stats.costs.last24h.cost.toFixed(4)}
+            </div>
             <p className="text-xs text-slate-500 mt-1">
               {stats.costs.last24h.requests} requests
             </p>
@@ -146,7 +158,9 @@ export default function ClaudeCostDashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-green-600">{cacheHitRate}%</div>
+            <div className="text-3xl font-bold text-green-600">
+              {cacheHitRate}%
+            </div>
             <p className="text-xs text-slate-500 mt-1">
               {stats.cache.entriesInMemory} cached responses
             </p>
@@ -167,7 +181,7 @@ export default function ClaudeCostDashboard() {
             <div className="flex justify-between items-center">
               <span className="text-sm text-slate-600">Without caching:</span>
               <span className="font-semibold">
-                ${(stats.costs.last24h.cost / 0.10).toFixed(4)}
+                ${(stats.costs.last24h.cost / 0.1).toFixed(4)}
               </span>
             </div>
             <div className="flex justify-between items-center">
@@ -177,7 +191,9 @@ export default function ClaudeCostDashboard() {
               </span>
             </div>
             <div className="border-t pt-2 flex justify-between items-center">
-              <span className="text-sm font-semibold">Estimated savings (24h):</span>
+              <span className="text-sm font-semibold">
+                Estimated savings (24h):
+              </span>
               <span className="text-lg font-bold text-green-600">
                 ${estimatedSavings.toFixed(4)} (90%)
               </span>
@@ -199,12 +215,12 @@ export default function ClaudeCostDashboard() {
             {Object.entries(stats.templates).map(([name, tokens]) => (
               <div key={name} className="flex justify-between items-center">
                 <span className="text-sm text-slate-600 capitalize">
-                  {name.replace(/([A-Z])/g, ' $1').trim()}:
+                  {name.replace(/([A-Z])/g, " $1").trim()}:
                 </span>
                 <span className="font-mono text-sm">
                   ~{tokens} tokens
                   <span className="text-xs text-green-600 ml-2">
-                    (${((tokens / 1_000_000) * 0.30).toFixed(6)}/request cached)
+                    (${((tokens / 1_000_000) * 0.3).toFixed(6)}/request cached)
                   </span>
                 </span>
               </div>
@@ -217,9 +233,7 @@ export default function ClaudeCostDashboard() {
       <Card>
         <CardHeader>
           <CardTitle>Usage Breakdown</CardTitle>
-          <CardDescription>
-            API usage and costs by time period
-          </CardDescription>
+          <CardDescription>API usage and costs by time period</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -234,7 +248,12 @@ export default function ClaudeCostDashboard() {
                 {stats.costs.last24h.requests} requests
               </div>
               <div className="text-xs text-slate-500 mt-1">
-                Avg: ${(stats.costs.last24h.cost / Math.max(stats.costs.last24h.requests, 1)).toFixed(6)}/request
+                Avg: $
+                {(
+                  stats.costs.last24h.cost /
+                  Math.max(stats.costs.last24h.requests, 1)
+                ).toFixed(6)}
+                /request
               </div>
             </div>
 
@@ -249,7 +268,12 @@ export default function ClaudeCostDashboard() {
                 {stats.costs.last7d.requests} requests
               </div>
               <div className="text-xs text-slate-500 mt-1">
-                Avg: ${(stats.costs.last7d.cost / Math.max(stats.costs.last7d.requests, 1)).toFixed(6)}/request
+                Avg: $
+                {(
+                  stats.costs.last7d.cost /
+                  Math.max(stats.costs.last7d.requests, 1)
+                ).toFixed(6)}
+                /request
               </div>
             </div>
 
@@ -264,7 +288,12 @@ export default function ClaudeCostDashboard() {
                 {stats.costs.total.requests} requests
               </div>
               <div className="text-xs text-slate-500 mt-1">
-                Avg: ${(stats.costs.total.cost / Math.max(stats.costs.total.requests, 1)).toFixed(6)}/request
+                Avg: $
+                {(
+                  stats.costs.total.cost /
+                  Math.max(stats.costs.total.requests, 1)
+                ).toFixed(6)}
+                /request
               </div>
             </div>
           </div>
@@ -281,25 +310,29 @@ export default function ClaudeCostDashboard() {
             <li className="flex items-start gap-2">
               <span className="text-green-600">✓</span>
               <span>
-                <strong>Prompt caching enabled:</strong> System prompts are cached automatically, saving 90% on repeated queries
+                <strong>Prompt caching enabled:</strong> System prompts are
+                cached automatically, saving 90% on repeated queries
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-green-600">✓</span>
               <span>
-                <strong>Response caching active:</strong> Identical queries are served from cache (1-hour TTL)
+                <strong>Response caching active:</strong> Identical queries are
+                served from cache (1-hour TTL)
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-blue-600">→</span>
               <span>
-                <strong>Rate limiting:</strong> 50 requests/min per client to prevent API limits
+                <strong>Rate limiting:</strong> 50 requests/min per client to
+                prevent API limits
               </span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-blue-600">→</span>
               <span>
-                <strong>Cost tracking:</strong> Real-time monitoring of API expenses
+                <strong>Cost tracking:</strong> Real-time monitoring of API
+                expenses
               </span>
             </li>
           </ul>

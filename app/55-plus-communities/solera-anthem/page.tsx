@@ -17,7 +17,8 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Solera at Anthem Homes for Sale | Intimate Guard-Gated 55+ Henderson | Dr. Jan Duffy",
+  title:
+    "Solera at Anthem Homes for Sale | Intimate Guard-Gated 55+ Henderson | Dr. Jan Duffy",
   description:
     "Solera at Anthem - intimate guard-gated 55+ community in Henderson. Homes from $380K-$650K. Lower HOA fees, close-knit atmosphere. Dr. Jan Duffy, REALTOR®. Call (702) 500-1942.",
   keywords: [
@@ -89,8 +90,8 @@ export default function SoleraAnthemPage() {
               Solera at Anthem
             </h1>
             <p className="text-xl text-slate-600">
-              The close-knit alternative to mega-communities. Guard-gated security
-              in Henderson.
+              The close-knit alternative to mega-communities. Guard-gated
+              security in Henderson.
             </p>
           </div>
 
@@ -133,11 +134,11 @@ export default function SoleraAnthemPage() {
               </h2>
               <p>
                 <strong>Solera at Anthem</strong> offers something increasingly
-                rare in Las Vegas 55+ living—a genuinely intimate community where
-                neighbors become friends. With approximately 1,200 homes, Solera
-                is significantly smaller than Sun City's 7,000+ home developments,
-                creating a close-knit atmosphere that larger communities simply
-                can't replicate.
+                rare in Las Vegas 55+ living—a genuinely intimate community
+                where neighbors become friends. With approximately 1,200 homes,
+                Solera is significantly smaller than Sun City's 7,000+ home
+                developments, creating a close-knit atmosphere that larger
+                communities simply can't replicate.
               </p>
               <p>
                 Built by Del Webb from 2002-2006, Solera features guard-gated
@@ -148,9 +149,10 @@ export default function SoleraAnthemPage() {
                 community demographic.
               </p>
               <p>
-                Dr. Jan Duffy helps buyers who value community over amenity overload. Dr. Jan
-                Duffy understands why some buyers prefer Solera's intimate scale
-                and all-55+ requirement to larger developments.
+                Dr. Jan Duffy helps buyers who value community over amenity
+                overload. Dr. Jan Duffy understands why some buyers prefer
+                Solera's intimate scale and all-55+ requirement to larger
+                developments.
               </p>
             </div>
           </section>
@@ -259,9 +261,9 @@ export default function SoleraAnthemPage() {
                       Top Safety Rankings
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Henderson Police publish a 90-day crime map online within the
-                      cities in America. Double security: Henderson's safety plus
-                      Solera's guard gate.
+                      Henderson Police publish a 90-day crime map online within
+                      the cities in America. Double security: Henderson's safety
+                      plus Solera's guard gate.
                     </p>
                   </div>
                 </div>
@@ -335,7 +337,8 @@ export default function SoleraAnthemPage() {
                     All residents 55+—no exceptions
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    Consistent community demographic with shared life experiences
+                    Consistent community demographic with shared life
+                    experiences
                   </p>
                 </div>
               </div>
@@ -346,8 +349,8 @@ export default function SoleraAnthemPage() {
                     Guard-gated entry in Henderson
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    Double layer of security: Henderson's safety record plus 24/7
-                    guard gate
+                    Double layer of security: Henderson's safety record plus
+                    24/7 guard gate
                   </p>
                 </div>
               </div>
@@ -358,8 +361,8 @@ export default function SoleraAnthemPage() {
                     Lower HOA than mega-communities
                   </strong>
                   <p className="text-slate-600 text-sm">
-                    Pay for what you use, not massive golf courses and rec centers
-                    you may not need
+                    Pay for what you use, not massive golf courses and rec
+                    centers you may not need
                   </p>
                 </div>
               </div>
@@ -373,10 +376,9 @@ export default function SoleraAnthemPage() {
                 "Solera at Anthem is perfect for buyers who find Sun City
                 overwhelming. It's intimate, genuinely guard-gated, and everyone
                 is actually 55+. The community feels like a neighborhood, not a
-                small city. As a{" "}
-                local REALTOR®, I often
-                recommend Solera to buyers who prioritize community connection
-                over endless amenities."
+                small city. As a local REALTOR®, I often recommend Solera to
+                buyers who prioritize community connection over endless
+                amenities."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -391,7 +393,8 @@ export default function SoleraAnthemPage() {
             </h2>
             <p className="text-xl text-teal-100 mb-8">
               Discover why Solera at Anthem offers the close-knit community
-              experience larger developments can't match. Tour with Dr. Jan Duffy.
+              experience larger developments can't match. Tour with Dr. Jan
+              Duffy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <a

@@ -12,10 +12,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const config = getDomainConfig(domain);
   return {
     metadataBase: new URL(SITE_BRAND.url),
-    title: {
-      default: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR®`,
-      template: "%s | Dr. Jan Duffy — Las Vegas",
-    },
+    // No title.template — child pages already include full branded titles
+    title: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR®`,
     description: config.description,
     keywords: config.keywords,
     openGraph: {
@@ -28,12 +26,19 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
         {/* RealScout — load once globally (em.realscout.com script + www.realscout.com API) */}
-        <Script src="https://em.realscout.com/widgets/realscout-web-components.js" strategy="afterInteractive" />
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.js"
+          strategy="afterInteractive"
+        />
         {/* WidgetTracker */}
         <Script id="widget-tracker" strategy="afterInteractive">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
@@ -45,28 +50,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.widgetTracker("send","pageview");
         `}</Script>
       </head>
-                {/* Google Tag */}
-        {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
-          <>
-            <Script
-              id="google-tag"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-tag-config" strategy="afterInteractive">
-              {`
+      {/* Google Tag */}
+      {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
+        <>
+          <Script
+            id="google-tag"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-tag-config" strategy="afterInteractive">
+            {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
               `}
-            </Script>
-          </>
-        )}
-{/* Facebook Pixel */}
-        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
-          <Script id="facebook-pixel" strategy="afterInteractive">
-            {`
+          </Script>
+        </>
+      )}
+      {/* Facebook Pixel */}
+      {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+        <Script id="facebook-pixel" strategy="afterInteractive">
+          {`
               !function(f,b,e,v,n,t,s)
               {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -78,8 +83,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
               fbq('track', 'PageView');
             `}
-          </Script>
-        )}
+        </Script>
+      )}
       <body>
         {children}
         <Analytics />

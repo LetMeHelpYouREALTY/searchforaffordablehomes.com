@@ -20,7 +20,11 @@ export default function Navbar() {
 
   const mainNavLinks = [
     { href: "/", label: "Home", external: false },
-    { href: "http://drjanduffy.realscout.com/", label: "Properties", external: true },
+    {
+      href: "http://drjanduffy.realscout.com/",
+      label: "Properties",
+      external: true,
+    },
     { href: "/neighborhoods", label: "Neighborhoods", external: false },
     { href: "/about", label: "About", external: false },
     { href: "/contact", label: "Contact", external: false },
@@ -50,7 +54,9 @@ export default function Navbar() {
               Dr. Jan Duffy
               <span className="text-blue-600"> REALTOR®</span>
             </span>
-            <span className="text-xs text-slate-500 hidden sm:block">Search for Affordable Homes</span>
+            <span className="text-xs text-slate-500 hidden sm:block">
+              Search for Affordable Homes
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -74,7 +80,7 @@ export default function Navbar() {
                 >
                   {link.label}
                 </Link>
-              )
+              ),
             )}
 
             {/* Services Dropdown */}
@@ -84,10 +90,10 @@ export default function Navbar() {
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     setIsServicesOpen(!isServicesOpen);
-                  } else if (e.key === 'Escape') {
+                  } else if (e.key === "Escape") {
                     setIsServicesOpen(false);
                   }
                 }}
@@ -122,9 +128,9 @@ export default function Navbar() {
             </div>
 
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17025001942" className="flex items-center gap-2">
+              <Link href="tel:+17022221964" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">(702) 500-1942</span>
+                <span className="hidden xl:inline">(702) 222-1964</span>
                 <span className="xl:hidden">Call</span>
               </Link>
             </Button>
@@ -133,7 +139,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-3">
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17025001942">
+              <Link href="tel:+17022221964">
                 <Phone className="h-4 w-4" />
               </Link>
             </Button>
@@ -143,7 +149,11 @@ export default function Navbar() {
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+              {isMobileMenuOpen ? (
+                <X size={24} aria-hidden="true" />
+              ) : (
+                <Menu size={24} aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
@@ -173,7 +183,7 @@ export default function Navbar() {
                   >
                     {link.label}
                   </Link>
-                )
+                ),
               )}
 
               {/* Services Section */}
@@ -194,13 +204,16 @@ export default function Navbar() {
               </div>
 
               <div className="pt-4">
-                <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
+                <Button
+                  asChild
+                  className="bg-blue-600 hover:bg-blue-700 w-full"
+                >
                   <Link
-                    href="tel:+17025001942"
+                    href="tel:+17022221964"
                     className="flex items-center justify-center gap-2"
                   >
                     <Phone className="h-4 w-4" />
-                    Call Dr. Jan: (702) 500-1942
+                    Call Dr. Jan: (702) 222-1964
                   </Link>
                 </Button>
               </div>

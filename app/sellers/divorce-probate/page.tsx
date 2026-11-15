@@ -36,9 +36,13 @@ export default function DivorceProbatePage() {
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
               {" / "}
-              <Link href="/sellers" className="hover:text-blue-600">Sellers</Link>
+              <Link href="/sellers" className="hover:text-blue-600">
+                Sellers
+              </Link>
               {" / "}
               <span className="text-slate-900">Divorce & Probate</span>
             </nav>
@@ -51,11 +55,13 @@ export default function DivorceProbatePage() {
               Handled with Discretion & Professionalism
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Difficult Situations,<br />Expert Guidance
+              Difficult Situations,
+              <br />
+              Expert Guidance
             </h1>
             <p className="text-xl text-slate-600 mb-8">
-              When life gets complicated, you need an agent who handles sensitive transactions
-              with discretion, expertise, and compassion.
+              When life gets complicated, you need an agent who handles
+              sensitive transactions with discretion, expertise, and compassion.
             </p>
             <a
               href="tel:+17025001942"
@@ -77,11 +83,14 @@ export default function DivorceProbatePage() {
                   <div className="bg-blue-100 rounded-full p-3 mr-4">
                     <Scale className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="font-bold text-lg text-slate-900">Divorce Sales</h3>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    Divorce Sales
+                  </h3>
                 </div>
                 <p className="text-slate-600 mb-4">
-                  Division of marital assets requires neutral, professional representation.
-                  We work with both parties and their attorneys to ensure a fair sale process.
+                  Division of marital assets requires neutral, professional
+                  representation. We work with both parties and their attorneys
+                  to ensure a fair sale process.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
                   <li className="flex items-center">
@@ -104,11 +113,14 @@ export default function DivorceProbatePage() {
                   <div className="bg-purple-100 rounded-full p-3 mr-4">
                     <FileText className="h-6 w-6 text-purple-600" />
                   </div>
-                  <h3 className="font-bold text-lg text-slate-900">Probate & Estate Sales</h3>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    Probate & Estate Sales
+                  </h3>
                 </div>
                 <p className="text-slate-600 mb-4">
-                  Handling a loved one's estate is emotionally and legally complex.
-                  We guide executors through the sale process while respecting the family.
+                  Handling a loved one's estate is emotionally and legally
+                  complex. We guide executors through the sale process while
+                  respecting the family.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
                   <li className="flex items-center">
@@ -131,11 +143,14 @@ export default function DivorceProbatePage() {
                   <div className="bg-amber-100 rounded-full p-3 mr-4">
                     <Clock className="h-6 w-6 text-amber-600" />
                   </div>
-                  <h3 className="font-bold text-lg text-slate-900">Urgent Sales</h3>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    Urgent Sales
+                  </h3>
                 </div>
                 <p className="text-slate-600 mb-4">
-                  Job relocation, health issues, or financial pressure sometimes require
-                  fast action. We price strategically and market aggressively.
+                  Job relocation, health issues, or financial pressure sometimes
+                  require fast action. We price strategically and market
+                  aggressively.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
                   <li className="flex items-center">
@@ -158,11 +173,13 @@ export default function DivorceProbatePage() {
                   <div className="bg-green-100 rounded-full p-3 mr-4">
                     <Users className="h-6 w-6 text-green-600" />
                   </div>
-                  <h3 className="font-bold text-lg text-slate-900">Multi-Party Sales</h3>
+                  <h3 className="font-bold text-lg text-slate-900">
+                    Multi-Party Sales
+                  </h3>
                 </div>
                 <p className="text-slate-600 mb-4">
-                  Multiple heirs, business partners, or co-owners? We facilitate consensus
-                  and keep everyone informed throughout the process.
+                  Multiple heirs, business partners, or co-owners? We facilitate
+                  consensus and keep everyone informed throughout the process.
                 </p>
                 <ul className="space-y-2 text-sm text-slate-700">
                   <li className="flex items-center">
@@ -192,30 +209,38 @@ export default function DivorceProbatePage() {
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <Lock className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Confidentiality First</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Confidentiality First
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  Your situation stays private. We don't discuss circumstances with other agents
-                  or include details in marketing that could compromise your privacy.
+                  Your situation stays private. We don't discuss circumstances
+                  with other agents or include details in marketing that could
+                  compromise your privacy.
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <Scale className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Neutral & Professional</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Neutral & Professional
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  In multi-party situations, we represent the property's sale—not one party over
-                  another. Fair, documented processes protect everyone.
+                  In multi-party situations, we represent the property's
+                  sale—not one party over another. Fair, documented processes
+                  protect everyone.
                 </p>
               </div>
               <div className="text-center">
                 <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <Heart className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">Compassionate Guidance</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Compassionate Guidance
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  These aren't just transactions—they're life transitions. We handle them with
-                  the care and respect your situation deserves.
+                  These aren't just transactions—they're life transitions. We
+                  handle them with the care and respect your situation deserves.
                 </p>
               </div>
             </div>
@@ -231,8 +256,8 @@ export default function DivorceProbatePage() {
                 </h3>
               </div>
               <p className="text-slate-700 mb-4">
-                Divorce, probate, and estate sales involve legal complexities beyond standard
-                real estate. We coordinate seamlessly with:
+                Divorce, probate, and estate sales involve legal complexities
+                beyond standard real estate. We coordinate seamlessly with:
               </p>
               <div className="grid md:grid-cols-3 gap-4">
                 <ul className="space-y-2 text-slate-700">
@@ -276,63 +301,75 @@ export default function DivorceProbatePage() {
             </h2>
             <div className="prose prose-lg max-w-none text-slate-700 mb-8">
               <p>
-                Nevada has unique laws that affect divorce and probate real estate sales. Understanding
-                these nuances is critical for a smooth transaction. Dr. Jan Duffy has extensive experience
+                Nevada has unique laws that affect divorce and probate real
+                estate sales. Understanding these nuances is critical for a
+                smooth transaction. Dr. Jan Duffy has extensive experience
                 navigating Nevada's specific requirements.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white border border-slate-200 rounded-xl p-6">
-                <h3 className="font-bold text-lg text-slate-900 mb-4">Nevada Divorce Sales</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-4">
+                  Nevada Divorce Sales
+                </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start">
                     <Scale className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong>Community Property State:</strong> Nevada is one of nine community property
-                      states. Assets acquired during marriage are typically split 50/50, including real
-                      estate appreciation.
+                      <strong>Community Property State:</strong> Nevada is one
+                      of nine community property states. Assets acquired during
+                      marriage are typically split 50/50, including real estate
+                      appreciation.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <Scale className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong>Joint Decision Required:</strong> Both spouses must agree on listing price,
-                      offers, and closing terms—or a court order is needed. Dr. Jan facilitates agreement
+                      <strong>Joint Decision Required:</strong> Both spouses
+                      must agree on listing price, offers, and closing terms—or
+                      a court order is needed. Dr. Jan facilitates agreement
                       through documented processes.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <Scale className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong>Court Approval:</strong> Some divorce decrees require court approval for
-                      real estate sales. Dr. Jan coordinates timing with your attorney.
+                      <strong>Court Approval:</strong> Some divorce decrees
+                      require court approval for real estate sales. Dr. Jan
+                      coordinates timing with your attorney.
                     </div>
                   </li>
                 </ul>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6">
-                <h3 className="font-bold text-lg text-slate-900 mb-4">Nevada Probate Sales</h3>
+                <h3 className="font-bold text-lg text-slate-900 mb-4">
+                  Nevada Probate Sales
+                </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start">
                     <FileText className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong>Probate Timeline:</strong> Nevada probate typically takes 6-12 months. Real
-                      estate can often be sold during this period with proper court authorization.
+                      <strong>Probate Timeline:</strong> Nevada probate
+                      typically takes 6-12 months. Real estate can often be sold
+                      during this period with proper court authorization.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <FileText className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong>Letters Testamentary:</strong> The personal representative needs Letters
-                      Testamentary to legally sell. We wait for these before listing but can prepare
-                      the property in advance.
+                      <strong>Letters Testamentary:</strong> The personal
+                      representative needs Letters Testamentary to legally sell.
+                      We wait for these before listing but can prepare the
+                      property in advance.
                     </div>
                   </li>
                   <li className="flex items-start">
                     <FileText className="h-5 w-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong>Court Confirmation:</strong> Some sales require court confirmation, especially
-                      if sold below appraised value. Dr. Jan understands these requirements and timelines.
+                      <strong>Court Confirmation:</strong> Some sales require
+                      court confirmation, especially if sold below appraised
+                      value. Dr. Jan understands these requirements and
+                      timelines.
                     </div>
                   </li>
                 </ul>
@@ -347,56 +384,81 @@ export default function DivorceProbatePage() {
             </h2>
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                  1
+                </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Confidential Initial Consultation</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Confidential Initial Consultation
+                  </h3>
                   <p className="text-slate-600">
-                    We start with a private conversation—in person, by phone, or video. Dr. Jan learns about
-                    your situation, timeline, and concerns. For divorce cases, she can meet with parties
+                    We start with a private conversation—in person, by phone, or
+                    video. Dr. Jan learns about your situation, timeline, and
+                    concerns. For divorce cases, she can meet with parties
                     separately if needed. All discussions are confidential.
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                  2
+                </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Professional Valuation & Documentation</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Professional Valuation & Documentation
+                  </h3>
                   <p className="text-slate-600">
-                    A comprehensive market analysis provides an objective valuation—crucial for divorce
-                    settlements and probate proceedings. This documented valuation can be submitted to
+                    A comprehensive market analysis provides an objective
+                    valuation—crucial for divorce settlements and probate
+                    proceedings. This documented valuation can be submitted to
                     courts and attorneys as needed.
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
+                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                  3
+                </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Coordinated Listing Strategy</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Coordinated Listing Strategy
+                  </h3>
                   <p className="text-slate-600">
-                    Once all parties agree (or court authorization is obtained), we list the property with
-                    appropriate marketing. We can use discrete marketing if privacy is a priority, or
-                    full exposure if speed is the goal.
+                    Once all parties agree (or court authorization is obtained),
+                    we list the property with appropriate marketing. We can use
+                    discrete marketing if privacy is a priority, or full
+                    exposure if speed is the goal.
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">4</div>
+                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                  4
+                </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Multi-Party Communication</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Multi-Party Communication
+                  </h3>
                   <p className="text-slate-600">
-                    All parties and their representatives receive the same information simultaneously.
-                    Showings, offers, and negotiations are documented and shared transparently. No one
+                    All parties and their representatives receive the same
+                    information simultaneously. Showings, offers, and
+                    negotiations are documented and shared transparently. No one
                     is left out of the loop.
                   </p>
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">5</div>
+                <div className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                  5
+                </div>
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
-                  <h3 className="font-bold text-slate-900 mb-2">Clean Closing & Distribution</h3>
+                  <h3 className="font-bold text-slate-900 mb-2">
+                    Clean Closing & Distribution
+                  </h3>
                   <p className="text-slate-600">
-                    We coordinate with the title company to ensure proceeds are distributed according to
-                    court orders or agreements. For probate, we ensure proper documentation for estate
+                    We coordinate with the title company to ensure proceeds are
+                    distributed according to court orders or agreements. For
+                    probate, we ensure proper documentation for estate
                     accounting.
                   </p>
                 </div>
@@ -436,7 +498,10 @@ export default function DivorceProbatePage() {
                   a: "The mortgage is paid off at closing from the sale proceeds. If the home is underwater (worth less than owed), options include short sale negotiation with the lender or other arrangements. Dr. Jan can advise on the best approach for your situation.",
                 },
               ].map((faq, index) => (
-                <div key={index} className="bg-white border border-slate-200 rounded-lg p-6">
+                <div
+                  key={index}
+                  className="bg-white border border-slate-200 rounded-lg p-6"
+                >
                   <h3 className="font-bold text-slate-900 mb-2">{faq.q}</h3>
                   <p className="text-slate-600">{faq.a}</p>
                 </div>
@@ -452,26 +517,36 @@ export default function DivorceProbatePage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
                 <Shield className="h-10 w-10 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Credibility & Trust</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Credibility & Trust
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  Dr. Jan's reputation carries weight with attorneys, judges, and opposing parties. Her valuations and processes are respected for their integrity.
+                  Dr. Jan's reputation carries weight with attorneys, judges,
+                  and opposing parties. Her valuations and processes are
+                  respected for their integrity.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
                 <Scale className="h-10 w-10 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Professional Standards</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Professional Standards
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  Dr. Jan follows strict ethical guidelines and documentation standards. This
-                  protects all parties and provides a defensible paper trail for legal proceedings.
+                  Dr. Jan follows strict ethical guidelines and documentation
+                  standards. This protects all parties and provides a defensible
+                  paper trail for legal proceedings.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
                 <Users className="h-10 w-10 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-slate-900 mb-2">Expert Network</h3>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Expert Network
+                </h3>
                 <p className="text-slate-600 text-sm">
-                  Dr. Jan has established relationships with family law attorneys, probate
-                  specialists, and estate planners throughout Las Vegas. She can refer trusted
-                  professionals if you need legal guidance.
+                  Dr. Jan has established relationships with family law
+                  attorneys, probate specialists, and estate planners throughout
+                  Las Vegas. She can refer trusted professionals if you need
+                  legal guidance.
                 </p>
               </div>
             </div>
@@ -481,11 +556,13 @@ export default function DivorceProbatePage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-900 text-white rounded-xl p-8">
               <blockquote className="text-lg italic mb-4">
-                "When you're going through a divorce or handling a loved one's estate, the last
-                thing you need is real estate stress. I've handled hundreds of sensitive transactions,
-                and I understand these situations require more than market expertise—they require
-                discretion, patience, and genuine care. I bring the resources and credibility these situations demand. Your privacy and
-                peace of mind come first."
+                "When you're going through a divorce or handling a loved one's
+                estate, the last thing you need is real estate stress. I've
+                handled hundreds of sensitive transactions, and I understand
+                these situations require more than market expertise—they require
+                discretion, patience, and genuine care. I bring the resources
+                and credibility these situations demand. Your privacy and peace
+                of mind come first."
               </blockquote>
               <cite className="text-slate-300 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -499,8 +576,8 @@ export default function DivorceProbatePage() {
               Confidential Consultation
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Discuss your situation privately with Dr. Jan. No pressure, no judgment—just
-              professional guidance to help you move forward.
+              Discuss your situation privately with Dr. Jan. No pressure, no
+              judgment—just professional guidance to help you move forward.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -522,7 +599,9 @@ export default function DivorceProbatePage() {
             </p>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <RealScoutListings />
       <Footer />

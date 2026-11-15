@@ -1,6 +1,6 @@
 /**
  * Follow Up Boss Automation Utilities
- * 
+ *
  * Common automation tasks:
  * - Lead sync from external sources
  * - Bulk operations
@@ -9,7 +9,7 @@
  * - Report generation
  */
 
-import { FollowUpBossClient, FUBPerson, FUBListOptions } from './client';
+import { FollowUpBossClient, FUBPerson, FUBListOptions } from "./client";
 
 export class FUBAutomation {
   private client: FollowUpBossClient;
@@ -32,7 +32,7 @@ export class FUBAutomation {
       source: string;
       message?: string;
       [key: string]: any;
-    }>
+    }>,
   ): Promise<{
     created: number;
     updated: number;
@@ -73,7 +73,7 @@ export class FUBAutomation {
         if (lead.message) {
           await this.client.createEvent({
             source: lead.source,
-            type: 'Inbound Lead',
+            type: "Inbound Lead",
             message: lead.message,
             personId: person.id,
           });
@@ -87,7 +87,7 @@ export class FUBAutomation {
       } catch (error) {
         results.failed++;
         results.errors.push(
-          `Failed to sync ${lead.name}: ${error instanceof Error ? error.message : 'Unknown error'}`
+          `Failed to sync ${lead.name}: ${error instanceof Error ? error.message : "Unknown error"}`,
         );
       }
     }
@@ -100,7 +100,7 @@ export class FUBAutomation {
    */
   async bulkAddTag(
     options: FUBListOptions,
-    tag: string
+    tag: string,
   ): Promise<{ processed: number; failed: number }> {
     let processed = 0;
     let failed = 0;
@@ -123,7 +123,7 @@ export class FUBAutomation {
    */
   async bulkUpdateStage(
     options: FUBListOptions,
-    stage: string
+    stage: string,
   ): Promise<{ processed: number; failed: number }> {
     let processed = 0;
     let failed = 0;
@@ -145,7 +145,7 @@ export class FUBAutomation {
    * Auto-progress leads based on activity age
    */
   async progressStaleLeads(
-    daysInactive: number = 30
+    daysInactive: number = 30,
   ): Promise<{ processed: number; moved: number }> {
     const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - daysInactive);
@@ -164,19 +164,19 @@ export class FUBAutomation {
 
       // Define stage progression rules
       const stageMap: Record<string, string> = {
-        'New Lead': 'Cold Lead',
-        'Contacted': 'Nurture',
-        'Active Buyer': 'Nurture',
-        'Active Seller': 'Nurture',
+        "New Lead": "Cold Lead",
+        Contacted: "Nurture",
+        "Active Buyer": "Nurture",
+        "Active Seller": "Nurture",
       };
 
-      const newStage = stageMap[person.stage || ''];
+      const newStage = stageMap[person.stage || ""];
       if (newStage) {
         try {
           await this.client.updateStage(person.id, newStage);
           await this.client.createEvent({
-            source: 'automation',
-            type: 'Stage Change',
+            source: "automation",
+            type: "Stage Change",
             message: `Auto-moved to ${newStage} - ${daysInactive} days inactive`,
             personId: person.id,
           });
@@ -193,11 +193,13 @@ export class FUBAutomation {
   /**
    * Find and merge duplicate leads
    */
-  async findDuplicates(): Promise<Array<{
-    email?: string;
-    phone?: string;
-    people: FUBPerson[];
-  }>> {
+  async findDuplicates(): Promise<
+    Array<{
+      email?: string;
+      phone?: string;
+      people: FUBPerson[];
+    }>
+  > {
     const duplicates: Array<{
       email?: string;
       phone?: string;
@@ -233,7 +235,7 @@ export class FUBAutomation {
     const phoneGroups = new Map<string, FUBPerson[]>();
     for (const person of people) {
       if (person.phones && person.phones.length > 0) {
-        const phone = person.phones[0].value.replace(/\D/g, '');
+        const phone = person.phones[0].value.replace(/\D/g, "");
         if (!phoneGroups.has(phone)) {
           phoneGroups.set(phone, []);
         }
@@ -244,8 +246,8 @@ export class FUBAutomation {
     // Find phone duplicates
     Array.from(phoneGroups.entries()).forEach(([phone, group]) => {
       if (group.length > 1) {
-        const existingDup = duplicates.find(d => 
-          d.people.some(p => group.some(g => g.id === p.id))
+        const existingDup = duplicates.find((d) =>
+          d.people.some((p) => group.some((g) => g.id === p.id)),
         );
         if (!existingDup) {
           duplicates.push({ phone, people: group });
@@ -260,7 +262,7 @@ export class FUBAutomation {
    * Generate lead source report
    */
   async generateSourceReport(
-    daysBack: number = 30
+    daysBack: number = 30,
   ): Promise<Record<string, { count: number; percentage: number }>> {
     const cutoffDate = new Date();
     cutoffDate.setDate(cutoffDate.getDate() - daysBack);
@@ -276,7 +278,7 @@ export class FUBAutomation {
     // Count by source
     const sourceCounts: Record<string, number> = {};
     for (const person of people) {
-      const source = person.source || 'Unknown';
+      const source = person.source || "Unknown";
       sourceCounts[source] = (sourceCounts[source] || 0) + 1;
     }
 
@@ -300,7 +302,7 @@ export class FUBAutomation {
     const stageCounts: Record<string, number> = {};
 
     for await (const person of this.client.getAllPeople({ limit: 100 })) {
-      const stage = person.stage || 'No Stage';
+      const stage = person.stage || "No Stage";
       stageCounts[stage] = (stageCounts[stage] || 0) + 1;
     }
 
@@ -317,7 +319,7 @@ export class FUBAutomation {
       homeOwner?: boolean;
       creditScore?: number;
       demographics?: Record<string, any>;
-    }
+    },
   ): Promise<void> {
     const person = await this.client.getPerson(personId);
 
@@ -333,9 +335,9 @@ export class FUBAutomation {
 
     // Add event
     await this.client.createEvent({
-      source: 'enrichment',
-      type: 'Data Enrichment',
-      message: `Lead enriched with additional data: ${Object.keys(enrichmentData).join(', ')}`,
+      source: "enrichment",
+      type: "Data Enrichment",
+      message: `Lead enriched with additional data: ${Object.keys(enrichmentData).join(", ")}`,
       personId,
       data: enrichmentData,
     });
@@ -346,7 +348,7 @@ export class FUBAutomation {
    */
   async autoAssignLeads(
     criteria: FUBListOptions,
-    assignToUserId: number
+    assignToUserId: number,
   ): Promise<{ assigned: number; failed: number }> {
     let assigned = 0;
     let failed = 0;
@@ -356,8 +358,8 @@ export class FUBAutomation {
         // FUB API doesn't have direct assignment endpoint
         // This would typically be done through custom fields or tags
         await this.client.createEvent({
-          source: 'automation',
-          type: 'Assignment',
+          source: "automation",
+          type: "Assignment",
           message: `Auto-assigned to user ${assignToUserId}`,
           personId: person.id,
           data: { assignedUserId: assignToUserId },
@@ -377,31 +379,31 @@ export class FUBAutomation {
    */
   async cleanupTestLeads(): Promise<{ found: number; cleaned: number }> {
     const testPatterns = [
-      'test',
-      'demo',
-      'example',
-      'asdf',
-      'qwerty',
-      'john.doe@example.com',
+      "test",
+      "demo",
+      "example",
+      "asdf",
+      "qwerty",
+      "john.doe@example.com",
     ];
 
     let found = 0;
     let cleaned = 0;
 
     for await (const person of this.client.getAllPeople({ limit: 100 })) {
-      const name = (person.name || '').toLowerCase();
-      const email = person.emails?.[0]?.value.toLowerCase() || '';
+      const name = (person.name || "").toLowerCase();
+      const email = person.emails?.[0]?.value.toLowerCase() || "";
 
-      const isTest = testPatterns.some(pattern => 
-        name.includes(pattern) || email.includes(pattern)
+      const isTest = testPatterns.some(
+        (pattern) => name.includes(pattern) || email.includes(pattern),
       );
 
       if (isTest) {
         found++;
-        
+
         try {
           // Add tag instead of deleting (safer)
-          await this.client.addTag(person.id, 'test-lead');
+          await this.client.addTag(person.id, "test-lead");
           cleaned++;
         } catch (error) {
           console.error(`Failed to tag test lead ${person.id}:`, error);

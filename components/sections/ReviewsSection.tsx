@@ -122,7 +122,9 @@ export default function ReviewsSection({
                     />
                   ) : (
                     <div className="w-full h-full bg-slate-200 flex items-center justify-center">
-                      <span className="text-slate-400 text-sm">{review.name[0]}</span>
+                      <span className="text-slate-400 text-sm">
+                        {review.name[0]}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -134,14 +136,24 @@ export default function ReviewsSection({
                 </div>
               </div>
 
-              <div className="flex items-center mb-4" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                <meta itemProp="ratingValue" content={review.rating.toString()} />
+              <div
+                className="flex items-center mb-4"
+                itemProp="reviewRating"
+                itemScope
+                itemType="https://schema.org/Rating"
+              >
+                <meta
+                  itemProp="ratingValue"
+                  content={review.rating.toString()}
+                />
                 <meta itemProp="bestRating" content="5" />
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
                     className={`h-5 w-5 ${
-                      i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-slate-300"
+                      i < review.rating
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-slate-300"
                     }`}
                   />
                 ))}
@@ -149,7 +161,10 @@ export default function ReviewsSection({
 
               <div className="relative">
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
-                <p className="text-slate-700 relative z-10 pl-4" itemProp="reviewBody">
+                <p
+                  className="text-slate-700 relative z-10 pl-4"
+                  itemProp="reviewBody"
+                >
                   {review.text}
                 </p>
               </div>

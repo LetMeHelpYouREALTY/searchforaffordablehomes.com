@@ -1,0 +1,13 @@
+# Duplicated agent skill trees (not a product formatting gate)
+.agent/**
+.agents/**
+.claude/**
+.cursor/skills/**
+.windsurf/**
+node_modules/**
+.next/**
+.vercel/**
+coverage/**
+pnpm-lock.yaml
+package-lock.json
+TESTING_GUIDE.md

@@ -19,9 +19,9 @@ export const agentInfo = {
   name: "Dr. Jan Duffy",
   title: "REALTOR®",
   license: "S.0197614.LLC",
-  phone: "(702) 500-1942",
-  phoneFormatted: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: "(702) 222-1964",
+  phoneFormatted: "(702) 222-1964",
+  phoneTel: "tel:+17022221964",
   email: "homes@heyberkshire.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
@@ -36,11 +36,11 @@ export const officeInfo = {
     full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
   },
   coordinates: {
-    lat: 36.1893,
-    lng: -115.2821,
+    lat: 36.2074,
+    lng: -115.3009,
   },
-  phone: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: "(702) 222-1964",
+  phoneTel: "tel:+17022221964",
 };
 
 // Market Statistics (Updated January 2026)
@@ -102,16 +102,28 @@ export const neighborhoods = [
   {
     name: "Summerlin",
     slug: "summerlin",
-    description: "Master-planned community with parks, trails, and nearby public schools",
+    description:
+      "Master-planned community with parks, trails, and nearby public schools",
     medianPrice: "$625,000",
-    highlights: ["Red Rock views", "150+ parks", "Nearby public schools", "Golf courses"],
+    highlights: [
+      "Red Rock views",
+      "150+ parks",
+      "Nearby public schools",
+      "Golf courses",
+    ],
   },
   {
     name: "Henderson",
     slug: "henderson",
-    description: "Nevada's second-largest city with master-planned neighborhoods",
+    description:
+      "Nevada's second-largest city with master-planned neighborhoods",
     medianPrice: "$485,000",
-    highlights: ["Public crime maps", "Nearby public schools", "Lake Las Vegas", "Green Valley"],
+    highlights: [
+      "Public crime maps",
+      "Nearby public schools",
+      "Lake Las Vegas",
+      "Green Valley",
+    ],
   },
   {
     name: "Green Valley",
@@ -125,14 +137,24 @@ export const neighborhoods = [
     slug: "the-ridges",
     description: "Ultra-luxury guard-gated community in Summerlin",
     medianPrice: "$2.5M",
-    highlights: ["Celebrity homes", "Custom estates", "Bear's Best Golf", "Strip views"],
+    highlights: [
+      "Celebrity homes",
+      "Custom estates",
+      "Bear's Best Golf",
+      "Strip views",
+    ],
   },
   {
     name: "Southern Highlands",
     slug: "southern-highlands",
     description: "Master-planned luxury community with championship golf",
     medianPrice: "$750,000",
-    highlights: ["Golf community", "Guard-gated", "Mountain views", "Luxury amenities"],
+    highlights: [
+      "Golf community",
+      "Guard-gated",
+      "Mountain views",
+      "Luxury amenities",
+    ],
   },
   {
     name: "North Las Vegas",
@@ -146,7 +168,12 @@ export const neighborhoods = [
     slug: "skye-canyon",
     description: "Newer master-planned community in northwest Las Vegas",
     medianPrice: "$550,000",
-    highlights: ["New homes", "Mountain views", "Modern amenities", "Nearby public schools"],
+    highlights: [
+      "New homes",
+      "Mountain views",
+      "Modern amenities",
+      "Nearby public schools",
+    ],
   },
   {
     name: "Centennial Hills",
@@ -160,14 +187,24 @@ export const neighborhoods = [
     slug: "inspirada",
     description: "Henderson master-planned community with resort-style living",
     medianPrice: "$525,000",
-    highlights: ["Resort pools", "Walking trails", "New construction", "Nearby public schools"],
+    highlights: [
+      "Resort pools",
+      "Walking trails",
+      "New construction",
+      "Nearby public schools",
+    ],
   },
   {
     name: "Mountains Edge",
     slug: "mountains-edge",
     description: "Southwest Las Vegas master-planned community",
     medianPrice: "$475,000",
-    highlights: ["Mountain views", "Parks", "Growing area", "Affordable luxury"],
+    highlights: [
+      "Mountain views",
+      "Parks",
+      "Growing area",
+      "Affordable luxury",
+    ],
   },
 ];
 
@@ -176,13 +213,15 @@ export const services = [
   {
     name: "Home Buying",
     slug: "buyers",
-    description: "Expert guidance through every step of the home buying process",
+    description:
+      "Expert guidance through every step of the home buying process",
     icon: "Home",
   },
   {
     name: "Home Selling",
     slug: "sellers",
-    description: "Maximize your home's value with professional marketing and negotiation",
+    description:
+      "Maximize your home's value with professional marketing and negotiation",
     icon: "TrendingUp",
   },
   {
@@ -244,7 +283,8 @@ export const commonFAQs = {
         "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
     },
     {
-      question: "What areas does Berkshire Hathaway HomeServices Nevada Properties cover?",
+      question:
+        "What areas does Berkshire Hathaway HomeServices Nevada Properties cover?",
       answer:
         "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and Henderson's master-planned communities.",
     },

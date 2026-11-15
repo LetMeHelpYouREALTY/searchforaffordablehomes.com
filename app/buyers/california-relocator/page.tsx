@@ -104,7 +104,9 @@ export default function CaliforniaRelocatorPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(realEstateAgentSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(realEstateAgentSchema),
+        }}
       />
       <Navbar />
       <main className="pt-24 pb-16">
@@ -112,9 +114,13 @@ export default function CaliforniaRelocatorPage() {
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
               {" / "}
-              <Link href="/buyers" className="hover:text-blue-600">Buyers</Link>
+              <Link href="/buyers" className="hover:text-blue-600">
+                Buyers
+              </Link>
               {" / "}
               <span className="text-slate-900">California Relocator</span>
             </nav>
@@ -127,7 +133,8 @@ export default function CaliforniaRelocatorPage() {
               37% of Las Vegas Buyers Are From California
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Relocating from California?<br />
+              Relocating from California?
+              <br />
               <span className="text-blue-600">Welcome Home to Las Vegas</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 mb-8">
@@ -146,28 +153,38 @@ export default function CaliforniaRelocatorPage() {
           <section className="mb-16 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="flex items-center justify-center mb-6">
               <Calculator className="h-10 w-10 mr-3" />
-              <h2 className="text-3xl font-bold">California vs. Nevada: The Numbers</h2>
+              <h2 className="text-3xl font-bold">
+                California vs. Nevada: The Numbers
+              </h2>
             </div>
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center bg-white/10 rounded-xl p-6">
                 <div className="text-4xl font-bold mb-2">0%</div>
                 <div className="text-green-100">Nevada State Income Tax</div>
-                <div className="text-sm text-green-200 mt-2">vs. CA 9.3%-13.3%</div>
+                <div className="text-sm text-green-200 mt-2">
+                  vs. CA 9.3%-13.3%
+                </div>
               </div>
               <div className="text-center bg-white/10 rounded-xl p-6">
                 <div className="text-4xl font-bold mb-2">40-60%</div>
                 <div className="text-green-100">Lower Home Prices</div>
-                <div className="text-sm text-green-200 mt-2">Similar quality homes</div>
+                <div className="text-sm text-green-200 mt-2">
+                  Similar quality homes
+                </div>
               </div>
               <div className="text-center bg-white/10 rounded-xl p-6">
                 <div className="text-4xl font-bold mb-2">$150K+</div>
                 <div className="text-green-100">5-Year Savings</div>
-                <div className="text-sm text-green-200 mt-2">$200K income example</div>
+                <div className="text-sm text-green-200 mt-2">
+                  $200K income example
+                </div>
               </div>
             </div>
             <div className="text-center">
               <p className="text-green-100 text-lg">
-                A California family earning $250,000/year saves <strong>$25,000+ annually</strong> in state income tax alone by moving to Nevada.
+                A California family earning $250,000/year saves{" "}
+                <strong>$25,000+ annually</strong> in state income tax alone by
+                moving to Nevada.
               </p>
             </div>
           </section>
@@ -181,7 +198,9 @@ export default function CaliforniaRelocatorPage() {
               <div className="bg-red-50 border border-red-200 rounded-xl p-6">
                 <div className="flex items-center mb-4">
                   <MapPin className="h-6 w-6 text-red-600 mr-2" />
-                  <h3 className="font-bold text-lg text-red-900">In California</h3>
+                  <h3 className="font-bold text-lg text-red-900">
+                    In California
+                  </h3>
                 </div>
                 <ul className="space-y-3 text-red-800">
                   <li className="flex items-start">
@@ -201,7 +220,9 @@ export default function CaliforniaRelocatorPage() {
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                 <div className="flex items-center mb-4">
                   <MapPin className="h-6 w-6 text-green-600 mr-2" />
-                  <h3 className="font-bold text-lg text-green-900">In Las Vegas</h3>
+                  <h3 className="font-bold text-lg text-green-900">
+                    In Las Vegas
+                  </h3>
                 </div>
                 <ul className="space-y-3 text-green-800">
                   <li className="flex items-start">
@@ -234,11 +255,13 @@ export default function CaliforniaRelocatorPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    "The Irvine of Las Vegas" - Master-planned perfection with nearby public schools,
-                    Downtown Summerlin shopping, and Red Rock Canyon views.
+                    "The Irvine of Las Vegas" - Master-planned perfection with
+                    nearby public schools, Downtown Summerlin shopping, and Red
+                    Rock Canyon views.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Families from Orange County, coastal CA
+                    <strong>Best for:</strong> Families from Orange County,
+                    coastal CA
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
@@ -270,11 +293,13 @@ export default function CaliforniaRelocatorPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    Henderson = San Diego suburbs meets tech corridor. Google's data center,
-                    named public schools, and an online police crime map.
+                    Henderson = San Diego suburbs meets tech corridor. Google's
+                    data center, named public schools, and an online police
+                    crime map.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Popular with:</strong> Tech commuters, San Diego relocators
+                    <strong>Popular with:</strong> Tech commuters, San Diego
+                    relocators
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
@@ -306,11 +331,12 @@ export default function CaliforniaRelocatorPage() {
                 </div>
                 <div className="p-6">
                   <p className="text-slate-600 mb-4">
-                    Newport Coast quality, Vegas prices. Guard-gated luxury with Strip views,
-                    celebrity neighbors, and custom estates.
+                    Newport Coast quality, Vegas prices. Guard-gated luxury with
+                    Strip views, celebrity neighbors, and custom estates.
                   </p>
                   <div className="text-sm text-slate-500 mb-4">
-                    <strong>Best for:</strong> Beverly Hills/Newport Beach luxury buyers
+                    <strong>Best for:</strong> Beverly Hills/Newport Beach
+                    luxury buyers
                   </div>
                   <ul className="text-sm space-y-1 text-slate-700">
                     <li className="flex items-center">
@@ -341,40 +367,55 @@ export default function CaliforniaRelocatorPage() {
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="flex items-center mb-6">
               <Briefcase className="h-8 w-8 text-blue-600 mr-3" />
-              <h2 className="text-3xl font-bold text-slate-900">Remote Work, Vegas Lifestyle</h2>
+              <h2 className="text-3xl font-bold text-slate-900">
+                Remote Work, Vegas Lifestyle
+              </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="text-slate-700 mb-4">
-                  Keep your California salary, lose the California taxes. Thousands of tech workers,
-                  executives, and entrepreneurs have discovered that Las Vegas offers the perfect
-                  remote work base:
+                  Keep your California salary, lose the California taxes.
+                  Thousands of tech workers, executives, and entrepreneurs have
+                  discovered that Las Vegas offers the perfect remote work base:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <TrendingUp className="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" />
-                    <span><strong>Same income, lower costs:</strong> Keep your Bay Area salary while paying Nevada prices</span>
+                    <span>
+                      <strong>Same income, lower costs:</strong> Keep your Bay
+                      Area salary while paying Nevada prices
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <Plane className="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" />
-                    <span><strong>Easy travel:</strong> Direct flights to SFO, LAX, SJC for when you need to be in-office</span>
+                    <span>
+                      <strong>Easy travel:</strong> Direct flights to SFO, LAX,
+                      SJC for when you need to be in-office
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <Sun className="h-5 w-5 text-amber-500 mr-2 mt-1 flex-shrink-0" />
-                    <span><strong>Work-life balance:</strong> Golf at 2pm, hike Red Rock after work, world-class dining</span>
+                    <span>
+                      <strong>Work-life balance:</strong> Golf at 2pm, hike Red
+                      Rock after work, world-class dining
+                    </span>
                   </li>
                 </ul>
               </div>
               <div className="bg-white rounded-xl p-6 border border-slate-200">
-                <h3 className="font-bold text-slate-900 mb-4">Henderson Tech Corridor</h3>
+                <h3 className="font-bold text-slate-900 mb-4">
+                  Henderson Tech Corridor
+                </h3>
                 <p className="text-slate-600 mb-4">
-                  Google's $600M data center. Amazon Web Services. Switch Supernap. Henderson is
-                  becoming a legitimate tech hub, with companies attracted by zero corporate
-                  income tax and quality of life.
+                  Google's $600M data center. Amazon Web Services. Switch
+                  Supernap. Henderson is becoming a legitimate tech hub, with
+                  companies attracted by zero corporate income tax and quality
+                  of life.
                 </p>
                 <p className="text-sm text-slate-500">
-                  Many California tech workers find themselves with <em>more</em> local job options
-                  after moving to Vegas than they expected.
+                  Many California tech workers find themselves with{" "}
+                  <em>more</em> local job options after moving to Vegas than
+                  they expected.
                 </p>
               </div>
             </div>
@@ -391,9 +432,11 @@ export default function CaliforniaRelocatorPage() {
                   How much can I save moving from California to Nevada?
                 </h3>
                 <p className="text-slate-600">
-                  Nevada has zero state income tax, saving Californians 9.3%-13.3% depending on
-                  income bracket. Combined with 40-60% lower home prices, a family earning $200K
-                  buying a $600K home could save $150K+ over 5 years compared to staying in California.
+                  Nevada has zero state income tax, saving Californians
+                  9.3%-13.3% depending on income bracket. Combined with 40-60%
+                  lower home prices, a family earning $200K buying a $600K home
+                  could save $150K+ over 5 years compared to staying in
+                  California.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -401,10 +444,11 @@ export default function CaliforniaRelocatorPage() {
                   What neighborhoods do California relocators prefer?
                 </h3>
                 <p className="text-slate-600">
-                  California buyers typically gravitate toward Summerlin (similar to Irvine/coastal
-                  communities), Henderson (master-planned suburbs similar to San Diego's), and The Ridges
-                  (comparable to Newport Coast luxury). These areas offer the quality and amenities
-                  California buyers expect.
+                  California buyers typically gravitate toward Summerlin
+                  (similar to Irvine/coastal communities), Henderson
+                  (master-planned suburbs similar to San Diego's), and The
+                  Ridges (comparable to Newport Coast luxury). These areas offer
+                  the quality and amenities California buyers expect.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -412,9 +456,10 @@ export default function CaliforniaRelocatorPage() {
                   How long does it take to establish Nevada residency?
                 </h3>
                 <p className="text-slate-600">
-                  Nevada residency can be established immediately upon moving. To benefit from no
-                  state income tax, update your driver's license, register your vehicles, and
-                  register to vote in Nevada. Most people complete this within 30 days.
+                  Nevada residency can be established immediately upon moving.
+                  To benefit from no state income tax, update your driver's
+                  license, register your vehicles, and register to vote in
+                  Nevada. Most people complete this within 30 days.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -422,9 +467,10 @@ export default function CaliforniaRelocatorPage() {
                   Are there direct flights from Las Vegas to California?
                 </h3>
                 <p className="text-slate-600">
-                  Yes! Las Vegas has extensive flight options to California. Southwest, United, and
-                  other carriers offer dozens of daily flights to LAX, SFO, SAN, and other California
-                  airports. Flight times are typically 1-1.5 hours.
+                  Yes! Las Vegas has extensive flight options to California.
+                  Southwest, United, and other carriers offer dozens of daily
+                  flights to LAX, SFO, SAN, and other California airports.
+                  Flight times are typically 1-1.5 hours.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -432,10 +478,11 @@ export default function CaliforniaRelocatorPage() {
                   What about schools compared to California?
                 </h3>
                 <p className="text-slate-600">
-                  Nevada public schools overall rank lower than California's, but individual schools
-                  in Summerlin and Henderson rate highly. Many California families choose areas with
-                  nearby public schools or consider private options. Dr. Jan provides school-specific
-                  guidance for every neighborhood.
+                  Nevada public schools overall rank lower than California's,
+                  but individual schools in Summerlin and Henderson rate highly.
+                  Many California families choose areas with nearby public
+                  schools or consider private options. Dr. Jan provides
+                  school-specific guidance for every neighborhood.
                 </p>
               </div>
             </div>
@@ -445,12 +492,13 @@ export default function CaliforniaRelocatorPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-r-xl p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "I've helped hundreds of California families make the move to Las Vegas. The most
-                common reaction? 'Why didn't we do this sooner?' Between the tax savings, the space,
-                and the lifestyle, most clients can't believe what their California equity buys here.
-                As a local REALTOR®, I coordinate with our
-                California offices to make the transition seamless—you don't have to figure this
-                out alone."
+                "I've helped hundreds of California families make the move to
+                Las Vegas. The most common reaction? 'Why didn't we do this
+                sooner?' Between the tax savings, the space, and the lifestyle,
+                most clients can't believe what their California equity buys
+                here. As a local REALTOR®, I coordinate with our California
+                offices to make the transition seamless—you don't have to figure
+                this out alone."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -464,8 +512,9 @@ export default function CaliforniaRelocatorPage() {
               Ready to Start Your Tax-Free Life?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Get a personalized relocation consultation with Dr. Jan Duffy. She'll show you exactly
-              what your California equity buys in Las Vegas and help you find the perfect neighborhood.
+              Get a personalized relocation consultation with Dr. Jan Duffy.
+              She'll show you exactly what your California equity buys in Las
+              Vegas and help you find the perfect neighborhood.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -484,7 +533,9 @@ export default function CaliforniaRelocatorPage() {
             </div>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <RealScoutListings />
       <Footer />
