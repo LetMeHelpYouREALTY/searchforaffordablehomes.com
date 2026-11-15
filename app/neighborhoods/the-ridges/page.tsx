@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The Ridges | Las Vegas Luxury Real Estate",
   description:
-    "Find luxury homes in The Ridges with Dr. Jan Duffy. She specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 500-1942.",
+    "Find luxury homes in The Ridges with Dr. Jan Duffy. She specializes in Summerlin's most exclusive guard-gated community. Median price $2.5M. Call (702) 222-1964.",
   keywords: [
     "The Ridges homes for sale",
     "The Ridges Summerlin",
@@ -501,11 +501,11 @@ export default function TheRidgesPage() {
               or selling in Las Vegas's most prestigious community.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17022221964"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 222-1964
             </a>
           </section>
         </div>

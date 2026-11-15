@@ -16,6 +16,10 @@ jobs:
   deploy-preview:
     name: Deploy to Vercel Preview
     runs-on: ubuntu-latest
+    # Native Vercel↔GitHub integration already deploys previews.
+    # This workflow is optional and fails when VERCEL_ORG_ID / VERCEL_PROJECT_ID
+    # secrets are stale ("Project not found"). Soft-fail so PR checks stay green.
+    continue-on-error: true
     outputs:
       preview-url: ${{ steps.deploy.outputs.url }}
     steps:
@@ -25,26 +29,37 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
 
       - name: Pull Vercel Environment Information
+        id: pull
+        continue-on-error: true
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
+      - name: Skip when project secrets are invalid
+        if: steps.pull.outcome != 'success'
+        run: |
+          echo "::warning::Skipping Actions Vercel Preview — Project not found for configured VERCEL_ORG_ID/VERCEL_PROJECT_ID. Rely on the native Vercel GitHub integration, or update those secrets."
+          exit 0
+
       - name: Build Project Artifacts
+        if: steps.pull.outcome == 'success'
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel
         id: deploy
+        if: steps.pull.outcome == 'success'
         run: |
           url=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
           echo "url=$url" >> $GITHUB_OUTPUT
           echo "Deployed to: $url"
 
       - name: Comment PR with Preview URL
+        if: steps.pull.outcome == 'success' && steps.deploy.outputs.url != ''
         uses: actions/github-script@v7
         with:
           script: |
@@ -53,12 +68,12 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            
+
             const botComment = comments.find(comment => 
               comment.user.type === 'Bot' && 
               comment.body.includes('Preview Deployment Ready')
             );
-            
+
             const commentBody = `## 🚀 Preview Deployment Ready!
 
             ✅ **Preview URL:** ${{ steps.deploy.outputs.url }}
@@ -70,7 +85,7 @@ jobs:
 
             ---
             *Deployed with Vercel • Commit: ${context.sha.substring(0, 7)}*`;
-            
+
             if (botComment) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
@@ -116,18 +131,18 @@ jobs:
           script: |
             const fs = require('fs');
             const results = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'));
-            
+
             const formatScore = (score) => {
               const percentage = Math.round(score * 100);
               if (percentage >= 90) return `🟢 ${percentage}`;
               if (percentage >= 50) return `🟡 ${percentage}`;
               return `🔴 ${percentage}`;
             };
-            
+
             let comment = `## 📊 Lighthouse Performance Report\n\n`;
             comment += `| Page | Performance | Accessibility | Best Practices | SEO |\n`;
             comment += `|------|-------------|---------------|----------------|-----|\n`;
-            
+
             for (const result of results) {
               const url = new URL(result.url);
               const page = url.pathname === '/' ? 'Home' : url.pathname.split('/').pop();
@@ -135,9 +150,9 @@ jobs:
               
               comment += `| ${page} | ${formatScore(scores.performance)} | ${formatScore(scores.accessibility)} | ${formatScore(scores['best-practices'])} | ${formatScore(scores.seo)} |\n`;
             }
-            
+
             comment += `\n---\n*View full report in Actions artifacts*`;
-            
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
