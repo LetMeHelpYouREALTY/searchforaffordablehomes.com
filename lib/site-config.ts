@@ -2,17 +2,17 @@
 // Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
-  name: "HeyBerkshire",
+  name: "Search for Affordable Homes",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Private Client Real Estate Advisory",
-  /** Full brand line for titles and OG: Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory */
+  tagline: "Affordable Las Vegas Homes — Luxury Buyer Representation",
+  /** Full brand line for titles and OG */
   brandLine:
-    "Berkshire Hathaway HomeServices Nevada Properties | Private Client Real Estate Advisory",
+    "Search for Affordable Homes Las Vegas | Dr. Jan Duffy | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
-  url: "https://heyberkshire.com",
+  url: "https://www.searchforaffordablehomes.com",
   description:
-    "Expert real estate services in Las Vegas and Henderson, NV. Buy, sell, or invest with Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent.",
+    "Buy an affordable home in Las Vegas with luxury-level buyer representation from Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
 };
 
 export const agentInfo = {

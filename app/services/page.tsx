@@ -22,14 +22,14 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Real Estate Services Las Vegas",
+  title: "Real Estate Services Las Vegas | Affordable Home Buying",
   description:
-    "Comprehensive real estate services from Dr. Jan Duffy. Buying, selling, luxury, investment, relocation, 55+ communities, and new construction. Call (702) 500-1942.",
+    "Luxury-level real estate services for affordable Las Vegas home buyers — buying, selling, new construction, relocation. Call (702) 222-1964.",
   keywords: [
     "Las Vegas real estate services",
-    "home buying Las Vegas",
+    "affordable home buying Las Vegas",
     "home selling Henderson",
-    "luxury real estate services",
+    "luxury realtor affordable homes",
     "55+ community specialist",
     "California relocation Las Vegas",
   ],
@@ -38,12 +38,15 @@ export const metadata: Metadata = {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  name: "Affordable Home Buying & Full-Service Las Vegas Real Estate",
+  description:
+    "Buyer representation for affordable Las Vegas homes plus selling, new construction, relocation, and 55+ community guidance.",
   provider: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
+    telephone: "+17022221964",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
+  areaServed: "Las Vegas, Henderson, Summerlin, North Las Vegas, Clark County NV",
   serviceType: "Real Estate Services",
 };
 

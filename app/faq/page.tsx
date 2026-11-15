@@ -13,13 +13,13 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "FAQ | Las Vegas Real Estate",
+  title: "FAQ | Affordable Homes Las Vegas",
   description:
-    "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy.",
+    "FAQs about buying an affordable home in Las Vegas, down payments, neighborhoods under $500K, and working with Dr. Jan Duffy. Call (702) 222-1964.",
   keywords: [
-    "Las Vegas real estate questions",
+    "affordable homes Las Vegas FAQ",
     "buying a home Las Vegas",
-    "selling a home Henderson",
+    "first time buyer Las Vegas questions",
   ],
 };
 
@@ -122,8 +122,8 @@ const faqCategories = [
         a: "Absolutely! A nationwide referral network makes relocations seamless. Dr. Jan can coordinate with agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
       },
       {
-        q: "What are the best neighborhoods for families?",
-        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
+        q: "Which Las Vegas areas fit relocating buyers on a budget?",
+        a: "North Las Vegas, Mountain's Edge, Centennial Hills, and Henderson's Cadence offer strong under-$500K inventory with parks, HOA amenities, and 215 Beltway access. Dr. Jan matches commute and floor-plan needs to specific listings.",
       },
       {
         q: "How is the cost of living in Las Vegas?",
@@ -140,7 +140,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: "Call or text (702) 222-1964 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
       },
       {
         q: "What areas does Dr. Jan cover?",

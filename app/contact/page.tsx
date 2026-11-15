@@ -7,14 +7,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Dr. Jan Duffy | Las Vegas",
+  title: "Contact Dr. Jan Duffy | Affordable Homes Las Vegas",
   description:
-    "Contact Dr. Jan Duffy. Schedule an appointment, get directions, or call (702) 500-1942. Las Vegas, Henderson, Summerlin real estate expert.",
+    "Contact Dr. Jan Duffy to buy an affordable Las Vegas home. Call (702) 222-1964. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
   keywords: [
     "contact real estate agent Las Vegas",
     "Dr. Jan Duffy phone",
     "Las Vegas realtor contact",
-    "schedule real estate appointment",
+    "affordable homes Las Vegas contact",
   ],
 };
 
@@ -24,7 +24,7 @@ const contactSchema = {
   mainEntity: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
+    telephone: "+17022221964",
     email: "homes@heyberkshire.com",
     address: {
       "@type": "PostalAddress",
@@ -53,11 +53,11 @@ export default function ContactPage() {
               Top 1% Las Vegas REALTOR®
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Contact Dr. Jan Duffy
+              Contact Dr. Jan Duffy to Buy an Affordable Las Vegas Home
             </h1>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Questions about Las Vegas real estate? Your{" "} Las Vegas real estate expert is here to help. 
-              Schedule an appointment or reach out directly.
+            <p className="aeo-answer text-xl text-slate-600 max-w-2xl mx-auto">
+              Call or text (702) 222-1964 for buyer help under $500K. Office at 9406 W Lake Mead Blvd,
+              Suite 100, Las Vegas, NV 89134 — Mon–Fri 9am–6pm, Sat 10am–4pm.
             </p>
           </div>
 
@@ -77,10 +77,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Phone (Call or Text)</h3>
                     <a
-                      href="tel:+17025001942"
+                      href="tel:+17022221964"
                       className="text-2xl font-bold text-blue-600 hover:text-blue-700"
                     >
-                      (702) 500-1942
+                      (702) 222-1964
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
                       Available 7 days a week, 9am-6pm

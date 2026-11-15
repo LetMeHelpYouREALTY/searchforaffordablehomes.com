@@ -5,18 +5,25 @@ import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
   const config = getDomainConfig(domain);
   return {
-    title: `${config.neighborhood} | Dr. Jan Duffy, REALTOR®`,
+    metadataBase: new URL(SITE_BRAND.url),
+    title: {
+      default: `${config.heroHeadline} | Dr. Jan Duffy, REALTOR®`,
+      template: "%s | Dr. Jan Duffy — Las Vegas",
+    },
     description: config.description,
     keywords: config.keywords,
     openGraph: {
       title: config.heroHeadline,
       description: config.description,
       type: "website",
+      locale: "en_US",
+      siteName: SITE_BRAND.name,
     },
   };
 }
@@ -25,6 +32,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
+        {/* RealScout — load once globally (em.realscout.com script + www.realscout.com API) */}
+        <Script src="https://em.realscout.com/widgets/realscout-web-components.js" strategy="afterInteractive" />
         {/* WidgetTracker */}
         <Script id="widget-tracker" strategy="afterInteractive">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()

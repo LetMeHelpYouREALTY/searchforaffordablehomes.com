@@ -2,45 +2,15 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { AFFORDABLE_HOME_FAQS } from "@/lib/affordable-homes-content";
 
 export interface FAQ {
   question: string;
   answer: string;
 }
 
-// Default FAQs for the section
-export const defaultFaqs: FAQ[] = [
-  {
-    question: "What areas do you serve?",
-    answer:
-      "We specialize in Las Vegas and Henderson, Nevada, including Summerlin, Green Valley, and surrounding communities. Our expertise covers residential, luxury, and investment properties throughout Southern Nevada.",
-  },
-  {
-    question: "How long does the home buying process take?",
-    answer:
-      "Typically, the home buying process takes 30-45 days from offer acceptance to closing. However, this can vary based on financing, inspections, and other factors. We'll guide you through each step to ensure a smooth transaction.",
-  },
-  {
-    question: "Do you help with home valuations?",
-    answer:
-      "Yes! We provide free, no-obligation home valuations using current market data and comparable sales. This helps you understand your home's value whether you're considering selling or just curious about your investment.",
-  },
-  {
-    question: "What makes you different from other real estate agents?",
-    answer:
-      "In real estate since 1983 with 500+ successful transactions, we combine deep local market knowledge with personalized service. We have access to extensive resources and technology to serve you better.",
-  },
-  {
-    question: "Can you help with investment properties?",
-    answer:
-      "Absolutely! We specialize in investment real estate including rental properties, fix-and-flip opportunities, and commercial properties. We'll help you identify profitable opportunities and navigate the investment process.",
-  },
-  {
-    question: "What are your fees?",
-    answer:
-      "For buyers, our services are typically free as commissions are paid by the seller. For sellers, we offer competitive commission structures. Contact us for a personalized consultation to discuss your specific situation.",
-  },
-];
+// Default FAQs — affordable Las Vegas buyer focus (AEO answer-first)
+export const defaultFaqs: FAQ[] = AFFORDABLE_HOME_FAQS;
 
 interface FAQSectionProps {
   /** Custom FAQs to display (defaults to defaultFaqs) */
@@ -94,7 +64,7 @@ export default function FAQSection({
               </button>
               {openIndex === index && (
                 <div className="px-6 py-4 bg-slate-50 border-t border-slate-200">
-                  <p className="text-slate-700">{faq.answer}</p>
+                  <p className="faq-answer text-slate-700">{faq.answer}</p>
                 </div>
               )}
             </div>
