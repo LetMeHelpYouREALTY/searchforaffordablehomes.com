@@ -1,7 +1,8 @@
 /**
  * Hyperlocal AEO/GEO content for SearchForAffordableHomes.com
  * Answer-first copy for AI citation + classic SEO.
- * Market figures date-stamped Nov 2026 from Parallel research (Zillow / local MLS reports).
+ * Market figures date-stamped Nov 2026 from Parallel CLI research
+ * (GLVAR / local MLS public reports via Parallel web search).
  * Fair Housing: describe sq ft, amenities, commute — never protected-class proxies.
  */
 
@@ -33,12 +34,13 @@ export const SITE_BRAND = {
 
 export const MARKET_SNAPSHOT = {
   asOf: "November 2026",
-  /** Valley-wide median list context from early-2026 public reports */
-  valleyMedianList: "$450,000",
+  /** Trailing GLVAR closed median context from Parallel research (Aug–Sep 2026 reports) */
+  valleyMedianList: "$470,000–$490,000",
   valleyMedianNote:
-    "Las Vegas Valley median list prices clustered near $450K in early 2026 public reports; under-$500K remains the deepest inventory band.",
-  daysOnMarket: "about 28–31 days",
-  inventoryBand: "5,500+ active homes under $500,000 valley-wide in mid-2026 listing reports",
+    "Las Vegas metro single-family closed medians ran roughly $470K–$490K in mid-to-late 2026 public GLVAR summaries (near $486K trailing-90-day). Under-$500K remains the deepest buyer inventory band; condos/townhomes often list near the high-$200Ks.",
+  daysOnMarket: "about 28–45 days to close after acceptance",
+  inventoryBand:
+    "Hundreds of single-family actives under $400K in North Las Vegas and East Valley ZIPs (MLS snapshots Sep 2026); valley-wide under-$500K is still the primary entry band",
 };
 
 export const AFFORDABLE_NEIGHBORHOODS = [
@@ -46,43 +48,43 @@ export const AFFORDABLE_NEIGHBORHOODS = [
     name: "North Las Vegas",
     slug: "north-las-vegas",
     priceBand: "$280,000–$450,000",
-    medianHint: "Often 10–24% below Summerlin medians in 2026 close data",
+    medianHint: "Most affordable major sub-market; ~$425K 90-day sold median (Jul 2026 NLV reports)",
     description:
-      "Newer single-family stock, Aliante and Tule Springs master plans, and builder incentives that frequently include rate buydowns.",
-    highlights: ["New construction options", "Aliante & Tule Springs", "215 Beltway access"],
+      "Entry floor near Eldorado and older 89031/89032 stock, starter sweet spot around Craig Ranch and Aliante, and new-build entry in Tule Springs — often with builder incentives and rate buydowns.",
+    highlights: ["446+ actives under $400K reported mid-2026", "Aliante & Tule Springs", "215 Beltway access"],
+  },
+  {
+    name: "East Las Vegas / Sunrise Manor / Whitney",
+    slug: "neighborhoods",
+    priceBand: "$280,000–$380,000",
+    medianHint: "ZIPs 89121 / 89122 / 89142 hold many of the valley’s under-$400K listings",
+    description:
+      "Established east and central corridors with the densest under-$400K single-family selection and lower price-per-square-foot than west-valley master plans.",
+    highlights: ["Lowest price-per-sq-ft clusters", "Established stock", "Strip / airport commute corridors"],
   },
   {
     name: "Mountain's Edge",
     slug: "mountains-edge",
     priceBand: "$350,000–$500,000",
-    medianHint: "Southwest corridor value below Summerlin/Henderson premiums",
+    medianHint: "Southwest corridor value; metro southwest entry near ~$390K in 2026 guides",
     description:
-      "Master-planned southwest Las Vegas with HOA amenities and 215 Beltway commute access.",
+      "Master-planned southwest Las Vegas with HOA amenities and 215 Beltway commute access below Summerlin premiums.",
     highlights: ["HOA amenities", "Newer inventory", "Southwest 215 access"],
   },
   {
     name: "Centennial Hills",
     slug: "centennial-hills",
-    priceBand: "$380,000–$480,000",
-    medianHint: "Typically 10–15% below comparable Summerlin pricing",
+    priceBand: "$340,000–$480,000",
+    medianHint: "89131 mid-$300Ks list medians in Sep 2026 MLS ZIP snapshots",
     description:
-      "Northwest Las Vegas with mountain proximity, parks, shopping corridors, and established floor plans.",
+      "Northwest Las Vegas with mountain proximity, parks, shopping corridors, and established floor plans below comparable Summerlin pricing.",
     highlights: ["Northwest location", "Parks & trails nearby", "Resale + newer stock"],
-  },
-  {
-    name: "East Las Vegas / Sunrise Manor / Whitney",
-    slug: "neighborhoods",
-    priceBand: "$319,000–$360,000 list medians (early 2026)",
-    medianHint: "Among the valley’s lower list-price clusters",
-    description:
-      "Established housing stock with lower entry prices than master-planned west-valley communities.",
-    highlights: ["Lower entry prices", "Established neighborhoods", "Strip commute corridors"],
   },
   {
     name: "Cadence (Henderson)",
     slug: "henderson",
     priceBand: "$350,000–$500,000",
-    medianHint: "Active Henderson new-construction value band",
+    medianHint: "Henderson entry points near ~$360K; city medians higher than NLV",
     description:
       "Henderson master-planned new construction with multiple builders and mid-$300Ks entry points reported in 2026 buyer guides.",
     highlights: ["New construction", "Henderson location", "Multiple builders"],
@@ -90,8 +92,8 @@ export const AFFORDABLE_NEIGHBORHOODS = [
   {
     name: "Skye Canyon",
     slug: "skye-canyon",
-    priceBand: "$400,000–$550,000",
-    medianHint: "Northwest master plan with new and resale mix",
+    priceBand: "$355,000–$550,000",
+    medianHint: "89166 mid-$350Ks list medians in Sep 2026 ZIP snapshots; mixes new + resale",
     description:
       "Northwest master-planned community with mountain views, modern amenities, and mixed new/resale inventory.",
     highlights: ["Master-planned amenities", "Mountain views", "New + resale"],
@@ -123,12 +125,12 @@ export const AFFORDABLE_HOME_FAQS: Array<{ question: string; answer: string }> =
   {
     question: "What is an affordable home price in Las Vegas in 2026?",
     answer:
-      "Most buyers searching for affordable Las Vegas homes target under $500,000 — the valley’s deepest inventory band. Early-2026 public reports showed valley median list prices near $450,000, with North Las Vegas and East Valley corridors often listing below that median.",
+      "Most buyers searching for affordable Las Vegas homes target under $500,000. Mid-to-late 2026 GLVAR summaries put the metro single-family closed median near $470K–$490K, so under-$500K is still the main entry band — with North Las Vegas and East Valley ZIPs holding most of the under-$400K stock.",
   },
   {
     question: "Which Las Vegas neighborhoods have more affordable homes?",
     answer:
-      "North Las Vegas (including Aliante and Tule Springs), Mountain’s Edge, Centennial Hills, East Las Vegas, Sunrise Manor, Whitney, and Henderson’s Cadence consistently show stronger under-$500K selection than Summerlin or The Ridges.",
+      "North Las Vegas (Eldorado, Craig Ranch, Aliante, Tule Springs), East Las Vegas corridors (including 89121–89122–89142), Mountain’s Edge, Centennial Hills, Henderson’s Cadence, and Skye Canyon show the strongest under-$500K selection versus Summerlin or The Ridges.",
   },
   {
     question: "Do I need a large down payment to buy in Las Vegas?",
