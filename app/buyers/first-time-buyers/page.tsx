@@ -104,7 +104,7 @@ export default function FirstTimeBuyersPage() {
               Down Payment Assistance Available
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Your First Home in Las Vegas
@@ -123,7 +123,7 @@ export default function FirstTimeBuyersPage() {
               Let's Make Homeownership Happen → (702) 222-1964
             </a>
           </div>
-{/* Financing Options */}
+          {/* Financing Options */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               First-Time Buyer Financing Options
@@ -179,7 +179,7 @@ export default function FirstTimeBuyersPage() {
               </div>
             </div>
           </section>
-{/* Top Neighborhoods */}
+          {/* Top Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Best Neighborhoods for First-Time Buyers
@@ -573,7 +573,7 @@ export default function FirstTimeBuyersPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

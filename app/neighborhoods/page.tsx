@@ -182,9 +182,9 @@ export default function NeighborhoodsPage() {
             </p>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-{/* Neighborhood Grid */}
+          {/* Neighborhood Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
               {neighborhoods.map((neighborhood) => (
@@ -228,7 +228,7 @@ export default function NeighborhoodsPage() {
               ))}
             </div>
           </section>
-{/* Expert Quote */}
+          {/* Expert Quote */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
@@ -301,7 +301,7 @@ export default function NeighborhoodsPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

@@ -254,9 +254,9 @@ export default function ServicesPage() {
             </div>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-{/* Core Services Section */}
+          {/* Core Services Section */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Core Real Estate Services
@@ -309,7 +309,7 @@ export default function ServicesPage() {
               })}
             </div>
           </section>
-{/* Specialized Services Section */}
+          {/* Specialized Services Section */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Specialized Real Estate Services
@@ -593,7 +593,7 @@ export default function ServicesPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

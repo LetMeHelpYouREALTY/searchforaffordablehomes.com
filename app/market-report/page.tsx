@@ -66,9 +66,9 @@ export default function MarketReportPage() {
             </p>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-{/* Key Stats Overview */}
+          {/* Key Stats Overview */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Las Vegas Market Snapshot | January 2026
@@ -114,7 +114,7 @@ export default function MarketReportPage() {
               </div>
             </div>
           </section>
-{/* Area Breakdown */}
+          {/* Area Breakdown */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Market Data by Area
@@ -343,7 +343,7 @@ export default function MarketReportPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

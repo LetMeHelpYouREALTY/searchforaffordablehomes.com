@@ -42,7 +42,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
   return (
     <>
       <Navbar />
-<main className="pt-24 pb-16">
+      <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Breadcrumb */}
           <nav className="mb-6 text-sm">
@@ -82,9 +82,9 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
             </div>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-{/* Main Image */}
+          {/* Main Image */}
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
             <Image
               src={property.image}

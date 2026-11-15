@@ -88,7 +88,7 @@ export default function SoleraAnthemPage() {
               Intimate Guard-Gated 55+ Community
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Solera at Anthem
@@ -129,7 +129,7 @@ export default function SoleraAnthemPage() {
               </div>
             </div>
           </section>
-{/* About */}
+          {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
@@ -426,7 +426,7 @@ export default function SoleraAnthemPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

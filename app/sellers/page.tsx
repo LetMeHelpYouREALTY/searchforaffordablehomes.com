@@ -167,9 +167,9 @@ export default function SellersPage() {
             </div>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-{/* Market Stats */}
+          {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-4 text-center">
               Las Vegas Seller Market Statistics | January 2026
@@ -209,7 +209,7 @@ export default function SellersPage() {
               </div>
             </div>
           </section>
-{/* Benefits */}
+          {/* Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               The Dr. Jan Duffy Selling Advantage
@@ -503,7 +503,7 @@ export default function SellersPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

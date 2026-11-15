@@ -94,7 +94,7 @@ export default function LuxuryHomesPage() {
               $1.2M - $10M+
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Luxury Real Estate
@@ -110,7 +110,7 @@ export default function LuxuryHomesPage() {
               Schedule a Private Preview → (702) 222-1964
             </a>
           </div>
-{/* Market Performance */}
+          {/* Market Performance */}
           <section className="mb-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">
               Las Vegas Luxury Market Performance
@@ -151,7 +151,7 @@ export default function LuxuryHomesPage() {
               environment, and world-class amenities.
             </p>
           </section>
-{/* Luxury Communities */}
+          {/* Luxury Communities */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Premier Luxury Communities
@@ -466,7 +466,7 @@ export default function LuxuryHomesPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

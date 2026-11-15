@@ -84,7 +84,7 @@ export default function MarketUpdatePage() {
               Week of January 20, 2026
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Las Vegas Market Update
@@ -97,7 +97,7 @@ export default function MarketUpdatePage() {
               <span>By Dr. Jan Duffy, REALTOR®</span>
             </div>
           </div>
-{/* Key Statistics */}
+          {/* Key Statistics */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">
               5 Key Statistics This Week
@@ -185,7 +185,7 @@ export default function MarketUpdatePage() {
               </div>
             </div>
           </section>
-{/* Notable Sale */}
+          {/* Notable Sale */}
           <section className="mb-16 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
               Notable Sale of the Week
@@ -511,7 +511,7 @@ export default function MarketUpdatePage() {
           Last Updated: January 24, 2026 | Data Source: Las Vegas REALTORS® MLS
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

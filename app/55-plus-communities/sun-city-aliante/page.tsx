@@ -87,7 +87,7 @@ export default function SunCityAliantePage() {
               Most Affordable Sun City in Las Vegas
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Aliante
@@ -128,7 +128,7 @@ export default function SunCityAliantePage() {
               </div>
             </div>
           </section>
-{/* About */}
+          {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
@@ -393,8 +393,8 @@ export default function SunCityAliantePage() {
                 "Sun City Aliante is my top recommendation for buyers who want
                 the full Sun City lifestyle at the best possible price. The
                 amenities are excellent, the community is active and welcoming,
-                and you simply can't beat the value. As a local REALTOR®, I
-                help buyers compare all the Sun City options and understand why
+                and you simply can't beat the value. As a local REALTOR®, I help
+                buyers compare all the Sun City options and understand why
                 Aliante often makes the most financial sense."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
@@ -439,7 +439,7 @@ export default function SunCityAliantePage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

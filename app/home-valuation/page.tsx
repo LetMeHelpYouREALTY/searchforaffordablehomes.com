@@ -110,9 +110,9 @@ export default function HomeValuationPage() {
             </p>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-<div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
             {/* Calendly Widget */}
             <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
               <div className="bg-blue-600 text-white p-4 text-center">
@@ -316,7 +316,7 @@ export default function HomeValuationPage() {
               </div>
             </div>
           </section>
-{/* Factors Affecting Value */}
+          {/* Factors Affecting Value */}
           <section className="max-w-5xl mx-auto mb-16 bg-slate-50 rounded-2xl p-8 md:p-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Key Factors That Affect Your Las Vegas Home's Value
@@ -616,7 +616,7 @@ export default function HomeValuationPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

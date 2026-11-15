@@ -96,8 +96,7 @@ export default function SouthernHighlandsPage() {
             </p>
           </div>
 
-      <RealScoutListings />
-
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -131,7 +130,7 @@ export default function SouthernHighlandsPage() {
               </div>
             </div>
           </section>
-{/* Main Content */}
+          {/* Main Content */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
@@ -439,8 +438,8 @@ export default function SouthernHighlandsPage() {
                 surprise buyers—especially those relocating from California. You
                 get championship golf, guard-gated security, mountain views, and
                 nearby public schools, all just 15 minutes from the Strip. As a
-                local REALTOR®, I help clients see beyond the golf course to
-                the community's full potential."
+                local REALTOR®, I help clients see beyond the golf course to the
+                community's full potential."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -523,7 +522,7 @@ export default function SouthernHighlandsPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

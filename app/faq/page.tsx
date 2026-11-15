@@ -194,8 +194,7 @@ export default function FAQPage() {
             </p>
           </div>
 
-      <RealScoutListings />
-
+          <RealScoutListings />
 
           {/* FAQ Categories */}
           <div className="max-w-4xl mx-auto space-y-12">
@@ -213,7 +212,7 @@ export default function FAQPage() {
                   ))}
                 </div>
               </section>
-))}
+            ))}
           </div>
 
           {/* CTA */}
@@ -240,7 +239,7 @@ export default function FAQPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

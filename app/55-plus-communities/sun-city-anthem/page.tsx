@@ -140,7 +140,7 @@ export default function SunCityAnthemPage() {
               Henderson's Premier 55+ Community
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Anthem
@@ -180,7 +180,7 @@ export default function SunCityAnthemPage() {
               </div>
             </div>
           </section>
-{/* About */}
+          {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
@@ -355,8 +355,8 @@ export default function SunCityAnthemPage() {
                 for—safety, quality, and stunning scenery—with the Del Webb
                 lifestyle. The views from the upper sections are spectacular,
                 and the Anthem Center rivals any resort clubhouse I've seen. As
-                a local REALTOR®, I help buyers find the right balance of
-                views, price, and proximity to amenities."
+                a local REALTOR®, I help buyers find the right balance of views,
+                price, and proximity to amenities."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -395,7 +395,7 @@ export default function SunCityAnthemPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

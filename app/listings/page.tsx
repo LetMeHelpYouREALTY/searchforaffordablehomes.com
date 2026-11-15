@@ -184,8 +184,7 @@ export default function ListingsPage() {
             </div>
           </div>
 
-      <RealScoutListings />
-
+          <RealScoutListings />
 
           {/* RealScout Widget - Live MLS Listings */}
           <section className="mb-16">
@@ -202,7 +201,7 @@ export default function ListingsPage() {
               />
             </div>
           </section>
-{/* Popular Searches Section */}
+          {/* Popular Searches Section */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Popular Property Searches in Las Vegas

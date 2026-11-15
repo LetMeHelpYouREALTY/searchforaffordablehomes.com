@@ -66,9 +66,9 @@ export default function WhyBerkshireHathawayPage() {
             </p>
           </div>
 
-      <RealScoutListings />
+          <RealScoutListings />
 
-{/* Brokerage Support Section */}
+          {/* Brokerage Support Section */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
@@ -97,7 +97,7 @@ export default function WhyBerkshireHathawayPage() {
               </div>
             </div>
           </section>
-{/* Key Benefits */}
+          {/* Key Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
               The Dr. Jan Duffy Advantage
@@ -279,7 +279,7 @@ export default function WhyBerkshireHathawayPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

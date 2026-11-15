@@ -96,8 +96,7 @@ export default function TheRidgesPage() {
             </p>
           </div>
 
-      <RealScoutListings />
-
+          <RealScoutListings />
 
           {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -131,7 +130,7 @@ export default function TheRidgesPage() {
               </div>
             </div>
           </section>
-{/* Main Content */}
+          {/* Main Content */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
@@ -514,7 +513,7 @@ export default function TheRidgesPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

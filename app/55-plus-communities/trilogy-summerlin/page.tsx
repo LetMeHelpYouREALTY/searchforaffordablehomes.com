@@ -88,7 +88,7 @@ export default function TrilogySummerlinPage() {
               Luxury Resort-Style 55+ Living
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Trilogy at Summerlin
@@ -129,7 +129,7 @@ export default function TrilogySummerlinPage() {
               </div>
             </div>
           </section>
-{/* About */}
+          {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
@@ -379,8 +379,8 @@ export default function TrilogySummerlinPage() {
                 "Trilogy at Summerlin is for buyers who want more than a 55+
                 community—they want a lifestyle. The on-site restaurant, spa,
                 and contemporary homes create an experience you simply can't
-                find elsewhere. As a local REALTOR® serving luxury 55+ buyers,
-                I recommend Trilogy to those who appreciate quality and won't
+                find elsewhere. As a local REALTOR® serving luxury 55+ buyers, I
+                recommend Trilogy to those who appreciate quality and won't
                 settle for ordinary."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
@@ -426,7 +426,7 @@ export default function TrilogySummerlinPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

@@ -134,7 +134,7 @@ export default function CaliforniaRelocatorPage() {
               37% of Las Vegas Buyers Are From California
             </div>
 
-      <RealScoutListings />
+            <RealScoutListings />
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Relocating from California?
@@ -152,7 +152,7 @@ export default function CaliforniaRelocatorPage() {
               Start Your Tax-Free Life → (702) 222-1964
             </a>
           </div>
-{/* Tax Savings Comparison */}
+          {/* Tax Savings Comparison */}
           <section className="mb-16 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="flex items-center justify-center mb-6">
               <Calculator className="h-10 w-10 mr-3" />
@@ -191,7 +191,7 @@ export default function CaliforniaRelocatorPage() {
               </p>
             </div>
           </section>
-{/* What Your CA Equity Buys */}
+          {/* What Your CA Equity Buys */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               What Your California Equity Buys in Las Vegas
@@ -539,7 +539,7 @@ export default function CaliforniaRelocatorPage() {
           Last Updated: January 2026
         </div>
       </main>
-<ScheduleConsultSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );
