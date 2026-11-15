@@ -488,7 +488,7 @@ export default function FirstTimeBuyersPage() {
                 connections that independent agents simply don't have."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR®
+                — Dr. Jan Duffy, REALTOR® · Berkshire Hathaway HomeServices Nevada Properties
               </cite>
             </div>
           </section>

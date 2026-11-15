@@ -64,10 +64,10 @@
       },
       {
         "name": "phone-number-check",
-        "description": "Verify correct phone number is used",
-        "pattern": "702-222-1964|7022221964|702-500-1955|7025001955",
+        "description": "Flag retired phone numbers; client CTAs use (702) 222-1964",
+        "pattern": "702-500-1955|7025001955",
         "severity": "error",
-        "message": "Old phone number detected! Use (702) 500-1942 for all phone numbers sitewide"
+        "message": "Retired phone number detected! Use (702) 222-1964 for client CTAs; (702) 500-1942 is FUB/professional only"
       },
       {
         "name": "berkshire-branding",

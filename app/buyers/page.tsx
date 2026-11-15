@@ -102,7 +102,7 @@ export default function BuyersPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent" />
           <div className="relative z-10 container mx-auto px-4 pb-16 pt-32">
             <p className="text-sm tracking-[0.2em] uppercase text-amber-200/90 mb-3">
-              Buyer Representation · Las Vegas
+              Buyer Representation · Berkshire Hathaway HomeServices Nevada Properties
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl mb-5 leading-tight">
               Buy Your Affordable Las Vegas Home with Confidence
