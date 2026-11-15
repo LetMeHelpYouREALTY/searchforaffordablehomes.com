@@ -25,10 +25,9 @@ export default function SecurityPolicyPage() {
               Our Commitment to Security
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              At, we take the
-              security of our systems and the privacy of our clients seriously.
-              This page outlines our security practices and provides information
-              for security researchers.
+              At, we take the security of our systems and the privacy of our
+              clients seriously. This page outlines our security practices and
+              provides information for security researchers.
             </p>
           </section>
 
@@ -255,9 +254,7 @@ export default function SecurityPolicyPage() {
               <p className="mb-2">
                 <strong>Dr. Jan Duffy</strong>
               </p>
-              <p className="mb-2">
-               
-              </p>
+              <p className="mb-2"></p>
               <p className="mb-2">
                 Email:{" "}
                 <a

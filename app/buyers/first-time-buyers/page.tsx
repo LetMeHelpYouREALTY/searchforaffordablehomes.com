@@ -536,8 +536,8 @@ export default function FirstTimeBuyersPage() {
                 have."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR® · Affordable Homes Las Vegas
-                Nevada Properties
+                — Dr. Jan Duffy, REALTOR® · Affordable Homes Las Vegas Nevada
+                Properties
               </cite>
             </div>
           </section>
