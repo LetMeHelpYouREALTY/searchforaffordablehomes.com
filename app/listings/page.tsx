@@ -187,10 +187,13 @@ export default function ListingsPage() {
                 Active Listings
               </span>
             </div>
-
-            <OfficeListingsUnderHero />
           </div>
+        </div>
 
+        {/* Full-width MLS block under hero (not nested in max-w-4xl) */}
+        <OfficeListingsUnderHero />
+
+        <div className="container mx-auto px-4">
           {/* Popular Searches Section */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
