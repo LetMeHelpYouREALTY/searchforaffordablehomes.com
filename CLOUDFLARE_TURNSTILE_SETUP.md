@@ -38,8 +38,8 @@ Cloudflare Turnstile is now integrated into your lead capture forms to prevent s
 3. Click **Turnstile** in the left sidebar
 4. Click **Add Site**
 5. Fill out the form:
-   - **Site name**: `heyberkshire.com`
-   - **Domain**: `heyberkshire.com` (or `*.heyberkshire.com` for all subdomains)
+   - **Site name**: `searchforaffordablehomes.com`
+   - **Domain**: `searchforaffordablehomes.com` (or `*.searchforaffordablehomes.com` for all subdomains)
    - **Widget Mode**: **Managed** (recommended)
      - Managed: Shows challenge only to suspicious users
      - Non-interactive: Always invisible
@@ -70,7 +70,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 #### Vercel Production
 
 1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Select your project: **heyberkshire-com-2**
+2. Select your project: **searchforaffordablehomes**
 3. Go to **Settings** → **Environment Variables**
 4. Add two variables:
 

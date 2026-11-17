@@ -28,17 +28,6 @@ const nextConfig = {
         has: [
           {
             type: "host",
-            value: "heyberkshire.com",
-          },
-        ],
-        destination: "https://www.heyberkshire.com/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
             value: "searchforaffordablehomes.com",
           },
         ],

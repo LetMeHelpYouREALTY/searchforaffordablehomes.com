@@ -277,7 +277,7 @@ function enrichSource(
   if (referrer) {
     try {
       const refUrl = new URL(referrer);
-      if (!refUrl.hostname.includes("heyberkshire.com")) {
+      if (!refUrl.hostname.includes("searchforaffordablehomes.com")) {
         return `referral/${refUrl.hostname}`;
       }
     } catch (e) {

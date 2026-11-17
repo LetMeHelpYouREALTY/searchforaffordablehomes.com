@@ -3,7 +3,7 @@
 **GitHub + Vercel + Cloudflare - Full Stack Optimization**
 
 **Date:** February 13, 2026  
-**PR:** https://github.com/DrJanDuffy/heyberkshire.com/pull/9
+**PR:** https://github.com/DrJanDuffy/searchforaffordablehomes.com/pull/9
 
 ---
 

@@ -26,7 +26,7 @@ echo ""
 
 # All your real estate sites
 SITES=(
-  "heyberkshire.com-2"
+  "searchforaffordablehomes.com-2"
   "justcalldrjan.com"
   "heritageatstonebridgehomes.com"
   "openhousemarketplace.com"

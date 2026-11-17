@@ -1,5 +1,5 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
+ * Schema.org Structured Data Generators for searchforaffordablehomes.com
  * Following Google's 2025 Structured Data Guidelines
  *
  * @see https://schema.org
@@ -64,13 +64,12 @@ export interface SeniorCommunityData {
 
 const BASE_URL = siteConfig.url;
 
-// Social media profiles (to be updated with actual URLs)
+// Verified public profiles for sameAs (avoid invented social handles)
 export const socialProfiles = {
-  facebook: "https://www.facebook.com/heyberkshire",
-  instagram: "https://www.instagram.com/heyberkshire",
   linkedin: "https://www.linkedin.com/in/drjanduffy",
-  tiktok: "https://www.tiktok.com/@heyberkshire",
-  youtube: "https://www.youtube.com/@heyberkshire",
+  brokerage: "https://www.bhhsnv.com/",
+  calendly: "https://calendly.com/drjanduffy/showing",
+  realscout: "http://drjanduffy.realscout.com/",
 };
 
 // ============================================================================
@@ -89,7 +88,6 @@ export function generateRealEstateAgentSchema() {
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
       "Search for Affordable Homes",
-      "HeyBerkshire",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],

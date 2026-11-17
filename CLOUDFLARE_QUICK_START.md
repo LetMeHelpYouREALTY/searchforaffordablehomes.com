@@ -88,14 +88,14 @@ npm run cloudflare:dev
 ### Test Edge Cache
 
 ```bash
-curl -I https://heyberkshire.com/
+curl -I https://www.searchforaffordablehomes.com/
 # Look for: CF-Cache-Status: HIT
 ```
 
 ### Test Image Optimization
 
 ```bash
-curl -H "Accept: image/webp" https://heyberkshire.com/Image/hero.jpg
+curl -H "Accept: image/webp" https://www.searchforaffordablehomes.com/Image/hero.jpg
 # Should return WebP format
 ```
 

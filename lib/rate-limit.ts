@@ -28,7 +28,7 @@ export const leadFormLimiter = redis
       redis,
       limiter: Ratelimit.slidingWindow(5, "1 h"),
       analytics: true,
-      prefix: "@heyberkshire/lead-form",
+      prefix: "@searchforaffordablehomes/lead-form",
     })
   : null;
 
@@ -43,7 +43,7 @@ export const claudeAiLimiter = redis
       redis,
       limiter: Ratelimit.slidingWindow(10, "1 m"),
       analytics: true,
-      prefix: "@heyberkshire/claude-ai",
+      prefix: "@searchforaffordablehomes/claude-ai",
     })
   : null;
 
@@ -58,7 +58,7 @@ export const apiLimiter = redis
       redis,
       limiter: Ratelimit.slidingWindow(100, "1 m"),
       analytics: true,
-      prefix: "@heyberkshire/api",
+      prefix: "@searchforaffordablehomes/api",
     })
   : null;
 
@@ -163,7 +163,7 @@ export function createRateLimiter(config: {
     redis,
     limiter: Ratelimit.slidingWindow(config.requests, config.window),
     analytics: true,
-    prefix: `@heyberkshire/${config.prefix}`,
+    prefix: `@searchforaffordablehomes/${config.prefix}`,
   });
 }
 
