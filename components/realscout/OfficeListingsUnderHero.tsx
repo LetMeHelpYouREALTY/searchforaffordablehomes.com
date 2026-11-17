@@ -4,23 +4,27 @@ import BrandPortrait from "@/components/brand/BrandPortrait";
 import CalendlyButton from "@/components/calendly/CalendlyButton";
 import { Button } from "@/components/ui/button";
 
+/** Official RealScout agent encoding for Dr. Jan Duffy */
+export const REALSCOUT_AGENT_ENCODED_ID = "QWdlbnQtMjI1MDUw";
+
 type OfficeListingsUnderHeroProps = {
   title?: string;
   subtitle?: string;
-  /** Affordable band defaults for this site's primary keyword */
+  /** Optional price floor (official embed default: 3500) */
   priceMin?: string;
+  /** Optional price ceiling — omit for open-ended office listings */
   priceMax?: string;
 };
 
 /**
  * RealScout office listings placed directly under every page hero.
- * Tuned for affordable homes search intent.
+ * Embed matches RealScout dashboard snippet (UMD web components).
  */
 export default function OfficeListingsUnderHero({
-  title = "Affordable Homes on the Market Now",
-  subtitle = "Live MLS listings for value-focused buyers across Las Vegas, Henderson, and Summerlin.",
-  priceMin = "200000",
-  priceMax = "550000",
+  title = "Homes for Sale — Live MLS Listings",
+  subtitle = "Current for-sale single-family homes from Dr. Jan Duffy’s office inventory across Las Vegas, Henderson, and Summerlin.",
+  priceMin = "3500",
+  priceMax,
 }: OfficeListingsUnderHeroProps) {
   return (
     <section
@@ -34,7 +38,7 @@ export default function OfficeListingsUnderHero({
             <BrandPortrait size="md" priority />
             <div>
               <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#1e4fd6]">
-                Dr. Jan Duffy · Affordable Homes
+                Dr. Jan Duffy · Live MLS
               </p>
               <h2
                 id="office-listings-heading"
@@ -62,17 +66,13 @@ export default function OfficeListingsUnderHero({
           </div>
         </div>
 
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `<realscout-office-listings 
-              agent-encoded-id="QWdlbnQtMjI1MDUw" 
-              sort-order="NEWEST" 
-              listing-status="For Sale" 
-              property-types=",SFR,MF,TC" 
-              price-min="${priceMin}" 
-              price-max="${priceMax}"
-            ></realscout-office-listings>`,
-          }}
+        <realscout-office-listings
+          agent-encoded-id={REALSCOUT_AGENT_ENCODED_ID}
+          sort-order="STATUS_AND_SIGNIFICANT_CHANGE"
+          listing-status=",For Sale"
+          property-types="SFR"
+          price-min={priceMin}
+          {...(priceMax ? { "price-max": priceMax } : {})}
         />
       </div>
     </section>

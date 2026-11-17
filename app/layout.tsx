@@ -95,6 +95,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
+        {/* RealScout — load once in <head> when embedding multiple widgets */}
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          type="module"
+          strategy="beforeInteractive"
+        />
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
@@ -114,13 +120,6 @@ export default function RootLayout({
         <SchemaScript schema={globalSchemas} id="global-entity-schema" />
         {children}
         <Analytics />
-
-        {/* RealScout — load once globally (em.realscout.com + www.realscout.com in CSP) */}
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.js"
-          type="module"
-          strategy="afterInteractive"
-        />
 
         {/* Calendly — load once globally for inline + popup widgets */}
         <Script

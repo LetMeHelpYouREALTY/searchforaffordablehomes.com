@@ -47,10 +47,11 @@ realscout-simple-search {
   --rs-ss-background-color: rgba(255, 255, 255, 0.95);
 }
 
-/* RealScout Office Listings */
+/* RealScout Office Listings — official embed styles */
 realscout-office-listings {
-  --rs-listing-divider-color: #2563eb;
+  --rs-listing-divider-color: rgb(101, 141, 172);
   width: 100%;
+  display: block;
 }
 
 /* RealScout container wrapper */
