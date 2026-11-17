@@ -24,11 +24,8 @@ export default async function Home() {
       addressRegion: "NV",
       postalCode: "89134",
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-    },
+    // No aggregateRating: a business rating itself is self-serving and is not
+    // eligible for review snippets (Search Console flagged it, 2026-11-15).
   };
 
   return (
