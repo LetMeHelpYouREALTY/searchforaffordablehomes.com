@@ -223,7 +223,10 @@ export default function BuyersPage() {
           <RealScoutListings />
 
           <div className="mb-12">
-            <AnswerBlock title="Buying in Las Vegas — quick answers" items={buyerFaqs} />
+            <AnswerBlock
+              title="Buying in Las Vegas — quick answers"
+              items={buyerFaqs}
+            />
           </div>
 
           {/* Value Prop */}

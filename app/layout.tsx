@@ -102,7 +102,8 @@ const globalSchemas = combineSchemas(
     },
     {
       name: "First-Time Buyer Guidance",
-      description: "Pre-approval path, low-down-payment programs, and MLS shortlists.",
+      description:
+        "Pre-approval path, low-down-payment programs, and MLS shortlists.",
       url: "/affordable-homes/first-time-buyers",
     },
     {

@@ -335,7 +335,9 @@ export default function ContactPage() {
                 <Mail className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Send Email</div>
-                  <div className="text-slate-300">Homes@SearchForAffordableHomes.com</div>
+                  <div className="text-slate-300">
+                    Homes@SearchForAffordableHomes.com
+                  </div>
                 </div>
               </a>
             </div>

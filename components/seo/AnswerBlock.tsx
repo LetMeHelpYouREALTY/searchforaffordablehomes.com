@@ -35,7 +35,10 @@ export default function AnswerBlock({
       </h2>
       <div className="space-y-6">
         {items.map((item) => (
-          <article key={item.question} className="border-l-4 border-[#1e4fd6] pl-5">
+          <article
+            key={item.question}
+            className="border-l-4 border-[#1e4fd6] pl-5"
+          >
             <h3 className="mb-2 text-lg font-semibold text-slate-900">
               {item.question}
             </h3>

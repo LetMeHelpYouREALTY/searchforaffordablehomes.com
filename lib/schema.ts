@@ -700,9 +700,7 @@ export function generateHowToSchema(howTo: {
     description: howTo.description,
     ...(howTo.totalTime && { totalTime: howTo.totalTime }),
     ...(howTo.url && {
-      url: howTo.url.startsWith("http")
-        ? howTo.url
-        : `${BASE_URL}${howTo.url}`,
+      url: howTo.url.startsWith("http") ? howTo.url : `${BASE_URL}${howTo.url}`,
     }),
     step: howTo.steps.map((step, index) => ({
       "@type": "HowToStep",

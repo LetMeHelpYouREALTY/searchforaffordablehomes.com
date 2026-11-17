@@ -99,11 +99,7 @@ export default async function Home() {
       description: config.description,
       url: "/",
       dateModified: "2026-11-17",
-      speakableCssSelectors: [
-        "h1",
-        ".aeo-answers h3",
-        ".aeo-answers p",
-      ],
+      speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
     }),
     generateBreadcrumbSchema([
       { name: "Home", url: "/" },

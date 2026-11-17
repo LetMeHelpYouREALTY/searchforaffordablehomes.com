@@ -203,7 +203,8 @@ const pageSchemas = combineSchemas(
   ]),
   generateItemListSchema({
     name: "Las Vegas Valley neighborhoods",
-    description: "Neighborhood guides for buyers searching affordable and lifestyle-fit homes",
+    description:
+      "Neighborhood guides for buyers searching affordable and lifestyle-fit homes",
     items: neighborhoods.map((n) => ({
       name: n.name,
       url: `/neighborhoods/${n.slug}`,

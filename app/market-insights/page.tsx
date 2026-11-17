@@ -47,8 +47,7 @@ const reportSchema = {
   },
   datePublished: "2026-01-23",
   dateModified: "2026-11-17",
-  mainEntityOfPage:
-    "https://www.searchforaffordablehomes.com/market-insights",
+  mainEntityOfPage: "https://www.searchforaffordablehomes.com/market-insights",
   about: {
     "@type": "Place",
     name: "Las Vegas, Nevada",

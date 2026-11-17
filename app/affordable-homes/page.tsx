@@ -137,7 +137,10 @@ export default function AffordableHomesPage() {
         />
 
         <div className="container mx-auto px-4 py-12">
-          <AnswerBlock title="Affordable homes FAQ — short answers" items={faqs} />
+          <AnswerBlock
+            title="Affordable homes FAQ — short answers"
+            items={faqs}
+          />
         </div>
 
         <div className="container mx-auto px-4">
