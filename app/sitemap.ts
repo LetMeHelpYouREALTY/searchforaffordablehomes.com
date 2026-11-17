@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://searchforaffordablehomes.com";
+  const baseUrl = "https://www.searchforaffordablehomes.com";
   const now = new Date();
 
   const staggered = (daysAgo: number) => {

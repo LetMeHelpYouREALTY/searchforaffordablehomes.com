@@ -10,7 +10,8 @@ export const siteConfig = {
     "Search for Affordable Homes | Berkshire Hathaway HomeServices Nevada Properties",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
-  url: "https://searchforaffordablehomes.com",
+  /** Prefer www — Vercel redirects apex → www; keep canonicals aligned. */
+  url: "https://www.searchforaffordablehomes.com",
   description:
     "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy. Luxury-level representation for value-focused buyers.",
 };

@@ -14,12 +14,19 @@ import {
 } from "@/lib/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const domain = headers().get("x-domain") || "";
+  const headerList = headers();
+  const domain = headerList.get("x-domain") || "";
+  const pathname = headerList.get("x-pathname") || "/";
   const config = getDomainConfig(domain);
+  // Prefer www for this property (matches Vercel apex→www redirect).
   const siteUrl =
-    config.domain !== "default"
-      ? `https://${config.domain}`
-      : "https://searchforaffordablehomes.com";
+    config.domain === "searchforaffordablehomes.com"
+      ? "https://www.searchforaffordablehomes.com"
+      : config.domain !== "default"
+        ? `https://www.${config.domain.replace(/^www\./, "")}`
+        : "https://www.searchforaffordablehomes.com";
+  const canonicalPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+  const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
 
   return {
     metadataBase: new URL(siteUrl),
@@ -36,6 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "en_US",
       siteName: "Search for Affordable Homes",
+      url: canonicalUrl,
       images: [
         {
           url: "/images/agent/dr-jan-duffy-portrait.png",
@@ -62,8 +70,9 @@ export async function generateMetadata(): Promise<Metadata> {
         "max-video-preview": -1,
       },
     },
+    // Per-URL canonical (was incorrectly set to homepage for every page).
     alternates: {
-      canonical: siteUrl,
+      canonical: canonicalUrl,
     },
   };
 }

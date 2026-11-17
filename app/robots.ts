@@ -35,7 +35,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       })),
     ],
-    sitemap: "https://searchforaffordablehomes.com/sitemap.xml",
-    host: "https://searchforaffordablehomes.com",
+    sitemap: "https://www.searchforaffordablehomes.com/sitemap.xml",
+    host: "https://www.searchforaffordablehomes.com",
   };
 }
