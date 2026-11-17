@@ -233,7 +233,7 @@ export function generateOrganizationSchema() {
     "@type": "Organization",
     "@id": `${BASE_URL}#parent-organization`,
     name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.bfrre.com",
+    url: "https://www.bhhsnv.com/",
     logo: `${BASE_URL}/favicon-32x32.png`,
     parentOrganization: {
       "@type": "Organization",
