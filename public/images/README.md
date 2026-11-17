@@ -14,14 +14,14 @@ images/
 
 ## Recommended Specifications
 
-| Folder | Size | Format | Notes |
-|--------|------|--------|-------|
-| hero/ | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB |
-| agent/ | 400x400+ | WebP, JPG | Square, professional headshot |
-| properties/ | 1200x800+ | WebP, JPG | Landscape, MLS-quality |
-| neighborhoods/ | 1200x800+ | WebP, JPG | Scenic community shots |
-| testimonials/ | 200x200 | WebP, JPG | Square, optional |
-| logos/ | Various | PNG, SVG | Transparent background |
+| Folder         | Size       | Format    | Notes                         |
+| -------------- | ---------- | --------- | ----------------------------- |
+| hero/          | 1920x1080+ | WebP, JPG | 16:9 ratio, compress <200KB   |
+| agent/         | 400x400+   | WebP, JPG | Square, professional headshot |
+| properties/    | 1200x800+  | WebP, JPG | Landscape, MLS-quality        |
+| neighborhoods/ | 1200x800+  | WebP, JPG | Scenic community shots        |
+| testimonials/  | 200x200    | WebP, JPG | Square, optional              |
+| logos/         | Various    | PNG, SVG  | Transparent background        |
 
 ## Naming Conventions
 
@@ -40,15 +40,15 @@ Before uploading, optimize images:
 ## Usage in Code
 
 ```tsx
-import Image from 'next/image'
+import Image from "next/image";
 
-<Image 
+<Image
   src="/images/hero/las-vegas-skyline.webp"
   alt="Las Vegas skyline at sunset"
   width={1920}
   height={1080}
   priority // for above-fold images
-/>
+/>;
 ```
 
 ## Notes

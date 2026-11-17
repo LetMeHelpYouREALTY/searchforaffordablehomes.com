@@ -49,6 +49,7 @@ npm install --save-dev @lhci/cli webpack-bundle-analyzer
 ### Step 2: Set Up Vercel GitHub Integration
 
 Add these secrets to your GitHub repository:
+
 - Go to **Settings → Secrets and variables → Actions**
 - Add the following secrets:
 
@@ -60,7 +61,8 @@ VERCEL_PROJECT_ID=your_project_id_here
 
 **How to get these values:**
 
-1. **VERCEL_TOKEN**: 
+1. **VERCEL_TOKEN**:
+
    - Go to https://vercel.com/account/tokens
    - Create a new token named "GitHub Actions"
    - Copy the token
@@ -103,6 +105,7 @@ npm run perf
 ### Step 5: Test GitHub Workflow
 
 1. Create a new branch:
+
 ```bash
 git checkout -b test-optimizations
 git add .
@@ -142,18 +145,21 @@ npm run dev
 After deployment, verify:
 
 - [ ] **Accessibility**
+
   - [ ] Keyboard navigation works in Services dropdown
   - [ ] Focus states are visible
   - [ ] Reduced motion preference is respected
   - [ ] ARIA labels present on icon buttons
 
 - [ ] **Performance**
+
   - [ ] Lighthouse Performance score > 90
   - [ ] Lighthouse Accessibility score > 95
   - [ ] Bundle size < 200KB (first load JS)
   - [ ] Images load in AVIF/WebP formats
 
 - [ ] **GitHub Actions**
+
   - [ ] PR previews deploy automatically
   - [ ] Lighthouse reports post to PRs
   - [ ] Build times < 2 minutes (with caching)
@@ -171,14 +177,14 @@ After deployment, verify:
 
 ### Before → After
 
-| Metric | Before | After | Improvement |
-|--------|--------|-------|-------------|
-| **CI Build Time** | ~3-5 min | ~1-2 min | 60% faster |
-| **Lighthouse Performance** | 85 | 92+ | +7 points |
-| **Lighthouse Accessibility** | 90 | 98+ | +8 points |
-| **First Contentful Paint** | 2.5s | <2.0s | 20% faster |
-| **Cumulative Layout Shift** | 0.15 | <0.1 | 33% better |
-| **Bundle Size** | Unknown | Monitored | Tracked |
+| Metric                       | Before   | After     | Improvement |
+| ---------------------------- | -------- | --------- | ----------- |
+| **CI Build Time**            | ~3-5 min | ~1-2 min  | 60% faster  |
+| **Lighthouse Performance**   | 85       | 92+       | +7 points   |
+| **Lighthouse Accessibility** | 90       | 98+       | +8 points   |
+| **First Contentful Paint**   | 2.5s     | <2.0s     | 20% faster  |
+| **Cumulative Layout Shift**  | 0.15     | <0.1      | 33% better  |
+| **Bundle Size**              | Unknown  | Monitored | Tracked     |
 
 ---
 
@@ -207,13 +213,15 @@ npm run build          # Now includes bundle analysis when ANALYZE=true
 
 ### Issue: GitHub Actions failing with "VERCEL_TOKEN not found"
 
-**Solution:** 
+**Solution:**
+
 - Go to Settings → Secrets and add VERCEL_TOKEN
 - Make sure the token has correct permissions
 
 ### Issue: Lighthouse CI failing in workflow
 
 **Solution:**
+
 - The preview deployment needs time to become available
 - Workflow has a 30-second wait; may need to increase it
 - Check the deployment URL is accessible
@@ -221,6 +229,7 @@ npm run build          # Now includes bundle analysis when ANALYZE=true
 ### Issue: Bundle analyzer not opening
 
 **Solution:**
+
 ```bash
 # Manually open the report
 npm run analyze
@@ -231,6 +240,7 @@ start .next/analyze.html # Windows
 ### Issue: Reduced motion not working in dev
 
 **Solution:**
+
 - Hard refresh the page (Cmd/Ctrl + Shift + R)
 - Clear Next.js cache: `rm -rf .next`
 - Enable reduced motion in OS:
@@ -242,16 +252,19 @@ start .next/analyze.html # Windows
 ## 📚 Additional Resources
 
 ### Skills Used:
+
 - [Next.js Best Practices](https://github.com/vercel-labs/next-skills)
 - [Web Interface Guidelines](https://github.com/vercel-labs/web-interface-guidelines)
 
 ### Documentation:
+
 - [Next.js App Router](https://nextjs.org/docs/app)
 - [Vercel Build Configuration](https://vercel.com/docs/projects/project-configuration)
 - [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci)
 - [GitHub Actions Caching](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows)
 
 ### Tools:
+
 - [PageSpeed Insights](https://pagespeed.web.dev/)
 - [Security Headers](https://securityheaders.com/)
 - [WAVE Accessibility](https://wave.webaim.org/)
@@ -284,6 +297,7 @@ After verifying these changes work:
 ## 🆘 Need Help?
 
 Refer to:
+
 1. `OPTIMIZATION_REPORT.md` - Full audit details
 2. GitHub Actions logs - Check workflow runs for errors
 3. Vercel dashboard - View deployment logs
@@ -291,5 +305,5 @@ Refer to:
 
 ---
 
-*Generated: 2026-02-13*
-*Skills: Vercel Next.js Best Practices + Web Interface Guidelines*
+_Generated: 2026-02-13_
+_Skills: Vercel Next.js Best Practices + Web Interface Guidelines_

@@ -1,0 +1,15 @@
+node_modules
+.next
+.vercel
+out
+coverage
+pnpm-lock.yaml
+package-lock.json
+*.min.js
+demo.mp4
+# duplicated skill trees — format source of truth only when needed
+.agent/skills
+.agents/skills
+.claude/skills
+.cursor/skills
+.windsurf/skills

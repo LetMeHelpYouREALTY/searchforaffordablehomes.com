@@ -158,7 +158,7 @@ const allFaqs = faqCategories.flatMap((category) =>
   category.faqs.map((faq) => ({
     question: faq.q,
     answer: faq.a,
-  }))
+  })),
 );
 
 // Combined page schemas including all FAQs
@@ -171,7 +171,7 @@ const pageSchemas = combineSchemas(
     url: "/faq",
     dateModified: "2026-01-25",
   }),
-  generateFAQSchema(allFaqs)
+  generateFAQSchema(allFaqs),
 );
 
 export default function FAQPage() {
@@ -188,20 +188,20 @@ export default function FAQPage() {
               Top 1% Las Vegas REALTOR®
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-slate-600">
-              Everything you need to know about working with{" "} Dr. Jan Duffy in Las Vegas
+              Everything you need to know about working with Dr. Jan Duffy in
+              Las Vegas
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* FAQ Categories */}
+          {/* FAQ Categories */}
           <div className="max-w-4xl mx-auto space-y-12">
             {faqCategories.map((category) => (
               <section key={category.title}>
@@ -222,9 +222,12 @@ export default function FAQPage() {
 
           {/* CTA */}
           <section className="mt-16 text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Still Have Questions?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Still Have Questions?
+            </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy is happy to answer any questions about Las Vegas real estate or working with her.
+              Dr. Jan Duffy is happy to answer any questions about Las Vegas
+              real estate or working with her.
             </p>
             <a
               href="tel:+17025001942"
@@ -237,11 +240,13 @@ export default function FAQPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>

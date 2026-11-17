@@ -12,15 +12,16 @@ Based on: Vercel Next.js Best Practices & Web Interface Guidelines
 #### components/sections/HeroSection.tsx
 
 **Line 18** - Animation missing `prefers-reduced-motion` check
+
 - Automatic image slideshow runs regardless of user preference
 - **Fix**: Check `prefers-reduced-motion` and disable animation if requested
 
 ```tsx
-const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
 useEffect(() => {
   if (prefersReducedMotion) return; // Don't animate if user prefers reduced motion
-  
+
   const intervalId = setInterval(() => {
     setCurrentImage((prev) => (prev + 1) % images.length);
   }, 5000);
@@ -29,16 +30,19 @@ useEffect(() => {
 ```
 
 **Line 28** - `transition-opacity` not explicitly listed
+
 - Uses `transition-all` pattern which is discouraged
 - **Fix**: Use `transition-opacity duration-1000` explicitly
 
 **Line 83** - Animation without reduced motion check
+
 - Scroll indicator uses `animate-bounce` without accessibility consideration
 - **Fix**: Add conditional class based on `prefers-reduced-motion`
 
 #### components/layouts/Navbar.tsx
 
 **Line 82-89** - Dropdown button missing keyboard handlers
+
 - Button has `onClick` but no `onKeyDown` for Enter/Space keys
 - **Fix**: Add keyboard support
 
@@ -48,7 +52,7 @@ useEffect(() => {
   onClick={() => setIsServicesOpen(!isServicesOpen)}
   onMouseEnter={() => setIsServicesOpen(true)}
   onKeyDown={(e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       setIsServicesOpen(!isServicesOpen);
     }
@@ -62,10 +66,12 @@ useEffect(() => {
 ```
 
 **Line 92-107** - Dropdown menu needs ARIA roles
+
 - Missing proper ARIA labeling for accessibility
 - **Fix**: Add `role="menu"` and `role="menuitem"` attributes
 
 **Line 127** - Icon-only button has aria-label ✅ (GOOD)
+
 - Line 129: Toggle menu button has proper aria-label
 
 #### components/ui/button.tsx
@@ -75,6 +81,7 @@ useEffect(() => {
 #### components/ui/input.tsx
 
 ⚠️ Missing `autocomplete` attributes
+
 - Inputs should specify autocomplete for better UX
 - **Fix**: Add autocomplete prop support and encourage usage
 
@@ -85,6 +92,7 @@ useEffect(() => {
 ⚠️ Line 80: Missing `color-scheme` meta tag for dark mode support
 
 **Fix**:
+
 ```tsx
 <html lang="en" className="scroll-smooth antialiased" style={{ colorScheme: 'light' }}>
 ```
@@ -96,6 +104,7 @@ useEffect(() => {
 ### Current: Next.js 14.1.2 → Recommended: Next.js 15.x
 
 **Benefits:**
+
 - Async params and searchParams (better SSR performance)
 - Async cookies() and headers()
 - Improved caching strategies
@@ -105,12 +114,14 @@ useEffect(() => {
 **Migration Steps:**
 
 1. **Update dependencies**:
+
 ```bash
 npm install next@latest react@latest react-dom@latest
 npm install -D @types/react@latest @types/react-dom@latest
 ```
 
 2. **Run async codemod**:
+
 ```bash
 npx @next/codemod@latest next-async-request-api .
 ```
@@ -120,27 +131,36 @@ npx @next/codemod@latest next-async-request-api .
 ```tsx
 // Before (Next.js 14)
 export default function Page({ params }: { params: { slug: string } }) {
-  return <div>{params.slug}</div>
+  return <div>{params.slug}</div>;
 }
 
 // After (Next.js 15)
-export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  return <div>{slug}</div>
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  return <div>{slug}</div>;
 }
 ```
 
 4. **Update metadata generation**:
+
 ```tsx
 // Before
 export async function generateMetadata({ params }) {
-  return { title: params.slug }
+  return { title: params.slug };
 }
 
 // After
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  return { title: slug }
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  return { title: slug };
 }
 ```
 
@@ -187,8 +207,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
@@ -351,16 +371,16 @@ const nextConfig = {
   },
 
   // Standalone output for Docker/Vercel optimization
-  output: 'standalone',
+  output: "standalone",
 
   // Image optimization
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
@@ -369,46 +389,46 @@ const nextConfig = {
 
   // Performance optimizations
   swcMinify: true,
-  
+
   // Existing redirects
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         has: [
           {
-            type: 'host',
-            value: 'heyberkshire.com',
+            type: "host",
+            value: "heyberkshire.com",
           },
         ],
-        destination: 'https://www.heyberkshire.com/:path*',
+        destination: "https://www.heyberkshire.com/:path*",
         permanent: true,
       },
-    ]
+    ];
   },
 
   // Existing rewrites (Python API)
   rewrites: async () => {
     return [
       {
-        source: '/api/:path*',
+        source: "/api/:path*",
         destination:
-          process.env.NODE_ENV === 'development'
-            ? 'http://127.0.0.1:5328/api/:path*'
-            : '/api/',
+          process.env.NODE_ENV === "development"
+            ? "http://127.0.0.1:5328/api/:path*"
+            : "/api/",
       },
-    ]
+    ];
   },
 
   // Enhanced security headers
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           // CSP for RealScout widget (existing)
           {
-            key: 'Content-Security-Policy',
+            key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://www.googletagmanager.com https://www.google-analytics.com",
@@ -418,57 +438,57 @@ const nextConfig = {
               "connect-src 'self' https://em.realscout.com https://www.realscout.com https://openrouter.ai https://api.openai.com https://calendly.com https://www.google-analytics.com https://analytics.google.com",
               "frame-src 'self' https://em.realscout.com https://www.realscout.com https://calendly.com https://assets.calendly.com https://www.google.com https://maps.google.com https://*.google.com",
               "worker-src 'self' blob:",
-            ].join('; '),
+            ].join("; "),
           },
           // Additional security headers
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
           },
           {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
-          }
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
         ],
       },
-    ]
+    ];
   },
 
   // Bundle analyzer (when ANALYZE=true)
-  ...(process.env.ANALYZE === 'true' && {
+  ...(process.env.ANALYZE === "true" && {
     webpack: (config, { isServer }) => {
       if (!isServer) {
-        const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+        const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
         config.plugins.push(
           new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            reportFilename: './analyze.html',
+            analyzerMode: "static",
+            reportFilename: "./analyze.html",
             openAnalyzer: false,
-          })
-        )
+          }),
+        );
       }
-      return config
+      return config;
     },
   }),
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 ```
 
 ---
@@ -543,6 +563,7 @@ Create `.lighthouserc.json`:
 ### Vercel Setup:
 
 1. **Environment Variables** (required):
+
    - `OPENROUTER_API_KEY`
    - `NEXT_PUBLIC_REALSCOUT_AGENT_ID`
    - `VERCEL_TOKEN` (for GitHub Actions)
@@ -550,6 +571,7 @@ Create `.lighthouserc.json`:
    - `VERCEL_PROJECT_ID` (for GitHub Actions)
 
 2. **Build Settings**:
+
    - Framework: Next.js
    - Build Command: `npm run build`
    - Output Directory: `.next`
@@ -557,6 +579,7 @@ Create `.lighthouserc.json`:
    - Node Version: 20.x
 
 3. **Domain Configuration**:
+
    - Primary: www.heyberkshire.com
    - Redirect: heyberkshire.com → www.heyberkshire.com
 
@@ -571,11 +594,13 @@ Create `.lighthouserc.json`:
 ### Priority 1 - Accessibility Fixes:
 
 1. **Add reduced motion support to HeroSection**:
+
 ```tsx
-const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)');
+const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 ```
 
 2. **Add keyboard handlers to Navbar dropdown**:
+
 ```tsx
 onKeyDown={(e) => {
   if (e.key === 'Enter' || e.key === ' ') {
@@ -585,6 +610,7 @@ onKeyDown={(e) => {
 ```
 
 3. **Add ARIA attributes to dropdown menu**:
+
 ```tsx
 <button aria-expanded={isServicesOpen} aria-haspopup="true">
 ```
@@ -592,6 +618,7 @@ onKeyDown={(e) => {
 ### Priority 2 - Performance:
 
 1. **Add webpack-bundle-analyzer**:
+
 ```bash
 npm install -D webpack-bundle-analyzer
 ```
@@ -630,4 +657,4 @@ npm install -D webpack-bundle-analyzer
 
 ---
 
-*Generated by Vercel Next.js Best Practices & Web Interface Guidelines Skills*
+_Generated by Vercel Next.js Best Practices & Web Interface Guidelines Skills_

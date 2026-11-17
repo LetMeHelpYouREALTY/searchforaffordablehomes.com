@@ -6,32 +6,38 @@ const features = [
   {
     icon: Shield,
     title: "Trusted Expertise",
-    description: "In real estate since 1983 with proven results for budget-conscious buyers.",
+    description:
+      "In real estate since 1983 with proven results for budget-conscious buyers.",
   },
   {
     icon: TrendingUp,
     title: "Affordable Market Knowledge",
-    description: "Knows which Las Vegas ZIP codes still deliver equity upside under $550K.",
+    description:
+      "Knows which Las Vegas ZIP codes still deliver equity upside under $550K.",
   },
   {
     icon: Users,
     title: "Personalized Service",
-    description: "Dedicated attention to every client with customized search and negotiation plans.",
+    description:
+      "Dedicated attention to every client with customized search and negotiation plans.",
   },
   {
     icon: Award,
     title: "Proven Results",
-    description: "500+ successful transactions and satisfied clients across the valley.",
+    description:
+      "500+ successful transactions and satisfied clients across the valley.",
   },
   {
     icon: Clock,
     title: "Responsive",
-    description: "Quick response times — call or text (702) 222-1964 and reach Dr. Jan directly.",
+    description:
+      "Quick response times — call or text (702) 500-1942 and reach Dr. Jan directly.",
   },
   {
     icon: Home,
     title: "Full Service",
-    description: "Complete support from affordable home search to closing and beyond.",
+    description:
+      "Complete support from affordable home search to closing and beyond.",
   },
 ];
 
@@ -47,7 +53,8 @@ export default function WhyChooseUs() {
             Why Choose Dr. Jan for Affordable Homes
           </h2>
           <p className="mx-auto max-w-3xl text-xl text-slate-600">
-            Luxury-level representation focused on value, payment comfort, and long-term equity
+            Luxury-level representation focused on value, payment comfort, and
+            long-term equity
           </p>
         </div>
 
@@ -62,7 +69,9 @@ export default function WhyChooseUs() {
                 <div className="mb-4 rounded-full bg-blue-100 p-4">
                   <Icon className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="mb-2 text-xl font-bold text-slate-900">{feature.title}</h3>
+                <h3 className="mb-2 text-xl font-bold text-slate-900">
+                  {feature.title}
+                </h3>
                 <p className="text-slate-600">{feature.description}</p>
               </div>
             );

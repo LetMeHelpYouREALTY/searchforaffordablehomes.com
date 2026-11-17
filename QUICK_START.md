@@ -18,7 +18,7 @@ Add these 3 secrets:
 Name: VERCEL_TOKEN
 Value: [Get from https://vercel.com/account/tokens]
 
-Name: VERCEL_ORG_ID  
+Name: VERCEL_ORG_ID
 Value: [Run: npx vercel link, then copy from .vercel/project.json]
 
 Name: VERCEL_PROJECT_ID
@@ -69,12 +69,14 @@ git push
 ## 🎯 Files Changed
 
 ### Created:
+
 - `hooks/useReducedMotion.ts` - Accessibility hook
 - `.github/workflows/vercel-preview.yml` - Preview deployments
 - `vercel.json` - Vercel config
 - `.lighthouserc.json` - Performance budgets
 
 ### Modified:
+
 - `components/sections/HeroSection.tsx` - Reduced motion support
 - `components/layouts/Navbar.tsx` - Keyboard navigation
 - `app/layout.tsx` - Color scheme meta
