@@ -36,8 +36,8 @@ Test the API with this simple script:
 
 ```typescript
 // test-claude.ts
-import { ClaudeClient } from '@/lib/claude/client';
-import { realEstateAgentTemplate } from '@/lib/claude/prompt-templates';
+import { ClaudeClient } from "@/lib/claude/client";
+import { realEstateAgentTemplate } from "@/lib/claude/prompt-templates";
 
 const claude = new ClaudeClient({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -45,7 +45,7 @@ const claude = new ClaudeClient({
 
 const response = await claude.sendMessage({
   messages: [
-    { role: 'user', content: 'Tell me about Las Vegas real estate market' }
+    { role: "user", content: "Tell me about Las Vegas real estate market" },
   ],
   systemPrompt: realEstateAgentTemplate.system,
 });
@@ -68,9 +68,9 @@ npx tsx test-claude.ts
 
 ```typescript
 // app/api/chat/route.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { ClaudeClient } from '@/lib/claude/client';
-import { realEstateAgentTemplate } from '@/lib/claude/prompt-templates';
+import { NextRequest, NextResponse } from "next/server";
+import { ClaudeClient } from "@/lib/claude/client";
+import { realEstateAgentTemplate } from "@/lib/claude/prompt-templates";
 
 const claude = new ClaudeClient({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
   const { message } = await request.json();
 
   const response = await claude.sendMessage({
-    messages: [{ role: 'user', content: message }],
+    messages: [{ role: "user", content: message }],
     systemPrompt: realEstateAgentTemplate.system,
   });
 
@@ -95,23 +95,23 @@ export async function POST(request: NextRequest) {
 
 ```tsx
 // components/ChatWidget.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function ChatWidget() {
-  const [input, setInput] = useState('');
-  const [response, setResponse] = useState('');
+  const [input, setInput] = useState("");
+  const [response, setResponse] = useState("");
 
   async function chat() {
-    const res = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input }),
     });
-    
+
     const data = await res.json();
     setResponse(data.response);
   }
@@ -148,7 +148,7 @@ console.log(`Last 24h: $${stats.last24h.cost.toFixed(4)}`);
 Or add the dashboard component:
 
 ```tsx
-import ClaudeCostDashboard from '@/components/admin/ClaudeCostDashboard';
+import ClaudeCostDashboard from "@/components/admin/ClaudeCostDashboard";
 
 export default function AdminPage() {
   return <ClaudeCostDashboard />;
@@ -172,23 +172,27 @@ export default function AdminPage() {
 ## 🎯 Pre-Built Templates
 
 ### 1. Real Estate Agent (General)
+
 ```typescript
-import { realEstateAgentTemplate } from '@/lib/claude/prompt-templates';
+import { realEstateAgentTemplate } from "@/lib/claude/prompt-templates";
 ```
 
 ### 2. Property Search
+
 ```typescript
-import { propertySearchTemplate } from '@/lib/claude/prompt-templates';
+import { propertySearchTemplate } from "@/lib/claude/prompt-templates";
 ```
 
 ### 3. Home Valuation
+
 ```typescript
-import { homeValuationTemplate } from '@/lib/claude/prompt-templates';
+import { homeValuationTemplate } from "@/lib/claude/prompt-templates";
 ```
 
 ### 4. Customer Support
+
 ```typescript
-import { customerSupportTemplate } from '@/lib/claude/prompt-templates';
+import { customerSupportTemplate } from "@/lib/claude/prompt-templates";
 ```
 
 **All templates are optimized for caching (90% cost reduction)!**
@@ -199,11 +203,11 @@ import { customerSupportTemplate } from '@/lib/claude/prompt-templates';
 
 With prompt caching enabled (default):
 
-| Usage | Monthly Cost |
-|-------|--------------|
-| 100 requests/day | ~$1.20 |
-| 1,000 requests/day | ~$12.00 |
-| 10,000 requests/day | ~$120.00 |
+| Usage               | Monthly Cost |
+| ------------------- | ------------ |
+| 100 requests/day    | ~$1.20       |
+| 1,000 requests/day  | ~$12.00      |
+| 10,000 requests/day | ~$120.00     |
 
 **Without caching:** 10x higher!
 
@@ -248,15 +252,18 @@ CLAUDE_RPM=50  # Requests per minute per client
 ## 🆘 Troubleshooting
 
 **"API key not configured"**
+
 - Add `ANTHROPIC_API_KEY` to `.env.local`
 - Restart dev server (`npm run dev`)
 
 **High costs**
+
 - Check `CLAUDE_PROMPT_CACHING=true` is set
 - Use appropriate model (Sonnet for most, Haiku for simple)
 - Set reasonable `maxTokens` values
 
 **Rate limit errors (429)**
+
 - Reduce request frequency
 - Adjust `CLAUDE_RPM` in config
 
@@ -270,4 +277,4 @@ CLAUDE_RPM=50  # Requests per minute per client
 
 ---
 
-*Ready to build? See `CLAUDE_OPTIMIZATION.md` for advanced features and examples.*
+_Ready to build? See `CLAUDE_OPTIMIZATION.md` for advanced features and examples._

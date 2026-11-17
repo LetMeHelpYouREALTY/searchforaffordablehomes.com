@@ -10,7 +10,14 @@ import SectionExtras from "@/components/brand/SectionExtras";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, Home as HomeIcon, TrendingUp, Shield, Users, MapPin } from "lucide-react";
+import {
+  Phone,
+  Home as HomeIcon,
+  TrendingUp,
+  Shield,
+  Users,
+  MapPin,
+} from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import {
   combineSchemas,
@@ -18,6 +25,19 @@ import {
   generateWebPageSchema,
   generateBreadcrumbSchema,
 } from "@/lib/schema";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Affordable Homes Las Vegas | Search MLS Listings",
+  description:
+    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
+  keywords: [
+    "affordable homes",
+    "affordable homes Las Vegas",
+    "search for affordable homes",
+    "Las Vegas homes for sale",
+  ],
+};
 
 const homeFaqs = [
   {
@@ -38,7 +58,7 @@ const homeFaqs = [
   {
     question: "How do I schedule a tour with Dr. Jan Duffy?",
     answer:
-      "Book instantly on Calendly, call (702) 222-1964, or use the schedule section on any page. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+      "Book instantly on Calendly, call (702) 500-1942, or use the schedule section on any page. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
   },
 ];
 
@@ -55,7 +75,7 @@ export default async function Home() {
       { name: "Home", url: "/" },
       { name: "Affordable Homes", url: "/affordable-homes" },
     ]),
-    generateFAQSchema(homeFaqs)
+    generateFAQSchema(homeFaqs),
   );
 
   return (
@@ -72,7 +92,11 @@ export default async function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/70 to-slate-950/90" />
           <div className="relative z-10 container mx-auto flex min-h-[88vh] flex-col items-center justify-center px-4 py-24 text-center md:py-28">
-            <BrandPortrait size="xl" priority className="mb-6 ring-offset-slate-950" />
+            <BrandPortrait
+              size="xl"
+              priority
+              className="mb-6 ring-offset-slate-950"
+            />
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
               Search for Affordable Homes
             </p>
@@ -94,11 +118,11 @@ export default async function Home() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <a
-                href="tel:+17022221964"
+                href="tel:+17025001942"
                 className="inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-700"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </a>
               <a
                 href="#schedule"
@@ -125,7 +149,8 @@ export default async function Home() {
               </h2>
               <p className="text-lg text-slate-600">
                 Top 1% Las Vegas REALTOR® Dr. Jan Duffy helps buyers who want
-                payment comfort without cutting corners on negotiation or due diligence.
+                payment comfort without cutting corners on negotiation or due
+                diligence.
               </p>
             </div>
             <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -176,7 +201,9 @@ export default async function Home() {
               <h2 className="mb-3 text-3xl font-bold">
                 Las Vegas Affordable Homes Snapshot
               </h2>
-              <p className="text-slate-400">Current market context — updated regularly</p>
+              <p className="text-slate-400">
+                Current market context — updated regularly
+              </p>
             </div>
             <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4">
               {[
@@ -186,9 +213,13 @@ export default async function Home() {
                 { value: "2.1", label: "Months Inventory", sub: "" },
               ].map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
-                  <div className="mb-1 text-4xl font-bold text-blue-400">{value}</div>
+                  <div className="mb-1 text-4xl font-bold text-blue-400">
+                    {value}
+                  </div>
                   <div className="text-sm text-slate-300">{label}</div>
-                  {sub && <div className="mt-1 text-xs text-emerald-400">{sub}</div>}
+                  {sub && (
+                    <div className="mt-1 text-xs text-emerald-400">{sub}</div>
+                  )}
                 </div>
               ))}
             </div>
@@ -220,8 +251,8 @@ export default async function Home() {
                 Where Affordable Homes Still Show Up
               </h2>
               <p className="text-lg text-slate-600">
-                Explore value corridors with square footage, amenities, and commute context—not
-                vague lifestyle claims.
+                Explore value corridors with square footage, amenities, and
+                commute context—not vague lifestyle claims.
               </p>
             </div>
             <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">

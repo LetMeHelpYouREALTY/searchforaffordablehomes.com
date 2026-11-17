@@ -7,7 +7,7 @@ import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
 import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import SchemaScript from "@/components/SchemaScript";
+import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
 import {
   combineSchemas,
   generateBreadcrumbSchema,
@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Affordable Homes Las Vegas | Search Value MLS Listings",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy filters MLS inventory by payment fit. Call (702) 222-1964.",
+    "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy filters MLS inventory by payment fit. Call (702) 500-1942.",
   keywords: [
     "affordable homes",
     "affordable homes Las Vegas",
@@ -64,7 +64,7 @@ const pageSchemas = combineSchemas(
       "Buyer representation focused on affordable homes and payment-fit MLS search.",
     url: "/affordable-homes",
   }),
-  generateFAQSchema(faqs)
+  generateFAQSchema(faqs),
 );
 
 export default function AffordableHomesPage() {
@@ -85,24 +85,24 @@ export default function AffordableHomesPage() {
               Affordable Homes in Las Vegas Without Cutting Corners
             </h1>
             <p className="mb-6 text-xl text-slate-600">
-              Luxury-level representation from Dr. Jan Duffy — MLS access, payment
-              planning, and negotiation that protects your equity from day one.
+              Luxury-level representation from Dr. Jan Duffy — MLS access,
+              payment planning, and negotiation that protects your equity from
+              day one.
             </p>
             <p className="text-sm text-slate-500">
-              Berkshire Hathaway HomeServices Nevada Properties · 9406 W Lake Mead
-              Blvd, Suite 100, Las Vegas, NV 89134 ·{" "}
-              <a href="tel:+17022221964" className="font-medium text-[#1e4fd6]">
-                (702) 222-1964
+              Berkshire Hathaway HomeServices Nevada Properties · 9406 W Lake
+              Mead Blvd, Suite 100, Las Vegas, NV 89134 ·{" "}
+              <a href="tel:+17025001942" className="font-medium text-[#1e4fd6]">
+                (702) 500-1942
               </a>
             </p>
           </div>
         </div>
 
-          <OfficeListingsUnderHero
+        <OfficeListingsUnderHero
           title="Live Affordable Homes Inventory"
           subtitle="Office listings filtered for value-focused buyers across the Las Vegas Valley."
         />
-
 
         <div className="container mx-auto px-4">
           <section className="mx-auto mb-16 max-w-5xl py-12">
@@ -113,9 +113,9 @@ export default function AffordableHomesPage() {
               </h2>
             </div>
             <p className="mb-6 text-lg text-slate-600">
-              Affordable means payment fit. Sticker price alone can mislead when HOA,
-              taxes, insurance, and rate stack up. Dr. Jan maps your monthly target to
-              real MLS homes you can actually close.
+              Affordable means payment fit. Sticker price alone can mislead when
+              HOA, taxes, insurance, and rate stack up. Dr. Jan maps your
+              monthly target to real MLS homes you can actually close.
             </p>
             <div className="grid gap-4 md:grid-cols-3">
               {[
@@ -135,7 +135,10 @@ export default function AffordableHomesPage() {
                   text: "Square footage, amenities, and commute times—not vague labels.",
                 },
               ].map(({ icon: Icon, title, text }) => (
-                <div key={title} className="rounded-xl border border-slate-200 p-5">
+                <div
+                  key={title}
+                  className="rounded-xl border border-slate-200 p-5"
+                >
                   <Icon className="mb-3 h-6 w-6 text-[#1e4fd6]" />
                   <h3 className="mb-2 font-bold text-slate-900">{title}</h3>
                   <p className="text-sm text-slate-600">{text}</p>
@@ -193,8 +196,13 @@ export default function AffordableHomesPage() {
             </div>
             <div className="space-y-4">
               {faqs.map((faq) => (
-                <div key={faq.question} className="rounded-xl border border-slate-200 p-5">
-                  <h3 className="mb-2 font-semibold text-slate-900">{faq.question}</h3>
+                <div
+                  key={faq.question}
+                  className="rounded-xl border border-slate-200 p-5"
+                >
+                  <h3 className="mb-2 font-semibold text-slate-900">
+                    {faq.question}
+                  </h3>
                   <p className="text-slate-600">{faq.answer}</p>
                 </div>
               ))}
@@ -203,17 +211,20 @@ export default function AffordableHomesPage() {
           </section>
 
           <section className="mx-auto mb-8 max-w-4xl rounded-2xl bg-[#1e4fd6] p-8 text-center text-white md:p-12">
-            <BrandPortrait size="md" className="mx-auto mb-4 ring-offset-[#1e4fd6]" />
+            <BrandPortrait
+              size="md"
+              className="mx-auto mb-4 ring-offset-[#1e4fd6]"
+            />
             <h2 className="mb-3 text-3xl font-bold">Ready to Search?</h2>
             <p className="mb-6 text-blue-100">
               Call or text Dr. Jan Duffy — she answers her own phone.
             </p>
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001942"
               className="inline-flex items-center rounded-md bg-white px-6 py-3 font-semibold text-[#1e4fd6]"
             >
               <Phone className="mr-2 h-5 w-5" />
-              (702) 222-1964
+              (702) 500-1942
             </a>
             <SectionExtras
               tone="dark"

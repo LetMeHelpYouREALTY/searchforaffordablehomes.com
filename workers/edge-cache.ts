@@ -1,12 +1,16 @@
 /**
  * Cloudflare Worker - Edge Cache Optimization
- * 
+ *
  * This worker provides advanced caching strategies at the edge
  * for optimal performance and reduced origin server load.
  */
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext,
+  ): Promise<Response> {
     const url = new URL(request.url);
     const cacheKey = new Request(url.toString(), request);
     const cache = caches.default;
@@ -22,21 +26,24 @@ export default {
       response = new Response(response.body, response);
 
       // Apply caching rules based on content type and path
-      const cacheRules = getCacheRules(url.pathname, response.headers.get('content-type'));
-      
+      const cacheRules = getCacheRules(
+        url.pathname,
+        response.headers.get("content-type"),
+      );
+
       if (cacheRules.shouldCache) {
         // Set cache headers
-        response.headers.set('Cache-Control', cacheRules.cacheControl);
-        response.headers.set('CDN-Cache-Control', cacheRules.cdnCacheControl);
-        
+        response.headers.set("Cache-Control", cacheRules.cacheControl);
+        response.headers.set("CDN-Cache-Control", cacheRules.cdnCacheControl);
+
         // Store in edge cache
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
       }
     }
 
     // Add cache status header for debugging
-    response.headers.set('CF-Cache-Status', response ? 'HIT' : 'MISS');
-    
+    response.headers.set("CF-Cache-Status", response ? "HIT" : "MISS");
+
     return response;
   },
 };
@@ -47,52 +54,57 @@ interface CacheRule {
   cdnCacheControl: string;
 }
 
-function getCacheRules(pathname: string, contentType: string | null): CacheRule {
+function getCacheRules(
+  pathname: string,
+  contentType: string | null,
+): CacheRule {
   // Static assets - cache for 1 year
   if (
-    pathname.startsWith('/_next/static/') ||
-    pathname.startsWith('/static/') ||
-    /\.(jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf|eot|otf)$/i.test(pathname)
+    pathname.startsWith("/_next/static/") ||
+    pathname.startsWith("/static/") ||
+    /\.(jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|ttf|eot|otf)$/i.test(
+      pathname,
+    )
   ) {
     return {
       shouldCache: true,
-      cacheControl: 'public, max-age=31536000, immutable',
-      cdnCacheControl: 'public, max-age=31536000, immutable',
+      cacheControl: "public, max-age=31536000, immutable",
+      cdnCacheControl: "public, max-age=31536000, immutable",
     };
   }
 
   // Images - cache for 1 year
-  if (pathname.startsWith('/Image/') || contentType?.startsWith('image/')) {
+  if (pathname.startsWith("/Image/") || contentType?.startsWith("image/")) {
     return {
       shouldCache: true,
-      cacheControl: 'public, max-age=31536000',
-      cdnCacheControl: 'public, max-age=31536000',
+      cacheControl: "public, max-age=31536000",
+      cdnCacheControl: "public, max-age=31536000",
     };
   }
 
   // HTML pages - cache for 1 hour, revalidate
-  if (contentType?.includes('text/html')) {
+  if (contentType?.includes("text/html")) {
     return {
       shouldCache: true,
-      cacheControl: 'public, max-age=0, must-revalidate',
-      cdnCacheControl: 'public, max-age=3600, stale-while-revalidate=86400',
+      cacheControl: "public, max-age=0, must-revalidate",
+      cdnCacheControl: "public, max-age=3600, stale-while-revalidate=86400",
     };
   }
 
   // API routes - don't cache
-  if (pathname.startsWith('/api/')) {
+  if (pathname.startsWith("/api/")) {
     return {
       shouldCache: false,
-      cacheControl: 'private, no-cache, no-store, must-revalidate',
-      cdnCacheControl: 'private, no-cache',
+      cacheControl: "private, no-cache, no-store, must-revalidate",
+      cdnCacheControl: "private, no-cache",
     };
   }
 
   // Default - cache for 5 minutes
   return {
     shouldCache: true,
-    cacheControl: 'public, max-age=300',
-    cdnCacheControl: 'public, max-age=300',
+    cacheControl: "public, max-age=300",
+    cdnCacheControl: "public, max-age=300",
   };
 }
 

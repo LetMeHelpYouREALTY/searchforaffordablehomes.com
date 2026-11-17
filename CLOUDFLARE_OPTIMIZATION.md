@@ -7,6 +7,7 @@
 ## 🚀 Overview
 
 This guide covers the complete Cloudflare optimization setup including:
+
 - ✅ **Cloudflare Workers** for edge computing and optimization
 - ✅ **Cloudflare Pages** for static site deployment
 - ✅ **Edge caching** with intelligent cache rules
@@ -21,28 +22,28 @@ This guide covers the complete Cloudflare optimization setup including:
 
 ### Cloudflare Workers
 
-| Worker | Purpose | Location |
-|--------|---------|----------|
-| **edge-cache.ts** | Intelligent edge caching with custom rules | `workers/edge-cache.ts` |
-| **security-headers.ts** | Comprehensive security headers | `workers/security-headers.ts` |
-| **image-optimizer.ts** | Automatic image optimization (WebP/AVIF) | `workers/image-optimizer.ts` |
-| **analytics.ts** | Performance tracking and monitoring | `workers/analytics.ts` |
-| **_worker.ts** | Main entry point (routes to other workers) | `workers/_worker.ts` |
+| Worker                  | Purpose                                    | Location                      |
+| ----------------------- | ------------------------------------------ | ----------------------------- |
+| **edge-cache.ts**       | Intelligent edge caching with custom rules | `workers/edge-cache.ts`       |
+| **security-headers.ts** | Comprehensive security headers             | `workers/security-headers.ts` |
+| **image-optimizer.ts**  | Automatic image optimization (WebP/AVIF)   | `workers/image-optimizer.ts`  |
+| **analytics.ts**        | Performance tracking and monitoring        | `workers/analytics.ts`        |
+| **\_worker.ts**         | Main entry point (routes to other workers) | `workers/_worker.ts`          |
 
 ### Configuration Files
 
-| File | Purpose |
-|------|---------|
-| `wrangler.toml` | Cloudflare Workers configuration |
-| `cloudflare-pages.json` | Cloudflare Pages build settings |
-| `.nvmrc` | Node.js version specification (20) |
-| `next.config.cloudflare.js` | Next.js config for Cloudflare |
-| `lib/cloudflare-image-loader.ts` | Custom image loader |
+| File                             | Purpose                            |
+| -------------------------------- | ---------------------------------- |
+| `wrangler.toml`                  | Cloudflare Workers configuration   |
+| `cloudflare-pages.json`          | Cloudflare Pages build settings    |
+| `.nvmrc`                         | Node.js version specification (20) |
+| `next.config.cloudflare.js`      | Next.js config for Cloudflare      |
+| `lib/cloudflare-image-loader.ts` | Custom image loader                |
 
 ### GitHub Actions
 
-| Workflow | Purpose |
-|----------|---------|
+| Workflow                                  | Purpose                         |
+| ----------------------------------------- | ------------------------------- |
 | `.github/workflows/cloudflare-deploy.yml` | Automated Cloudflare deployment |
 
 ---
@@ -52,11 +53,13 @@ This guide covers the complete Cloudflare optimization setup including:
 ### Prerequisites
 
 1. **Cloudflare Account**
+
    - Sign up at https://dash.cloudflare.com/sign-up
    - Add your domain (heyberkshire.com)
    - Update nameservers to Cloudflare
 
 2. **Cloudflare API Token**
+
    - Go to https://dash.cloudflare.com/profile/api-tokens
    - Create token with permissions:
      - ✅ Account - Cloudflare Pages:Edit
@@ -86,11 +89,11 @@ Go to: **Settings → Secrets and variables → Actions**
 
 Add these secrets:
 
-| Name | Value | How to Get |
-|------|-------|------------|
-| `CLOUDFLARE_API_TOKEN` | Your API token | Step 2 above |
-| `CLOUDFLARE_ACCOUNT_ID` | Your account ID | Step 3 above |
-| `OPENROUTER_API_KEY` | (existing) | Already configured |
+| Name                    | Value           | How to Get         |
+| ----------------------- | --------------- | ------------------ |
+| `CLOUDFLARE_API_TOKEN`  | Your API token  | Step 2 above       |
+| `CLOUDFLARE_ACCOUNT_ID` | Your account ID | Step 3 above       |
+| `OPENROUTER_API_KEY`    | (existing)      | Already configured |
 
 ### Step 4: Test Locally
 
@@ -128,6 +131,7 @@ wrangler deploy
 **Location:** `workers/edge-cache.ts`
 
 **Features:**
+
 - ✅ Intelligent caching based on content type
 - ✅ Static assets cached for 1 year
 - ✅ HTML pages with stale-while-revalidate
@@ -136,19 +140,20 @@ wrangler deploy
 
 **Cache Rules:**
 
-| Content Type | Cache Duration | Revalidation |
-|--------------|----------------|--------------|
-| Static assets (`/_next/static/*`) | 1 year | Immutable |
-| Images (`/Image/*`, `/images/*`) | 1 year | None |
-| HTML pages | 1 hour edge, 0 browser | 24h stale-while-revalidate |
-| API routes (`/api/*`) | No cache | N/A |
-| Default | 5 minutes | None |
+| Content Type                      | Cache Duration         | Revalidation               |
+| --------------------------------- | ---------------------- | -------------------------- |
+| Static assets (`/_next/static/*`) | 1 year                 | Immutable                  |
+| Images (`/Image/*`, `/images/*`)  | 1 year                 | None                       |
+| HTML pages                        | 1 hour edge, 0 browser | 24h stale-while-revalidate |
+| API routes (`/api/*`)             | No cache               | N/A                        |
+| Default                           | 5 minutes              | None                       |
 
 ### 2. Security Headers Worker
 
 **Location:** `workers/security-headers.ts`
 
 **Features:**
+
 - ✅ Content Security Policy (CSP)
 - ✅ Strict Transport Security (HSTS)
 - ✅ X-Content-Type-Options (nosniff)
@@ -162,6 +167,7 @@ wrangler deploy
 **Location:** `workers/image-optimizer.ts`
 
 **Features:**
+
 - ✅ Automatic WebP/AVIF conversion
 - ✅ Client capability detection (Accept header)
 - ✅ Responsive image sizing
@@ -184,6 +190,7 @@ wrangler deploy
 ```
 
 **URL Parameters:**
+
 - `w` - Width in pixels
 - `h` - Height in pixels
 - `q` - Quality (1-100, default: 85)
@@ -195,6 +202,7 @@ wrangler deploy
 **Location:** `workers/analytics.ts`
 
 **Features:**
+
 - ✅ Performance timing data
 - ✅ Cache hit/miss tracking
 - ✅ Geographic distribution (country, colo)
@@ -202,6 +210,7 @@ wrangler deploy
 - ✅ Status code tracking
 
 **Data Collected:**
+
 - URL and method
 - Response time
 - HTTP status
@@ -217,6 +226,7 @@ wrangler deploy
 ### Edge Caching Strategy
 
 **Benefits:**
+
 - 🚀 **Reduced Latency** - Content served from nearest edge location
 - 💰 **Lower Costs** - Fewer origin requests
 - 📊 **Better Performance** - Static assets cached indefinitely
@@ -225,12 +235,14 @@ wrangler deploy
 ### Image Optimization
 
 **Automatic Optimizations:**
+
 1. **Format Conversion** - Serves WebP/AVIF to supporting browsers
 2. **Responsive Sizing** - Generates multiple sizes automatically
 3. **Quality Optimization** - Reduces file size without visible quality loss
 4. **Lazy Loading** - Delays loading of below-fold images
 
 **Expected Savings:**
+
 - WebP: 25-35% smaller than JPEG
 - AVIF: 40-50% smaller than JPEG
 - Proper sizing: 50-80% reduction
@@ -238,6 +250,7 @@ wrangler deploy
 ### Security Enhancements
 
 **Headers Applied:**
+
 - **HSTS** - Forces HTTPS for 2 years
 - **CSP** - Prevents XSS and injection attacks
 - **X-Frame-Options** - Prevents clickjacking
@@ -250,6 +263,7 @@ wrangler deploy
 ### Cloudflare Dashboard
 
 **Metrics Available:**
+
 - 📈 Requests per second
 - 📊 Bandwidth usage
 - 🌍 Geographic distribution
@@ -262,6 +276,7 @@ wrangler deploy
 ### Worker Analytics
 
 **Custom Metrics:**
+
 - Edge response times
 - Cache performance
 - Image optimization stats
@@ -270,6 +285,7 @@ wrangler deploy
 ### Lighthouse Audits
 
 **Automated on Every PR:**
+
 - Performance score
 - Accessibility score
 - Best practices score
@@ -282,10 +298,12 @@ wrangler deploy
 ### Environment Variables
 
 **Required:**
+
 - `CLOUDFLARE_ACCOUNT_ID` - Your Cloudflare account ID
 - `CLOUDFLARE_API_TOKEN` - API token with proper permissions
 
 **Optional:**
+
 - `NEXT_PUBLIC_CLOUDFLARE_IMAGES_ENABLED` - Enable Cloudflare Images (requires paid plan)
 - `NEXT_PUBLIC_CLOUDFLARE_ACCOUNT_HASH` - Cloudflare Images account hash
 - `DEBUG` - Enable debug logging (set to `"true"`)
@@ -293,6 +311,7 @@ wrangler deploy
 ### Wrangler Configuration
 
 **Edit `wrangler.toml` for:**
+
 - Account ID
 - Zone name (heyberkshire.com)
 - Routes (URL patterns)
@@ -303,6 +322,7 @@ wrangler deploy
 ### Cloudflare Pages Settings
 
 **In Cloudflare Dashboard:**
+
 1. Go to Pages → heyberkshire-com
 2. Settings → Builds & deployments
 3. Configure:
@@ -326,6 +346,7 @@ wrangler deploy
 **Error:** Images load as original format
 
 **Solutions:**
+
 1. Check Accept header is being sent by browser
 2. Verify image optimizer worker is deployed
 3. Check wrangler routes are configured correctly
@@ -335,6 +356,7 @@ wrangler deploy
 **Error:** `CF-Cache-Status: MISS` on every request
 
 **Solutions:**
+
 1. Verify cache rules in `edge-cache.ts`
 2. Check Cloudflare caching settings in dashboard
 3. Ensure proper Cache-Control headers
@@ -344,6 +366,7 @@ wrangler deploy
 **Error:** `Authentication error`
 
 **Solutions:**
+
 1. Verify `CLOUDFLARE_API_TOKEN` is set correctly
 2. Check token has proper permissions
 3. Confirm `CLOUDFLARE_ACCOUNT_ID` is correct
@@ -354,31 +377,33 @@ wrangler deploy
 
 ### Before Cloudflare Optimization
 
-| Metric | Value |
-|--------|-------|
-| **TTFB** | ~500ms |
-| **LCP** | ~2.5s |
-| **FCP** | ~1.8s |
-| **Cache Hit Ratio** | 0% |
+| Metric              | Value  |
+| ------------------- | ------ |
+| **TTFB**            | ~500ms |
+| **LCP**             | ~2.5s  |
+| **FCP**             | ~1.8s  |
+| **Cache Hit Ratio** | 0%     |
 
 ### After Cloudflare Optimization
 
-| Metric | Value | Improvement |
-|--------|-------|-------------|
-| **TTFB** | ~50ms | **90% faster** |
-| **LCP** | <1.5s | **40% faster** |
-| **FCP** | <1.0s | **45% faster** |
+| Metric              | Value  | Improvement    |
+| ------------------- | ------ | -------------- |
+| **TTFB**            | ~50ms  | **90% faster** |
+| **LCP**             | <1.5s  | **40% faster** |
+| **FCP**             | <1.0s  | **45% faster** |
 | **Cache Hit Ratio** | 85-95% | **New metric** |
 
 ### Cost Savings
 
 **Cloudflare Workers Free Tier:**
+
 - 100,000 requests/day
 - Free SSL certificates
 - Unlimited bandwidth on some plans
 - Free DDoS protection
 
 **Estimated Monthly Costs:**
+
 - **Free Tier** - $0 (for most small-medium sites)
 - **Workers Paid** - $5/month (100,000+ requests/day)
 - **Cloudflare Images** - $5/month + $1 per 1,000 images served
@@ -411,17 +436,20 @@ wrangler deploy
 ## 📚 Resources
 
 ### Cloudflare Documentation
+
 - [Workers Documentation](https://developers.cloudflare.com/workers/)
 - [Pages Documentation](https://developers.cloudflare.com/pages/)
 - [Next.js on Cloudflare](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
 - [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
 
 ### Performance Tools
+
 - [Cloudflare Speed Test](https://speed.cloudflare.com/)
 - [WebPageTest](https://www.webpagetest.org/)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 ### Community
+
 - [Cloudflare Community](https://community.cloudflare.com/)
 - [Cloudflare Workers Discord](https://discord.gg/cloudflaredev)
 
@@ -444,5 +472,5 @@ This Cloudflare optimization provides:
 
 ---
 
-*Generated: February 13, 2026*  
-*Last Updated: February 13, 2026*
+_Generated: February 13, 2026_  
+_Last Updated: February 13, 2026_

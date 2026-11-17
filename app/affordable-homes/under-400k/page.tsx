@@ -7,7 +7,7 @@ import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
 import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import SchemaScript from "@/components/SchemaScript";
+import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
 import {
   combineSchemas,
   generateBreadcrumbSchema,
@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "Homes Under $400K Las Vegas | Affordable Homes",
   description:
-    "Find affordable homes under $400K in Las Vegas and Henderson. Live MLS office listings with Dr. Jan Duffy. Call (702) 222-1964.",
+    "Find affordable homes under $400K in Las Vegas and Henderson. Live MLS office listings with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
   keywords: [
     "homes under 400k Las Vegas",
     "affordable homes under 400000",
@@ -52,7 +52,7 @@ const pageSchemas = combineSchemas(
     { name: "Affordable Homes", url: "/affordable-homes" },
     { name: "Under $400K", url: "/affordable-homes/under-400k" },
   ]),
-  generateFAQSchema(faqs)
+  generateFAQSchema(faqs),
 );
 
 export default function Under400kPage() {
@@ -79,13 +79,12 @@ export default function Under400kPage() {
           </div>
         </div>
 
-          <OfficeListingsUnderHero
+        <OfficeListingsUnderHero
           title="MLS Homes Under $400K"
           subtitle="Live office listings capped at $400,000 for affordable homes shoppers."
           priceMin="150000"
           priceMax="400000"
         />
-
 
         <div className="container mx-auto px-4 py-12">
           <section className="mx-auto mb-12 max-w-4xl">
@@ -97,12 +96,16 @@ export default function Under400kPage() {
             </div>
             <p className="mb-4 text-lg text-slate-600">
               Under-$400K homes can include townhomes, smaller single-family
-              footprints, and homes needing light updates. Dr. Jan Duffy helps you
-              price repairs, compare HOA costs, and write offers that still win.
+              footprints, and homes needing light updates. Dr. Jan Duffy helps
+              you price repairs, compare HOA costs, and write offers that still
+              win.
             </p>
             <p className="text-slate-600">
               Explore related guides:{" "}
-              <Link href="/affordable-homes" className="text-[#1e4fd6] underline">
+              <Link
+                href="/affordable-homes"
+                className="text-[#1e4fd6] underline"
+              >
                 affordable homes hub
               </Link>
               ,{" "}
@@ -136,14 +139,17 @@ export default function Under400kPage() {
           </section>
 
           <section className="mx-auto max-w-3xl rounded-2xl bg-slate-900 p-8 text-center text-white">
-            <BrandPortrait size="md" className="mx-auto mb-4 ring-offset-slate-900" />
+            <BrandPortrait
+              size="md"
+              className="mx-auto mb-4 ring-offset-slate-900"
+            />
             <h2 className="mb-3 text-2xl font-bold">Call Dr. Jan Duffy</h2>
             <a
-              href="tel:+17022221964"
+              href="tel:+17025001942"
               className="inline-flex items-center text-lg font-semibold text-blue-300"
             >
               <Phone className="mr-2 h-5 w-5" />
-              (702) 222-1964
+              (702) 500-1942
             </a>
             <SectionExtras tone="dark" headline="Or schedule below" />
           </section>

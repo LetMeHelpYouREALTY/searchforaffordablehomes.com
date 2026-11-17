@@ -1,6 +1,6 @@
 /**
  * Lead Capture Form - Optimized for FUB Integration
- * 
+ *
  * Features:
  * - Real-time validation
  * - Auto-enrichment with source tracking
@@ -9,59 +9,61 @@
  * - Mobile-optimized
  */
 
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Turnstile } from '@marsidev/react-turnstile';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export interface LeadCaptureFormProps {
   source?: string;
   stage?: string;
   defaultTags?: string[];
-  formType?: 'contact' | 'property-search' | 'home-valuation' | 'newsletter';
+  formType?: "contact" | "property-search" | "home-valuation" | "newsletter";
   onSuccess?: () => void;
   onError?: (error: string) => void;
 }
 
 export function LeadCaptureForm({
-  source = 'website-form',
-  stage = 'New Lead',
+  source = "website-form",
+  stage = "New Lead",
   defaultTags = [],
-  formType = 'contact',
+  formType = "contact",
   onSuccess,
   onError,
 }: LeadCaptureFormProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [turnstileToken, setTurnstileToken] = useState<string>('');
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
     // Property search fields
-    priceMin: '',
-    priceMax: '',
-    bedrooms: '',
-    bathrooms: '',
+    priceMin: "",
+    priceMax: "",
+    bedrooms: "",
+    bathrooms: "",
     neighborhoods: [] as string[],
-    timeline: '',
+    timeline: "",
     preApproved: false,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value, type } = e.target;
-    
-    if (type === 'checkbox') {
+
+    if (type === "checkbox") {
       const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({ ...prev, [name]: checked }));
+      setFormData((prev) => ({ ...prev, [name]: checked }));
     } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
@@ -71,15 +73,17 @@ export function LeadCaptureForm({
     setError(null);
 
     try {
-      const response = await fetch('/api/leads/capture', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/leads/capture", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
           priceMin: formData.priceMin ? parseInt(formData.priceMin) : undefined,
           priceMax: formData.priceMax ? parseInt(formData.priceMax) : undefined,
           bedrooms: formData.bedrooms ? parseInt(formData.bedrooms) : undefined,
-          bathrooms: formData.bathrooms ? parseInt(formData.bathrooms) : undefined,
+          bathrooms: formData.bathrooms
+            ? parseInt(formData.bathrooms)
+            : undefined,
           source,
           stage,
           tags: defaultTags,
@@ -89,29 +93,29 @@ export function LeadCaptureForm({
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to submit form');
+        throw new Error(errorData.error || "Failed to submit form");
       }
 
       setSuccess(true);
       setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: '',
-        priceMin: '',
-        priceMax: '',
-        bedrooms: '',
-        bathrooms: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+        priceMin: "",
+        priceMax: "",
+        bedrooms: "",
+        bathrooms: "",
         neighborhoods: [],
-        timeline: '',
+        timeline: "",
         preApproved: false,
       });
-      setTurnstileToken(''); // Reset CAPTCHA
+      setTurnstileToken(""); // Reset CAPTCHA
 
       if (onSuccess) onSuccess();
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+      const errorMessage = err instanceof Error ? err.message : "Unknown error";
       setError(errorMessage);
       if (onError) onError(errorMessage);
     } finally {
@@ -127,7 +131,8 @@ export function LeadCaptureForm({
           Thank You!
         </h3>
         <p className="text-green-700">
-          Your information has been received. Dr. Jan Duffy will contact you shortly.
+          Your information has been received. Dr. Jan Duffy will contact you
+          shortly.
         </p>
         <Button
           onClick={() => setSuccess(false)}
@@ -210,7 +215,7 @@ export function LeadCaptureForm({
       </div>
 
       {/* Property Search Fields */}
-      {formType === 'property-search' && (
+      {formType === "property-search" && (
         <>
           <div className="border-t pt-4 mt-4">
             <h3 className="font-semibold mb-3">Property Search Criteria</h3>
@@ -218,7 +223,10 @@ export function LeadCaptureForm({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="priceMin" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="priceMin"
+                className="block text-sm font-medium mb-1"
+              >
                 Min Price
               </label>
               <Input
@@ -233,7 +241,10 @@ export function LeadCaptureForm({
             </div>
 
             <div>
-              <label htmlFor="priceMax" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="priceMax"
+                className="block text-sm font-medium mb-1"
+              >
                 Max Price
               </label>
               <Input
@@ -250,7 +261,10 @@ export function LeadCaptureForm({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="bedrooms" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="bedrooms"
+                className="block text-sm font-medium mb-1"
+              >
                 Bedrooms
               </label>
               <Input
@@ -266,7 +280,10 @@ export function LeadCaptureForm({
             </div>
 
             <div>
-              <label htmlFor="bathrooms" className="block text-sm font-medium mb-1">
+              <label
+                htmlFor="bathrooms"
+                className="block text-sm font-medium mb-1"
+              >
                 Bathrooms
               </label>
               <Input
@@ -284,7 +301,10 @@ export function LeadCaptureForm({
           </div>
 
           <div>
-            <label htmlFor="timeline" className="block text-sm font-medium mb-1">
+            <label
+              htmlFor="timeline"
+              className="block text-sm font-medium mb-1"
+            >
               Timeline
             </label>
             <select
@@ -344,11 +364,15 @@ export function LeadCaptureForm({
           <Turnstile
             siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
             onSuccess={setTurnstileToken}
-            onError={() => setError('CAPTCHA verification failed. Please refresh and try again.')}
-            onExpire={() => setTurnstileToken('')}
+            onError={() =>
+              setError(
+                "CAPTCHA verification failed. Please refresh and try again.",
+              )
+            }
+            onExpire={() => setTurnstileToken("")}
             options={{
-              theme: 'light',
-              size: 'normal',
+              theme: "light",
+              size: "normal",
             }}
           />
         </div>
@@ -356,10 +380,13 @@ export function LeadCaptureForm({
 
       <Button
         type="submit"
-        disabled={loading || (!turnstileToken && !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)}
+        disabled={
+          loading ||
+          (!turnstileToken && !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY)
+        }
         className="w-full"
       >
-        {loading ? 'Submitting...' : 'Submit'}
+        {loading ? "Submitting..." : "Submit"}
       </Button>
 
       <p className="text-xs text-gray-500 text-center">

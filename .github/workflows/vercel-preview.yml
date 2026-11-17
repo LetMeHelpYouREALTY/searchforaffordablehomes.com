@@ -4,9 +4,12 @@ on:
   pull_request:
     branches: [main, develop]
 
+# Project IDs are public identifiers (also in Vercel dashboard / .vercel/project.json).
+# Auth remains secrets.VERCEL_TOKEN. Native Vercel Git integration is the primary
+# preview deployer; this workflow is optional for Lighthouse against a CLI deploy.
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_ORG_ID: team_EIbjFXaDDtGMTweb5Hvo3CG3
+  VERCEL_PROJECT_ID: prj_3jx2kDdts3PcdhbgyrSjolmPjE9a
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -16,6 +19,9 @@ jobs:
   deploy-preview:
     name: Deploy to Vercel Preview
     runs-on: ubuntu-latest
+    # Do not block PR merge if the optional CLI deploy cannot authenticate;
+    # the Vercel GitHub integration already publishes previews.
+    continue-on-error: true
     outputs:
       preview-url: ${{ steps.deploy.outputs.url }}
     steps:
@@ -28,23 +34,49 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Require Vercel token
+        id: token
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "VERCEL_TOKEN is not configured; skipping Actions CLI deploy (native Vercel Git preview still applies)."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install Vercel CLI
+        if: steps.token.outputs.skip != 'true'
         run: npm install -g vercel@latest
 
       - name: Pull Vercel Environment Information
+        id: pull
+        if: steps.token.outputs.skip != 'true'
+        continue-on-error: true
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build Project Artifacts
+        id: build
+        if: steps.token.outputs.skip != 'true' && steps.pull.outcome == 'success'
+        continue-on-error: true
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Deploy to Vercel
         id: deploy
+        if: steps.token.outputs.skip != 'true' && steps.build.outcome == 'success'
+        continue-on-error: true
         run: |
           url=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$url" >> $GITHUB_OUTPUT
+          echo "url=$url" >> "$GITHUB_OUTPUT"
           echo "Deployed to: $url"
 
+      - name: Note skipped or failed CLI deploy
+        if: steps.token.outputs.skip == 'true' || steps.pull.outcome == 'failure' || steps.build.outcome == 'failure' || steps.deploy.outcome == 'failure'
+        run: |
+          echo "Actions CLI preview deploy was skipped or failed."
+          echo "Use the native Vercel GitHub Integration preview for this PR."
+
       - name: Comment PR with Preview URL
+        if: steps.deploy.outputs.url != ''
         uses: actions/github-script@v7
         with:
           script: |
@@ -53,12 +85,12 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            
-            const botComment = comments.find(comment => 
-              comment.user.type === 'Bot' && 
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
               comment.body.includes('Preview Deployment Ready')
             );
-            
+
             const commentBody = `## 🚀 Preview Deployment Ready!
 
             ✅ **Preview URL:** ${{ steps.deploy.outputs.url }}
@@ -70,7 +102,7 @@ jobs:
 
             ---
             *Deployed with Vercel • Commit: ${context.sha.substring(0, 7)}*`;
-            
+
             if (botComment) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
@@ -116,28 +148,28 @@ jobs:
           script: |
             const fs = require('fs');
             const results = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'));
-            
+
             const formatScore = (score) => {
               const percentage = Math.round(score * 100);
               if (percentage >= 90) return `🟢 ${percentage}`;
               if (percentage >= 50) return `🟡 ${percentage}`;
               return `🔴 ${percentage}`;
             };
-            
+
             let comment = `## 📊 Lighthouse Performance Report\n\n`;
             comment += `| Page | Performance | Accessibility | Best Practices | SEO |\n`;
             comment += `|------|-------------|---------------|----------------|-----|\n`;
-            
+
             for (const result of results) {
               const url = new URL(result.url);
               const page = url.pathname === '/' ? 'Home' : url.pathname.split('/').pop();
               const scores = result.summary;
-              
+
               comment += `| ${page} | ${formatScore(scores.performance)} | ${formatScore(scores.accessibility)} | ${formatScore(scores['best-practices'])} | ${formatScore(scores.seo)} |\n`;
             }
-            
+
             comment += `\n---\n*View full report in Actions artifacts*`;
-            
+
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,

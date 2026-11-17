@@ -142,7 +142,9 @@ export default function AIChatWidget() {
                       : "bg-slate-100 text-slate-900"
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  <p className="text-sm whitespace-pre-wrap">
+                    {message.content}
+                  </p>
                 </div>
               </div>
             ))}

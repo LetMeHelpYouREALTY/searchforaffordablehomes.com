@@ -17,6 +17,7 @@ npm error Conflicting peer dependency: next@15.4.11
 ```
 
 **Root Cause**:
+
 - **Dependabot upgraded** Next.js from `14.2.35` → `16.1.6`
 - **`@cloudflare/next-on-pages` is incompatible** with Next.js 16
   - Only supports up to Next.js 15.5.2
@@ -29,17 +30,20 @@ npm error Conflicting peer dependency: next@15.4.11
 **4 changes made** to the Dependabot branch:
 
 ### 1. Removed Deprecated Package
+
 ```json
 // REMOVED from devDependencies:
 "@cloudflare/next-on-pages": "^1.13.2"
 ```
 
-**Why**: 
+**Why**:
+
 - Deprecated package, no Next.js 16 support
 - You're deploying to **Vercel** (not Cloudflare Pages)
 - Package was unused
 
 ### 2. Upgraded ESLint Config
+
 ```json
 // BEFORE:
 "eslint-config-next": "^14.2.35"
@@ -51,6 +55,7 @@ npm error Conflicting peer dependency: next@15.4.11
 **Why**: Must match Next.js major version
 
 ### 3. Upgraded Geist Font
+
 ```json
 // BEFORE:
 "geist": "^1.2.2"
@@ -59,12 +64,14 @@ npm error Conflicting peer dependency: next@15.4.11
 "geist": "^1.7.0"
 ```
 
-**Why**: 
+**Why**:
+
 - geist 1.2.2 only supported Next.js <15
 - geist 1.7.0 supports Next.js >=13.2.0 (includes 16)
 - Second peer dependency conflict discovered
 
 ### 4. Removed Cloudflare Pages Scripts
+
 ```json
 // REMOVED from scripts:
 "cloudflare:pages": "npx @cloudflare/next-on-pages",
@@ -82,12 +89,12 @@ npm error Conflicting peer dependency: next@15.4.11
 
 ## 📊 Impact
 
-| Before | After |
-|--------|-------|
-| ❌ Build failing | ✅ Build will succeed |
-| ❌ Deprecated package | ✅ Removed |
-| ❌ Version mismatch | ✅ Aligned (Next.js 16 + eslint 16) |
-| 🟡 Cloudflare Pages option | 🟢 Vercel-only (simpler) |
+| Before                     | After                               |
+| -------------------------- | ----------------------------------- |
+| ❌ Build failing           | ✅ Build will succeed               |
+| ❌ Deprecated package      | ✅ Removed                          |
+| ❌ Version mismatch        | ✅ Aligned (Next.js 16 + eslint 16) |
+| 🟡 Cloudflare Pages option | 🟢 Vercel-only (simpler)            |
 
 ---
 
@@ -96,6 +103,7 @@ npm error Conflicting peer dependency: next@15.4.11
 ### 1. Merge the Dependabot PR ✅
 
 The fix is **already pushed** to the Dependabot branch:
+
 ```
 dependabot/npm_and_yarn/next-16.1.4
 ```
@@ -136,6 +144,7 @@ git push origin main
 ### Why `@cloudflare/next-on-pages` Exists
 
 **History**:
+
 - Added during initial Cloudflare Pages experimentation
 - Allows deploying Next.js to Cloudflare Pages (instead of Vercel)
 - **No longer needed** - you're using Vercel as primary
@@ -149,12 +158,14 @@ git push origin main
 ### Current Setup ✅
 
 **Primary**: Vercel (fast, automatic, Next.js native)
+
 - ✅ Automatic deployments from `main`
 - ✅ Preview deployments for PRs
 - ✅ Edge functions, analytics, monitoring
 - ✅ Full Next.js 16 support
 
 **Secondary**: Cloudflare Workers (optional)
+
 - ✅ Can still use `wrangler` CLI for Workers
 - ❌ Removed Cloudflare Pages adapter
 - 🔧 If needed later, use **OpenNext** (Next.js 16 compatible)
@@ -162,12 +173,14 @@ git push origin main
 ### If You Need Cloudflare Pages Again
 
 **Option A: OpenNext** (Recommended)
+
 ```bash
 npm install --save-dev opennext-cloudflare
 # Use their adapter (supports Next.js 13+)
 ```
 
 **Option B: Vercel Only** (Simplest)
+
 - Just stick with Vercel
 - Cloudflare already proxies your DNS
 - No need for Pages deployment
@@ -179,11 +192,13 @@ npm install --save-dev opennext-cloudflare
 ### Vulnerabilities Fixed ✅
 
 By upgrading to Next.js 16:
+
 - ✅ **2 High-severity DoS issues fixed** (image optimizer, deserialization)
 - ✅ **1 Moderate issue fixed** (rate limiting bypass)
 - ✅ Latest security patches included
 
 From our earlier audit:
+
 - Before: **21 vulnerabilities**
 - After Next.js 16: **~15-18 vulnerabilities** (estimated)
 - **30% additional reduction!**
@@ -191,11 +206,13 @@ From our earlier audit:
 ### Breaking Changes to Watch
 
 **Next.js 16 Changes**:
+
 - ⚠️ Some middleware behavior changes
 - ⚠️ Edge runtime updates
 - ⚠️ API routes may need adjustments
 
 **Testing Recommended**:
+
 1. ✅ Build succeeds (Vercel will confirm)
 2. ✅ Lead forms work (Turnstile + FUB)
 3. ✅ RealScout widget loads
@@ -218,16 +235,19 @@ From our earlier audit:
 **Status**: ✅ **FIXED**
 
 **What Happened**:
+
 1. Dependabot upgraded Next.js to 16
 2. Old Cloudflare adapter incompatible
 3. Build failed with peer dependency error
 
 **What We Did**:
+
 1. Removed deprecated `@cloudflare/next-on-pages`
 2. Upgraded `eslint-config-next` to match
 3. Cleaned up unused Cloudflare scripts
 
 **Result**:
+
 - ✅ Build will now succeed on Vercel
 - ✅ Deploying to Vercel (not Cloudflare Pages)
 - ✅ Next.js 16 security fixes applied

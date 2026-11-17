@@ -38,8 +38,8 @@ export default function CalendlyBookingSection({
           <p className="mt-3 text-sm text-slate-500">
             Dr. Jan Duffy · Berkshire Hathaway HomeServices Nevada Properties ·
             9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134 ·{" "}
-            <a href="tel:+17022221964" className="font-medium text-[#1e4fd6]">
-              (702) 222-1964
+            <a href="tel:+17025001942" className="font-medium text-[#1e4fd6]">
+              (702) 500-1942
             </a>
           </p>
         </div>

@@ -57,14 +57,14 @@ NEXT_PUBLIC_SENTRY_ENVIRONMENT=development
 
 Add these to **Vercel Dashboard → Your Project → Settings → Environment Variables**:
 
-| Variable | Value | Environment |
-|----------|-------|-------------|
-| `NEXT_PUBLIC_SENTRY_DSN` | Your DSN | Production, Preview, Development |
-| `SENTRY_AUTH_TOKEN` | Your auth token | Production, Preview (⚠️ SECRET) |
-| `SENTRY_ORG` | Your org slug | Production, Preview |
-| `SENTRY_PROJECT` | `heyberkshire-com` | Production, Preview |
-| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `production` | Production only |
-| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `preview` | Preview only |
+| Variable                         | Value              | Environment                      |
+| -------------------------------- | ------------------ | -------------------------------- |
+| `NEXT_PUBLIC_SENTRY_DSN`         | Your DSN           | Production, Preview, Development |
+| `SENTRY_AUTH_TOKEN`              | Your auth token    | Production, Preview (⚠️ SECRET)  |
+| `SENTRY_ORG`                     | Your org slug      | Production, Preview              |
+| `SENTRY_PROJECT`                 | `heyberkshire-com` | Production, Preview              |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `production`       | Production only                  |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `preview`          | Preview only                     |
 
 ### 5. Test Error Tracking
 
@@ -107,12 +107,14 @@ export default function TestErrorPage() {
 ### Client-Side (`sentry.client.config.ts`)
 
 Tracks errors in the user's browser:
+
 - React component errors
 - Async/Promise rejections
 - Network failures
 - User interactions that cause errors
 
 **Session Replay:**
+
 - Records 10% of all sessions
 - Records 100% of sessions with errors
 - Masks all text and media by default (privacy)
@@ -120,6 +122,7 @@ Tracks errors in the user's browser:
 ### Server-Side (`sentry.server.config.ts`)
 
 Tracks errors in Next.js server:
+
 - API route errors
 - Server component errors
 - Data fetching failures
@@ -128,6 +131,7 @@ Tracks errors in Next.js server:
 ### Edge Runtime (`sentry.edge.config.ts`)
 
 Tracks errors in middleware and edge functions:
+
 - Middleware errors
 - Edge API routes
 - Vercel Edge Functions
@@ -137,32 +141,32 @@ Tracks errors in middleware and edge functions:
 ### Adding Context to Errors
 
 ```typescript
-import * as Sentry from '@sentry/nextjs'
+import * as Sentry from "@sentry/nextjs";
 
 // Set user context (for authenticated users)
 Sentry.setUser({
   id: user.id,
   email: user.email,
   username: user.name,
-})
+});
 
 // Add custom context
-Sentry.setContext('lead_form', {
-  source: 'hero_section',
-  campaign: 'q1_2026',
-  property_type: 'single_family',
-})
+Sentry.setContext("lead_form", {
+  source: "hero_section",
+  campaign: "q1_2026",
+  property_type: "single_family",
+});
 
 // Add breadcrumbs (tracks user actions leading up to error)
 Sentry.addBreadcrumb({
-  category: 'ui.click',
-  message: 'User clicked Get Home Value button',
-  level: 'info',
-})
+  category: "ui.click",
+  message: "User clicked Get Home Value button",
+  level: "info",
+});
 
 // Add tags for filtering
-Sentry.setTag('page', 'homepage')
-Sentry.setTag('feature', 'lead_capture')
+Sentry.setTag("page", "homepage");
+Sentry.setTag("feature", "lead_capture");
 ```
 
 ### Catching and Reporting Errors
@@ -171,20 +175,17 @@ Sentry.setTag('feature', 'lead_capture')
 // API route error handling
 export async function POST(request: Request) {
   try {
-    const data = await request.json()
-    const result = await saveLead(data)
-    return Response.json({ success: true })
+    const data = await request.json();
+    const result = await saveLead(data);
+    return Response.json({ success: true });
   } catch (error) {
     // Automatically reported to Sentry
     Sentry.captureException(error, {
-      tags: { api: 'lead_capture' },
+      tags: { api: "lead_capture" },
       extra: { requestData: data },
-    })
-    
-    return Response.json(
-      { error: 'Failed to save lead' },
-      { status: 500 }
-    )
+    });
+
+    return Response.json({ error: "Failed to save lead" }, { status: 500 });
   }
 }
 ```
@@ -194,24 +195,24 @@ export async function POST(request: Request) {
 ```typescript
 // Track custom spans
 const transaction = Sentry.startTransaction({
-  name: 'Lead Capture Flow',
-  op: 'lead.capture',
-})
+  name: "Lead Capture Flow",
+  op: "lead.capture",
+});
 
 const span = transaction.startChild({
-  op: 'http.client',
-  description: 'POST /api/leads',
-})
+  op: "http.client",
+  description: "POST /api/leads",
+});
 
 try {
-  await saveLead(data)
-  span.setStatus('ok')
+  await saveLead(data);
+  span.setStatus("ok");
 } catch (error) {
-  span.setStatus('internal_error')
-  throw error
+  span.setStatus("internal_error");
+  throw error;
 } finally {
-  span.finish()
-  transaction.finish()
+  span.finish();
+  transaction.finish();
 }
 ```
 
@@ -224,6 +225,7 @@ try {
 - **Archived:** Resolved or ignored errors
 
 **Useful filters:**
+
 - `environment:production`
 - `handled:no` (unhandled errors - highest priority!)
 - `level:error` or `level:fatal`
@@ -246,11 +248,13 @@ try {
 ### Recommended Alert Rules
 
 1. **Critical Errors**
+
    - Condition: `level:fatal OR level:error`
    - Action: Email + Slack
    - Frequency: Immediately
 
 2. **High Error Rate**
+
    - Condition: `>100 events in 1 hour`
    - Action: Email
    - Frequency: Once per hour
@@ -275,18 +279,18 @@ try {
 // ❌ BAD - Exposes user data
 Sentry.captureException(error, {
   extra: {
-    creditCard: user.creditCard,  // Never log PII!
+    creditCard: user.creditCard, // Never log PII!
     password: credentials.password,
-  }
-})
+  },
+});
 
 // ✅ GOOD - Safe context
 Sentry.captureException(error, {
   extra: {
     userId: user.id,
-    action: 'payment_processing',
-  }
-})
+    action: "payment_processing",
+  },
+});
 ```
 
 ### 2. Use Error Boundaries
@@ -326,37 +330,37 @@ Ignore known, non-critical errors in `sentry.client.config.ts`:
 ```typescript
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-  
+
   beforeSend(event, hint) {
     // Ignore ResizeObserver errors (browser quirk, harmless)
-    if (event.message?.includes('ResizeObserver')) {
-      return null
+    if (event.message?.includes("ResizeObserver")) {
+      return null;
     }
-    
+
     // Ignore AdBlock errors
-    if (hint.originalException?.message?.includes('AdBlock')) {
-      return null
+    if (hint.originalException?.message?.includes("AdBlock")) {
+      return null;
     }
-    
-    return event
+
+    return event;
   },
-})
+});
 ```
 
 ### 4. Set Severity Levels
 
 ```typescript
 // Info - non-critical
-Sentry.captureMessage('User downloaded report', 'info')
+Sentry.captureMessage("User downloaded report", "info");
 
 // Warning - potential issue
-Sentry.captureMessage('API response slow (>5s)', 'warning')
+Sentry.captureMessage("API response slow (>5s)", "warning");
 
 // Error - something broke
-Sentry.captureException(error, { level: 'error' })
+Sentry.captureException(error, { level: "error" });
 
 // Fatal - critical system failure
-Sentry.captureException(error, { level: 'fatal' })
+Sentry.captureException(error, { level: "fatal" });
 ```
 
 ## Troubleshooting
@@ -366,6 +370,7 @@ Sentry.captureException(error, { level: 'fatal' })
 **Problem:** Stack traces show minified code
 
 **Solution:**
+
 1. Verify `SENTRY_AUTH_TOKEN` is set in Vercel
 2. Check token has `project:releases` and `project:write` scopes
 3. Ensure `SENTRY_ORG` and `SENTRY_PROJECT` match your Sentry settings
@@ -375,6 +380,7 @@ Sentry.captureException(error, { level: 'fatal' })
 **Problem:** Throwing errors but not seeing them in Sentry
 
 **Solution:**
+
 1. Check DSN is correct: `console.log(process.env.NEXT_PUBLIC_SENTRY_DSN)`
 2. Verify network isn't blocked: Check browser DevTools → Network tab
 3. Try tunnel route: Sentry requests go through `/monitoring` (bypasses ad-blockers)
@@ -384,6 +390,7 @@ Sentry.captureException(error, { level: 'fatal' })
 **Problem:** Sentry quota exhausted
 
 **Solution:**
+
 1. Lower sample rates in config
 2. Add `beforeSend` filters for known issues
 3. Upgrade to paid tier if needed
@@ -402,16 +409,16 @@ Sentry.captureException(error, { level: 'fatal' })
 // Reduce sample rates in production
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-  
+
   // Only sample 50% of transactions (500 → 250/month)
   tracesSampleRate: 0.5,
-  
+
   // Only record 5% of normal sessions (2,000 → 100/month)
   replaysSessionSampleRate: 0.05,
-  
+
   // Still record 100% of error sessions
   replaysOnErrorSampleRate: 1.0,
-})
+});
 ```
 
 ## Next Steps

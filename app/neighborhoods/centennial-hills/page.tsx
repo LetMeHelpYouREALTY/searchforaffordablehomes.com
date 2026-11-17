@@ -2,7 +2,13 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { Phone, Mountain, Users, ShoppingBag, Home as HomeIcon } from "lucide-react";
+import {
+  Phone,
+  Mountain,
+  Users,
+  ShoppingBag,
+  Home as HomeIcon,
+} from "lucide-react";
 import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
@@ -72,9 +78,13 @@ export default function CentennialHillsPage() {
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
               {" / "}
-              <Link href="/neighborhoods" className="hover:text-blue-600">Neighborhoods</Link>
+              <Link href="/neighborhoods" className="hover:text-blue-600">
+                Neighborhoods
+              </Link>
               {" / "}
               <span className="text-slate-900">Centennial Hills</span>
             </nav>
@@ -86,40 +96,47 @@ export default function CentennialHillsPage() {
               Top 1% Las Vegas REALTOR®
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Centennial Hills Real Estate
             </h1>
             <p className="text-xl text-slate-600">
-              Northwest Las Vegas living near parks and trails. Find your Centennial Hills home with{" "}
-              Dr. Jan Duffy.
+              Northwest Las Vegas living near parks and trails. Find your
+              Centennial Hills home with Dr. Jan Duffy.
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* Market Stats */}
+          {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Centennial Hills Market | January 2026
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-1">$495,000</div>
+                <div className="text-3xl font-bold text-blue-400 mb-1">
+                  $495,000
+                </div>
                 <div className="text-slate-300 text-sm">Median Home Price</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">25 Days</div>
-                <div className="text-slate-300 text-sm">Avg. Days on Market</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  25 Days
+                </div>
+                <div className="text-slate-300 text-sm">
+                  Avg. Days on Market
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold mb-1">203</div>
                 <div className="text-slate-300 text-sm">Active Listings</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">+4.8%</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  +4.8%
+                </div>
                 <div className="text-slate-300 text-sm">YoY Appreciation</div>
               </div>
             </div>
@@ -129,69 +146,90 @@ export default function CentennialHillsPage() {
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
               <h2 className="text-3xl font-bold text-slate-900 mb-6">
-                Centennial Hills: Northwest Las Vegas's Established Family Community
+                Centennial Hills: Northwest Las Vegas's Established Family
+                Community
               </h2>
               <p>
-                <strong>Centennial Hills</strong> represents the best of established northwest Las Vegas
-                living. While newer communities like Skye Canyon attract attention, Centennial Hills
-                offers something they can't: older neighborhoods with proven schools, established
-                landscaping, and a genuine sense of community built over nearly two decades.
-                Dr. Jan Duffy helps families discover why
-                Centennial Hills remains one of the valley's most desirable addresses.
+                <strong>Centennial Hills</strong> represents the best of
+                established northwest Las Vegas living. While newer communities
+                like Skye Canyon attract attention, Centennial Hills offers
+                something they can't: older neighborhoods with proven schools,
+                established landscaping, and a genuine sense of community built
+                over nearly two decades. Dr. Jan Duffy helps families discover
+                why Centennial Hills remains one of the valley's most desirable
+                addresses.
               </p>
               <p>
-                The community's appeal starts with location. Positioned at the base of the mountains
-                with easy access to US-95, Centennial Hills provides quick commutes throughout the
-                valley while maintaining a distinctly suburban atmosphere. The mountains are visible
-                from most streets, creating the feeling of living closer to nature than Centennial
-                Hills' urban conveniences would suggest.
+                The community's appeal starts with location. Positioned at the
+                base of the mountains with easy access to US-95, Centennial
+                Hills provides quick commutes throughout the valley while
+                maintaining a distinctly suburban atmosphere. The mountains are
+                visible from most streets, creating the feeling of living closer
+                to nature than Centennial Hills' urban conveniences would
+                suggest.
               </p>
               <p>
                 Dr. Jan Duffy represents Centennial Hills families and knows
-                which streets offer the best mountain views, which school zones are most sought-after,
-                and which HOAs maintain their communities to the highest standards. This deep local
-                knowledge, combined with a commitment to client service, ensures Centennial
-                Hills buyers and sellers receive exceptional representation.
+                which streets offer the best mountain views, which school zones
+                are most sought-after, and which HOAs maintain their communities
+                to the highest standards. This deep local knowledge, combined
+                with a commitment to client service, ensures Centennial Hills
+                buyers and sellers receive exceptional representation.
               </p>
 
               {/* Community Highlights */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Community Highlights</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Community Highlights
+              </h3>
               <div className="grid md:grid-cols-2 gap-8 not-prose">
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Established Family Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      Established Family Community
+                    </h4>
                   </div>
                   <p className="text-slate-600">
-                    Centennial Hills has matured into a true community where neighbors know each other
-                    and families put down roots. The area features multiple established parks including
-                    the popular Centennial Hills Park, community events throughout the year, and the
-                    kind of neighborhood stability that creates lifelong friendships and strong property values.
+                    Centennial Hills has matured into a true community where
+                    neighbors know each other and families put down roots. The
+                    area features multiple established parks including the
+                    popular Centennial Hills Park, community events throughout
+                    the year, and the kind of neighborhood stability that
+                    creates lifelong friendships and strong property values.
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <ShoppingBag className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Centennial Center Convenience</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      Centennial Center Convenience
+                    </h4>
                   </div>
                   <p className="text-slate-600">
-                    Centennial Center provides residents with comprehensive shopping, dining, and
-                    entertainment options without leaving the neighborhood. Major retailers like Target,
-                    Costco, and Home Depot anchor the center, while diverse restaurants and services
-                    meet daily needs. Downtown Summerlin is also just minutes away.
+                    Centennial Center provides residents with comprehensive
+                    shopping, dining, and entertainment options without leaving
+                    the neighborhood. Major retailers like Target, Costco, and
+                    Home Depot anchor the center, while diverse restaurants and
+                    services meet daily needs. Downtown Summerlin is also just
+                    minutes away.
                   </p>
                 </div>
               </div>
 
               {/* Schools */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Centennial Hills School Districts</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Centennial Hills School Districts
+              </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Centennial Hills is served by established, well-regarded schools with proven track records:
+                  Centennial Hills is served by established, well-regarded
+                  schools with proven track records:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Elementary Schools</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Elementary Schools
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Ober Elementary (8/10)</li>
                       <li>• Cashman Elementary</li>
@@ -201,7 +239,9 @@ export default function CentennialHillsPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Middle & High Schools</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Middle & High Schools
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Centennial High School (7/10)</li>
                       <li>• Shadow Ridge High School</li>
@@ -211,7 +251,9 @@ export default function CentennialHillsPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Charter/Private</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Charter/Private
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Pinecrest Academy</li>
                       <li>• Somerset Academy</li>
@@ -224,86 +266,178 @@ export default function CentennialHillsPage() {
               </div>
 
               {/* Commute Times */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Commute Times from Centennial Hills</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Commute Times from Centennial Hills
+              </h3>
               <div className="not-prose overflow-x-auto">
                 <table className="w-full bg-white border border-slate-200 rounded-lg">
                   <thead className="bg-slate-50">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Destination</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Distance</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Drive Time</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Rush Hour</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Destination
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Distance
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Drive Time
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Rush Hour
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200">
-                    <tr><td className="px-4 py-3">Downtown Summerlin</td><td className="px-4 py-3">6 miles</td><td className="px-4 py-3">12 min</td><td className="px-4 py-3">18-25 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Las Vegas Strip</td><td className="px-4 py-3">15 miles</td><td className="px-4 py-3">22 min</td><td className="px-4 py-3">30-45 min</td></tr>
-                    <tr><td className="px-4 py-3">McCarran Airport (LAS)</td><td className="px-4 py-3">18 miles</td><td className="px-4 py-3">25 min</td><td className="px-4 py-3">35-50 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Downtown Las Vegas</td><td className="px-4 py-3">12 miles</td><td className="px-4 py-3">18 min</td><td className="px-4 py-3">25-40 min</td></tr>
-                    <tr><td className="px-4 py-3">Henderson</td><td className="px-4 py-3">25 miles</td><td className="px-4 py-3">30 min</td><td className="px-4 py-3">45-60 min</td></tr>
+                    <tr>
+                      <td className="px-4 py-3">Downtown Summerlin</td>
+                      <td className="px-4 py-3">6 miles</td>
+                      <td className="px-4 py-3">12 min</td>
+                      <td className="px-4 py-3">18-25 min</td>
+                    </tr>
+                    <tr className="bg-slate-50">
+                      <td className="px-4 py-3">Las Vegas Strip</td>
+                      <td className="px-4 py-3">15 miles</td>
+                      <td className="px-4 py-3">22 min</td>
+                      <td className="px-4 py-3">30-45 min</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3">McCarran Airport (LAS)</td>
+                      <td className="px-4 py-3">18 miles</td>
+                      <td className="px-4 py-3">25 min</td>
+                      <td className="px-4 py-3">35-50 min</td>
+                    </tr>
+                    <tr className="bg-slate-50">
+                      <td className="px-4 py-3">Downtown Las Vegas</td>
+                      <td className="px-4 py-3">12 miles</td>
+                      <td className="px-4 py-3">18 min</td>
+                      <td className="px-4 py-3">25-40 min</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3">Henderson</td>
+                      <td className="px-4 py-3">25 miles</td>
+                      <td className="px-4 py-3">30 min</td>
+                      <td className="px-4 py-3">45-60 min</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
               <p className="text-slate-600 text-sm mt-2 not-prose">
-                Centennial Hills' proximity to US-95 provides excellent north-south access throughout the valley.
+                Centennial Hills' proximity to US-95 provides excellent
+                north-south access throughout the valley.
               </p>
 
               {/* Shopping & Amenities */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Shopping, Dining & Healthcare</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Shopping, Dining & Healthcare
+              </h3>
               <div className="not-prose grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Centennial Center</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    Centennial Center
+                  </h5>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Major Retail:</strong> Target, Costco, Home Depot, Best Buy, Kohl's</li>
-                    <li><strong>Grocery:</strong> Smith's, Trader Joe's, Whole Foods nearby</li>
-                    <li><strong>Dining:</strong> 50+ restaurants including Red Robin, BJ's, Cheesecake Factory</li>
-                    <li><strong>Entertainment:</strong> Century 18 Theatres, bowling, fitness centers</li>
+                    <li>
+                      <strong>Major Retail:</strong> Target, Costco, Home Depot,
+                      Best Buy, Kohl's
+                    </li>
+                    <li>
+                      <strong>Grocery:</strong> Smith's, Trader Joe's, Whole
+                      Foods nearby
+                    </li>
+                    <li>
+                      <strong>Dining:</strong> 50+ restaurants including Red
+                      Robin, BJ's, Cheesecake Factory
+                    </li>
+                    <li>
+                      <strong>Entertainment:</strong> Century 18 Theatres,
+                      bowling, fitness centers
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Healthcare & Services</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    Healthcare & Services
+                  </h5>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Centennial Hills Hospital:</strong> Full-service hospital, 24/7 ER, maternity center</li>
-                    <li><strong>Southwest Medical:</strong> Multiple primary care and urgent care locations</li>
-                    <li><strong>Dignity Health:</strong> Clinics and specialty services</li>
-                    <li><strong>VA Medical Center:</strong> 10 minutes for veteran services</li>
+                    <li>
+                      <strong>Centennial Hills Hospital:</strong> Full-service
+                      hospital, 24/7 ER, maternity center
+                    </li>
+                    <li>
+                      <strong>Southwest Medical:</strong> Multiple primary care
+                      and urgent care locations
+                    </li>
+                    <li>
+                      <strong>Dignity Health:</strong> Clinics and specialty
+                      services
+                    </li>
+                    <li>
+                      <strong>VA Medical Center:</strong> 10 minutes for veteran
+                      services
+                    </li>
                   </ul>
                 </div>
               </div>
 
               {/* Parks & Recreation */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Parks & Recreation</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Parks & Recreation
+              </h3>
               <div className="not-prose bg-green-50 border border-green-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Centennial Hills offers extensive parks and recreation facilities:
+                  Centennial Hills offers extensive parks and recreation
+                  facilities:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Centennial Hills Park:</strong> 120 acres with sports fields, playground, skate park, dog park</li>
-                    <li><strong>Centennial Hills YMCA:</strong> Full fitness facility, pools, youth programs</li>
-                    <li><strong>Centennial Hills Library:</strong> Modern library with programs and events</li>
+                    <li>
+                      <strong>Centennial Hills Park:</strong> 120 acres with
+                      sports fields, playground, skate park, dog park
+                    </li>
+                    <li>
+                      <strong>Centennial Hills YMCA:</strong> Full fitness
+                      facility, pools, youth programs
+                    </li>
+                    <li>
+                      <strong>Centennial Hills Library:</strong> Modern library
+                      with programs and events
+                    </li>
                   </ul>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Angel Park Golf Club:</strong> Two public courses, 36 holes of golf</li>
-                    <li><strong>Floyd Lamb Park:</strong> 15 minutes—680 acres, lakes, wildlife viewing</li>
-                    <li><strong>Mountain Trails:</strong> Easy access to BLM land for hiking and biking</li>
+                    <li>
+                      <strong>Angel Park Golf Club:</strong> Two public courses,
+                      36 holes of golf
+                    </li>
+                    <li>
+                      <strong>Floyd Lamb Park:</strong> 15 minutes—680 acres,
+                      lakes, wildlife viewing
+                    </li>
+                    <li>
+                      <strong>Mountain Trails:</strong> Easy access to BLM land
+                      for hiking and biking
+                    </li>
                   </ul>
                 </div>
               </div>
 
               <p className="mt-8">
-                The current market shows <strong>203 active listings</strong> with homes averaging
-                <strong> 25 days on market</strong>. The median price of <strong>$495,000</strong>
-                represents solid 4.8% year-over-year appreciation while remaining more accessible
-                than Summerlin's higher-priced neighborhoods. Properties range from $380,000 for
-                smaller homes to over $900,000 for larger properties with premium lots and views.
+                The current market shows <strong>203 active listings</strong>{" "}
+                with homes averaging
+                <strong> 25 days on market</strong>. The median price of{" "}
+                <strong>$495,000</strong>
+                represents solid 4.8% year-over-year appreciation while
+                remaining more accessible than Summerlin's higher-priced
+                neighborhoods. Properties range from $380,000 for smaller homes
+                to over $900,000 for larger properties with premium lots and
+                views.
               </p>
               <p>
-                Working with Dr. Jan Duffy in Centennial Hills means
-                partnering with agents who understand the community's evolution and can identify
-                properties that represent genuine value. Dr. Jan Duffy helps buyers look beyond
-                surface features to evaluate factors that matter long-term: construction quality,
-                lot positioning, HOA health, and school quality. That expertise translates into
+                Working with Dr. Jan Duffy in Centennial Hills means partnering
+                with agents who understand the community's evolution and can
+                identify properties that represent genuine value. Dr. Jan Duffy
+                helps buyers look beyond surface features to evaluate factors
+                that matter long-term: construction quality, lot positioning,
+                HOA health, and school quality. That expertise translates into
                 better purchase decisions and stronger long-term investments.
               </p>
             </div>
@@ -313,11 +447,12 @@ export default function CentennialHillsPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Centennial Hills offers something newer communities are still building: a genuine
-                sense of community. The schools have track records, the neighbors have history, and
-                the landscaping is mature. As a local REALTOR®, I help families
-                see beyond the shiny new construction to communities that have proven their value
-                over time."
+                "Centennial Hills offers something newer communities are still
+                building: a genuine sense of community. The schools have track
+                records, the neighbors have history, and the landscaping is
+                mature. As a local REALTOR®, I help families see beyond the
+                shiny new construction to communities that have proven their
+                value over time."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -336,9 +471,10 @@ export default function CentennialHillsPage() {
                   What is the current median home price in Centennial Hills?
                 </h3>
                 <p className="text-slate-600">
-                  As of January 2026, Centennial Hills' median home price is $495,000, up 4.8%
-                  year-over-year. Prices range from $380,000 for smaller homes to over $900,000
-                  for larger properties with mountain views.
+                  As of January 2026, Centennial Hills' median home price is
+                  $495,000, up 4.8% year-over-year. Prices range from $380,000
+                  for smaller homes to over $900,000 for larger properties with
+                  mountain views.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -346,9 +482,10 @@ export default function CentennialHillsPage() {
                   Is Centennial Hills a good family neighborhood?
                 </h3>
                 <p className="text-slate-600">
-                  Yes, Centennial Hills is one of Las Vegas's best family neighborhoods with
-                  nearby public schools, streets, multiple parks including Centennial Hills
-                  Park, and convenient shopping at Centennial Center.
+                  Yes, Centennial Hills is one of Las Vegas's best family
+                  neighborhoods with nearby public schools, streets, multiple
+                  parks including Centennial Hills Park, and convenient shopping
+                  at Centennial Center.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -356,9 +493,10 @@ export default function CentennialHillsPage() {
                   How far is Centennial Hills from the Las Vegas Strip?
                 </h3>
                 <p className="text-slate-600">
-                  Centennial Hills is approximately 20-25 minutes from the Strip via US-95.
-                  The community offers easy freeway access while maintaining a suburban,
-                  suburban setting away from tourist areas.
+                  Centennial Hills is approximately 20-25 minutes from the Strip
+                  via US-95. The community offers easy freeway access while
+                  maintaining a suburban, suburban setting away from tourist
+                  areas.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -366,9 +504,10 @@ export default function CentennialHillsPage() {
                   What shopping and amenities are near Centennial Hills?
                 </h3>
                 <p className="text-slate-600">
-                  Centennial Center provides extensive shopping, dining, and entertainment
-                  including Target, Costco, and numerous restaurants. Downtown Summerlin is
-                  also easily accessible for additional retail and entertainment options.
+                  Centennial Center provides extensive shopping, dining, and
+                  entertainment including Target, Costco, and numerous
+                  restaurants. Downtown Summerlin is also easily accessible for
+                  additional retail and entertainment options.
                 </p>
               </div>
             </div>
@@ -380,8 +519,8 @@ export default function CentennialHillsPage() {
               Find Your Centennial Hills Home
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy, your Centennial Hills expert,
-              for guidance in this established family community.
+              Contact Dr. Jan Duffy, your Centennial Hills expert, for guidance
+              in this established family community.
             </p>
             <a
               href="tel:+17025001942"
@@ -392,11 +531,13 @@ export default function CentennialHillsPage() {
             </a>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>
