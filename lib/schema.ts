@@ -333,29 +333,44 @@ export function generateAggregateRatingSchema(
 }
 
 /**
- * Generate Review schema for individual testimonials
+ * Generate Review schema for individual testimonials.
+ * Emits an @graph so each Review is a first-class node with required
+ * itemReviewed (fixes GSC “Missing field itemReviewed”).
  */
 export function generateReviewSchema(reviews: ReviewItem[]) {
-  const itemReviewed = {
-    "@type": "RealEstateAgent",
-    "@id": `${BASE_URL}#business`,
+  const businessId = `${BASE_URL}#business`;
+  const business = {
+    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "@id": businessId,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     url: BASE_URL,
-  };
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": `${BASE_URL}#business`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    url: BASE_URL,
+    image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+    telephone: "+1-702-500-1942",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
+      addressCountry: "US",
+    },
     aggregateRating: generateAggregateRatingSchema(
       agentStats.averageRating,
       agentStats.reviewCount,
     ),
-    review: reviews.map((review) => ({
+  };
+
+  const reviewNodes = reviews.map((review, index) => {
+    const reviewId = `${BASE_URL}#review-${index + 1}`;
+    return {
       "@type": "Review",
-      itemReviewed,
+      "@id": reviewId,
+      itemReviewed: {
+        "@type": "RealEstateAgent",
+        "@id": businessId,
+        name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+        url: BASE_URL,
+      },
       author: {
         "@type": "Person",
         name: review.author,
@@ -369,7 +384,18 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
       reviewBody: review.reviewBody,
       datePublished:
         review.datePublished || new Date().toISOString().split("T")[0],
-    })),
+    };
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        ...business,
+        review: reviewNodes.map((node) => ({ "@id": node["@id"] })),
+      },
+      ...reviewNodes,
+    ],
   };
 }
 
@@ -614,13 +640,22 @@ export function combineSchemas(...schemas: Record<string, unknown>[]) {
   if (schemas.length === 1) {
     return schemas[0];
   }
+
+  const graph: Record<string, unknown>[] = [];
+  for (const schema of schemas) {
+    const { "@context": _ctx, ...rest } = schema;
+    if (Array.isArray(rest["@graph"])) {
+      for (const node of rest["@graph"] as Record<string, unknown>[]) {
+        graph.push(node);
+      }
+    } else {
+      graph.push(rest);
+    }
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": schemas.map((schema) => {
-      // Remove @context from individual schemas when combining
-      const { "@context": _, ...rest } = schema;
-      return rest;
-    }),
+    "@graph": graph,
   };
 }
 

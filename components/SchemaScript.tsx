@@ -119,35 +119,17 @@ export function ReviewSchema({
     reviewCount: number;
   };
 }) {
-  const itemReviewed = {
-    "@type": "RealEstateAgent",
-    "@id": "https://www.searchforaffordablehomes.com#business",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.searchforaffordablehomes.com",
-  };
-
-  const schema: Record<string, unknown> = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": "https://www.searchforaffordablehomes.com#business",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.searchforaffordablehomes.com",
-  };
-
-  if (aggregateRating) {
-    schema.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: aggregateRating.ratingValue.toString(),
-      reviewCount: aggregateRating.reviewCount.toString(),
-      bestRating: "5",
-      worstRating: "1",
-    };
-  }
-
-  if (reviews && reviews.length > 0) {
-    schema.review = reviews.map((review) => ({
+  const businessId = "https://www.searchforaffordablehomes.com#business";
+  const reviewNodes =
+    reviews?.map((review, index) => ({
       "@type": "Review",
-      itemReviewed,
+      "@id": `https://www.searchforaffordablehomes.com#review-${index + 1}`,
+      itemReviewed: {
+        "@type": "RealEstateAgent",
+        "@id": businessId,
+        name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+        url: "https://www.searchforaffordablehomes.com",
+      },
       author: {
         "@type": "Person",
         name: review.author,
@@ -160,8 +142,33 @@ export function ReviewSchema({
       },
       reviewBody: review.text,
       datePublished: review.date || new Date().toISOString().split("T")[0],
-    }));
+    })) ?? [];
+
+  const business: Record<string, unknown> = {
+    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "@id": businessId,
+    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    url: "https://www.searchforaffordablehomes.com",
+  };
+
+  if (aggregateRating) {
+    business.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: aggregateRating.ratingValue.toString(),
+      reviewCount: aggregateRating.reviewCount.toString(),
+      bestRating: "5",
+      worstRating: "1",
+    };
   }
+
+  if (reviewNodes.length > 0) {
+    business.review = reviewNodes.map((node) => ({ "@id": node["@id"] }));
+  }
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [business, ...reviewNodes],
+  };
 
   return <SchemaScript schema={schema} id="review-schema" />;
 }
