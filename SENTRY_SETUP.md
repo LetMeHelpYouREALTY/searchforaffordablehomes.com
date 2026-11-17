@@ -248,11 +248,13 @@ try {
 ### Recommended Alert Rules
 
 1. **Critical Errors**
+
    - Condition: `level:fatal OR level:error`
    - Action: Email + Slack
    - Frequency: Immediately
 
 2. **High Error Rate**
+
    - Condition: `>100 events in 1 hour`
    - Action: Email
    - Frequency: Once per hour
