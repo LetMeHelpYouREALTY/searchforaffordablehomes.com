@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,12 +9,21 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="mb-10">
+          <SectionExtras
+            tone="dark"
+            headline="Search for affordable homes — schedule with Dr. Jan"
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div>
+            <div className="mb-4">
+              <BrandPortrait size="md" className="ring-offset-slate-900" />
+            </div>
             <h3 className="font-bold text-xl mb-4">Dr. Jan Duffy, REALTOR®</h3>
             <p className="text-slate-300 mb-4 text-sm">
-              Your trusted real estate partner in Las Vegas, Henderson, and Summerlin. In real
+              Search for affordable homes in Las Vegas, Henderson, and Summerlin. In real
               estate since 1983.
             </p>
             <div className="flex space-x-4">
@@ -50,6 +61,14 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/affordable-homes"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Affordable Homes
+                </Link>
+              </li>
               <li>
                 <a
                   href="http://drjanduffy.realscout.com/"

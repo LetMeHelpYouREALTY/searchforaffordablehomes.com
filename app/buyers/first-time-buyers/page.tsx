@@ -17,6 +17,9 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "First-Time Home Buyers Las Vegas",
@@ -97,7 +100,10 @@ export default function FirstTimeBuyersPage() {
               <Key className="h-4 w-4 mr-2" />
               Down Payment Assistance Available
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Your First Home in Las Vegas<br />
               <span className="text-blue-600">Starts Here</span>
             </h1>
@@ -113,7 +119,10 @@ export default function FirstTimeBuyersPage() {
             </a>
           </div>
 
-          {/* Financing Options */}
+          
+          <RealScoutListings />
+
+{/* Financing Options */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               First-Time Buyer Financing Options
@@ -520,7 +529,10 @@ export default function FirstTimeBuyersPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

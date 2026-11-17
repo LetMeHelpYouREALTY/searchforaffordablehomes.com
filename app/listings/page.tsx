@@ -18,6 +18,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Las Vegas Homes for Sale | MLS Property Search",
@@ -120,7 +124,10 @@ export default function ListingsPage() {
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Homes for Sale
             </h1>
             <p className="text-xl text-slate-600 mb-8">
@@ -133,7 +140,10 @@ export default function ListingsPage() {
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> Updated Every 15 Min</span>
               <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-500 mr-1" /> 5,000+ Active Listings</span>
             </div>
-          </div>
+          
+          <OfficeListingsUnderHero />
+
+</div>
 
           {/* RealScout Widget - Live MLS Listings */}
           <section className="mb-16">
@@ -492,6 +502,10 @@ export default function ListingsPage() {
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

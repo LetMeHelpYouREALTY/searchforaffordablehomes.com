@@ -18,6 +18,9 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "New Construction Las Vegas | Buyer's Guide",
@@ -253,7 +256,10 @@ export default function NewConstructionPage() {
             <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Free Buyer Representation
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               New Construction Las Vegas
             </h1>
             <p className="text-xl text-slate-600 mb-8">
@@ -274,7 +280,10 @@ export default function NewConstructionPage() {
                     may lose your right to free professional representation.
                   </p>
                 </div>
-              </div>
+              
+          <RealScoutListings />
+
+</div>
             </div>
           </div>
 
@@ -688,7 +697,10 @@ export default function NewConstructionPage() {
           Last Updated: January 2026 | Incentives subject to change
         </div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

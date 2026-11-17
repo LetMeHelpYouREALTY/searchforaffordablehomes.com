@@ -14,6 +14,9 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 import {
   generateBreadcrumbSchema,
   generateSeniorCommunitySchema,
@@ -122,7 +125,10 @@ export default function SunCityAnthemPage() {
               <Mountain className="h-4 w-4 mr-2" />
               Henderson's Premier 55+ Community
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Anthem
             </h1>
             <p className="text-xl text-slate-600">
@@ -130,7 +136,10 @@ export default function SunCityAnthemPage() {
             </p>
           </div>
 
-          {/* Quick Stats */}
+          
+          <RealScoutListings />
+
+{/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Sun City Anthem at a Glance
@@ -339,7 +348,10 @@ export default function SunCityAnthemPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

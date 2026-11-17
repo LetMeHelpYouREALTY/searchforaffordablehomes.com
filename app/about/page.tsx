@@ -17,6 +17,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Las Vegas",
@@ -125,7 +128,10 @@ export default function AboutPage() {
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Meet Your Las Vegas REALTOR®
             </h1>
             <p className="text-xl text-slate-600">
@@ -134,7 +140,10 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Agent Profile */}
+          
+          <RealScoutListings />
+
+{/* Agent Profile */}
           <section className="mb-16">
             <div className="grid md:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
               <div>
@@ -441,7 +450,10 @@ export default function AboutPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

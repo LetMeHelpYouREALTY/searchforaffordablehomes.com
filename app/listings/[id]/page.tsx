@@ -4,6 +4,10 @@ import Image from "next/image";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
+import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Property Details | Las Vegas & Henderson Real Estate",
@@ -62,7 +66,10 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
 
           {/* Property Header */}
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
               {property.name}
             </h1>
             <div className="flex items-center text-slate-600 mb-4">
@@ -71,6 +78,9 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
             </div>
             <div className="text-3xl font-bold text-blue-600">{property.price}</div>
           </div>
+
+          <OfficeListingsUnderHero />
+
 
           {/* Main Image */}
           <div className="relative h-64 md:h-96 rounded-lg overflow-hidden mb-8">
@@ -144,6 +154,10 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
           </div>
         </div>
       </main>
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

@@ -14,6 +14,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Las Vegas Market Update | January 2026",
@@ -78,7 +81,10 @@ export default function MarketUpdatePage() {
               <Calendar className="h-4 w-4 mr-2" />
               Week of January 20, 2026
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Las Vegas Market Update
             </h1>
             <p className="text-xl text-slate-600">
@@ -87,7 +93,10 @@ export default function MarketUpdatePage() {
             <div className="flex items-center justify-center mt-6 text-slate-500 text-sm">
               <span>By Dr. Jan Duffy, REALTOR®</span>
             </div>
-          </div>
+          
+          <RealScoutListings />
+
+</div>
 
           {/* Key Statistics */}
           <section className="mb-16 max-w-5xl mx-auto">
@@ -427,7 +436,10 @@ export default function MarketUpdatePage() {
           Last Updated: January 24, 2026 | Data Source: Las Vegas REALTORS® MLS
         </div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

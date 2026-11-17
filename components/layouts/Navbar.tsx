@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -20,6 +21,7 @@ export default function Navbar() {
 
   const mainNavLinks = [
     { href: "/", label: "Home", external: false },
+    { href: "/affordable-homes", label: "Affordable Homes", external: false },
     { href: "http://drjanduffy.realscout.com/", label: "Properties", external: true },
     { href: "/neighborhoods", label: "Neighborhoods", external: false },
     { href: "/about", label: "About", external: false },
@@ -27,13 +29,14 @@ export default function Navbar() {
   ];
 
   const serviceLinks = [
+    { href: "/affordable-homes", label: "Affordable Homes" },
+    { href: "/affordable-homes/under-400k", label: "Homes Under $400K" },
     { href: "/buyers", label: "Home Buying" },
     { href: "/sellers", label: "Home Selling" },
     { href: "/luxury-homes", label: "Luxury Homes" },
     { href: "/55-plus-communities", label: "55+ Communities" },
     { href: "/new-construction", label: "New Construction" },
     { href: "/market-report", label: "Market Report" },
-    { href: "/market-insights", label: "Market Insights" },
   ];
 
   return (
@@ -45,12 +48,24 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Brand Logo */}
-          <Link href="/" className="flex flex-col">
-            <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
-              Dr. Jan Duffy
-              <span className="text-blue-600"> REALTOR®</span>
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/images/agent/dr-jan-duffy-portrait.png"
+              alt="Dr. Jan Duffy, REALTOR® — Search for Affordable Homes"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-full object-cover ring-2 ring-[#1e4fd6]"
+              priority
+            />
+            <span className="flex flex-col">
+              <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
+                Dr. Jan Duffy
+                <span className="text-blue-600"> REALTOR®</span>
+              </span>
+              <span className="text-xs text-slate-500 hidden sm:block">
+                Search for Affordable Homes
+              </span>
             </span>
-            <span className="text-xs text-slate-500 hidden sm:block">Search for Affordable Homes</span>
           </Link>
 
           {/* Desktop Navigation */}
