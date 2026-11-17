@@ -22,6 +22,14 @@ import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderH
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import {
+  combineSchemas,
+  generateBreadcrumbSchema,
+  generateItemListSchema,
+  generateWebPageSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Las Vegas Homes for Sale | MLS Property Search",
@@ -36,23 +44,46 @@ export const metadata: Metadata = {
   ],
 };
 
-const listingsSchema = {
-  "@context": "https://schema.org",
-  "@type": "RealEstateListing",
-  name: "Las Vegas MLS Property Listings",
-  description:
-    "Live MLS property listings for Las Vegas, Henderson, and Summerlin homes for sale",
-  provider: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
+const listingsSchema = combineSchemas(
+  generateWebPageSchema({
+    name: "Las Vegas MLS Property Listings",
+    description:
+      "Live MLS property listings for Las Vegas, Henderson, and Summerlin homes for sale",
+    url: "/listings",
+    dateModified: "2026-11-17",
+    pageType: "CollectionPage",
+  }),
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Listings", url: "/listings" },
+  ]),
+  generateItemListSchema({
+    name: "Popular Las Vegas listing searches",
+    items: [
+      { name: "Homes Under $400K", url: "/affordable-homes/under-400k" },
+      { name: "North Las Vegas", url: "/neighborhoods/north-las-vegas" },
+      { name: "Centennial Hills", url: "/neighborhoods/centennial-hills" },
+      { name: "Henderson", url: "/neighborhoods/henderson" },
+      { name: "New Construction", url: "/new-construction" },
+    ],
+  }),
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    name: "Las Vegas MLS Property Listings",
+    description:
+      "Live MLS property listings for Las Vegas, Henderson, and Summerlin homes for sale",
+    url: "https://www.searchforaffordablehomes.com/listings",
+    provider: {
+      "@id": "https://www.searchforaffordablehomes.com#business",
+    },
+    areaServed: [
+      { "@type": "City", name: "Las Vegas, NV" },
+      { "@type": "City", name: "Henderson, NV" },
+      { "@type": "Place", name: "Summerlin, NV" },
+    ],
   },
-  areaServed: [
-    { "@type": "City", name: "Las Vegas, NV" },
-    { "@type": "City", name: "Henderson, NV" },
-    { "@type": "City", name: "Summerlin, NV" },
-  ],
-};
+);
 
 const popularSearches = [
   {
@@ -153,6 +184,7 @@ export default function ListingsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listingsSchema) }}
+        id="listings-page-schema"
       />
       <Navbar />
       <main className="pt-24 pb-16">
@@ -615,6 +647,7 @@ export default function ListingsPage() {
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Filter by corridor or price path" />
       </div>
       <CalendlyBookingSection />
       <Footer />

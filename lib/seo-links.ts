@@ -133,4 +133,7 @@ export const sameAsProfiles = [
   "https://calendly.com/drjanduffy/showing",
   "http://drjanduffy.realscout.com/",
   "https://www.linkedin.com/in/drjanduffy",
+  "https://www.facebook.com/drjanduffy",
+  "https://www.instagram.com/drjanduffy",
+  "https://www.youtube.com/@drjanduffy",
 ];

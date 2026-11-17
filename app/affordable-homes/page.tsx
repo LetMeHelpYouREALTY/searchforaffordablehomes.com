@@ -10,12 +10,14 @@ import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection
 import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
 import InternalLinkHub from "@/components/seo/InternalLinkHub";
 import AuthorityLinks from "@/components/seo/AuthorityLinks";
+import AnswerBlock from "@/components/seo/AnswerBlock";
 import {
   combineSchemas,
   generateBreadcrumbSchema,
   generateFAQSchema,
   generateWebPageSchema,
   generateServiceSchema,
+  generateItemListSchema,
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -55,6 +57,8 @@ const pageSchemas = combineSchemas(
     description:
       "Pillar guide to searching for affordable homes in Las Vegas with Dr. Jan Duffy.",
     url: "/affordable-homes",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
   }),
   generateBreadcrumbSchema([
     { name: "Home", url: "/" },
@@ -67,6 +71,32 @@ const pageSchemas = combineSchemas(
     url: "/affordable-homes",
   }),
   generateFAQSchema(faqs),
+  generateItemListSchema({
+    name: "Affordable homes paths",
+    description: "Primary search paths for payment-fit Las Vegas homes",
+    items: [
+      {
+        name: "Homes Under $400K",
+        url: "/affordable-homes/under-400k",
+        description: "Payment-first shortlist under $400,000",
+      },
+      {
+        name: "First-Time Buyers",
+        url: "/affordable-homes/first-time-buyers",
+        description: "Affordable path for first-time Las Vegas buyers",
+      },
+      {
+        name: "North Las Vegas",
+        url: "/neighborhoods/north-las-vegas",
+        description: "Value-focused inventory corridor",
+      },
+      {
+        name: "Live MLS Listings",
+        url: "/listings",
+        description: "Current office listings via RealScout",
+      },
+    ],
+  }),
 );
 
 export default function AffordableHomesPage() {
@@ -105,6 +135,10 @@ export default function AffordableHomesPage() {
           title="Live Affordable Homes Inventory"
           subtitle="Office listings filtered for value-focused buyers across the Las Vegas Valley."
         />
+
+        <div className="container mx-auto px-4 py-12">
+          <AnswerBlock title="Affordable homes FAQ — short answers" items={faqs} />
+        </div>
 
         <div className="container mx-auto px-4">
           <section className="mx-auto mb-16 max-w-5xl py-12">

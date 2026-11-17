@@ -18,6 +18,14 @@ import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import {
+  combineSchemas,
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from "@/lib/schema";
+import { agentInfo, officeInfo } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact Dr. Jan Duffy | Las Vegas",
@@ -31,32 +39,44 @@ export const metadata: Metadata = {
   ],
 };
 
-const contactSchema = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  mainEntity: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
-    email: "homes@heyberkshire.com",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
-      addressCountry: "US",
+const pageSchemas = combineSchemas(
+  generateWebPageSchema({
+    name: "Contact Dr. Jan Duffy",
+    description:
+      "Call, email, or book Calendly with Dr. Jan Duffy for affordable homes in Las Vegas.",
+    url: "/contact",
+    dateModified: "2026-11-17",
+    pageType: "ContactPage",
+    speakableCssSelectors: ["h1"],
+  }),
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ]),
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": "https://www.searchforaffordablehomes.com/contact#contact",
+    mainEntity: {
+      "@id": "https://www.searchforaffordablehomes.com#business",
+      telephone: "+1-702-500-1942",
+      email: agentInfo.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: officeInfo.address.street,
+        addressLocality: officeInfo.address.city,
+        addressRegion: officeInfo.address.state,
+        postalCode: officeInfo.address.zip,
+        addressCountry: "US",
+      },
     },
   },
-};
+);
 
 export default function ContactPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
-      />
+      <SchemaScript schema={pageSchemas} id="contact-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -118,10 +138,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
                     <a
-                      href="mailto:homes@heyberkshire.com"
+                      href="mailto:homes@searchforaffordablehomes.com"
                       className="text-blue-600 hover:text-blue-700 font-medium"
                     >
-                      Homes@HeyBerkshire.com
+                      Homes@SearchForAffordableHomes.com
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
                       Typically respond within 2 hours
@@ -309,13 +329,13 @@ export default function ContactPage() {
                 </div>
               </a>
               <a
-                href="mailto:homes@heyberkshire.com"
+                href="mailto:homes@searchforaffordablehomes.com"
                 className="flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white p-6 rounded-xl transition-colors"
               >
                 <Mail className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Send Email</div>
-                  <div className="text-slate-300">Homes@HeyBerkshire.com</div>
+                  <div className="text-slate-300">Homes@SearchForAffordableHomes.com</div>
                 </div>
               </a>
             </div>
@@ -361,6 +381,7 @@ export default function ContactPage() {
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Before you call — explore the site" />
       </div>
       <CalendlyBookingSection />
       <Footer />

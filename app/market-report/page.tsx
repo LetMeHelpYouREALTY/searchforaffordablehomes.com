@@ -15,6 +15,14 @@ import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import {
+  combineSchemas,
+  generateArticleSchema,
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Las Vegas Real Estate Market Report January 2026",
@@ -28,30 +36,34 @@ export const metadata: Metadata = {
   ],
 };
 
-// Report Schema
-const reportSchema = {
-  "@context": "https://schema.org",
-  "@type": "Report",
-  name: "Las Vegas Real Estate Market Report - January 2026",
-  author: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy",
-    worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
-  },
-  datePublished: "2026-01-23",
-  about: {
-    "@type": "Place",
-    name: "Las Vegas, Nevada",
-  },
-};
+const pageSchemas = combineSchemas(
+  generateWebPageSchema({
+    name: "Las Vegas Real Estate Market Report - January 2026",
+    description:
+      "Median prices, days on market, inventory, and expert analysis from Dr. Jan Duffy.",
+    url: "/market-report",
+    datePublished: "2026-01-23",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", "h2"],
+  }),
+  generateArticleSchema({
+    headline: "Las Vegas Real Estate Market Report - January 2026",
+    description:
+      "Median prices, days on market, inventory levels, and expert analysis from Dr. Jan Duffy.",
+    url: "/market-report",
+    datePublished: "2026-01-23",
+    dateModified: "2026-11-17",
+  }),
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Market Report", url: "/market-report" },
+  ]),
+);
 
 export default function MarketReportPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reportSchema) }}
-      />
+      <SchemaScript schema={pageSchemas} id="market-report-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -351,6 +363,7 @@ export default function MarketReportPage() {
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Search affordable homes next" />
       </div>
       <CalendlyBookingSection />
       <Footer />

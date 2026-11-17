@@ -1,4 +1,4 @@
-// Site Configuration - HeyBerkshire.com
+// Site Configuration - www.searchforaffordablehomes.com
 // Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
@@ -23,7 +23,7 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
-  email: "homes@heyberkshire.com",
+  email: "homes@searchforaffordablehomes.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 
@@ -36,9 +36,10 @@ export const officeInfo = {
     zip: "89134",
     full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
   },
+  /** GBP-aligned coordinates for LocalBusiness / distance ranking */
   coordinates: {
-    lat: 36.1893,
-    lng: -115.2821,
+    lat: 36.1941,
+    lng: -115.2678,
   },
   phone: "(702) 500-1942",
   phoneTel: "tel:+17025001942",

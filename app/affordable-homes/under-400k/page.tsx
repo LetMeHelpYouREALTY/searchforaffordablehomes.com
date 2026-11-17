@@ -9,6 +9,7 @@ import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderH
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
 import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AnswerBlock from "@/components/seo/AnswerBlock";
 import {
   combineSchemas,
   generateBreadcrumbSchema,
@@ -47,6 +48,8 @@ const pageSchemas = combineSchemas(
     description:
       "Affordable homes under $400K with live MLS listings and buyer guidance from Dr. Jan Duffy.",
     url: "/affordable-homes/under-400k",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
   }),
   generateBreadcrumbSchema([
     { name: "Home", url: "/" },
@@ -86,6 +89,10 @@ export default function Under400kPage() {
           priceMin="150000"
           priceMax="400000"
         />
+
+        <div className="container mx-auto px-4 py-10">
+          <AnswerBlock title="Under $400K — quick answers" items={faqs} />
+        </div>
 
         <div className="container mx-auto px-4 py-12">
           <section className="mx-auto mb-12 max-w-4xl">

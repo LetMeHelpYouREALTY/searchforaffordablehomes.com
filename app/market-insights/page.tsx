@@ -34,17 +34,27 @@ export const metadata: Metadata = {
 
 const reportSchema = {
   "@context": "https://schema.org",
-  "@type": "Report",
-  name: "Las Vegas Real Estate Market Insights 2026",
+  "@type": "Article",
+  headline: "Las Vegas Real Estate Market Insights 2026",
   author: {
-    "@type": "RealEstateAgent",
+    "@type": "Person",
+    "@id": "https://www.searchforaffordablehomes.com#person",
     name: "Dr. Jan Duffy",
-    worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
+    jobTitle: "REALTOR®",
+    worksFor: {
+      "@id": "https://www.searchforaffordablehomes.com#business",
+    },
   },
   datePublished: "2026-01-23",
+  dateModified: "2026-11-17",
+  mainEntityOfPage:
+    "https://www.searchforaffordablehomes.com/market-insights",
   about: {
     "@type": "Place",
     name: "Las Vegas, Nevada",
+  },
+  publisher: {
+    "@id": "https://www.searchforaffordablehomes.com#business",
   },
 };
 

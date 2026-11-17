@@ -11,6 +11,8 @@ import {
   generateRealEstateAgentSchema,
   generateOrganizationSchema,
   generateWebSiteSchema,
+  generatePersonSchema,
+  generateOfferCatalogSchema,
 } from "@/lib/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -54,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: config.heroHeadline,
       description: config.description,
       images: ["/images/agent/dr-jan-duffy-portrait.png"],
@@ -83,8 +85,37 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const globalSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
+  generatePersonSchema(),
   generateOrganizationSchema(),
   generateWebSiteSchema(),
+  generateOfferCatalogSchema([
+    {
+      name: "Affordable Homes Search",
+      description:
+        "Payment-fit MLS search for affordable homes in Las Vegas, Henderson, and Summerlin.",
+      url: "/affordable-homes",
+    },
+    {
+      name: "Buyer Representation",
+      description: "Full-service home buying assistance with Dr. Jan Duffy.",
+      url: "/buyers",
+    },
+    {
+      name: "First-Time Buyer Guidance",
+      description: "Pre-approval path, low-down-payment programs, and MLS shortlists.",
+      url: "/affordable-homes/first-time-buyers",
+    },
+    {
+      name: "Home Valuation",
+      description: "Complimentary property valuation using current MLS data.",
+      url: "/home-valuation",
+    },
+    {
+      name: "Relocation Assistance",
+      description: "California and out-of-state relocation to Las Vegas.",
+      url: "/relocation",
+    },
+  ]),
 );
 
 export default function RootLayout({

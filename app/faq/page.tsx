@@ -8,6 +8,9 @@ import SchemaScript from "@/components/SchemaScript";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AuthorityLinks from "@/components/seo/AuthorityLinks";
+import AnswerBlock from "@/components/seo/AnswerBlock";
 import {
   generateBreadcrumbSchema,
   generateFAQSchema,
@@ -33,6 +36,23 @@ const breadcrumbs = [
 ];
 
 const faqCategories = [
+  {
+    title: "Affordable Homes",
+    faqs: [
+      {
+        q: "What counts as an affordable home in Las Vegas?",
+        a: "On this site, affordable homes usually means MLS listings that fit a buyer’s payment comfort—often $200K–$550K depending on down payment, rate, and HOA. Dr. Jan Duffy filters for payment fit, not just list price.",
+      },
+      {
+        q: "Where should I look for affordable homes right now?",
+        a: "Value inventory commonly shows up in North Las Vegas, Centennial Hills, Mountain’s Edge, and select Henderson corridors. Listings change daily—use the live RealScout office listings on every page.",
+      },
+      {
+        q: "Can I buy an affordable home with less than 20% down?",
+        a: "Yes. FHA loans start at 3.5% down, VA loans often require 0% down, and some conventional programs allow lower down payments. Dr. Jan connects buyers with trusted local lenders.",
+      },
+    ],
+  },
   {
     title: "About Dr. Jan Duffy",
     faqs: [
@@ -143,7 +163,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: "Call or text (702) 500-1942 or email homes@searchforaffordablehomes.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
       },
       {
         q: "What areas does Dr. Jan cover?",
@@ -165,11 +185,12 @@ const allFaqs = faqCategories.flatMap((category) =>
 const pageSchemas = combineSchemas(
   generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
-    name: "Frequently Asked Questions | Berkshire Hathaway HomeServices Las Vegas",
+    name: "Frequently Asked Questions | Search for Affordable Homes Las Vegas",
     description:
-      "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy.",
+      "Comprehensive FAQ about affordable homes, buying, selling, investing, and working with Dr. Jan Duffy in Las Vegas.",
     url: "/faq",
-    dateModified: "2026-01-25",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", "h2", "h3", "section p"],
   }),
   generateFAQSchema(allFaqs),
 );
@@ -200,6 +221,16 @@ export default function FAQPage() {
           </div>
 
           <RealScoutListings />
+
+          <div className="mb-16">
+            <AnswerBlock
+              title="Top affordable-homes answers"
+              items={faqCategories[0].faqs.map((f) => ({
+                question: f.q,
+                answer: f.a,
+              }))}
+            />
+          </div>
 
           {/* FAQ Categories */}
           <div className="max-w-4xl mx-auto space-y-12">
@@ -246,6 +277,8 @@ export default function FAQPage() {
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Explore affordable homes paths" />
+        <AuthorityLinks />
       </div>
       <CalendlyBookingSection />
       <Footer />

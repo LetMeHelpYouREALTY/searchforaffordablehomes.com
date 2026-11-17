@@ -22,6 +22,17 @@ import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AnswerBlock from "@/components/seo/AnswerBlock";
+import {
+  combineSchemas,
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+  generateHowToSchema,
+  generateServiceSchema,
+  generateWebPageSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Home Buying Guide Las Vegas",
@@ -37,18 +48,69 @@ export const metadata: Metadata = {
   ],
 };
 
-const buyerSchema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Home Buying Services Las Vegas",
-  provider: {
-    "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
+const buyerFaqs = [
+  {
+    question: "How long does buying a home in Las Vegas take?",
+    answer:
+      "Typically 30–45 days from offer acceptance to closing for financed purchases. Cash can close faster. Timeline depends on inspections, appraisal, and loan conditions.",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
-  serviceType: "Buyer Representation",
-};
+  {
+    question: "Do I need a pre-approval before touring?",
+    answer:
+      "Yes. A pre-approval shows sellers you are serious and gives Dr. Jan Duffy a clear payment band for MLS filtering.",
+  },
+];
+
+const buyerSchema = combineSchemas(
+  generateWebPageSchema({
+    name: "Home Buying Guide Las Vegas",
+    description:
+      "Buyer representation with Dr. Jan Duffy for affordable and lifestyle-fit homes in Las Vegas.",
+    url: "/buyers",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
+  }),
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Buyers", url: "/buyers" },
+  ]),
+  generateServiceSchema({
+    name: "Home Buying Services Las Vegas",
+    description:
+      "Full-service buyer representation across Las Vegas, Henderson, and Summerlin.",
+    url: "/buyers",
+  }),
+  generateFAQSchema(buyerFaqs),
+  generateHowToSchema({
+    name: "How to buy a home in Las Vegas with Dr. Jan Duffy",
+    description:
+      "Payment-first home buying process for Las Vegas Valley buyers.",
+    url: "/buyers",
+    totalTime: "P45D",
+    steps: [
+      {
+        name: "Get pre-approved",
+        text: "Confirm payment comfort with a trusted local lender before touring.",
+      },
+      {
+        name: "Define must-haves",
+        text: "Map commute, beds/baths, HOA tolerance, and neighborhood priorities.",
+      },
+      {
+        name: "Tour payment-fit homes",
+        text: "Dr. Jan filters MLS inventory to your payment band and schedules tours.",
+      },
+      {
+        name: "Write a protected offer",
+        text: "Negotiate with inspection contingencies and clear timelines.",
+      },
+      {
+        name: "Close with coordinated escrow",
+        text: "Title, lender, and escrow coordinate through closing day.",
+      },
+    ],
+  }),
+);
 
 const buyingSteps = [
   {
@@ -159,6 +221,10 @@ export default function BuyersPage() {
           </div>
 
           <RealScoutListings />
+
+          <div className="mb-12">
+            <AnswerBlock title="Buying in Las Vegas — quick answers" items={buyerFaqs} />
+          </div>
 
           {/* Value Prop */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -546,6 +612,7 @@ export default function BuyersPage() {
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Affordable homes paths for buyers" />
       </div>
       <CalendlyBookingSection />
       <Footer />

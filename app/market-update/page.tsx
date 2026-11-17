@@ -40,18 +40,14 @@ const articleSchema = {
   dateModified: "2026-01-24",
   author: {
     "@type": "Person",
+    "@id": "https://www.searchforaffordablehomes.com#person",
     name: "Dr. Jan Duffy",
     jobTitle: "REALTOR®",
-    worksFor: {
-      "@type": "RealEstateAgent",
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-    },
   },
   publisher: {
-    "@type": "Organization",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.searchforaffordablehomes.com",
+    "@id": "https://www.searchforaffordablehomes.com#business",
   },
+  mainEntityOfPage: "https://www.searchforaffordablehomes.com/market-update",
 };
 
 export default function MarketUpdatePage() {
