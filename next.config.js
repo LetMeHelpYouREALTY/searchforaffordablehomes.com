@@ -20,7 +20,7 @@ const nextConfig = {
   // Performance optimizations
   swcMinify: true,
 
-  // Redirect non-www to www
+  // Host + legacy IDX path redirects (retire dead listing URLs from GSC)
   async redirects() {
     return [
       {
@@ -32,6 +32,48 @@ const nextConfig = {
           },
         ],
         destination: "https://www.heyberkshire.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "searchforaffordablehomes.com",
+          },
+        ],
+        destination: "https://www.searchforaffordablehomes.com/:path*",
+        permanent: true,
+      },
+      // Legacy MLS/IDX listing URL shapes → living inventory pages
+      {
+        source: "/rental/:path*",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/single-family/:path*",
+        destination: "/affordable-homes",
+        permanent: true,
+      },
+      {
+        source: "/condo-townhouse/:path*",
+        destination: "/affordable-homes",
+        permanent: true,
+      },
+      {
+        source: "/vacant-land/:path*",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/homes/sale/:path*",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/homes/:path*",
+        destination: "/listings",
         permanent: true,
       },
     ];
