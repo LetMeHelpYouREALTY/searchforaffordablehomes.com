@@ -9,6 +9,7 @@ Your application now has comprehensive test coverage using Vitest, a blazing-fas
 ✅ **5 Critical Test Suites:**
 
 1. **LeadCaptureForm** (`components/forms/LeadCaptureForm.test.tsx`)
+
    - Form rendering and validation
    - Successful submission flow
    - Error handling
@@ -16,17 +17,20 @@ Your application now has comprehensive test coverage using Vitest, a blazing-fas
    - Source tracking
 
 2. **useReducedMotion Hook** (`hooks/useReducedMotion.test.ts`)
+
    - Accessibility compliance (WCAG 2.1)
    - Media query detection
    - Event listener cleanup
 
 3. **Lead Capture API** (`app/api/leads/capture/route.test.ts`)
+
    - Input validation
    - FUB integration
    - Error responses
    - Data sanitization
 
 4. **FUB Client** (`lib/fub/client.test.ts`)
+
    - API calls
    - Rate limiting
    - Response caching
@@ -69,16 +73,16 @@ import { MyComponent } from './MyComponent'
 describe('MyComponent', () => {
   it('renders correctly', () => {
     render(<MyComponent />)
-    
+
     expect(screen.getByText('Hello World')).toBeInTheDocument()
   })
 
   it('handles button click', async () => {
     const { user } = userEvent.setup()
     render(<MyComponent />)
-    
+
     await user.click(screen.getByRole('button'))
-    
+
     expect(screen.getByText('Clicked!')).toBeInTheDocument()
   })
 })
@@ -97,10 +101,10 @@ describe('ComponentName', () => {  // Test suite
   it('does something', () => {      // Individual test
     // Arrange - set up test data
     const props = { name: 'John' }
-    
+
     // Act - perform action
     render(<Component {...props} />)
-    
+
     // Assert - verify outcome
     expect(screen.getByText('John')).toBeInTheDocument()
   })
@@ -110,16 +114,17 @@ describe('ComponentName', () => {  // Test suite
 ### Best Practices
 
 1. **Arrange, Act, Assert (AAA) Pattern**
+
    ```typescript
    it('submits form successfully', async () => {
      // Arrange
      const onSubmit = vi.fn()
      render(<Form onSubmit={onSubmit} />)
-     
+
      // Act
      await user.type(screen.getByLabelText('Email'), 'test@example.com')
      await user.click(screen.getByRole('button', { name: /submit/i }))
-     
+
      // Assert
      expect(onSubmit).toHaveBeenCalledWith({
        email: 'test@example.com'
@@ -128,53 +133,56 @@ describe('ComponentName', () => {  // Test suite
    ```
 
 2. **Use Testing Library Queries (in priority order)**
+
    ```typescript
    // ✅ Best - Accessible to everyone
-   screen.getByRole('button', { name: /submit/i })
-   screen.getByLabelText('Email')
-   screen.getByPlaceholderText('Enter email')
-   screen.getByText('Welcome')
-   
+   screen.getByRole("button", { name: /submit/i });
+   screen.getByLabelText("Email");
+   screen.getByPlaceholderText("Enter email");
+   screen.getByText("Welcome");
+
    // ⚠️ Avoid - Fragile
-   screen.getByTestId('submit-button')  // Use sparingly
-   container.querySelector('.button')    // Never use
+   screen.getByTestId("submit-button"); // Use sparingly
+   container.querySelector(".button"); // Never use
    ```
 
 3. **Mock External Dependencies**
+
    ```typescript
    // Mock fetch
-   global.fetch = vi.fn()
-   
-   (global.fetch as any).mockResolvedValueOnce({
-     ok: true,
-     json: async () => ({ data: 'success' })
-   })
-   
+   global.fetch = vi
+     .fn()(global.fetch as any)
+     .mockResolvedValueOnce({
+       ok: true,
+       json: async () => ({ data: "success" }),
+     });
+
    // Mock module
-   vi.mock('@/lib/fub/client', () => ({
+   vi.mock("@/lib/fub/client", () => ({
      fubClient: {
-       createLead: vi.fn().mockResolvedValue({ id: '123' })
-     }
-   }))
+       createLead: vi.fn().mockResolvedValue({ id: "123" }),
+     },
+   }));
    ```
 
 4. **Test User Interactions**
+
    ```typescript
    import userEvent from '@testing-library/user-event'
-   
+
    it('handles user input', async () => {
      const user = userEvent.setup()
      render(<SearchForm />)
-     
+
      // Type in input
      await user.type(screen.getByRole('textbox'), 'Las Vegas')
-     
+
      // Click button
      await user.click(screen.getByRole('button'))
-     
+
      // Select from dropdown
      await user.selectOptions(screen.getByRole('combobox'), 'Henderson')
-     
+
      // Check checkbox
      await user.click(screen.getByRole('checkbox'))
    })
@@ -213,28 +221,31 @@ start coverage/index.html # Windows
 
 ### Coverage by Type
 
-| Type | Target | Current |
-|------|--------|---------|
-| **Statements** | 80% | TBD |
-| **Branches** | 75% | TBD |
-| **Functions** | 80% | TBD |
-| **Lines** | 80% | TBD |
+| Type           | Target | Current |
+| -------------- | ------ | ------- |
+| **Statements** | 80%    | TBD     |
+| **Branches**   | 75%    | TBD     |
+| **Functions**  | 80%    | TBD     |
+| **Lines**      | 80%    | TBD     |
 
 ### What to Cover
 
 **Priority 1 (Must cover):**
+
 - Lead capture forms
 - API routes
 - Payment/checkout flows
 - Authentication logic
 
 **Priority 2 (Should cover):**
+
 - Common UI components
 - Custom hooks
 - Utility functions
 - Error boundaries
 
 **Priority 3 (Nice to have):**
+
 - Layout components
 - Static pages
 - Configuration files
@@ -247,10 +258,10 @@ start coverage/index.html # Windows
 it('validates required fields', async () => {
   const user = userEvent.setup()
   render(<LeadForm />)
-  
+
   // Submit without filling fields
   await user.click(screen.getByRole('button', { name: /submit/i }))
-  
+
   // Check for validation errors
   expect(screen.getByText(/email is required/i)).toBeInTheDocument()
 })
@@ -258,17 +269,17 @@ it('validates required fields', async () => {
 it('submits valid data', async () => {
   const user = userEvent.setup()
   const onSuccess = vi.fn()
-  
+
   global.fetch = vi.fn().mockResolvedValueOnce({
     ok: true,
     json: async () => ({ success: true })
   })
-  
+
   render(<LeadForm onSuccess={onSuccess} />)
-  
+
   await user.type(screen.getByLabelText(/email/i), 'test@example.com')
   await user.click(screen.getByRole('button', { name: /submit/i }))
-  
+
   await waitFor(() => {
     expect(onSuccess).toHaveBeenCalled()
   })
@@ -278,49 +289,49 @@ it('submits valid data', async () => {
 ### Testing API Routes
 
 ```typescript
-it('returns 200 for valid request', async () => {
-  const request = new Request('http://localhost/api/leads', {
-    method: 'POST',
-    body: JSON.stringify({ email: 'test@example.com' })
-  })
-  
-  const response = await POST(request)
-  const data = await response.json()
-  
-  expect(response.status).toBe(200)
-  expect(data.success).toBe(true)
-})
+it("returns 200 for valid request", async () => {
+  const request = new Request("http://localhost/api/leads", {
+    method: "POST",
+    body: JSON.stringify({ email: "test@example.com" }),
+  });
 
-it('returns 400 for invalid request', async () => {
-  const request = new Request('http://localhost/api/leads', {
-    method: 'POST',
-    body: JSON.stringify({ email: 'invalid' })
-  })
-  
-  const response = await POST(request)
-  
-  expect(response.status).toBe(400)
-})
+  const response = await POST(request);
+  const data = await response.json();
+
+  expect(response.status).toBe(200);
+  expect(data.success).toBe(true);
+});
+
+it("returns 400 for invalid request", async () => {
+  const request = new Request("http://localhost/api/leads", {
+    method: "POST",
+    body: JSON.stringify({ email: "invalid" }),
+  });
+
+  const response = await POST(request);
+
+  expect(response.status).toBe(400);
+});
 ```
 
 ### Testing Hooks
 
 ```typescript
-it('returns initial value', () => {
-  const { result } = renderHook(() => useCounter(0))
-  
-  expect(result.current.count).toBe(0)
-})
+it("returns initial value", () => {
+  const { result } = renderHook(() => useCounter(0));
 
-it('increments counter', () => {
-  const { result } = renderHook(() => useCounter(0))
-  
+  expect(result.current.count).toBe(0);
+});
+
+it("increments counter", () => {
+  const { result } = renderHook(() => useCounter(0));
+
   act(() => {
-    result.current.increment()
-  })
-  
-  expect(result.current.count).toBe(1)
-})
+    result.current.increment();
+  });
+
+  expect(result.current.count).toBe(1);
+});
 ```
 
 ### Testing Async Operations
@@ -331,17 +342,17 @@ it('loads data asynchronously', async () => {
     ok: true,
     json: async () => ({ data: 'success' })
   })
-  
+
   render(<DataComponent />)
-  
+
   // Initially shows loading
   expect(screen.getByText(/loading/i)).toBeInTheDocument()
-  
+
   // Wait for data to load
   await waitFor(() => {
     expect(screen.getByText('success')).toBeInTheDocument()
   })
-  
+
   // Loading gone
   expect(screen.queryByText(/loading/i)).not.toBeInTheDocument()
 })
@@ -360,6 +371,7 @@ Tests automatically run on every PR via GitHub Actions.
 ### Coverage Thresholds
 
 Tests fail if coverage drops below:
+
 - Statements: 80%
 - Branches: 75%
 - Functions: 80%
@@ -386,18 +398,18 @@ npm run test:ui
 
 ```typescript
 // ❌ Bad - no await
-it('submits form', () => {
-  user.click(screen.getByRole('button'))
-  expect(screen.getByText('Success')).toBeInTheDocument()
-})
+it("submits form", () => {
+  user.click(screen.getByRole("button"));
+  expect(screen.getByText("Success")).toBeInTheDocument();
+});
 
 // ✅ Good - await async operations
-it('submits form', async () => {
-  await user.click(screen.getByRole('button'))
+it("submits form", async () => {
+  await user.click(screen.getByRole("button"));
   await waitFor(() => {
-    expect(screen.getByText('Success')).toBeInTheDocument()
-  })
-})
+    expect(screen.getByText("Success")).toBeInTheDocument();
+  });
+});
 ```
 
 **Problem:** Can't find element
@@ -407,10 +419,10 @@ it('submits form', async () => {
 it('finds element', () => {
   render(<Component />)
   screen.debug()  // Prints DOM to console
-  
+
   // Use getBy* (throws if not found)
   expect(screen.getByText('Hello')).toBeInTheDocument()
-  
+
   // Use queryBy* (returns null if not found)
   expect(screen.queryByText('Goodbye')).not.toBeInTheDocument()
 })
@@ -420,18 +432,18 @@ it('finds element', () => {
 
 ```typescript
 // ❌ Bad - state update outside act()
-it('updates state', () => {
-  const { result } = renderHook(() => useCounter())
-  result.current.increment()  // Warning!
-})
+it("updates state", () => {
+  const { result } = renderHook(() => useCounter());
+  result.current.increment(); // Warning!
+});
 
 // ✅ Good - wrap in act()
-it('updates state', () => {
-  const { result } = renderHook(() => useCounter())
+it("updates state", () => {
+  const { result } = renderHook(() => useCounter());
   act(() => {
-    result.current.increment()
-  })
-})
+    result.current.increment();
+  });
+});
 ```
 
 ## Resources
@@ -452,6 +464,7 @@ it('updates state', () => {
 ---
 
 **Your site now has:**
+
 - ✅ 5 critical test suites
 - ✅ GitHub Actions integration
 - ✅ Coverage reporting

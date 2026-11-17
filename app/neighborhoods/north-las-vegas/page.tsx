@@ -2,7 +2,13 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { Phone, DollarSign, TrendingUp, Home as HomeIcon, Users } from "lucide-react";
+import {
+  Phone,
+  DollarSign,
+  TrendingUp,
+  Home as HomeIcon,
+  Users,
+} from "lucide-react";
 import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
@@ -72,9 +78,13 @@ export default function NorthLasVegasPage() {
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
               {" / "}
-              <Link href="/neighborhoods" className="hover:text-blue-600">Neighborhoods</Link>
+              <Link href="/neighborhoods" className="hover:text-blue-600">
+                Neighborhoods
+              </Link>
               {" / "}
               <span className="text-slate-900">North Las Vegas</span>
             </nav>
@@ -86,40 +96,47 @@ export default function NorthLasVegasPage() {
               Top 1% Las Vegas REALTOR®
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               North Las Vegas Real Estate
             </h1>
             <p className="text-xl text-slate-600">
-              Affordable homeownership and investment opportunities. Find your North Las Vegas
-              home with Dr. Jan Duffy.
+              Affordable homeownership and investment opportunities. Find your
+              North Las Vegas home with Dr. Jan Duffy.
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* Market Stats */}
+          {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               North Las Vegas Market | January 2026
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-1">$385,000</div>
+                <div className="text-3xl font-bold text-blue-400 mb-1">
+                  $385,000
+                </div>
                 <div className="text-slate-300 text-sm">Median Home Price</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">32 Days</div>
-                <div className="text-slate-300 text-sm">Avg. Days on Market</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  32 Days
+                </div>
+                <div className="text-slate-300 text-sm">
+                  Avg. Days on Market
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold mb-1">892</div>
                 <div className="text-slate-300 text-sm">Active Listings</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">+3.2%</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  +3.2%
+                </div>
                 <div className="text-slate-300 text-sm">YoY Appreciation</div>
               </div>
             </div>
@@ -132,90 +149,137 @@ export default function NorthLasVegasPage() {
                 North Las Vegas: The Valley's Best Value for First-Time Buyers
               </h2>
               <p>
-                <strong>North Las Vegas</strong> has undergone a remarkable transformation over the past
-                decade. What was once considered a distant suburb is now a thriving city with new
-                master-planned communities, major employers, and infrastructure improvements that make
-                it the Las Vegas Valley's best opportunity for affordable homeownership. Dr. Jan Duffy is proud to help first-time buyers and investors
-                discover North Las Vegas's potential.
+                <strong>North Las Vegas</strong> has undergone a remarkable
+                transformation over the past decade. What was once considered a
+                distant suburb is now a thriving city with new master-planned
+                communities, major employers, and infrastructure improvements
+                that make it the Las Vegas Valley's best opportunity for
+                affordable homeownership. Dr. Jan Duffy is proud to help
+                first-time buyers and investors discover North Las Vegas's
+                potential.
               </p>
               <p>
-                With a median home price of <strong>$385,000</strong>—roughly $65,000 less than Las Vegas
-                and $100,000 less than Henderson—North Las Vegas offers entry to homeownership that's
-                increasingly difficult to find elsewhere in Southern Nevada. First-time buyers priced
-                out of Summerlin or Henderson find that North Las Vegas delivers modern homes with
-                contemporary features at prices they can actually afford. And with Nevada's lack of
-                state income tax, more of their income goes toward building equity.
+                With a median home price of <strong>$385,000</strong>—roughly
+                $65,000 less than Las Vegas and $100,000 less than
+                Henderson—North Las Vegas offers entry to homeownership that's
+                increasingly difficult to find elsewhere in Southern Nevada.
+                First-time buyers priced out of Summerlin or Henderson find that
+                North Las Vegas delivers modern homes with contemporary features
+                at prices they can actually afford. And with Nevada's lack of
+                state income tax, more of their income goes toward building
+                equity.
               </p>
               <p>
-                Dr. Jan Duffy provides the same
-                expert service in North Las Vegas as we do in the valley's luxury markets. Dr. Jan Duffy
-                helps first-time buyers understand the purchase process, navigate financing options, and
-                avoid common pitfalls. For new construction—where builders' sales agents represent the
-                builder, not you—Dr. Jan Duffy provides free buyer representation that can save thousands in
-                upgrades and negotiations.
+                Dr. Jan Duffy provides the same expert service in North Las
+                Vegas as we do in the valley's luxury markets. Dr. Jan Duffy
+                helps first-time buyers understand the purchase process,
+                navigate financing options, and avoid common pitfalls. For new
+                construction—where builders' sales agents represent the builder,
+                not you—Dr. Jan Duffy provides free buyer representation that
+                can save thousands in upgrades and negotiations.
               </p>
 
               {/* Community Highlights */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Community Highlights</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Community Highlights
+              </h3>
               <div className="grid md:grid-cols-2 gap-8 not-prose">
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <DollarSign className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Most Affordable in the Valley</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      Most Affordable in the Valley
+                    </h4>
                   </div>
                   <p className="text-slate-600">
-                    North Las Vegas offers the lowest median home prices in the Las Vegas Valley, making
-                    homeownership attainable for first-time buyers, move-up buyers, and investors. Entry-level
-                    homes start in the $320,000s, while new construction from quality builders ranges
-                    from $380,000 to $550,000—prices that would buy a condo elsewhere.
+                    North Las Vegas offers the lowest median home prices in the
+                    Las Vegas Valley, making homeownership attainable for
+                    first-time buyers, move-up buyers, and investors.
+                    Entry-level homes start in the $320,000s, while new
+                    construction from quality builders ranges from $380,000 to
+                    $550,000—prices that would buy a condo elsewhere.
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <TrendingUp className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Rapid Growth & Development</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      Rapid Growth & Development
+                    </h4>
                   </div>
                   <p className="text-slate-600">
-                    North Las Vegas is experiencing unprecedented growth with new retail centers, improved
-                    roads, and major employers moving to the area. The city's population has grown over
-                    30% in the past decade, bringing new amenities, restaurants, and services. This growth
-                    trajectory suggests continued appreciation for today's buyers.
+                    North Las Vegas is experiencing unprecedented growth with
+                    new retail centers, improved roads, and major employers
+                    moving to the area. The city's population has grown over 30%
+                    in the past decade, bringing new amenities, restaurants, and
+                    services. This growth trajectory suggests continued
+                    appreciation for today's buyers.
                   </p>
                 </div>
               </div>
 
               {/* Major Employers */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Major North Las Vegas Employers</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Major North Las Vegas Employers
+              </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  North Las Vegas has attracted major employers, creating local jobs and driving housing demand:
+                  North Las Vegas has attracted major employers, creating local
+                  jobs and driving housing demand:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <ul className="text-slate-600 space-y-2">
-                    <li><strong>Amazon:</strong> Multiple fulfillment centers employing 5,000+</li>
-                    <li><strong>Fanatics:</strong> Sports merchandise distribution (~3,000 jobs)</li>
-                    <li><strong>Sephora:</strong> Major distribution center</li>
-                    <li><strong>Chewy:</strong> Pet supply distribution center</li>
+                    <li>
+                      <strong>Amazon:</strong> Multiple fulfillment centers
+                      employing 5,000+
+                    </li>
+                    <li>
+                      <strong>Fanatics:</strong> Sports merchandise distribution
+                      (~3,000 jobs)
+                    </li>
+                    <li>
+                      <strong>Sephora:</strong> Major distribution center
+                    </li>
+                    <li>
+                      <strong>Chewy:</strong> Pet supply distribution center
+                    </li>
                   </ul>
                   <ul className="text-slate-600 space-y-2">
-                    <li><strong>City of North Las Vegas:</strong> Growing municipal workforce</li>
-                    <li><strong>North Las Vegas Airport:</strong> Aviation and logistics</li>
-                    <li><strong>Nellis Air Force Base:</strong> Major employer just east</li>
-                    <li><strong>Las Vegas Motor Speedway:</strong> Events and hospitality</li>
+                    <li>
+                      <strong>City of North Las Vegas:</strong> Growing
+                      municipal workforce
+                    </li>
+                    <li>
+                      <strong>North Las Vegas Airport:</strong> Aviation and
+                      logistics
+                    </li>
+                    <li>
+                      <strong>Nellis Air Force Base:</strong> Major employer
+                      just east
+                    </li>
+                    <li>
+                      <strong>Las Vegas Motor Speedway:</strong> Events and
+                      hospitality
+                    </li>
                   </ul>
                 </div>
               </div>
 
               {/* School Districts */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">North Las Vegas Schools</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                North Las Vegas Schools
+              </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  North Las Vegas is served by Clark County School District, with newer schools in
-                  master-planned communities often performing above area averages:
+                  North Las Vegas is served by Clark County School District,
+                  with newer schools in master-planned communities often
+                  performing above area averages:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Top Elementary</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Top Elementary
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Aliante Elementary</li>
                       <li>• Oran K. Gragson Elementary</li>
@@ -224,7 +288,9 @@ export default function NorthLasVegasPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Middle & High Schools</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Middle & High Schools
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Canyon Springs High School</li>
                       <li>• Legacy High School</li>
@@ -233,7 +299,9 @@ export default function NorthLasVegasPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Charter Options</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Charter Options
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Pinecrest Academy North</li>
                       <li>• Somerset Academy</li>
@@ -245,68 +313,138 @@ export default function NorthLasVegasPage() {
               </div>
 
               {/* Commute Times */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Commute Times from North Las Vegas</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Commute Times from North Las Vegas
+              </h3>
               <div className="not-prose overflow-x-auto">
                 <table className="w-full bg-white border border-slate-200 rounded-lg">
                   <thead className="bg-slate-50">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Destination</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Distance</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Drive Time</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Rush Hour</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Destination
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Distance
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Drive Time
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Rush Hour
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200">
-                    <tr><td className="px-4 py-3">Downtown Las Vegas</td><td className="px-4 py-3">8 miles</td><td className="px-4 py-3">15 min</td><td className="px-4 py-3">20-30 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Las Vegas Strip</td><td className="px-4 py-3">10 miles</td><td className="px-4 py-3">18 min</td><td className="px-4 py-3">25-40 min</td></tr>
-                    <tr><td className="px-4 py-3">McCarran Airport (LAS)</td><td className="px-4 py-3">15 miles</td><td className="px-4 py-3">20 min</td><td className="px-4 py-3">30-45 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Summerlin</td><td className="px-4 py-3">18 miles</td><td className="px-4 py-3">25 min</td><td className="px-4 py-3">35-50 min</td></tr>
-                    <tr><td className="px-4 py-3">Henderson</td><td className="px-4 py-3">18 miles</td><td className="px-4 py-3">22 min</td><td className="px-4 py-3">30-45 min</td></tr>
+                    <tr>
+                      <td className="px-4 py-3">Downtown Las Vegas</td>
+                      <td className="px-4 py-3">8 miles</td>
+                      <td className="px-4 py-3">15 min</td>
+                      <td className="px-4 py-3">20-30 min</td>
+                    </tr>
+                    <tr className="bg-slate-50">
+                      <td className="px-4 py-3">Las Vegas Strip</td>
+                      <td className="px-4 py-3">10 miles</td>
+                      <td className="px-4 py-3">18 min</td>
+                      <td className="px-4 py-3">25-40 min</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3">McCarran Airport (LAS)</td>
+                      <td className="px-4 py-3">15 miles</td>
+                      <td className="px-4 py-3">20 min</td>
+                      <td className="px-4 py-3">30-45 min</td>
+                    </tr>
+                    <tr className="bg-slate-50">
+                      <td className="px-4 py-3">Summerlin</td>
+                      <td className="px-4 py-3">18 miles</td>
+                      <td className="px-4 py-3">25 min</td>
+                      <td className="px-4 py-3">35-50 min</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3">Henderson</td>
+                      <td className="px-4 py-3">18 miles</td>
+                      <td className="px-4 py-3">22 min</td>
+                      <td className="px-4 py-3">30-45 min</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
               <p className="text-slate-600 text-sm mt-2 not-prose">
-                The 215 Beltway provides excellent access from North Las Vegas to all parts of the valley.
-                Many Amazon/warehouse workers live in NLV for the short commute to nearby facilities.
+                The 215 Beltway provides excellent access from North Las Vegas
+                to all parts of the valley. Many Amazon/warehouse workers live
+                in NLV for the short commute to nearby facilities.
               </p>
 
               {/* New Construction Communities */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">New Construction Communities</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                New Construction Communities
+              </h3>
               <div className="not-prose grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Active Builder Communities</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    Active Builder Communities
+                  </h5>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Aliante:</strong> Master-planned with golf, casino, town center. Homes $400K-$550K.</li>
-                    <li><strong>Tule Springs:</strong> Newer community near I-215. KB Home, Lennar. $380K-$500K.</li>
-                    <li><strong>Valley Vista:</strong> Family-focused with parks, pools. Century Communities. $350K-$450K.</li>
-                    <li><strong>Camino Al Norte:</strong> Growing area near 215. Multiple builders. $380K-$480K.</li>
+                    <li>
+                      <strong>Aliante:</strong> Master-planned with golf,
+                      casino, town center. Homes $400K-$550K.
+                    </li>
+                    <li>
+                      <strong>Tule Springs:</strong> Newer community near I-215.
+                      KB Home, Lennar. $380K-$500K.
+                    </li>
+                    <li>
+                      <strong>Valley Vista:</strong> Family-focused with parks,
+                      pools. Century Communities. $350K-$450K.
+                    </li>
+                    <li>
+                      <strong>Camino Al Norte:</strong> Growing area near 215.
+                      Multiple builders. $380K-$480K.
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Healthcare & Services</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    Healthcare & Services
+                  </h5>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>North Vista Hospital:</strong> Full-service hospital with ER, surgical center.</li>
-                    <li><strong>VA Southern Nevada Healthcare:</strong> Veterans medical facility on Craig Road.</li>
-                    <li><strong>Southwest Medical:</strong> Multiple urgent care and primary care locations.</li>
-                    <li><strong>Aliante Station Casino:</strong> Entertainment, dining, and gaming nearby.</li>
+                    <li>
+                      <strong>North Vista Hospital:</strong> Full-service
+                      hospital with ER, surgical center.
+                    </li>
+                    <li>
+                      <strong>VA Southern Nevada Healthcare:</strong> Veterans
+                      medical facility on Craig Road.
+                    </li>
+                    <li>
+                      <strong>Southwest Medical:</strong> Multiple urgent care
+                      and primary care locations.
+                    </li>
+                    <li>
+                      <strong>Aliante Station Casino:</strong> Entertainment,
+                      dining, and gaming nearby.
+                    </li>
                   </ul>
                 </div>
               </div>
 
               <p className="mt-8">
-                The current market shows <strong>892 active listings</strong> with homes averaging
-                <strong> 32 days on market</strong>—slightly longer than the valley average, giving
-                buyers more time to make informed decisions. Year-over-year appreciation of <strong>3.2%</strong>
-                is more modest than luxury markets but represents solid, sustainable growth. Investors
-                find particularly strong opportunities here, with rental yields often exceeding 6%.
+                The current market shows <strong>892 active listings</strong>{" "}
+                with homes averaging
+                <strong> 32 days on market</strong>—slightly longer than the
+                valley average, giving buyers more time to make informed
+                decisions. Year-over-year appreciation of <strong>3.2%</strong>
+                is more modest than luxury markets but represents solid,
+                sustainable growth. Investors find particularly strong
+                opportunities here, with rental yields often exceeding 6%.
               </p>
               <p>
-                Working with Dr. Jan Duffy in North Las Vegas means
-                getting honest guidance about which neighborhoods offer the best value, which builders
-                have the best reputations, and which areas are poised for the strongest appreciation.
-                Dr. Jan Duffy won't push you toward a more expensive area when North Las Vegas fits
-                your needs—that integrity is what sets Dr. Jan Duffy apart from agencies focused solely on
-                commission.
+                Working with Dr. Jan Duffy in North Las Vegas means getting
+                honest guidance about which neighborhoods offer the best value,
+                which builders have the best reputations, and which areas are
+                poised for the strongest appreciation. Dr. Jan Duffy won't push
+                you toward a more expensive area when North Las Vegas fits your
+                needs—that integrity is what sets Dr. Jan Duffy apart from
+                agencies focused solely on commission.
               </p>
             </div>
           </section>
@@ -315,9 +453,12 @@ export default function NorthLasVegasPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "I tell first-time buyers the truth: you don't need to stretch your budget to own a
-                great home. North Las Vegas offers brand-new construction with modern features at
-                prices that let you build wealth instead of struggling with payments. As a local REALTOR®, my job is to find the right fit—not the highest price."
+                "I tell first-time buyers the truth: you don't need to stretch
+                your budget to own a great home. North Las Vegas offers
+                brand-new construction with modern features at prices that let
+                you build wealth instead of struggling with payments. As a local
+                REALTOR®, my job is to find the right fit—not the highest
+                price."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -336,8 +477,9 @@ export default function NorthLasVegasPage() {
                   What is the current median home price in North Las Vegas?
                 </h3>
                 <p className="text-slate-600">
-                  As of January 2026, North Las Vegas' median home price is $385,000—the most affordable
-                  in the Las Vegas Valley. First-time buyers can find homes starting in the $320,000s,
+                  As of January 2026, North Las Vegas' median home price is
+                  $385,000—the most affordable in the Las Vegas Valley.
+                  First-time buyers can find homes starting in the $320,000s,
                   while new construction ranges from $380,000 to $550,000.
                 </p>
               </div>
@@ -346,9 +488,11 @@ export default function NorthLasVegasPage() {
                   Is North Las Vegas a good area to buy a home?
                 </h3>
                 <p className="text-slate-600">
-                  North Las Vegas has transformed dramatically with new master-planned communities,
-                  improved infrastructure, and major employment centers. It offers excellent value for
-                  first-time buyers and investors seeking positive cash flow on rental properties.
+                  North Las Vegas has transformed dramatically with new
+                  master-planned communities, improved infrastructure, and major
+                  employment centers. It offers excellent value for first-time
+                  buyers and investors seeking positive cash flow on rental
+                  properties.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -356,9 +500,10 @@ export default function NorthLasVegasPage() {
                   What new construction is available in North Las Vegas?
                 </h3>
                 <p className="text-slate-600">
-                  Major builders including Lennar, KB Home, Richmond American, and Century Communities
-                  offer new construction in North Las Vegas. Communities like Aliante, Tule Springs,
-                  and Valley Vista feature modern designs with energy-efficient features.
+                  Major builders including Lennar, KB Home, Richmond American,
+                  and Century Communities offer new construction in North Las
+                  Vegas. Communities like Aliante, Tule Springs, and Valley
+                  Vista feature modern designs with energy-efficient features.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -366,9 +511,11 @@ export default function NorthLasVegasPage() {
                   Why choose Dr. Jan Duffy for North Las Vegas?
                 </h3>
                 <p className="text-slate-600">
-                  Dr. Jan Duffy provides expert guidance for first-time buyers navigating the purchase process,
-                  plus free representation on new construction purchases. Dr. Jan Duffy helps clients
-                  find value while avoiding common pitfalls in emerging neighborhoods.
+                  Dr. Jan Duffy provides expert guidance for first-time buyers
+                  navigating the purchase process, plus free representation on
+                  new construction purchases. Dr. Jan Duffy helps clients find
+                  value while avoiding common pitfalls in emerging
+                  neighborhoods.
                 </p>
               </div>
             </div>
@@ -380,8 +527,8 @@ export default function NorthLasVegasPage() {
               Start Your Homeownership Journey
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy, your North Las Vegas expert,
-              for guidance on finding affordable homes that fit your budget.
+              Contact Dr. Jan Duffy, your North Las Vegas expert, for guidance
+              on finding affordable homes that fit your budget.
             </p>
             <a
               href="tel:+17025001942"
@@ -392,11 +539,13 @@ export default function NorthLasVegasPage() {
             </a>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>

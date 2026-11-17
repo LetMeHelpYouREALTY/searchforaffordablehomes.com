@@ -24,7 +24,8 @@ const neighborhoodSchema = {
   "@context": "https://schema.org",
   "@type": "Place",
   name: "Henderson, Nevada",
-  description: "Nevada's second-largest city known for parks, master-planned communities, and public crime data",
+  description:
+    "Nevada's second-largest city known for parks, master-planned communities, and public crime data",
   geo: {
     "@type": "GeoCoordinates",
     latitude: "36.0395",
@@ -88,9 +89,13 @@ export default function HendersonPage() {
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/" className="hover:text-blue-600">
+                Home
+              </Link>
               {" / "}
-              <Link href="/neighborhoods" className="hover:text-blue-600">Neighborhoods</Link>
+              <Link href="/neighborhoods" className="hover:text-blue-600">
+                Neighborhoods
+              </Link>
               {" / "}
               <span className="text-slate-900">Henderson</span>
             </nav>
@@ -102,39 +107,47 @@ export default function HendersonPage() {
               Top 1% Las Vegas REALTOR®
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Henderson Real Estate
             </h1>
             <p className="text-xl text-slate-600">
-              Nevada's second-largest city. Find your Henderson home with Dr. Jan Duffy, your trusted Henderson specialist.
+              Nevada's second-largest city. Find your Henderson home with Dr.
+              Jan Duffy, your trusted Henderson specialist.
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* Market Stats */}
+          {/* Market Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Henderson Real Estate Market | January 2026
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-1">$485,000</div>
+                <div className="text-3xl font-bold text-blue-400 mb-1">
+                  $485,000
+                </div>
                 <div className="text-slate-300 text-sm">Median Home Price</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">24 Days</div>
-                <div className="text-slate-300 text-sm">Avg. Days on Market</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  24 Days
+                </div>
+                <div className="text-slate-300 text-sm">
+                  Avg. Days on Market
+                </div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold mb-1">1,280</div>
                 <div className="text-slate-300 text-sm">Active Listings</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">+5.1%</div>
+                <div className="text-3xl font-bold text-green-400 mb-1">
+                  +5.1%
+                </div>
                 <div className="text-slate-300 text-sm">YoY Appreciation</div>
               </div>
             </div>
@@ -147,66 +160,86 @@ export default function HendersonPage() {
                 Why Henderson Is Nevada's Best-Kept Secret
               </h2>
               <p>
-                <strong>Henderson</strong> has quietly become one of the most desirable cities in the American
-                Southwest. As Nevada's second-largest city with over 320,000 residents, Henderson offers the
-                perfect balance of suburban tranquility and urban convenience. Dr. Jan Duffy helps families find their Henderson dream homes
-                and brings unmatched expertise to every transaction.
+                <strong>Henderson</strong> has quietly become one of the most
+                desirable cities in the American Southwest. As Nevada's
+                second-largest city with over 320,000 residents, Henderson
+                offers the perfect balance of suburban tranquility and urban
+                convenience. Dr. Jan Duffy helps families find their Henderson
+                dream homes and brings unmatched expertise to every transaction.
               </p>
               <p>
-                What sets Henderson apart? Start with safety. Henderson consistently ranks as one of America's
-                largest cities, with crime data published online by Henderson Police. The city's
+                What sets Henderson apart? Start with safety. Henderson
+                consistently ranks as one of America's largest cities, with
+                crime data published online by Henderson Police. The city's
                 schools, parks, and community events create an environment where
-                families thrive. Add in the fact that Nevada has no state income tax, and you understand why
-                so many Californians are making Henderson their new home.
+                families thrive. Add in the fact that Nevada has no state income
+                tax, and you understand why so many Californians are making
+                Henderson their new home.
               </p>
               <p>
-                The Henderson real estate market offers remarkable diversity. From the established tree-lined
-                streets of <strong>Green Valley</strong> to the resort-style amenities of <strong>Inspirada</strong>,
-                from the luxury estates of <strong>MacDonald Highlands</strong> to the waterfront properties at
-                <strong> Lake Las Vegas</strong>—Henderson has a community for every lifestyle and budget.
-                Dr. Jan Duffy knows each of these
+                The Henderson real estate market offers remarkable diversity.
+                From the established tree-lined streets of{" "}
+                <strong>Green Valley</strong> to the resort-style amenities of{" "}
+                <strong>Inspirada</strong>, from the luxury estates of{" "}
+                <strong>MacDonald Highlands</strong> to the waterfront
+                properties at
+                <strong> Lake Las Vegas</strong>—Henderson has a community for
+                every lifestyle and budget. Dr. Jan Duffy knows each of these
                 communities intimately.
               </p>
 
               {/* Community Highlights */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Community Highlights</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Community Highlights
+              </h3>
               <div className="grid md:grid-cols-2 gap-8 not-prose">
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Shield className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Crime Data You Can Check</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      Crime Data You Can Check
+                    </h4>
                   </div>
                   <p className="text-slate-600">
-                    Henderson Police publish crime data, and the city regularly appears among America's
-                    largest cities. The Henderson Police Department's community policing approach and
-                    active neighborhood watch programs give
-                    families peace of mind.
+                    Henderson Police publish crime data, and the city regularly
+                    appears among America's largest cities. The Henderson Police
+                    Department's community policing approach and active
+                    neighborhood watch programs give families peace of mind.
                   </p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-xl">
                   <div className="flex items-center mb-4">
                     <Users className="h-8 w-8 text-blue-600 mr-3" />
-                    <h4 className="font-bold text-slate-900 text-lg">Family-First Community</h4>
+                    <h4 className="font-bold text-slate-900 text-lg">
+                      Family-First Community
+                    </h4>
                   </div>
                   <p className="text-slate-600">
-                    Henderson is designed for families. The city operates over 60 parks, multiple recreation
-                    centers, and hundreds of youth programs. The Henderson Libraries system is award-winning,
-                    and community events throughout the year—from the Henderson Farmers Market to the annual
-                    Heritage Parade—bring neighbors together.
+                    Henderson is designed for families. The city operates over
+                    60 parks, multiple recreation centers, and hundreds of youth
+                    programs. The Henderson Libraries system is award-winning,
+                    and community events throughout the year—from the Henderson
+                    Farmers Market to the annual Heritage Parade—bring neighbors
+                    together.
                   </p>
                 </div>
               </div>
 
               {/* School Districts */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Henderson School Districts</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Henderson School Districts
+              </h3>
               <div className="not-prose bg-white border border-slate-200 rounded-xl p-6">
                 <p className="text-slate-700 mb-4">
-                  Henderson offers some of Nevada's nearby public schools through Clark County School District,
-                  plus excellent charter and private options:
+                  Henderson offers some of Nevada's nearby public schools
+                  through Clark County School District, plus excellent charter
+                  and private options:
                 </p>
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Elementary Schools</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Elementary Schools
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• John C. Vanderburg (9/10)</li>
                       <li>• Elise L. Wolff Elementary</li>
@@ -216,7 +249,9 @@ export default function HendersonPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Middle & High Schools</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Middle & High Schools
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Coronado High School (8/10)</li>
                       <li>• Green Valley High School</li>
@@ -226,7 +261,9 @@ export default function HendersonPage() {
                     </ul>
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 mb-2">Private Schools</h5>
+                    <h5 className="font-bold text-slate-900 mb-2">
+                      Private Schools
+                    </h5>
                     <ul className="text-slate-600 text-sm space-y-1">
                       <li>• Henderson International School</li>
                       <li>• Coral Academy of Science</li>
@@ -239,84 +276,175 @@ export default function HendersonPage() {
               </div>
 
               {/* Commute Times */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Commute Times from Henderson</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Commute Times from Henderson
+              </h3>
               <div className="not-prose overflow-x-auto">
                 <table className="w-full bg-white border border-slate-200 rounded-lg">
                   <thead className="bg-slate-50">
                     <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Destination</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Distance</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Drive Time</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">Rush Hour</th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Destination
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Distance
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Drive Time
+                      </th>
+                      <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
+                        Rush Hour
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200">
-                    <tr><td className="px-4 py-3">Las Vegas Strip</td><td className="px-4 py-3">8 miles</td><td className="px-4 py-3">15 min</td><td className="px-4 py-3">20-35 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">McCarran Airport (LAS)</td><td className="px-4 py-3">6 miles</td><td className="px-4 py-3">12 min</td><td className="px-4 py-3">15-25 min</td></tr>
-                    <tr><td className="px-4 py-3">Downtown Las Vegas</td><td className="px-4 py-3">12 miles</td><td className="px-4 py-3">18 min</td><td className="px-4 py-3">25-40 min</td></tr>
-                    <tr className="bg-slate-50"><td className="px-4 py-3">Summerlin</td><td className="px-4 py-3">22 miles</td><td className="px-4 py-3">28 min</td><td className="px-4 py-3">40-55 min</td></tr>
-                    <tr><td className="px-4 py-3">Lake Mead</td><td className="px-4 py-3">15 miles</td><td className="px-4 py-3">20 min</td><td className="px-4 py-3">20-25 min</td></tr>
+                    <tr>
+                      <td className="px-4 py-3">Las Vegas Strip</td>
+                      <td className="px-4 py-3">8 miles</td>
+                      <td className="px-4 py-3">15 min</td>
+                      <td className="px-4 py-3">20-35 min</td>
+                    </tr>
+                    <tr className="bg-slate-50">
+                      <td className="px-4 py-3">McCarran Airport (LAS)</td>
+                      <td className="px-4 py-3">6 miles</td>
+                      <td className="px-4 py-3">12 min</td>
+                      <td className="px-4 py-3">15-25 min</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3">Downtown Las Vegas</td>
+                      <td className="px-4 py-3">12 miles</td>
+                      <td className="px-4 py-3">18 min</td>
+                      <td className="px-4 py-3">25-40 min</td>
+                    </tr>
+                    <tr className="bg-slate-50">
+                      <td className="px-4 py-3">Summerlin</td>
+                      <td className="px-4 py-3">22 miles</td>
+                      <td className="px-4 py-3">28 min</td>
+                      <td className="px-4 py-3">40-55 min</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3">Lake Mead</td>
+                      <td className="px-4 py-3">15 miles</td>
+                      <td className="px-4 py-3">20 min</td>
+                      <td className="px-4 py-3">20-25 min</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
               <p className="text-slate-600 text-sm mt-2 not-prose">
-                Henderson's central location provides excellent access to the 215 Beltway and I-515/US-95,
-                making commutes to all parts of the valley convenient.
+                Henderson's central location provides excellent access to the
+                215 Beltway and I-515/US-95, making commutes to all parts of the
+                valley convenient.
               </p>
 
               {/* Major Employers */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Major Henderson Employers</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Major Henderson Employers
+              </h3>
               <div className="not-prose grid md:grid-cols-2 gap-6">
                 <ul className="text-slate-600 space-y-2">
-                  <li><strong>Barclays:</strong> Credit card operations center (~3,000 employees)</li>
-                  <li><strong>Credit One Bank:</strong> Corporate headquarters</li>
-                  <li><strong>City of Henderson:</strong> Municipal services</li>
-                  <li><strong>Henderson Hospital:</strong> Healthcare services</li>
+                  <li>
+                    <strong>Barclays:</strong> Credit card operations center
+                    (~3,000 employees)
+                  </li>
+                  <li>
+                    <strong>Credit One Bank:</strong> Corporate headquarters
+                  </li>
+                  <li>
+                    <strong>City of Henderson:</strong> Municipal services
+                  </li>
+                  <li>
+                    <strong>Henderson Hospital:</strong> Healthcare services
+                  </li>
                 </ul>
                 <ul className="text-slate-600 space-y-2">
-                  <li><strong>Station Casinos:</strong> Green Valley Ranch, Sunset Station</li>
-                  <li><strong>Levi Strauss:</strong> Distribution center</li>
-                  <li><strong>Amazon:</strong> Fulfillment center nearby</li>
-                  <li><strong>St. Rose Dominican:</strong> Hospital system</li>
+                  <li>
+                    <strong>Station Casinos:</strong> Green Valley Ranch, Sunset
+                    Station
+                  </li>
+                  <li>
+                    <strong>Levi Strauss:</strong> Distribution center
+                  </li>
+                  <li>
+                    <strong>Amazon:</strong> Fulfillment center nearby
+                  </li>
+                  <li>
+                    <strong>St. Rose Dominican:</strong> Hospital system
+                  </li>
                 </ul>
               </div>
 
               {/* Local Amenities */}
-              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">Shopping, Dining & Healthcare</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-6">
+                Shopping, Dining & Healthcare
+              </h3>
               <div className="not-prose grid md:grid-cols-2 gap-6">
                 <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Shopping & Entertainment</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    Shopping & Entertainment
+                  </h5>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>The District at Green Valley Ranch:</strong> Outdoor shopping, restaurants, movie theater.</li>
-                    <li><strong>Galleria at Sunset:</strong> Major mall with Macy's, Dillard's, 140+ stores.</li>
-                    <li><strong>Green Valley Ranch Resort:</strong> Casino, spa, restaurants, concerts.</li>
-                    <li><strong>Henderson Farmers Market:</strong> Weekly local produce and artisan goods.</li>
+                    <li>
+                      <strong>The District at Green Valley Ranch:</strong>{" "}
+                      Outdoor shopping, restaurants, movie theater.
+                    </li>
+                    <li>
+                      <strong>Galleria at Sunset:</strong> Major mall with
+                      Macy's, Dillard's, 140+ stores.
+                    </li>
+                    <li>
+                      <strong>Green Valley Ranch Resort:</strong> Casino, spa,
+                      restaurants, concerts.
+                    </li>
+                    <li>
+                      <strong>Henderson Farmers Market:</strong> Weekly local
+                      produce and artisan goods.
+                    </li>
                   </ul>
                 </div>
                 <div className="bg-slate-50 rounded-xl p-6">
-                  <h5 className="font-bold text-slate-900 mb-3">Healthcare Facilities</h5>
+                  <h5 className="font-bold text-slate-900 mb-3">
+                    Healthcare Facilities
+                  </h5>
                   <ul className="text-slate-600 text-sm space-y-2">
-                    <li><strong>Henderson Hospital:</strong> Full-service hospital, 24/7 ER, labor & delivery.</li>
-                    <li><strong>St. Rose Dominican:</strong> Three locations in Henderson—Siena, San Martin, Rose de Lima.</li>
-                    <li><strong>Southwest Medical:</strong> Multiple clinics throughout Henderson.</li>
-                    <li><strong>Dignity Health:</strong> Urgent care and primary care facilities.</li>
+                    <li>
+                      <strong>Henderson Hospital:</strong> Full-service
+                      hospital, 24/7 ER, labor & delivery.
+                    </li>
+                    <li>
+                      <strong>St. Rose Dominican:</strong> Three locations in
+                      Henderson—Siena, San Martin, Rose de Lima.
+                    </li>
+                    <li>
+                      <strong>Southwest Medical:</strong> Multiple clinics
+                      throughout Henderson.
+                    </li>
+                    <li>
+                      <strong>Dignity Health:</strong> Urgent care and primary
+                      care facilities.
+                    </li>
                   </ul>
                 </div>
               </div>
 
               <p className="mt-8">
-                With <strong>1,280 active listings</strong> and homes averaging just <strong>24 days on market</strong>,
-                Henderson's real estate market moves quickly. The median price of <strong>$485,000</strong> offers
-                excellent value compared to similar communities in California, Arizona, or Colorado. First-time
-                buyers find attainable options starting in the $350,000s, while luxury buyers can explore
-                properties exceeding $2 million in guard-gated communities.
+                With <strong>1,280 active listings</strong> and homes averaging
+                just <strong>24 days on market</strong>, Henderson's real estate
+                market moves quickly. The median price of{" "}
+                <strong>$485,000</strong> offers excellent value compared to
+                similar communities in California, Arizona, or Colorado.
+                First-time buyers find attainable options starting in the
+                $350,000s, while luxury buyers can explore properties exceeding
+                $2 million in guard-gated communities.
               </p>
               <p>
                 Choosing Dr. Jan Duffy for your Henderson home search means
-                working with agents who understand the subtle differences between Henderson's many communities.
-                Dr. Jan Duffy can explain which neighborhoods have the nearby public schools for your children's ages,
-                which HOAs are well-managed, and which areas offer the strongest investment potential. That
-                local knowledge, backed by a strong professional network, makes all the
+                working with agents who understand the subtle differences
+                between Henderson's many communities. Dr. Jan Duffy can explain
+                which neighborhoods have the nearby public schools for your
+                children's ages, which HOAs are well-managed, and which areas
+                offer the strongest investment potential. That local knowledge,
+                backed by a strong professional network, makes all the
                 difference.
               </p>
             </div>
@@ -326,10 +454,11 @@ export default function HendersonPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Henderson offers something for everyone—condos, single-story homes, and 4+ bedroom floor plans.
-                As a local REALTOR®, I help clients cut through the options and find
-                the community that fits their lifestyle. There's a reason Henderson keeps winning 'Best Places
-                to Live' awards."
+                "Henderson offers something for everyone—condos, single-story
+                homes, and 4+ bedroom floor plans. As a local REALTOR®, I help
+                clients cut through the options and find the community that fits
+                their lifestyle. There's a reason Henderson keeps winning 'Best
+                Places to Live' awards."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -348,9 +477,10 @@ export default function HendersonPage() {
                   What is the current median home price in Henderson?
                 </h3>
                 <p className="text-slate-600">
-                  As of January 2026, Henderson's median home price is $485,000, up 5.1% from last year.
-                  Prices range from $350,000 for condos to over $2 million in luxury communities like
-                  MacDonald Highlands.
+                  As of January 2026, Henderson's median home price is $485,000,
+                  up 5.1% from last year. Prices range from $350,000 for condos
+                  to over $2 million in luxury communities like MacDonald
+                  Highlands.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -358,9 +488,9 @@ export default function HendersonPage() {
                   How safe is Henderson compared to Las Vegas?
                 </h3>
                 <p className="text-slate-600">
-                  Henderson Police publish crime data. It has been named
-                  in national "Best Places to Live" rankings
-                  for its parks, trails, and public crime data.
+                  Henderson Police publish crime data. It has been named in
+                  national "Best Places to Live" rankings for its parks, trails,
+                  and public crime data.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -368,9 +498,11 @@ export default function HendersonPage() {
                   What are the best neighborhoods in Henderson?
                 </h3>
                 <p className="text-slate-600">
-                  Henderson's top neighborhoods include Green Valley (established, mature landscaping),
-                  Inspirada (resort-style amenities), MacDonald Highlands (luxury), Anthem (parks and community centers),
-                  and Lake Las Vegas (waterfront living). Each offers distinct lifestyle options.
+                  Henderson's top neighborhoods include Green Valley
+                  (established, mature landscaping), Inspirada (resort-style
+                  amenities), MacDonald Highlands (luxury), Anthem (parks and
+                  community centers), and Lake Las Vegas (waterfront living).
+                  Each offers distinct lifestyle options.
                 </p>
               </div>
               <div className="bg-white border border-slate-200 rounded-lg p-6">
@@ -378,9 +510,10 @@ export default function HendersonPage() {
                   Why choose Dr. Jan Duffy for Henderson real estate?
                 </h3>
                 <p className="text-slate-600">
-                  Dr. Jan Duffy serves Henderson buyers and sellers. Our agents like Dr. Jan Duffy
-                  know every community, school district, and HOA. That local knowledge provides
-                  trust and resources that benefit both buyers and sellers.
+                  Dr. Jan Duffy serves Henderson buyers and sellers. Our agents
+                  like Dr. Jan Duffy know every community, school district, and
+                  HOA. That local knowledge provides trust and resources that
+                  benefit both buyers and sellers.
                 </p>
               </div>
             </div>
@@ -392,8 +525,8 @@ export default function HendersonPage() {
               Find Your Henderson Home Today
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy, your Henderson expert,
-              for personalized guidance and local market insights.
+              Contact Dr. Jan Duffy, your Henderson expert, for personalized
+              guidance and local market insights.
             </p>
             <a
               href="tel:+17025001942"
@@ -404,11 +537,13 @@ export default function HendersonPage() {
             </a>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>

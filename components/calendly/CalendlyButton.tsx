@@ -33,11 +33,7 @@ export default function CalendlyButton({
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="lazyOnload"
       />
-      <a
-        href=""
-        onClick={handleClick}
-        className={className}
-      >
+      <a href="" onClick={handleClick} className={className}>
         {children || text}
       </a>
     </>

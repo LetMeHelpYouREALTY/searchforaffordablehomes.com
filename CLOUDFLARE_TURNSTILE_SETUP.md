@@ -13,11 +13,13 @@ Cloudflare Turnstile is now integrated into your lead capture forms to prevent s
 ## What's Already Integrated
 
 1. **Frontend** (`components/forms/LeadCaptureForm.tsx`)
+
    - Turnstile widget displays before submit button
    - Auto-validates before form submission
    - Graceful error handling
 
 2. **Backend** (`app/api/leads/capture/route.ts`)
+
    - Server-side token verification
    - 403 response if verification fails
    - Falls back gracefully if not configured
@@ -72,10 +74,10 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 3. Go to **Settings** → **Environment Variables**
 4. Add two variables:
 
-| Variable | Value | Environments |
-|----------|-------|--------------|
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Your site key | Production, Preview, Development |
-| `TURNSTILE_SECRET_KEY` | Your secret key | Production, Preview (⚠️ SENSITIVE) |
+| Variable                         | Value           | Environments                       |
+| -------------------------------- | --------------- | ---------------------------------- |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Your site key   | Production, Preview, Development   |
+| `TURNSTILE_SECRET_KEY`           | Your secret key | Production, Preview (⚠️ SENSITIVE) |
 
 5. **Redeploy** your site for changes to take effect
 
@@ -88,6 +90,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 5. Form should submit successfully!
 
 **If no widget appears:**
+
 - Check browser console for errors
 - Verify `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set
 - Clear browser cache
@@ -106,6 +109,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```
 
 **Behavior:**
+
 - ✅ Most users: **Invisible** (instant verification)
 - ⚠️ Suspicious traffic: Shows interactive challenge
 - Best balance of security and UX
@@ -115,8 +119,8 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```typescript
 <Turnstile
   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-  options={{ 
-    theme: 'light', 
+  options={{
+    theme: 'light',
     size: 'invisible',
     execution: 'render'
   }}
@@ -124,6 +128,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```
 
 **Behavior:**
+
 - Always invisible
 - No visual element
 - Suitable for high-volume sites
@@ -133,8 +138,8 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```typescript
 <Turnstile
   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-  options={{ 
-    theme: 'light', 
+  options={{
+    theme: 'light',
     size: 'invisible',
     execution: 'execute'
   }}
@@ -142,6 +147,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```
 
 **Behavior:**
+
 - Completely invisible
 - Triggers programmatically
 - Advanced use case
@@ -153,7 +159,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```typescript
 <Turnstile
   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-  options={{ 
+  options={{
     theme: 'dark',  // 'light' | 'dark' | 'auto'
     size: 'normal'
   }}
@@ -165,7 +171,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ```typescript
 <Turnstile
   siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-  options={{ 
+  options={{
     theme: 'light',
     size: 'compact'  // 'normal' | 'compact' | 'flexible'
   }}
@@ -223,18 +229,20 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 
 ### Key Metrics to Watch
 
-| Metric | Good | Investigate |
-|--------|------|-------------|
-| **Pass rate** | >95% | <90% |
-| **Challenge rate** | <5% | >10% |
-| **Error rate** | <1% | >5% |
+| Metric             | Good | Investigate |
+| ------------------ | ---- | ----------- |
+| **Pass rate**      | >95% | <90%        |
+| **Challenge rate** | <5%  | >10%        |
+| **Error rate**     | <1%  | >5%         |
 
 **High challenge rate?**
+
 - You may have aggressive bot traffic
 - Consider additional security measures
 - Check for false positives
 
 **High error rate?**
+
 - Check server-side verification code
 - Verify secret key is correct
 - Check Cloudflare API status
@@ -246,6 +254,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 **Problem:** No CAPTCHA widget on form
 
 **Solutions:**
+
 1. **Check env var**: `echo $NEXT_PUBLIC_TURNSTILE_SITE_KEY`
 2. **Restart dev server**: `npm run dev`
 3. **Clear browser cache**: Hard refresh (Ctrl+Shift+R)
@@ -257,6 +266,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 **Problem:** Form submission rejected with 403
 
 **Solutions:**
+
 1. **Check secret key**: Verify `TURNSTILE_SECRET_KEY` in Vercel
 2. **Test locally**: Try in dev environment
 3. **Check token expiry**: Tokens expire after 5 minutes
@@ -267,6 +277,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 **Problem:** Widget shows loading spinner indefinitely
 
 **Solutions:**
+
 1. **Check network**: Firewall blocking Cloudflare?
 2. **Try incognito**: Extension conflict?
 3. **Check status**: [Cloudflare Status Page](https://www.cloudflarestatus.com/)
@@ -277,6 +288,7 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 **Problem:** Real users can't pass challenge
 
 **Solutions:**
+
 1. **Switch to Managed mode** (less aggressive)
 2. **Lower security level** in Cloudflare dashboard
 3. **Check device/browser** (old browsers may fail)
@@ -287,12 +299,14 @@ TURNSTILE_SECRET_KEY=0x4AAAAAAA...
 ### 1. Only on Lead Forms
 
 ✅ **Do use Turnstile on:**
+
 - Lead capture forms
 - Contact forms
 - Newsletter signups
 - Property inquiry forms
 
 ❌ **Don't use on:**
+
 - Search bars
 - Navigation
 - Non-submission interactions
@@ -334,6 +348,7 @@ onError={() => {
 ### GDPR Compliant
 
 Turnstile is privacy-first:
+
 - ✅ No cookies used
 - ✅ No personal data collected
 - ✅ No cross-site tracking
@@ -342,6 +357,7 @@ Turnstile is privacy-first:
 ### Fair Housing Compliance
 
 Turnstile does NOT:
+
 - ❌ Discriminate based on location
 - ❌ Discriminate based on language
 - ❌ Discriminate based on device type
@@ -350,12 +366,14 @@ Turnstile does NOT:
 ## Cost
 
 **100% FREE Forever**
+
 - Unlimited challenges
 - Unlimited domains
 - No credit card required
 - No Cloudflare plan required
 
 **Compared to alternatives:**
+
 - Google reCAPTCHA: Free but invasive (tracks users)
 - hCaptcha: Free but shows ads
 - Custom CAPTCHA: Expensive to build/maintain
@@ -365,10 +383,12 @@ Turnstile does NOT:
 Turnstile works alongside:
 
 1. **Rate Limiting** (Upstash)
+
    - Turnstile blocks bots
    - Rate limiting prevents abuse
 
 2. **Sentry** (Error Monitoring)
+
    - Track CAPTCHA failures
    - Monitor suspicious activity
 
@@ -405,6 +425,7 @@ If you're switching from Google reCAPTCHA:
 - ✅ GDPR compliant
 
 **Next steps:**
+
 1. ⏭️ Get Turnstile keys from Cloudflare
 2. ⏭️ Add to Vercel environment variables
 3. ⏭️ Deploy and test

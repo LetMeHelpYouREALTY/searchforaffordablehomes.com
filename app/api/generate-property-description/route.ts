@@ -15,7 +15,10 @@ export async function POST(request: NextRequest) {
     const { propertyDetails } = await request.json();
 
     if (!propertyDetails) {
-      return NextResponse.json({ error: "Property details are required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Property details are required" },
+        { status: 400 },
+      );
     }
 
     const openrouter = getOpenRouterClient();

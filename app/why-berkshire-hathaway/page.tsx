@@ -2,7 +2,15 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { Shield, Users, Globe, Award, TrendingUp, CheckCircle, Phone } from "lucide-react";
+import {
+  Shield,
+  Users,
+  Globe,
+  Award,
+  TrendingUp,
+  CheckCircle,
+  Phone,
+} from "lucide-react";
 import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
@@ -13,7 +21,9 @@ export const metadata: Metadata = {
   description:
     "How brokerage resources, ethics standards, and agent support help Las Vegas buyers and sellers. Dr. Jan Duffy, Top 1% Las Vegas REALTOR®.",
   keywords: [
-    "real estate brokerage support", "Las Vegas buyer agent", "why use a REALTOR",
+    "real estate brokerage support",
+    "Las Vegas buyer agent",
+    "why use a REALTOR",
   ],
 };
 
@@ -49,20 +59,21 @@ export default function WhyBerkshireHathawayPage() {
               Las Vegas Real Estate Questions
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Why Brokerage Support Matters
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              When contract terms, timelines, or negotiations get heavy, you want an agent backed by stable resources and clear ethical standards. Here is what that support means in plain language.
+              When contract terms, timelines, or negotiations get heavy, you
+              want an agent backed by stable resources and clear ethical
+              standards. Here is what that support means in plain language.
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* Brokerage Support Section */}
+          {/* Brokerage Support Section */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
@@ -70,14 +81,24 @@ export default function WhyBerkshireHathawayPage() {
                   Financial strength behind your transaction
                 </h2>
                 <p className="text-slate-300 mb-6">
-                  Dr. Jan Duffy works with a brokerage known for long-term stability and strict professional standards. That backing matters when you need marketing reach, compliance support, or a referral in another state.
+                  Dr. Jan Duffy works with a brokerage known for long-term
+                  stability and strict professional standards. That backing
+                  matters when you need marketing reach, compliance support, or
+                  a referral in another state.
                 </p>
                 <p className="text-slate-300">
-                  You still work directly with Dr. Jan on your deal. The brokerage is the infrastructure that keeps service consistent when stakes are high.
+                  You still work directly with Dr. Jan on your deal. The
+                  brokerage is the infrastructure that keeps service consistent
+                  when stakes are high.
                 </p>
               </div>
               <div className="bg-slate-800 rounded-lg p-8 text-center">
-                <div className="text-6xl mb-4">🏛️</div> <p className="text-2xl font-bold mb-2">Top 1%</p> <p className="text-slate-400"> Las Vegas REALTOR®, in real estate since 1983 </p>
+                <div className="text-6xl mb-4">🏛️</div>{" "}
+                <p className="text-2xl font-bold mb-2">Top 1%</p>{" "}
+                <p className="text-slate-400">
+                  {" "}
+                  Las Vegas REALTOR®, in real estate since 1983{" "}
+                </p>
               </div>
             </div>
           </section>
@@ -92,9 +113,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Shield className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Unmatched Trust</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Unmatched Trust
+                </h3>
                 <p className="text-slate-600">
-                  Dr. Jan is known for integrity and reliability, and upholds these values in every transaction.
+                  Dr. Jan is known for integrity and reliability, and upholds
+                  these values in every transaction.
                 </p>
               </div>
 
@@ -102,9 +126,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Users className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Global Network</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Global Network
+                </h3>
                 <p className="text-slate-600">
-                  A nationwide referral network means seamless referrals for relocations and connections to buyers from across the country.
+                  A nationwide referral network means seamless referrals for
+                  relocations and connections to buyers from across the country.
                 </p>
               </div>
 
@@ -112,9 +139,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Globe className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">World-Class Marketing</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  World-Class Marketing
+                </h3>
                 <p className="text-slate-600">
-                  Your property gets professional photography, syndication, and campaign tools that reach qualified buyers everywhere.
+                  Your property gets professional photography, syndication, and
+                  campaign tools that reach qualified buyers everywhere.
                 </p>
               </div>
 
@@ -122,9 +152,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <Award className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Ethical Standards</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Ethical Standards
+                </h3>
                 <p className="text-slate-600">
-                  Dr. Jan adheres to strict ethical guidelines that go beyond industry requirements. Your interests always come first.
+                  Dr. Jan adheres to strict ethical guidelines that go beyond
+                  industry requirements. Your interests always come first.
                 </p>
               </div>
 
@@ -132,7 +165,9 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <TrendingUp className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Financial Strength</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Financial Strength
+                </h3>
                 <p className="text-slate-600">
                   Stable brokerage backing means support for you long-term.
                 </p>
@@ -142,9 +177,12 @@ export default function WhyBerkshireHathawayPage() {
                 <div className="bg-blue-100 rounded-full p-4 w-16 h-16 flex items-center justify-center mb-6">
                   <CheckCircle className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Proven Results</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  Proven Results
+                </h3>
                 <p className="text-slate-600">
-                  Dr. Jan Duffy has closed $127M+ in transactions in Southern Nevada.
+                  Dr. Jan Duffy has closed $127M+ in transactions in Southern
+                  Nevada.
                 </p>
               </div>
             </div>
@@ -158,7 +196,9 @@ export default function WhyBerkshireHathawayPage() {
                   Your Local Expert in Las Vegas
                 </h2>
                 <p className="text-lg text-slate-700 mb-6">
-                  Dr. Jan Duffy serves Las Vegas, Henderson, Summerlin, and all of Southern Nevada. In real estate since 1983 with $127M+ in closed transactions, she brings hometown expertise.
+                  Dr. Jan Duffy serves Las Vegas, Henderson, Summerlin, and all
+                  of Southern Nevada. In real estate since 1983 with $127M+ in
+                  closed transactions, she brings hometown expertise.
                 </p>
                 <ul className="space-y-3 mb-8">
                   {[
@@ -183,7 +223,8 @@ export default function WhyBerkshireHathawayPage() {
               </div>
               <div className="bg-slate-100 rounded-lg p-8">
                 <blockquote className="text-lg text-slate-700 italic mb-4">
-                  "Clients hire me for straight answers and calm execution—not buzzwords."
+                  "Clients hire me for straight answers and calm execution—not
+                  buzzwords."
                 </blockquote>
                 <cite className="text-slate-900 font-semibold">
                   — Dr. Jan Duffy, REALTOR®
@@ -226,7 +267,8 @@ export default function WhyBerkshireHathawayPage() {
               Ready for a Direct Answer?
             </h2>
             <p className="text-xl text-slate-300 mb-8">
-              Contact Dr. Jan Duffy today for Las Vegas-specific guidance on your next step.
+              Contact Dr. Jan Duffy today for Las Vegas-specific guidance on
+              your next step.
             </p>
             <a
               href="tel:+17025001942"
@@ -239,11 +281,13 @@ export default function WhyBerkshireHathawayPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>

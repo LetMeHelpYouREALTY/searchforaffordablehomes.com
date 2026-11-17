@@ -2,7 +2,15 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone } from "lucide-react";
+import {
+  TrendingUp,
+  TrendingDown,
+  Home,
+  Calendar,
+  DollarSign,
+  BarChart,
+  Phone,
+} from "lucide-react";
 import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
@@ -53,27 +61,28 @@ export default function MarketReportPage() {
               Market Intelligence
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Real Estate Market Report
             </h1>
             <p className="text-xl text-slate-600">
-              January 2026 | Expert analysis from{" "} Dr. Jan Duffy
+              January 2026 | Expert analysis from Dr. Jan Duffy
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* Key Stats Overview */}
+          {/* Key Stats Overview */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Las Vegas Market Snapshot | January 2026
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">$450,000</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  $450,000
+                </div>
                 <div className="text-slate-300 text-sm">Median Home Price</div>
                 <div className="flex items-center justify-center mt-1 text-green-400 text-sm">
                   <TrendingUp className="h-4 w-4 mr-1" />
@@ -81,7 +90,9 @@ export default function MarketReportPage() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">28</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  28
+                </div>
                 <div className="text-slate-300 text-sm">Days on Market</div>
                 <div className="flex items-center justify-center mt-1 text-green-400 text-sm">
                   <TrendingDown className="h-4 w-4 mr-1" />
@@ -89,14 +100,18 @@ export default function MarketReportPage() {
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">4,850</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  4,850
+                </div>
                 <div className="text-slate-300 text-sm">Active Listings</div>
                 <div className="flex items-center justify-center mt-1 text-yellow-400 text-sm">
                   +12% YoY
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">2.1</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  2.1
+                </div>
                 <div className="text-slate-300 text-sm">Months Inventory</div>
                 <div className="flex items-center justify-center mt-1 text-slate-400 text-sm">
                   Seller's Market
@@ -159,11 +174,15 @@ export default function MarketReportPage() {
                   key={item.area}
                   className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
                 >
-                  <h3 className="font-bold text-lg text-slate-900 mb-4">{item.area}</h3>
+                  <h3 className="font-bold text-lg text-slate-900 mb-4">
+                    {item.area}
+                  </h3>
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-slate-600">Median Price</span>
-                      <span className="font-semibold text-slate-900">{item.median}</span>
+                      <span className="font-semibold text-slate-900">
+                        {item.median}
+                      </span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-600">YoY Change</span>
@@ -175,7 +194,9 @@ export default function MarketReportPage() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-600">Days on Market</span>
-                      <span className="font-semibold text-slate-900">{item.dom} days</span>
+                      <span className="font-semibold text-slate-900">
+                        {item.dom} days
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -190,11 +211,12 @@ export default function MarketReportPage() {
             </h2>
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-6">
-                "The Las Vegas market remains strong heading into 2026. We're seeing continued
-                demand from California relocators and remote workers, but the days of 20 offers on
-                every listing are behind us. Buyers finally have some negotiating power, while
-                sellers are still achieving solid appreciation. It's a balanced market that rewards
-                proper pricing and preparation."
+                "The Las Vegas market remains strong heading into 2026. We're
+                seeing continued demand from California relocators and remote
+                workers, but the days of 20 offers on every listing are behind
+                us. Buyers finally have some negotiating power, while sellers
+                are still achieving solid appreciation. It's a balanced market
+                that rewards proper pricing and preparation."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -241,8 +263,9 @@ export default function MarketReportPage() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">California Migration</h3>
                 <p className="text-slate-600 text-sm">
-                  Continued influx of California buyers seeking affordability and no state income
-                  tax. Summerlin and Henderson remain top destinations.
+                  Continued influx of California buyers seeking affordability
+                  and no state income tax. Summerlin and Henderson remain top
+                  destinations.
                 </p>
               </div>
               <div className="text-center">
@@ -251,8 +274,9 @@ export default function MarketReportPage() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">New Construction</h3>
                 <p className="text-slate-600 text-sm">
-                  Builders offering significant incentives including rate buydowns, closing cost
-                  credits, and upgrades. Great time for new home buyers.
+                  Builders offering significant incentives including rate
+                  buydowns, closing cost credits, and upgrades. Great time for
+                  new home buyers.
                 </p>
               </div>
               <div className="text-center">
@@ -261,8 +285,8 @@ export default function MarketReportPage() {
                 </div>
                 <h3 className="font-bold text-lg mb-2">Luxury Strength</h3>
                 <p className="text-slate-600 text-sm">
-                  The $1M+ segment showing strongest appreciation at 8.5% YoY. The Ridges and
-                  Southern Highlands leading the luxury market.
+                  The $1M+ segment showing strongest appreciation at 8.5% YoY.
+                  The Ridges and Southern Highlands leading the luxury market.
                 </p>
               </div>
             </div>
@@ -306,8 +330,9 @@ export default function MarketReportPage() {
               Get Personalized Market Insights
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Want to know what these numbers mean for your specific neighborhood or situation? Dr.
-              Jan Duffy provides free market consultations.
+              Want to know what these numbers mean for your specific
+              neighborhood or situation? Dr. Jan Duffy provides free market
+              consultations.
             </p>
             <a
               href="tel:+17025001942"
@@ -320,11 +345,13 @@ export default function MarketReportPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>

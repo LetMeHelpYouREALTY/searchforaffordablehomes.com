@@ -8,13 +8,13 @@ Use this setup so each **avatar** (persona/role) has a dedicated space and only 
 
 Create one **Avatars** database with:
 
-| Property      | Type        | Purpose |
-|---------------|-------------|--------|
-| Name          | Title       | Avatar label (e.g. "Listing Agent", "Buyer Lead", "Investor") |
-| Role          | Select      | e.g. Agent, Buyer, Seller, Investor, Admin |
-| Skills        | Multi-select| Skills this avatar uses (e.g. Valuation, Search, CRM, Docs) |
-| Dashboard     | URL         | Link to this avatar’s dashboard page |
-| Description   | Text        | One-line purpose of this avatar |
+| Property    | Type         | Purpose                                                       |
+| ----------- | ------------ | ------------------------------------------------------------- |
+| Name        | Title        | Avatar label (e.g. "Listing Agent", "Buyer Lead", "Investor") |
+| Role        | Select       | e.g. Agent, Buyer, Seller, Investor, Admin                    |
+| Skills      | Multi-select | Skills this avatar uses (e.g. Valuation, Search, CRM, Docs)   |
+| Dashboard   | URL          | Link to this avatar’s dashboard page                          |
+| Description | Text         | One-line purpose of this avatar                               |
 
 **Best practice:** One row per avatar. Link this database from other DBs (Tasks, Projects) so you can filter by avatar.
 
@@ -37,10 +37,10 @@ So: one Avatars DB + one dashboard page per avatar, each showing only that avata
 
 In your **Tasks** (or **Projects**) database, add:
 
-| Property | Type    | Purpose |
-|----------|---------|--------|
+| Property | Type     | Purpose                                                    |
+| -------- | -------- | ---------------------------------------------------------- |
 | Avatar   | Relation | Relation to **Avatars** database (which persona owns this) |
-| Skill    | Select   | Optional: which skill area (Valuation, Search, CRM, etc.) |
+| Skill    | Select   | Optional: which skill area (Valuation, Search, CRM, etc.)  |
 
 Then:
 
@@ -84,15 +84,15 @@ In Cursor (or any AI tool):
 
 ## 7. Example avatar entries (for Avatars DB)
 
-| Name          | Role   | Skills (multi-select)     | Description                    |
-|---------------|--------|----------------------------|--------------------------------|
-| Listing Agent | Agent  | Valuation, CRM, Docs       | Listings, seller leads, pricing |
-| Buyer Lead    | Buyer  | Search, Alerts, CRM        | Buyer leads, search, tours     |
-| Investor      | Investor | ROI, Reporting, CRM      | Deals, numbers, reporting      |
-| Admin         | Admin  | Reporting, Docs, CRM      | Operations, reporting, docs    |
+| Name          | Role     | Skills (multi-select) | Description                     |
+| ------------- | -------- | --------------------- | ------------------------------- |
+| Listing Agent | Agent    | Valuation, CRM, Docs  | Listings, seller leads, pricing |
+| Buyer Lead    | Buyer    | Search, Alerts, CRM   | Buyer leads, search, tours      |
+| Investor      | Investor | ROI, Reporting, CRM   | Deals, numbers, reporting       |
+| Admin         | Admin    | Reporting, Docs, CRM  | Operations, reporting, docs     |
 
 You can add more avatars and skills as needed; keep the same structure so every avatar has a clear dashboard and skill set.
 
 ---
 
-*Ref: Notion best practices (Feb 2026), avatar-based workflow.*
+_Ref: Notion best practices (Feb 2026), avatar-based workflow._

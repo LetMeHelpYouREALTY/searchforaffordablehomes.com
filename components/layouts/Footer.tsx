@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
 
@@ -23,8 +30,8 @@ export default function Footer() {
             </div>
             <h3 className="font-bold text-xl mb-4">Dr. Jan Duffy, REALTOR®</h3>
             <p className="text-slate-300 mb-4 text-sm">
-              Search for affordable homes in Las Vegas, Henderson, and Summerlin. In real
-              estate since 1983.
+              Search for affordable homes in Las Vegas, Henderson, and
+              Summerlin. In real estate since 1983.
             </p>
             <div className="flex space-x-4">
               <a
@@ -226,16 +233,23 @@ export default function Footer() {
               © {currentYear} Dr. Jan Duffy, REALTOR®. All Rights Reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/faq" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="/faq"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 FAQ
               </Link>
-              <Link href="/sitemap.xml" className="text-slate-400 hover:text-white transition-colors">
+              <Link
+                href="/sitemap.xml"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
                 Sitemap
               </Link>
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-4 text-center">
-            Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC
+            Berkshire Hathaway HomeServices Nevada Properties since September
+            2008 · License S.0197614.LLC
           </p>
         </div>
       </div>

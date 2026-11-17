@@ -21,7 +21,11 @@ export default function CTASection() {
           </p>
 
           <div className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" className="bg-white text-[#1e4fd6] hover:bg-blue-50">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-[#1e4fd6] hover:bg-blue-50"
+            >
               <a
                 href="http://drjanduffy.realscout.com/"
                 target="_blank"
@@ -49,9 +53,9 @@ export default function CTASection() {
               variant="outline"
               className="border-white text-white hover:bg-white/10"
             >
-              <Link href="tel:+17022221964" className="flex items-center gap-2">
+              <Link href="tel:+17025001942" className="flex items-center gap-2">
                 <Phone className="h-5 w-5" />
-                Call (702) 222-1964
+                Call (702) 500-1942
               </Link>
             </Button>
           </div>

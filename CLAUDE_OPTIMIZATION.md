@@ -25,22 +25,22 @@ This optimization package provides a production-ready Claude AI integration with
 
 ### Cost Savings (Prompt Caching)
 
-| Scenario | Without Caching | With Caching | Savings |
-|----------|----------------|--------------|---------|
-| **100 requests/day** | $12/month | $1.20/month | **$10.80 (90%)** |
-| **1,000 requests/day** | $120/month | $12/month | **$108 (90%)** |
-| **10,000 requests/day** | $1,200/month | $120/month | **$1,080 (90%)** |
+| Scenario                | Without Caching | With Caching | Savings          |
+| ----------------------- | --------------- | ------------ | ---------------- |
+| **100 requests/day**    | $12/month       | $1.20/month  | **$10.80 (90%)** |
+| **1,000 requests/day**  | $120/month      | $12/month    | **$108 (90%)**   |
+| **10,000 requests/day** | $1,200/month    | $120/month   | **$1,080 (90%)** |
 
-*Based on 350-token system prompts with Claude 3.5 Sonnet*
+_Based on 350-token system prompts with Claude 3.5 Sonnet_
 
 ### Performance Improvements
 
-| Metric | Without Optimization | With Optimization | Improvement |
-|--------|---------------------|-------------------|-------------|
-| **Time to First Token** | ~2.0s | ~0.3s | **85% faster** |
-| **Response Time** | ~3.5s | ~1.0s | **70% faster** |
-| **API Errors** | 5-10% | <1% | **90% reduction** |
-| **Cache Hit Rate** | 0% | 40-60% | **NEW** |
+| Metric                  | Without Optimization | With Optimization | Improvement       |
+| ----------------------- | -------------------- | ----------------- | ----------------- |
+| **Time to First Token** | ~2.0s                | ~0.3s             | **85% faster**    |
+| **Response Time**       | ~3.5s                | ~1.0s             | **70% faster**    |
+| **API Errors**          | 5-10%                | <1%               | **90% reduction** |
+| **Cache Hit Rate**      | 0%                   | 40-60%            | **NEW**           |
 
 ---
 
@@ -88,35 +88,35 @@ CLAUDE_DAILY_LIMIT=25.00
 
 ### Core Library (`lib/claude/`)
 
-| File | Purpose | Size |
-|------|---------|------|
-| **client.ts** | Main Claude client with caching & rate limiting | ~400 LOC |
-| **prompt-templates.ts** | Pre-optimized prompt templates | ~350 LOC |
-| **cache.ts** | Multi-tier response caching (memory/Redis/KV) | ~250 LOC |
-| **config.ts** | Centralized configuration management | ~200 LOC |
+| File                    | Purpose                                         | Size     |
+| ----------------------- | ----------------------------------------------- | -------- |
+| **client.ts**           | Main Claude client with caching & rate limiting | ~400 LOC |
+| **prompt-templates.ts** | Pre-optimized prompt templates                  | ~350 LOC |
+| **cache.ts**            | Multi-tier response caching (memory/Redis/KV)   | ~250 LOC |
+| **config.ts**           | Centralized configuration management            | ~200 LOC |
 
 ### API Routes (`app/api/claude/`)
 
-| File | Purpose |
-|------|---------|
+| File              | Purpose                                |
+| ----------------- | -------------------------------------- |
 | **chat/route.ts** | Optimized chat endpoint with streaming |
 
 ### Components (`components/admin/`)
 
-| File | Purpose |
-|------|---------|
+| File                        | Purpose                             |
+| --------------------------- | ----------------------------------- |
 | **ClaudeCostDashboard.tsx** | Real-time cost monitoring dashboard |
 
 ### Middleware (`middleware/`)
 
-| File | Purpose |
-|------|---------|
+| File                     | Purpose                  |
+| ------------------------ | ------------------------ |
 | **claude-rate-limit.ts** | Per-client rate limiting |
 
 ### Configuration
 
-| File | Purpose |
-|------|---------|
+| File                    | Purpose                       |
+| ----------------------- | ----------------------------- |
 | **.env.claude.example** | Environment variable template |
 
 ---
@@ -126,8 +126,8 @@ CLAUDE_DAILY_LIMIT=25.00
 ### Example 1: Basic Chat
 
 ```typescript
-import { ClaudeClient } from '@/lib/claude/client';
-import { realEstateAgentTemplate } from '@/lib/claude/prompt-templates';
+import { ClaudeClient } from "@/lib/claude/client";
+import { realEstateAgentTemplate } from "@/lib/claude/prompt-templates";
 
 const claude = new ClaudeClient({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -135,7 +135,7 @@ const claude = new ClaudeClient({
 
 const response = await claude.sendMessage({
   messages: [
-    { role: 'user', content: 'What neighborhoods are best for families?' }
+    { role: "user", content: "What neighborhoods are best for families?" },
   ],
   systemPrompt: realEstateAgentTemplate.system,
   enableCache: true, // Automatically caches system prompt
@@ -150,9 +150,7 @@ console.log(`Cached tokens: ${response.usage.cacheReadInputTokens || 0}`);
 
 ```typescript
 const stream = claude.streamMessage({
-  messages: [
-    { role: 'user', content: 'Tell me about Summerlin' }
-  ],
+  messages: [{ role: "user", content: "Tell me about Summerlin" }],
   systemPrompt: realEstateAgentTemplate.system,
 });
 
@@ -221,10 +219,12 @@ await defaultCache.set(messages, {
 **Tokens:** ~350 (optimized for caching)
 
 **Cost per request:**
+
 - First request: $0.0013125 (cache write)
 - Subsequent: $0.0001050 (cache read - 92% savings!)
 
 **Example queries:**
+
 - "What's the market like in Las Vegas?"
 - "Tell me about your experience"
 - "How do you help buyers?"
@@ -236,10 +236,12 @@ await defaultCache.set(messages, {
 **Tokens:** ~330
 
 **Cost per request:**
+
 - First request: $0.0012375
 - Subsequent: $0.0000990
 
 **Example queries:**
+
 - "Find me a 3-bed home in Summerlin under $600k"
 - "What neighborhoods have good schools?"
 - "Show me luxury homes with pools"
@@ -251,10 +253,12 @@ await defaultCache.set(messages, {
 **Tokens:** ~320
 
 **Cost per request:**
+
 - First request: $0.0012000
 - Subsequent: $0.0000960
 
 **Example queries:**
+
 - "What's my home worth?"
 - "How do I prepare my home for sale?"
 - "What are comparable sales in my area?"
@@ -266,10 +270,12 @@ await defaultCache.set(messages, {
 **Tokens:** ~450
 
 **Cost per request:**
+
 - First request: $0.0016875
 - Subsequent: $0.0001350
 
 **Example queries:**
+
 - "What are your fees?"
 - "How long does it take to sell?"
 - "Do you work with first-time buyers?"
@@ -284,15 +290,14 @@ await defaultCache.set(messages, {
 
 ```json
 {
-  "messages": [
-    { "role": "user", "content": "Your question here" }
-  ],
+  "messages": [{ "role": "user", "content": "Your question here" }],
   "templateType": "real-estate-agent",
   "stream": false
 }
 ```
 
 **Template Types:**
+
 - `real-estate-agent` (default)
 - `property-search`
 - `home-valuation`
@@ -345,7 +350,7 @@ await defaultCache.set(messages, {
 ### Admin Dashboard Component
 
 ```tsx
-import ClaudeCostDashboard from '@/components/admin/ClaudeCostDashboard';
+import ClaudeCostDashboard from "@/components/admin/ClaudeCostDashboard";
 
 export default function AdminPage() {
   return (
@@ -358,6 +363,7 @@ export default function AdminPage() {
 ```
 
 **Features:**
+
 - Real-time cost tracking
 - Request counts by period
 - Cache hit rates
@@ -381,7 +387,7 @@ REDIS_URL=redis://localhost:6379
 
 ```typescript
 // Redis will be automatically used if REDIS_URL is set
-import { ClaudeCache } from '@/lib/claude/cache';
+import { ClaudeCache } from "@/lib/claude/cache";
 
 const cache = new ClaudeCache({
   ttl: 3600, // 1 hour
@@ -405,7 +411,7 @@ id = "your-kv-namespace-id"
 ### Cost Alerts
 
 ```typescript
-import { ClaudeClient } from '@/lib/claude/client';
+import { ClaudeClient } from "@/lib/claude/client";
 
 const claude = new ClaudeClient({
   apiKey: process.env.ANTHROPIC_API_KEY!,
@@ -415,9 +421,9 @@ const claude = new ClaudeClient({
 // Check costs periodically
 setInterval(() => {
   const stats = claude.getCostStats();
-  
-  if (stats.last24h.cost > 10.00) {
-    console.warn('⚠️ Daily cost exceeded $10!');
+
+  if (stats.last24h.cost > 10.0) {
+    console.warn("⚠️ Daily cost exceeded $10!");
     // Send alert email/notification
   }
 }, 3600000); // Check every hour
@@ -430,11 +436,13 @@ setInterval(() => {
 ### 1. Prompt Caching (Biggest Impact)
 
 **How it works:**
+
 - System prompts are cached at API level for 5 minutes
 - Subsequent requests read from cache instead of processing again
 - 90% cost reduction + 85% latency improvement
 
 **Best practices:**
+
 - ✅ Keep system prompts consistent
 - ✅ Place cacheable content at the beginning
 - ✅ Use the same system prompt across requests
@@ -453,11 +461,13 @@ const systemPrompt = `You are ${agentName}...`; // Changes per request
 ### 2. Response Caching (Additional Savings)
 
 **How it works:**
+
 - Identical queries are cached in memory/Redis/KV
 - Cache duration: 1 hour (configurable)
 - Reduces duplicate API calls
 
 **Best practices:**
+
 - ✅ Cache FAQ-style queries
 - ✅ Cache property searches with same criteria
 - ✅ Set appropriate TTL based on data freshness
@@ -467,11 +477,11 @@ const systemPrompt = `You are ${agentName}...`; // Changes per request
 
 **Choose the right model:**
 
-| Model | Best For | Cost | Speed |
-|-------|----------|------|-------|
-| **Claude 3.5 Haiku** | Simple queries, FAQ, basic search | 💰 $ | ⚡⚡⚡ |
-| **Claude 3.5 Sonnet** | Most use cases, balanced | 💰💰 $$ | ⚡⚡ |
-| **Claude 3 Opus** | Complex reasoning, detailed analysis | 💰💰💰💰 $$$$ | ⚡ |
+| Model                 | Best For                             | Cost          | Speed  |
+| --------------------- | ------------------------------------ | ------------- | ------ |
+| **Claude 3.5 Haiku**  | Simple queries, FAQ, basic search    | 💰 $          | ⚡⚡⚡ |
+| **Claude 3.5 Sonnet** | Most use cases, balanced             | 💰💰 $$       | ⚡⚡   |
+| **Claude 3 Opus**     | Complex reasoning, detailed analysis | 💰💰💰💰 $$$$ | ⚡     |
 
 **Cost comparison (per 1M tokens):**
 
@@ -484,6 +494,7 @@ Opus:   Input $15.00 | Output $75.00 | Total ~$90.00
 ### 4. Token Optimization
 
 **Best practices:**
+
 - ✅ Set `maxTokens` based on expected response length
 - ✅ Use concise prompts (avoid unnecessary verbosity)
 - ✅ Trim conversation history in multi-turn chats
@@ -494,13 +505,13 @@ Opus:   Input $15.00 | Output $75.00 | Total ~$90.00
 ```typescript
 // ✅ GOOD: Specific max tokens for short answers
 const response = await claude.sendMessage({
-  messages: [{ role: 'user', content: 'What are HOA fees in Summerlin?' }],
+  messages: [{ role: "user", content: "What are HOA fees in Summerlin?" }],
   maxTokens: 500, // Short factual answer
 });
 
 // ❌ BAD: Over-requesting tokens
 const response = await claude.sendMessage({
-  messages: [{ role: 'user', content: 'What are HOA fees?' }],
+  messages: [{ role: "user", content: "What are HOA fees?" }],
   maxTokens: 4096, // Way more than needed
 });
 ```
@@ -508,15 +519,18 @@ const response = await claude.sendMessage({
 ### 5. Rate Limiting (Prevent API Errors)
 
 **Claude API Limits:**
+
 - 400,000 requests per minute (organization-wide)
 - 200 tokens per minute per tier
 
 **Our Implementation:**
+
 - 50 requests per minute per client
 - Token bucket algorithm
 - Automatic retry with exponential backoff
 
 **Benefits:**
+
 - Prevents 429 errors
 - Fair usage across clients
 - Graceful degradation
@@ -529,30 +543,30 @@ const response = await claude.sendMessage({
 
 ```typescript
 // components/chat/AIChatWidget.tsx
-import { useState } from 'react';
+import { useState } from "react";
 
 export function AIChatWidget() {
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   async function sendMessage() {
-    const response = await fetch('/api/claude/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const response = await fetch("/api/claude/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        messages: [...messages, { role: 'user', content: input }],
-        templateType: 'real-estate-agent',
+        messages: [...messages, { role: "user", content: input }],
+        templateType: "real-estate-agent",
       }),
     });
 
     const data = await response.json();
-    
+
     setMessages([
       ...messages,
-      { role: 'user', content: input },
-      { role: 'assistant', content: data.response },
+      { role: "user", content: input },
+      { role: "assistant", content: data.response },
     ]);
-    
+
     console.log(`Request cost: $${data.cost.total.toFixed(4)}`);
   }
 
@@ -564,18 +578,18 @@ export function AIChatWidget() {
 
 ```typescript
 // app/api/search/assist/route.ts
-import { ClaudeClient } from '@/lib/claude/client';
-import { propertySearchTemplate } from '@/lib/claude/prompt-templates';
+import { ClaudeClient } from "@/lib/claude/client";
+import { propertySearchTemplate } from "@/lib/claude/prompt-templates";
 
 export async function POST(request: Request) {
   const { query } = await request.json();
-  
+
   const claude = new ClaudeClient({
     apiKey: process.env.ANTHROPIC_API_KEY!,
   });
 
   const response = await claude.sendMessage({
-    messages: [{ role: 'user', content: query }],
+    messages: [{ role: "user", content: query }],
     systemPrompt: propertySearchTemplate.system,
     maxTokens: 1024, // Short, focused responses
     temperature: 0.7, // More factual
@@ -592,12 +606,12 @@ export async function POST(request: Request) {
 
 ```typescript
 // app/api/valuation/estimate/route.ts
-import { ClaudeClient } from '@/lib/claude/client';
-import { homeValuationTemplate } from '@/lib/claude/prompt-templates';
+import { ClaudeClient } from "@/lib/claude/client";
+import { homeValuationTemplate } from "@/lib/claude/prompt-templates";
 
 export async function POST(request: Request) {
   const { address, sqft, beds, baths, yearBuilt } = await request.json();
-  
+
   const query = `Provide a market analysis for:
     Address: ${address}
     Size: ${sqft} sqft, ${beds} bed, ${baths} bath
@@ -608,7 +622,7 @@ export async function POST(request: Request) {
   });
 
   const response = await claude.sendMessage({
-    messages: [{ role: 'user', content: query }],
+    messages: [{ role: "user", content: query }],
     systemPrompt: homeValuationTemplate.system,
     maxTokens: 2048,
   });
@@ -627,15 +641,17 @@ export async function POST(request: Request) {
 ### Chat Interface Example
 
 ```tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function ClaudeChatInterface() {
-  const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([]);
-  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState<
+    Array<{ role: string; content: string }>
+  >([]);
+  const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [stats, setStats] = useState<any>(null);
 
@@ -643,17 +659,17 @@ export function ClaudeChatInterface() {
     if (!input.trim()) return;
 
     setLoading(true);
-    const userMessage = { role: 'user', content: input };
+    const userMessage = { role: "user", content: input };
     setMessages([...messages, userMessage]);
-    setInput('');
+    setInput("");
 
     try {
-      const response = await fetch('/api/claude/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/claude/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [...messages, userMessage],
-          templateType: 'real-estate-agent',
+          templateType: "real-estate-agent",
           stream: false,
         }),
       });
@@ -663,7 +679,7 @@ export function ClaudeChatInterface() {
       setMessages([
         ...messages,
         userMessage,
-        { role: 'assistant', content: data.response },
+        { role: "assistant", content: data.response },
       ]);
 
       // Update cost stats
@@ -673,7 +689,7 @@ export function ClaudeChatInterface() {
         cacheReadTokens: data.usage.cacheReadInputTokens || 0,
       });
     } catch (error) {
-      console.error('Chat error:', error);
+      console.error("Chat error:", error);
     } finally {
       setLoading(false);
     }
@@ -687,9 +703,9 @@ export function ClaudeChatInterface() {
           <div
             key={i}
             className={`p-3 rounded-lg ${
-              msg.role === 'user'
-                ? 'bg-blue-100 ml-auto max-w-[80%]'
-                : 'bg-gray-100 mr-auto max-w-[80%]'
+              msg.role === "user"
+                ? "bg-blue-100 ml-auto max-w-[80%]"
+                : "bg-gray-100 mr-auto max-w-[80%]"
             }`}
           >
             {msg.content}
@@ -701,9 +717,10 @@ export function ClaudeChatInterface() {
       {/* Stats */}
       {stats && (
         <div className="px-4 py-2 bg-gray-50 text-xs text-gray-600">
-          Cost: ${stats.cost.toFixed(6)} | 
-          {stats.cached ? ' From cache' : ' Fresh response'} |
-          {stats.cacheReadTokens > 0 && ` ${stats.cacheReadTokens} tokens cached`}
+          Cost: ${stats.cost.toFixed(6)} |
+          {stats.cached ? " From cache" : " Fresh response"} |
+          {stats.cacheReadTokens > 0 &&
+            ` ${stats.cacheReadTokens} tokens cached`}
         </div>
       )}
 
@@ -711,8 +728,8 @@ export function ClaudeChatInterface() {
       <div className="p-4 border-t flex gap-2">
         <Input
           value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && sendMessage()}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           placeholder="Ask about Las Vegas real estate..."
           disabled={loading}
         />
@@ -734,6 +751,7 @@ export function ClaudeChatInterface() {
 Access at: `/admin/claude-costs` (create this route)
 
 **Shows:**
+
 - Total API costs (all time, 24h, 7d)
 - Request counts
 - Cache hit rates
@@ -750,6 +768,7 @@ CLAUDE_DEBUG=true
 ```
 
 **Logs include:**
+
 - Request/response details
 - Token usage breakdown
 - Cache hits/misses
@@ -759,12 +778,14 @@ CLAUDE_DEBUG=true
 ### Monitoring Best Practices
 
 1. **Set Cost Alerts:**
+
    ```env
    CLAUDE_COST_ALERT_THRESHOLD=10.00
    CLAUDE_DAILY_LIMIT=50.00
    ```
 
 2. **Track Cache Performance:**
+
    - Monitor cache hit rate (target: 40-60%)
    - Adjust TTL based on data freshness needs
    - Review most expensive queries
@@ -799,7 +820,8 @@ CLAUDE_DEBUG=true
 
 ### Error: "Rate limit exceeded (429)"
 
-**Solution:** 
+**Solution:**
+
 - Wait for retry-after duration
 - Reduce request rate
 - Increase per-client limit in config
@@ -807,6 +829,7 @@ CLAUDE_DEBUG=true
 ### High Costs
 
 **Investigate:**
+
 1. Check cost dashboard for expensive queries
 2. Verify prompt caching is enabled
 3. Ensure response caching is working
@@ -816,6 +839,7 @@ CLAUDE_DEBUG=true
 ### Cache Not Working
 
 **Check:**
+
 1. `CLAUDE_RESPONSE_CACHING=true` in environment
 2. Queries are identical (caching is exact match)
 3. Cache TTL hasn't expired
@@ -826,16 +850,19 @@ CLAUDE_DEBUG=true
 ## 📚 Resources
 
 ### Anthropic Documentation
+
 - [API Reference](https://docs.anthropic.com/en/api/)
 - [Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
 - [Rate Limits](https://platform.claude.com/docs/en/api/rate-limits)
 - [Best Practices](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering)
 
 ### Pricing
+
 - [Current Pricing](https://www.anthropic.com/pricing)
 - [Cost Calculator](https://console.anthropic.com/settings/billing)
 
 ### Community
+
 - [Discord](https://www.anthropic.com/discord)
 - [Support](https://support.anthropic.com/)
 
@@ -855,6 +882,7 @@ This Claude optimization provides:
 - 📖 **Well-documented** with examples
 
 **Expected Monthly Cost:**
+
 - Low traffic (100 req/day): **~$1.20/month** (with caching)
 - Medium traffic (1,000 req/day): **~$12/month**
 - High traffic (10,000 req/day): **~$120/month**
@@ -863,5 +891,5 @@ This Claude optimization provides:
 
 ---
 
-*Generated: February 13, 2026*  
-*Based on: Anthropic Claude API 2026 best practices*
+_Generated: February 13, 2026_  
+_Based on: Anthropic Claude API 2026 best practices_

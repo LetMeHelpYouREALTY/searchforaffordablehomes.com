@@ -27,8 +27,14 @@ const neighborhoods = [
     slug: "summerlin",
     medianPrice: "$625,000",
     priceChange: "+6.8%",
-    description: "Premier master-planned community with parks, trails, and nearby public schools",
-    highlights: ["150+ Parks", "Nearby Public Schools", "Red Rock Views", "Downtown Summerlin"],
+    description:
+      "Premier master-planned community with parks, trails, and nearby public schools",
+    highlights: [
+      "150+ Parks",
+      "Nearby Public Schools",
+      "Red Rock Views",
+      "Downtown Summerlin",
+    ],
     bestFor: "Families, professionals, outdoor enthusiasts",
   },
   {
@@ -36,8 +42,14 @@ const neighborhoods = [
     slug: "henderson",
     medianPrice: "$485,000",
     priceChange: "+5.1%",
-    description: "Nevada's second-largest city known for parks, schools, and master-planned living",
-    highlights: ["Public Crime Maps", "Nearby Public Schools", "Lake Las Vegas", "Green Valley"],
+    description:
+      "Nevada's second-largest city known for parks, schools, and master-planned living",
+    highlights: [
+      "Public Crime Maps",
+      "Nearby Public Schools",
+      "Lake Las Vegas",
+      "Green Valley",
+    ],
     bestFor: "Families, retirees, commuters",
   },
   {
@@ -45,8 +57,14 @@ const neighborhoods = [
     slug: "green-valley",
     medianPrice: "$520,000",
     priceChange: "+4.8%",
-    description: "Established Henderson community with mature landscaping and excellent amenities",
-    highlights: ["Golf Courses", "Walking Trails", "The District", "Mature Trees"],
+    description:
+      "Established Henderson community with mature landscaping and excellent amenities",
+    highlights: [
+      "Golf Courses",
+      "Walking Trails",
+      "The District",
+      "Mature Trees",
+    ],
     bestFor: "Established families, golfers, professionals",
   },
   {
@@ -54,8 +72,14 @@ const neighborhoods = [
     slug: "the-ridges",
     medianPrice: "$2,500,000",
     priceChange: "+8.5%",
-    description: "Ultra-luxury guard-gated community with custom estates and celebrity residents",
-    highlights: ["Guard-Gated", "Custom Estates", "Bear's Best Golf", "Strip Views"],
+    description:
+      "Ultra-luxury guard-gated community with custom estates and celebrity residents",
+    highlights: [
+      "Guard-Gated",
+      "Custom Estates",
+      "Bear's Best Golf",
+      "Strip Views",
+    ],
     bestFor: "Luxury buyers, celebrities, executives",
   },
   {
@@ -63,8 +87,14 @@ const neighborhoods = [
     slug: "southern-highlands",
     medianPrice: "$750,000",
     priceChange: "+7.2%",
-    description: "Master-planned luxury community with championship golf and mountain views",
-    highlights: ["Golf Community", "Guard-Gated", "Mountain Views", "Luxury Amenities"],
+    description:
+      "Master-planned luxury community with championship golf and mountain views",
+    highlights: [
+      "Golf Community",
+      "Guard-Gated",
+      "Mountain Views",
+      "Luxury Amenities",
+    ],
     bestFor: "Golfers, luxury buyers, families",
   },
   {
@@ -72,7 +102,8 @@ const neighborhoods = [
     slug: "north-las-vegas",
     medianPrice: "$385,000",
     priceChange: "+3.2%",
-    description: "Rapidly growing area with affordable new construction communities",
+    description:
+      "Rapidly growing area with affordable new construction communities",
     highlights: ["New Construction", "Affordable", "Growing Area"],
     bestFor: "First-time buyers, move-up buyers, investors",
   },
@@ -81,8 +112,14 @@ const neighborhoods = [
     slug: "skye-canyon",
     medianPrice: "$550,000",
     priceChange: "+5.5%",
-    description: "Newer master-planned community in northwest Las Vegas with mountain views",
-    highlights: ["New Homes", "Mountain Views", "Skye Center", "Nearby public schools"],
+    description:
+      "Newer master-planned community in northwest Las Vegas with mountain views",
+    highlights: [
+      "New Homes",
+      "Mountain Views",
+      "Skye Center",
+      "Nearby public schools",
+    ],
     bestFor: "Move-up buyers, outdoor enthusiasts, commuters",
   },
   {
@@ -90,7 +127,8 @@ const neighborhoods = [
     slug: "centennial-hills",
     medianPrice: "$495,000",
     priceChange: "+4.8%",
-    description: "Northwest Las Vegas community with mountain proximity and family amenities",
+    description:
+      "Northwest Las Vegas community with mountain proximity and family amenities",
     highlights: ["Mountain Access", "Parks", "Shopping"],
     bestFor: "Families, outdoor lovers, professionals",
   },
@@ -99,8 +137,14 @@ const neighborhoods = [
     slug: "inspirada",
     medianPrice: "$525,000",
     priceChange: "+5.0%",
-    description: "Henderson master-planned community with resort-style living and modern homes",
-    highlights: ["Resort Pools", "Walking Trails", "New Construction", "Nearby public schools"],
+    description:
+      "Henderson master-planned community with resort-style living and modern homes",
+    highlights: [
+      "Resort Pools",
+      "Walking Trails",
+      "New Construction",
+      "Nearby public schools",
+    ],
     bestFor: "Families, active adults, new home buyers",
   },
   {
@@ -108,8 +152,14 @@ const neighborhoods = [
     slug: "mountains-edge",
     medianPrice: "$475,000",
     priceChange: "+4.5%",
-    description: "Southwest Las Vegas master-planned community with mountain views and parks",
-    highlights: ["Mountain Views", "Parks", "Growing Area", "Affordable Luxury"],
+    description:
+      "Southwest Las Vegas master-planned community with mountain views and parks",
+    highlights: [
+      "Mountain Views",
+      "Parks",
+      "Growing Area",
+      "Affordable Luxury",
+    ],
     bestFor: "Families, commuters, value-seekers",
   },
 ];
@@ -126,20 +176,20 @@ export default function NeighborhoodsPage() {
               Top 1% Las Vegas REALTOR®
             </div>
             <div className="mb-6 flex justify-center">
-            <BrandPortrait size="lg" priority />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+              <BrandPortrait size="lg" priority />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas & Henderson Neighborhoods
             </h1>
             <p className="text-xl text-slate-600">
-              Explore the best communities in Southern Nevada with Dr. Jan Duffy, your{" "} neighborhood expert
+              Explore the best communities in Southern Nevada with Dr. Jan
+              Duffy, your neighborhood expert
             </p>
           </div>
 
-          
           <RealScoutListings />
 
-{/* Neighborhood Grid */}
+          {/* Neighborhood Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
               {neighborhoods.map((neighborhood) => (
@@ -153,14 +203,22 @@ export default function NeighborhoodsPage() {
                       <h2 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                         {neighborhood.name}
                       </h2>
-                      <p className="text-sm text-slate-500">{neighborhood.bestFor}</p>
+                      <p className="text-sm text-slate-500">
+                        {neighborhood.bestFor}
+                      </p>
                     </div>
                     <div className="text-right">
-                      <div className="font-bold text-slate-900">{neighborhood.medianPrice}</div>
-                      <div className="text-sm text-green-600">{neighborhood.priceChange} YoY</div>
+                      <div className="font-bold text-slate-900">
+                        {neighborhood.medianPrice}
+                      </div>
+                      <div className="text-sm text-green-600">
+                        {neighborhood.priceChange} YoY
+                      </div>
                     </div>
                   </div>
-                  <p className="text-slate-600 text-sm mb-4">{neighborhood.description}</p>
+                  <p className="text-slate-600 text-sm mb-4">
+                    {neighborhood.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {neighborhood.highlights.map((highlight) => (
                       <span
@@ -180,11 +238,11 @@ export default function NeighborhoodsPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Every Las Vegas neighborhood has its own personality. Whether you want the
-                parks of Summerlin, the established charm of Green Valley, or the
-                luxury of The Ridges, I'll help you find the community that matches your lifestyle.
-                That's the difference—personalized guidance backed
-                by local expertise."
+                "Every Las Vegas neighborhood has its own personality. Whether
+                you want the parks of Summerlin, the established charm of Green
+                Valley, or the luxury of The Ridges, I'll help you find the
+                community that matches your lifestyle. That's the
+                difference—personalized guidance backed by local expertise."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, REALTOR®
@@ -194,27 +252,32 @@ export default function NeighborhoodsPage() {
 
           {/* Neighborhood Services */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-center">Neighborhood Services</h2>
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Neighborhood Services
+            </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <MapPin className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Area Tours</h3>
                 <p className="text-slate-400 text-sm">
-                  Personalized neighborhood tours to help you experience each community firsthand
+                  Personalized neighborhood tours to help you experience each
+                  community firsthand
                 </p>
               </div>
               <div className="text-center">
                 <GraduationCap className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">School Research</h3>
                 <p className="text-slate-400 text-sm">
-                  Detailed school district information, ratings, and enrollment guidance
+                  Detailed school district information, ratings, and enrollment
+                  guidance
                 </p>
               </div>
               <div className="text-center">
                 <Home className="h-12 w-12 text-blue-400 mx-auto mb-3" />
                 <h3 className="font-bold mb-2">Home Matching</h3>
                 <p className="text-slate-400 text-sm">
-                  Find homes that match your criteria in the neighborhoods you love
+                  Find homes that match your criteria in the neighborhoods you
+                  love
                 </p>
               </div>
             </div>
@@ -226,8 +289,8 @@ export default function NeighborhoodsPage() {
               Need Help Choosing a Neighborhood?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy knows every Las Vegas community inside and out. Call for personalized
-              neighborhood recommendations.
+              Dr. Jan Duffy knows every Las Vegas community inside and out. Call
+              for personalized neighborhood recommendations.
             </p>
             <a
               href="tel:+17025001942"
@@ -240,11 +303,13 @@ export default function NeighborhoodsPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: January 2026
+        </div>
       </main>
       <div className="container mx-auto px-4">
-          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-        </div>
+        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+      </div>
       <CalendlyBookingSection />
       <Footer />
     </>
