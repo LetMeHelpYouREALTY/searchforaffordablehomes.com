@@ -15,6 +15,9 @@ import {
   DollarSign,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Solera at Anthem Homes for Sale | Intimate Guard-Gated 55+ Henderson | Dr. Jan Duffy",
@@ -85,7 +88,10 @@ export default function SoleraAnthemPage() {
               <Heart className="h-4 w-4 mr-2" />
               Intimate Guard-Gated 55+ Community
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Solera at Anthem
             </h1>
             <p className="text-xl text-slate-600">
@@ -94,7 +100,10 @@ export default function SoleraAnthemPage() {
             </p>
           </div>
 
-          {/* Quick Stats */}
+          
+          <RealScoutListings />
+
+{/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
               Solera at Anthem at a Glance
@@ -420,7 +429,10 @@ export default function SoleraAnthemPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

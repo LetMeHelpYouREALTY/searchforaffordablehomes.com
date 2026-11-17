@@ -1,184 +1,291 @@
 import Navbar from "@/components/layouts/Navbar";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
+import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
+import CTASection from "@/components/sections/CTASection";
 import Footer from "@/components/layouts/Footer";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
-import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
+import { Phone, Home as HomeIcon, TrendingUp, Shield, Users, MapPin } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
+import {
+  combineSchemas,
+  generateFAQSchema,
+  generateWebPageSchema,
+  generateBreadcrumbSchema,
+} from "@/lib/schema";
+
+const homeFaqs = [
+  {
+    question: "What counts as an affordable home in Las Vegas?",
+    answer:
+      "On this site, affordable homes usually means MLS listings that fit a buyer’s payment comfort—often $200K–$550K depending on down payment, rate, and HOA. Dr. Jan Duffy filters for payment fit, not just list price.",
+  },
+  {
+    question: "Can I search for affordable homes without a huge down payment?",
+    answer:
+      "Yes. FHA, VA, and some conventional programs start with low down payments. Dr. Jan connects buyers with trusted local lenders and matches inventory to the payment you can sustain.",
+  },
+  {
+    question: "Where are affordable homes in Las Vegas right now?",
+    answer:
+      "Value inventory commonly shows up in North Las Vegas, Centennial Hills, Mountain’s Edge, and select Henderson corridors. Listings change daily—use the live RealScout office listings below the hero on every page.",
+  },
+  {
+    question: "How do I schedule a tour with Dr. Jan Duffy?",
+    answer:
+      "Book instantly on Calendly, call (702) 222-1964, or use the schedule section on any page. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+  },
+];
 
 export default async function Home() {
   const config = await getPageDomainConfig();
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: `https://${config.domain !== "default" ? config.domain : "heyberkshire.com"}`,
-    telephone: "+17022221964",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-    },
-  };
+  const pageSchemas = combineSchemas(
+    generateWebPageSchema({
+      name: "Search for Affordable Homes in Las Vegas",
+      description: config.description,
+      url: "/",
+    }),
+    generateBreadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Affordable Homes", url: "/affordable-homes" },
+    ]),
+    generateFAQSchema(homeFaqs)
+  );
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+      <SchemaScript schema={pageSchemas} id="home-schema" />
       <Navbar />
       <main>
-        {/* Domain-Aware Hero */}
-        <section className="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
+        {/* Hero — brand first, one headline, one CTA group, full-bleed image */}
+        <section className="relative overflow-hidden bg-slate-950 text-white">
           <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
+            className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/Image/hero_bg_1.jpg')" }}
+            aria-hidden
           />
-          <div className="relative z-10 container mx-auto px-4 text-center">
-            {config.ctaBadge && (
-              <span className="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
-                {config.ctaBadge}
-              </span>
-            )}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/70 to-slate-950/90" />
+          <div className="relative z-10 container mx-auto flex min-h-[88vh] flex-col items-center justify-center px-4 py-24 text-center md:py-28">
+            <BrandPortrait size="xl" priority className="mb-6 ring-offset-slate-950" />
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
+              Search for Affordable Homes
+            </p>
+            <h1 className="mb-5 max-w-4xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               {config.heroHeadline}
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-10 max-w-3xl mx-auto">
+            <p className="mb-8 max-w-2xl text-lg text-white/85 md:text-xl">
               {config.heroSubheadline}
             </p>
 
-            {/* RealScout Search Widget */}
-            <div className="mb-8 flex justify-center">
+            <div className="mb-8 flex w-full max-w-xl justify-center">
               <div
+                className="w-full"
                 dangerouslySetInnerHTML={{
                   __html: `<realscout-simple-search agent-encoded-id="${config.realscoutAgentId}"></realscout-simple-search>`,
                 }}
               />
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-6 text-white/80 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">500+</span>
-                <span>Families Helped</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">Since 1983</span> <span>In Real Estate</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">4.9★</span>
-                <span>Client Rating</span>
-              </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <a
+                href="tel:+17022221964"
+                className="inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-700"
+              >
+                <Phone className="mr-2 h-5 w-5" />
+                Call (702) 222-1964
+              </a>
+              <a
+                href="#schedule"
+                className="inline-flex items-center justify-center rounded-md border border-white/40 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
+              >
+                Schedule on Calendly
+              </a>
             </div>
           </div>
         </section>
 
+        {/* RealScout office listings under hero on every page pattern */}
+        <OfficeListingsUnderHero />
+
         {/* Value Proposition */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="bg-white py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Why Work With Dr. Jan Duffy?
+            <div className="mx-auto mb-12 max-w-4xl text-center">
+              <div className="mb-5 flex justify-center">
+                <BrandPortrait size="md" />
+              </div>
+              <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
+                Luxury Representation for Affordable Homes
               </h2>
               <p className="text-lg text-slate-600">
-                Top 1% Las Vegas REALTOR®, in real estate since 1983.
+                Top 1% Las Vegas REALTOR® Dr. Jan Duffy helps buyers who want
+                payment comfort without cutting corners on negotiation or due diligence.
               </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-4">
               {[
-                { icon: Shield, title: "Trusted Agent", desc: "Known for integrity and honest advice" },
-                { icon: Users, title: "Referral Network", desc: "Nationwide referral network for seamless moves to or from any market" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across every Las Vegas neighborhood" },
-                { icon: HomeIcon, title: "Full Service", desc: "Buying, selling, 55+, luxury, investment — one expert handles it all" },
+                {
+                  icon: Shield,
+                  title: "Trusted Agent",
+                  desc: "Integrity-first advice for every offer and inspection",
+                },
+                {
+                  icon: Users,
+                  title: "Referral Network",
+                  desc: "Nationwide referrals for seamless moves into Nevada",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "$127M+ Sold",
+                  desc: "Proven results across every Las Vegas price band",
+                },
+                {
+                  icon: HomeIcon,
+                  title: "Affordable Focus",
+                  desc: "MLS filters tuned to value and payment fit",
+                },
               ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="text-center p-6">
-                  <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <div key={title} className="p-6 text-center">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 p-4">
                     <Icon className="h-8 w-8 text-blue-600" />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">{title}</h3>
-                  <p className="text-slate-600 text-sm">{desc}</p>
+                  <h3 className="mb-2 text-lg font-bold">{title}</h3>
+                  <p className="text-sm text-slate-600">{desc}</p>
                 </div>
               ))}
+            </div>
+            <div className="mx-auto max-w-6xl">
+              <SectionExtras headline="Get a payment-fit home shortlist this week" />
             </div>
           </div>
         </section>
 
         {/* Market Stats */}
-        <section className="py-16 bg-slate-900 text-white">
+        <section className="bg-slate-900 py-16 text-white">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold mb-3">
-                {config.neighborhood} Real Estate Market
+            <div className="mb-10 text-center">
+              <div className="mb-5 flex justify-center">
+                <BrandPortrait size="md" className="ring-offset-slate-900" />
+              </div>
+              <h2 className="mb-3 text-3xl font-bold">
+                Las Vegas Affordable Homes Snapshot
               </h2>
-              <p className="text-slate-400">Current data — updated regularly</p>
+              <p className="text-slate-400">Current market context — updated regularly</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4">
               {[
-                { value: "$450K", label: "Median Price", sub: "+4.2% YoY" },
+                { value: "$450K", label: "Valley Median", sub: "+4.2% YoY" },
                 { value: "28", label: "Avg Days on Market", sub: "" },
                 { value: "4,850", label: "Active Listings", sub: "" },
                 { value: "2.1", label: "Months Inventory", sub: "" },
               ].map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
-                  <div className="text-4xl font-bold text-blue-400 mb-1">{value}</div>
-                  <div className="text-slate-300 text-sm">{label}</div>
-                  {sub && <div className="text-green-400 text-xs mt-1">{sub}</div>}
+                  <div className="mb-1 text-4xl font-bold text-blue-400">{value}</div>
+                  <div className="text-sm text-slate-300">{label}</div>
+                  {sub && <div className="mt-1 text-xs text-emerald-400">{sub}</div>}
                 </div>
               ))}
             </div>
-            <div className="text-center mt-8">
-              <Link href="/market-report" className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-semibold transition-colors">
-                Full Market Report
+            <div className="mt-8 text-center">
+              <Link
+                href="/affordable-homes"
+                className="inline-block rounded-md bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+              >
+                Affordable Homes Guide
               </Link>
+            </div>
+            <div className="mx-auto max-w-4xl">
+              <SectionExtras
+                tone="dark"
+                headline="Want numbers for your ZIP and budget?"
+              />
             </div>
           </div>
         </section>
 
-        <RealScoutListings />
+        {/* Neighborhood value corridors */}
+        <section className="bg-slate-50 py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <div className="mb-5 flex justify-center">
+                <BrandPortrait size="md" />
+              </div>
+              <h2 className="mb-3 text-3xl font-bold text-slate-900 md:text-4xl">
+                Where Affordable Homes Still Show Up
+              </h2>
+              <p className="text-lg text-slate-600">
+                Explore value corridors with square footage, amenities, and commute context—not
+                vague lifestyle claims.
+              </p>
+            </div>
+            <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
+              {[
+                {
+                  href: "/neighborhoods/north-las-vegas",
+                  name: "North Las Vegas",
+                  note: "Often the strongest entry-price inventory",
+                },
+                {
+                  href: "/neighborhoods/centennial-hills",
+                  name: "Centennial Hills",
+                  note: "Mountain proximity with mid-range pricing",
+                },
+                {
+                  href: "/neighborhoods/mountains-edge",
+                  name: "Mountain's Edge",
+                  note: "Southwest master-planned value options",
+                },
+                {
+                  href: "/neighborhoods/henderson",
+                  name: "Henderson",
+                  note: "Master-planned communities across price bands",
+                },
+                {
+                  href: "/affordable-homes/under-400k",
+                  name: "Under $400K",
+                  note: "Payment-first shortlist for first-time buyers",
+                },
+                {
+                  href: "/buyers/first-time-buyers",
+                  name: "First-Time Buyers",
+                  note: "Programs, timelines, and offer strategy",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-xl border border-slate-200 bg-white p-5 transition-shadow hover:shadow-md"
+                >
+                  <div className="mb-2 flex items-center gap-2 text-[#1e4fd6]">
+                    <MapPin className="h-4 w-4" />
+                    <span className="font-semibold">{item.name}</span>
+                  </div>
+                  <p className="text-sm text-slate-600">{item.note}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mx-auto max-w-5xl">
+              <SectionExtras headline="Tour the corridor that matches your commute" />
+            </div>
+          </div>
+        </section>
+
         <WhyChooseUs />
         <ReviewsSection />
-        <FAQSection />
+        <FAQSection
+          faqs={homeFaqs}
+          title="Affordable Homes FAQ"
+          subtitle="Direct answers for buyers searching Las Vegas value inventory"
+        />
 
-        {/* Domain-Specific CTA */}
-        <section className="py-16 md:py-20 bg-blue-600 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {config.ctaHeadline}
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              {config.ctaSubheadline}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17022221964"
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call 702-222-1964
-              </a>
-              <Link
-                href="/contact"
-                className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-              >
-                Send a Message
-              </Link>
-            </div>
-            <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | REALTOR® | In Real Estate Since 1983
-            </p>
-          </div>
-        </section>
+        <CalendlyBookingSection />
+        <CTASection />
       </main>
       <Footer />
     </>

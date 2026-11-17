@@ -83,20 +83,40 @@ export const socialProfiles = {
 export function generateRealEstateAgentSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": `${BASE_URL}#organization`,
+    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "@id": `${BASE_URL}#business`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
+      "Search for Affordable Homes",
       "HeyBerkshire",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],
     url: BASE_URL,
-    logo: `${BASE_URL}/images/dr-jan-duffy.jpg`,
-    image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
-    description: siteConfig.description,
-    telephone: "+1-702-500-1942",
+    logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+    image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+    description:
+      "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy — luxury-level representation for value-focused buyers.",
+    telephone: "+1-702-222-1964",
     email: agentInfo.email,
+    employee: {
+      "@type": "Person",
+      "@id": `${BASE_URL}#person`,
+      name: "Dr. Jan Duffy",
+      jobTitle: "REALTOR®",
+      image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+      telephone: "+1-702-222-1964",
+      email: agentInfo.email,
+      url: `${BASE_URL}/about`,
+      worksFor: { "@id": `${BASE_URL}#business` },
+    },
+    founder: { "@id": `${BASE_URL}#person` },
+    brand: {
+      "@type": "Brand",
+      "@id": `${BASE_URL}#agent`,
+      name: "Search for Affordable Homes",
+      logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+    },
     priceRange: "$385K - $10M+",
     address: {
       "@type": "PostalAddress",
@@ -177,6 +197,7 @@ export function generateRealEstateAgentSchema() {
       worstRating: "1",
     },
     knowsAbout: [
+      "Affordable homes Las Vegas",
       "Las Vegas real estate",
       "Henderson homes",
       "Summerlin properties",
@@ -186,8 +207,9 @@ export function generateRealEstateAgentSchema() {
       "Relocation services",
       "55+ communities",
       "First-time homebuyers",
+      "Budget-friendly MLS search",
     ],
-    slogan: "Your Berkshire Hathaway HomeServices expert in Las Vegas",
+    slogan: "Search for affordable homes with luxury-level representation",
   };
 }
 
@@ -246,7 +268,7 @@ export function generateWebSiteSchema() {
     url: BASE_URL,
     description: siteConfig.description,
     publisher: {
-      "@id": `${BASE_URL}#organization`,
+      "@id": `${BASE_URL}#business`,
     },
     potentialAction: {
       "@type": "SearchAction",
@@ -516,7 +538,7 @@ export function generateServiceSchema(service: {
     description: service.description,
     url: service.url.startsWith("http") ? service.url : `${BASE_URL}${service.url}`,
     provider: {
-      "@id": `${BASE_URL}#organization`,
+      "@id": `${BASE_URL}#business`,
     },
     areaServed: service.areaServed || ["Las Vegas", "Henderson", "Summerlin", "North Las Vegas"],
     serviceType: "Real Estate Services",
@@ -544,7 +566,7 @@ export function generateWebPageSchema(page: {
       "@id": `${BASE_URL}#website`,
     },
     about: {
-      "@id": `${BASE_URL}#organization`,
+      "@id": `${BASE_URL}#business`,
     },
     ...(page.datePublished && { datePublished: page.datePublished }),
     ...(page.dateModified && { dateModified: page.dateModified }),

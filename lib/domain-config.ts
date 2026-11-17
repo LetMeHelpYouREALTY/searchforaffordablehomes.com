@@ -41,6 +41,32 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "openhouseupdate.com": { domain: "openhouseupdate.com", neighborhood: "Las Vegas", tagline: "Las Vegas Open House Schedule", description: "Las Vegas open houses this weekend. Find open homes near you with Dr. Jan Duffy.", heroHeadline: "Las Vegas Open Houses", heroSubheadline: "This weekend's open houses across the Las Vegas Valley — updated in real time.", keywords: ["Las Vegas open houses", "open house Las Vegas", "homes open this weekend Las Vegas"], pageType: "search", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Open House Expert", ctaHeadline: "Schedule a Private Showing", ctaSubheadline: "Can't make the open house? I'll get you a private tour on your schedule." },
   "openhouseupdates.com": { domain: "openhouseupdates.com", neighborhood: "Las Vegas", tagline: "Las Vegas Open House Updates", description: "Current Las Vegas open house listings and schedule. Find your next home this weekend.", heroHeadline: "Las Vegas Open House Updates", heroSubheadline: "Real-time open house schedule for Las Vegas, Henderson, and Summerlin.", keywords: ["Las Vegas open house updates", "Henderson open houses", "Summerlin open houses"], pageType: "search", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Weekend Open Houses", ctaHeadline: "Never Miss an Open House", ctaSubheadline: "I'll alert you to new open houses matching your criteria before they're announced." },
   "samaritanpharma.com": { domain: "samaritanpharma.com", neighborhood: "Las Vegas", tagline: "Las Vegas Real Estate", description: "Las Vegas real estate services from Dr. Jan Duffy, REALTOR®.", heroHeadline: "Las Vegas Homes for Sale", heroSubheadline: "Expert Las Vegas real estate guidance from Dr. Jan Duffy.", keywords: ["Las Vegas homes for sale", "Las Vegas real estate", "Dr Jan Duffy"], pageType: "search", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Las Vegas Expert", ctaHeadline: "Find Your Las Vegas Home", ctaSubheadline: "Experience since 1983 working for you." },
+  "searchforaffordablehomes.com": {
+    domain: "searchforaffordablehomes.com",
+    neighborhood: "Las Vegas",
+    tagline: "Search for Affordable Homes in Las Vegas",
+    description:
+      "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy helps value-focused buyers with MLS access, payment planning, and luxury-level negotiation. Call (702) 222-1964.",
+    heroHeadline: "Search for Affordable Homes in Las Vegas",
+    heroSubheadline:
+      "Luxury-level representation for buyers who want the right home at the right payment — updated MLS listings daily.",
+    keywords: [
+      "affordable homes",
+      "affordable homes Las Vegas",
+      "search for affordable homes",
+      "cheap homes Las Vegas",
+      "homes under 400k Las Vegas",
+      "first time buyer Las Vegas",
+      "Henderson affordable homes",
+      "Dr Jan Duffy realtor",
+    ],
+    pageType: "search",
+    realscoutAgentId: REALSCOUT_AGENT_ID,
+    ctaBadge: "Affordable Homes Specialist",
+    ctaHeadline: "Find Affordable Homes That Still Feel Like a Win",
+    ctaSubheadline:
+      "Tell me your payment comfort zone — I'll match live MLS inventory across Las Vegas and Henderson.",
+  },
   "searchforhomesinhenderson.com": { domain: "searchforhomesinhenderson.com", neighborhood: "Henderson", tagline: "Search Homes in Henderson NV", description: "Search Henderson NV homes for sale. Expert Henderson real estate guidance from Dr. Jan Duffy.", heroHeadline: "Search Homes in Henderson, NV", heroSubheadline: "Nevada's second-largest city, with award-winning master-planned communities.", keywords: ["Henderson NV homes for sale", "Henderson real estate", "search Henderson homes"], pageType: "search", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Henderson Specialist", ctaHeadline: "Find Your Henderson Home", ctaSubheadline: "Green Valley, MacDonald Highlands, Anthem — I know every Henderson neighborhood." },
   "searchforlasvegashomes.com": { domain: "searchforlasvegashomes.com", neighborhood: "Las Vegas", tagline: "Search Las Vegas Homes for Sale", description: "Search all Las Vegas homes for sale. MLS listings updated daily. Dr. Jan Duffy, REALTOR®.", heroHeadline: "Search Las Vegas Homes for Sale", heroSubheadline: "Every MLS listing in the Las Vegas Valley — updated daily.", keywords: ["search Las Vegas homes", "Las Vegas MLS", "homes for sale Las Vegas NV"], pageType: "search", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "MLS Search Expert", ctaHeadline: "Start Your Home Search", ctaSubheadline: "Tell me what you're looking for and I'll send you matches before they hit the market." },
   "skyecanyonhomeexpert.com": { domain: "skyecanyonhomeexpert.com", neighborhood: "Skye Canyon", tagline: "Skye Canyon Home Expert", description: "Skye Canyon homes for sale in Northwest Las Vegas. Dr. Jan Duffy, Skye Canyon specialist.", heroHeadline: "Skye Canyon Home Expert", heroSubheadline: "Northwest Las Vegas' most exciting master-planned community.", keywords: ["Skye Canyon homes", "Skye Canyon Las Vegas", "Northwest Las Vegas new construction"], pageType: "community", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Skye Canyon Expert", ctaHeadline: "Your Skye Canyon Expert", ctaSubheadline: "New construction lots, resales, builder incentives — I know Skye Canyon inside and out." },
@@ -54,19 +80,27 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "yourdivorcerealtor.com": { domain: "yourdivorcerealtor.com", neighborhood: "Las Vegas", tagline: "Divorce Real Estate Specialist Las Vegas", description: "Confidential Las Vegas divorce real estate specialist. Dr. Jan Duffy handles court-ordered sales with discretion.", heroHeadline: "Your Divorce Real Estate Specialist", heroSubheadline: "Confidential, compassionate real estate guidance during life's most challenging transitions.", keywords: ["divorce realtor Las Vegas", "divorce real estate Las Vegas", "court ordered sale Las Vegas"], pageType: "lifestyle", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Confidential Support", ctaHeadline: "Private Consultation Available", ctaSubheadline: "I handle divorce sales with complete discretion. Let's discuss your options privately." },
 };
 
-// Default config for any domain not specifically listed
+// Default config — tuned for Search for Affordable Homes positioning
 export const DEFAULT_CONFIG: DomainConfig = {
-  domain: "default",
+  domain: "searchforaffordablehomes.com",
   neighborhood: "Las Vegas",
-  tagline: "Las Vegas Homes for Sale",
-  description: "Search Las Vegas homes for sale. Expert real estate guidance from Dr. Jan Duffy, REALTOR®.",
-  heroHeadline: "Las Vegas Homes for Sale",
-  heroSubheadline: "Expert real estate guidance from Dr. Jan Duffy — in real estate since 1983, 500+ families helped.",
-  keywords: ["Las Vegas homes for sale", "Las Vegas real estate", "Dr Jan Duffy"],
+  tagline: "Search for Affordable Homes in Las Vegas",
+  description:
+    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, REALTOR®. Luxury-level advocacy for value-focused buyers. Call (702) 222-1964.",
+  heroHeadline: "Search for Affordable Homes in Las Vegas",
+  heroSubheadline:
+    "Expert guidance from Dr. Jan Duffy — in real estate since 1983, 500+ families helped find homes that fit their budget.",
+  keywords: [
+    "affordable homes",
+    "affordable homes Las Vegas",
+    "search for affordable homes",
+    "Las Vegas homes for sale",
+    "Dr Jan Duffy",
+  ],
   pageType: "search",
   realscoutAgentId: REALSCOUT_AGENT_ID,
-  ctaBadge: "Las Vegas Expert",
-  ctaHeadline: "Find Your Las Vegas Home",
+  ctaBadge: "Affordable Homes Specialist",
+  ctaHeadline: "Find Your Affordable Las Vegas Home",
   ctaSubheadline: "Call or text Dr. Jan at 702-222-1964 — I answer my own phone.",
 };
 

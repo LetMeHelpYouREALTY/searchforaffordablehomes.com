@@ -17,6 +17,9 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Relocating from California to Las Vegas",
@@ -126,7 +129,10 @@ export default function CaliforniaRelocatorPage() {
               <Sun className="h-4 w-4 mr-2" />
               37% of Las Vegas Buyers Are From California
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Relocating from California?<br />
               <span className="text-blue-600">Welcome Home to Las Vegas</span>
             </h1>
@@ -142,7 +148,10 @@ export default function CaliforniaRelocatorPage() {
             </a>
           </div>
 
-          {/* Tax Savings Comparison */}
+          
+          <RealScoutListings />
+
+{/* Tax Savings Comparison */}
           <section className="mb-16 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="flex items-center justify-center mb-6">
               <Calculator className="h-10 w-10 mr-3" />
@@ -486,7 +495,10 @@ export default function CaliforniaRelocatorPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

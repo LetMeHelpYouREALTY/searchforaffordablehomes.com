@@ -14,6 +14,9 @@ import {
   Users,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Divorce & Probate Home Sales Las Vegas",
@@ -50,7 +53,10 @@ export default function DivorceProbatePage() {
               <Shield className="h-4 w-4 mr-2" />
               Handled with Discretion & Professionalism
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+            <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Difficult Situations,<br />Expert Guidance
             </h1>
             <p className="text-xl text-slate-600 mb-8">
@@ -66,7 +72,10 @@ export default function DivorceProbatePage() {
             </a>
           </div>
 
-          {/* Situations We Help With */}
+          
+          <RealScoutListings />
+
+{/* Situations We Help With */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
               Situations We Help Navigate
@@ -524,7 +533,10 @@ export default function DivorceProbatePage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
-      <RealScoutListings />
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

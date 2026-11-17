@@ -18,6 +18,10 @@ import {
   Heart,
 } from "lucide-react";
 import type { Metadata } from "next";
+import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
+import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 import {
   businessInfo,
   gbpDescription,
@@ -72,7 +76,10 @@ export default function GoogleBusinessPage() {
                     <Award className="h-6 w-6 text-yellow-400" />
                     <span className="text-yellow-400 font-semibold">Top 1% Las Vegas REALTOR®</span>
                   </div>
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                  <div className="mb-6 flex justify-center">
+            <BrandPortrait size="lg" priority />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
                     Dr. Jan Duffy
                   </h1>
                   <p className="text-xl text-blue-200 mb-2">REALTOR® | In Real Estate Since 1983</p>
@@ -122,6 +129,9 @@ export default function GoogleBusinessPage() {
               </div>
             </div>
           </section>
+
+          <OfficeListingsUnderHero />
+
 
           {/* Business Hours */}
           <section className="max-w-5xl mx-auto mb-16">
@@ -309,6 +319,10 @@ export default function GoogleBusinessPage() {
         </div>
         <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
       </main>
+      <div className="container mx-auto px-4">
+          <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        </div>
+      <CalendlyBookingSection />
       <Footer />
     </>
   );

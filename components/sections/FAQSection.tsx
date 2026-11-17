@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export interface FAQ {
   question: string;
@@ -10,6 +12,11 @@ export interface FAQ {
 
 // Default FAQs for the section
 export const defaultFaqs: FAQ[] = [
+  {
+    question: "Where can I find affordable homes in Las Vegas?",
+    answer:
+      "Affordable homes in Las Vegas commonly appear in North Las Vegas, Centennial Hills, Mountain's Edge, parts of Henderson, and select Summerlin-adjacent corridors. Dr. Jan Duffy filters MLS inventory by payment comfort, not just sticker price.",
+  },
   {
     question: "What areas do you serve?",
     answer:
@@ -69,6 +76,9 @@ export default function FAQSection({
     <section className={`py-16 md:py-24 bg-white ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <div className="mb-5 flex justify-center">
+            <BrandPortrait size="md" />
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
@@ -99,6 +109,7 @@ export default function FAQSection({
               )}
             </div>
           ))}
+          <SectionExtras headline="Still have questions? Book a quick call" />
         </div>
       </div>
     </section>

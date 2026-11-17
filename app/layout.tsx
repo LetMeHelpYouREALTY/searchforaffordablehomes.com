@@ -5,26 +5,83 @@ import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import SchemaScript from "@/components/SchemaScript";
+import {
+  combineSchemas,
+  generateRealEstateAgentSchema,
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+} from "@/lib/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
   const config = getDomainConfig(domain);
+  const siteUrl =
+    config.domain !== "default"
+      ? `https://${config.domain}`
+      : "https://searchforaffordablehomes.com";
+
   return {
-    title: `${config.neighborhood} | Dr. Jan Duffy, REALTOR®`,
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: `${config.neighborhood} Affordable Homes | Dr. Jan Duffy, REALTOR®`,
+      template: "%s | Search for Affordable Homes",
+    },
     description: config.description,
     keywords: config.keywords,
+    authors: [{ name: "Dr. Jan Duffy" }],
     openGraph: {
       title: config.heroHeadline,
       description: config.description,
       type: "website",
+      locale: "en_US",
+      siteName: "Search for Affordable Homes",
+      images: [
+        {
+          url: "/images/agent/dr-jan-duffy-portrait.png",
+          width: 1270,
+          height: 1270,
+          alt: "Dr. Jan Duffy, Las Vegas REALTOR® for affordable homes",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary",
+      title: config.heroHeadline,
+      description: config.description,
+      images: ["/images/agent/dr-jan-duffy-portrait.png"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    alternates: {
+      canonical: siteUrl,
     },
   };
 }
+
+const globalSchemas = combineSchemas(
+  generateRealEstateAgentSchema(),
+  generateOrganizationSchema(),
+  generateWebSiteSchema()
+);
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
         {/* WidgetTracker */}
         <Script id="widget-tracker" strategy="afterInteractive">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
@@ -36,7 +93,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.widgetTracker("send","pageview");
         `}</Script>
       </head>
-                {/* Google Tag */}
+      <body>
+        <SchemaScript schema={globalSchemas} id="global-entity-schema" />
+        {children}
+        <Analytics />
+
+        {/* RealScout — load once globally (em.realscout.com + www.realscout.com in CSP) */}
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.js"
+          type="module"
+          strategy="afterInteractive"
+        />
+
+        {/* Calendly — load once globally for inline + popup widgets */}
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
+        />
+
         {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
           <>
             <Script
@@ -54,7 +128,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Script>
           </>
         )}
-{/* Facebook Pixel */}
         {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
           <Script id="facebook-pixel" strategy="afterInteractive">
             {`
@@ -71,9 +144,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `}
           </Script>
         )}
-      <body>
-        {children}
-        <Analytics />
       </body>
     </html>
   );
