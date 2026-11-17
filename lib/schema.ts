@@ -88,16 +88,15 @@ export function generateRealEstateAgentSchema() {
     "@id": `${BASE_URL}#business`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
-      "Search for Affordable Homes",
-      "HeyBerkshire",
+      siteConfig.name,
+      siteConfig.alternateName,
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],
     url: BASE_URL,
     logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
     image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy — luxury-level representation for value-focused buyers.",
+    description: siteConfig.description,
     telephone: "+1-702-500-1942",
     email: agentInfo.email,
     employee: {
@@ -110,13 +109,18 @@ export function generateRealEstateAgentSchema() {
       email: agentInfo.email,
       url: `${BASE_URL}/about`,
       worksFor: { "@id": `${BASE_URL}#business` },
+      brand: { "@id": `${BASE_URL}#agent` },
     },
     founder: { "@id": `${BASE_URL}#person` },
     brand: {
       "@type": "Brand",
       "@id": `${BASE_URL}#agent`,
-      name: "Search for Affordable Homes",
+      name: siteConfig.name,
+      alternateName: siteConfig.alternateName,
+      slogan: siteConfig.tagline,
+      description: siteConfig.description,
       logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+      url: BASE_URL,
     },
     priceRange: "$385K - $10M+",
     address: {
@@ -220,7 +224,24 @@ export function generateRealEstateAgentSchema() {
       "First-time homebuyers",
       "Budget-friendly MLS search",
     ],
-    slogan: "Search for affordable homes with luxury-level representation",
+    slogan: siteConfig.brandLine,
+  };
+}
+
+/**
+ * Standalone Brand entity for GEO (Affordable Homes lockup)
+ */
+export function generateBrandSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Brand",
+    "@id": `${BASE_URL}#agent`,
+    name: siteConfig.name,
+    alternateName: [siteConfig.alternateName, siteConfig.brandLine],
+    slogan: siteConfig.tagline,
+    description: siteConfig.description,
+    url: BASE_URL,
+    logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
   };
 }
 

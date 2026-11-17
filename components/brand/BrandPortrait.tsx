@@ -24,7 +24,7 @@ export default function BrandPortrait({
   size = "md",
   className = "",
   priority = false,
-  alt = "Dr. Jan Duffy, Las Vegas REALTOR® helping buyers find affordable homes",
+  alt = "Affordable Homes by Dr. Jan Duffy, REALTOR® — Las Vegas",
 }: BrandPortraitProps) {
   const { px, className: sizeClass } = SIZE_MAP[size];
 

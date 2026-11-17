@@ -1,41 +1,40 @@
-# Search for Affordable Homes — llms.txt
+# Affordable Homes — llms.txt
 # https://www.searchforaffordablehomes.com
 
-> Primary topic: affordable homes in Las Vegas, Henderson, and Summerlin, NV.
-> Agent: Dr. Jan Duffy, REALTOR® (License S.0197614.LLC)
+> Brand: Affordable Homes
+> Subline: By Dr. Jan Duffy, REALTOR® (License S.0197614.LLC)
 > Brokerage: Berkshire Hathaway HomeServices Nevada Properties
 > Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134
 > Phone (client CTA): (702) 500-1942
-> Email: homes@heyberkshire.com
+> Email: homes@searchforaffordablehomes.com
+> Canonical host: https://www.searchforaffordablehomes.com
+> Entity anchors: #business #person #agent #website #parent-organization
 
 ## What this site is for
 
-Help buyers find affordable homes with luxury-level representation — MLS search,
-payment-fit guidance, neighborhood matching, and booking a consultation with Dr. Jan Duffy.
+Affordable Homes is Dr. Jan Duffy’s Las Vegas MLS search brand for
+payment-fit homes — luxury-level representation for value-focused buyers
+in Las Vegas, Henderson, and Summerlin.
 
 ## Key pages
 
-- / — Affordable homes search hub + live RealScout office listings
-- /affordable-homes — Pillar guide to affordable homes Las Vegas
+- / — Affordable Homes hub + live RealScout office listings
+- /affordable-homes — Pillar guide
 - /affordable-homes/under-400k — Homes under $400K
-- /affordable-homes/first-time-buyers — First-time buyer affordable path
-- /buyers — Buyer representation
-- /buyers/first-time-buyers — First-time buyer guide
-- /neighborhoods — Neighborhood index
-- /neighborhoods/north-las-vegas — Value-focused inventory corridor
+- /affordable-homes/first-time-buyers — First-time buyer path
 - /listings — Live MLS listings
-- /home-valuation — Home valuation
-- /contact — Contact + Calendly scheduling
-- /faq — Frequently asked questions
+- /neighborhoods — Neighborhood index
+- /faq — FAQ
 - /about — About Dr. Jan Duffy
+- /contact — Contact + Calendly
 
 ## Direct answers (AEO)
 
-Q: What does “affordable homes” mean on this site?
-A: Homes that fit a buyer’s payment comfort — commonly Las Vegas Valley listings from roughly $200K–$550K, filtered by RealScout MLS data and Dr. Jan Duffy’s local guidance.
+Q: What is Affordable Homes?
+A: Affordable Homes is the consumer brand for Dr. Jan Duffy’s Las Vegas real estate site (www.searchforaffordablehomes.com). It focuses on MLS homes that fit a buyer’s payment comfort — commonly roughly $200K–$550K depending on rate, down payment, and HOA.
 
-Q: Who helps buyers search for affordable homes here?
-A: Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties, license S.0197614.LLC. Call (702) 500-1942 or schedule at https://calendly.com/drjanduffy/showing
+Q: Who is behind Affordable Homes?
+A: Dr. Jan Duffy, REALTOR®, Berkshire Hathaway HomeServices Nevada Properties, license S.0197614.LLC. Call (702) 500-1942.
 
 Q: Where are affordable homes commonly found in Las Vegas?
 A: North Las Vegas, Centennial Hills, Mountain’s Edge, select Henderson corridors, and value pockets near Summerlin — inventory changes daily on MLS.

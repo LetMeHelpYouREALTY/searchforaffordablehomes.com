@@ -80,8 +80,11 @@ export default function AffordableHomesPage() {
             <div className="mb-6 flex justify-center">
               <BrandPortrait size="lg" priority />
             </div>
-            <p className="mb-4 inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-800">
-              Search for Affordable Homes
+            <p className="mb-2 inline-block rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-800">
+              Affordable Homes
+            </p>
+            <p className="mb-4 text-sm font-medium text-slate-600">
+              By Dr. Jan Duffy, REALTOR®
             </p>
             <h1 className="mb-6 text-4xl font-bold text-slate-900 md:text-5xl">
               Affordable Homes in Las Vegas Without Cutting Corners

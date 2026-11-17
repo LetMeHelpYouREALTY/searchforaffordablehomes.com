@@ -55,9 +55,9 @@ const homeReviewSchema = generateReviewSchema([
 ]);
 
 export const metadata: Metadata = {
-  title: "Affordable Homes Las Vegas | Search MLS Listings",
+  title: "Affordable Homes Las Vegas | By Dr. Jan Duffy, REALTOR®",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
+    "Affordable Homes by Dr. Jan Duffy, REALTOR® — Las Vegas, Henderson, and Summerlin MLS search. Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
   keywords: [
     "affordable homes",
     "affordable homes Las Vegas",
@@ -126,7 +126,10 @@ export default async function Home() {
               className="mb-6 ring-offset-slate-950"
             />
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-              Search for Affordable Homes
+              Affordable Homes
+            </p>
+            <p className="mb-3 text-sm font-medium tracking-wide text-white/80">
+              By Dr. Jan Duffy, REALTOR®
             </p>
             <h1 className="mb-5 max-w-4xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               {config.heroHeadline}

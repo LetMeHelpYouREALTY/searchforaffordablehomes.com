@@ -1,19 +1,23 @@
-// Site Configuration - HeyBerkshire.com
-// Berkshire Hathaway HomeServices Nevada Properties
+// Site Configuration - www.searchforaffordablehomes.com
+// Brand lockup: Affordable Homes / By Dr. Jan Duffy, REALTOR®
+// Brokerage: Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
-  name: "Search for Affordable Homes",
+  /** Primary brand wordmark (logo line 1) */
+  name: "Affordable Homes",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Affordable Homes · Luxury-Level Representation",
+  /** Logo subline (logo line 2) */
+  tagline: "By Dr. Jan Duffy, REALTOR®",
   /** Full brand line for titles and OG */
-  brandLine:
-    "Search for Affordable Homes | Berkshire Hathaway HomeServices Nevada Properties",
+  brandLine: "Affordable Homes | By Dr. Jan Duffy, REALTOR®",
+  /** Domain / search alternate for entity graph */
+  alternateName: "Search for Affordable Homes",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   /** Prefer www — Vercel redirects apex → www; keep canonicals aligned. */
   url: "https://www.searchforaffordablehomes.com",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy. Luxury-level representation for value-focused buyers.",
+    "Affordable Homes by Dr. Jan Duffy, REALTOR® — MLS search for Las Vegas, Henderson, and Summerlin with luxury-level representation for value-focused buyers.",
 };
 
 export const agentInfo = {
@@ -23,7 +27,7 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
-  email: "homes@heyberkshire.com",
+  email: "homes@searchforaffordablehomes.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 

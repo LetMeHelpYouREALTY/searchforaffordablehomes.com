@@ -11,7 +11,9 @@ import {
   generateRealEstateAgentSchema,
   generateOrganizationSchema,
   generateWebSiteSchema,
+  generateBrandSchema,
 } from "@/lib/schema";
+import { siteConfig } from "@/lib/site-config";
 
 export async function generateMetadata(): Promise<Metadata> {
   const headerList = headers();
@@ -32,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL(siteUrl),
     title: {
       default: `${config.neighborhood} Affordable Homes | Dr. Jan Duffy, REALTOR®`,
-      template: "%s | Search for Affordable Homes",
+      template: `%s | ${siteConfig.name}`,
     },
     description: config.description,
     keywords: config.keywords,
@@ -42,19 +44,19 @@ export async function generateMetadata(): Promise<Metadata> {
       description: config.description,
       type: "website",
       locale: "en_US",
-      siteName: "Search for Affordable Homes",
+      siteName: siteConfig.name,
       url: canonicalUrl,
       images: [
         {
           url: "/images/agent/dr-jan-duffy-portrait.png",
           width: 1270,
           height: 1270,
-          alt: "Dr. Jan Duffy, Las Vegas REALTOR® for affordable homes",
+          alt: `${siteConfig.name} — ${siteConfig.tagline}`,
         },
       ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: config.heroHeadline,
       description: config.description,
       images: ["/images/agent/dr-jan-duffy-portrait.png"],
@@ -83,6 +85,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const globalSchemas = combineSchemas(
   generateRealEstateAgentSchema(),
+  generateBrandSchema(),
   generateOrganizationSchema(),
   generateWebSiteSchema(),
 );
