@@ -57,14 +57,14 @@ NEXT_PUBLIC_SENTRY_ENVIRONMENT=development
 
 Add these to **Vercel Dashboard → Your Project → Settings → Environment Variables**:
 
-| Variable                         | Value              | Environment                      |
-| -------------------------------- | ------------------ | -------------------------------- |
-| `NEXT_PUBLIC_SENTRY_DSN`         | Your DSN           | Production, Preview, Development |
-| `SENTRY_AUTH_TOKEN`              | Your auth token    | Production, Preview (⚠️ SECRET)  |
-| `SENTRY_ORG`                     | Your org slug      | Production, Preview              |
+| Variable                         | Value                      | Environment                      |
+| -------------------------------- | -------------------------- | -------------------------------- |
+| `NEXT_PUBLIC_SENTRY_DSN`         | Your DSN                   | Production, Preview, Development |
+| `SENTRY_AUTH_TOKEN`              | Your auth token            | Production, Preview (⚠️ SECRET)  |
+| `SENTRY_ORG`                     | Your org slug              | Production, Preview              |
 | `SENTRY_PROJECT`                 | `searchforaffordablehomes` | Production, Preview              |
-| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `production`       | Production only                  |
-| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `preview`          | Preview only                     |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `production`               | Production only                  |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `preview`                  | Preview only                     |
 
 ### 5. Test Error Tracking
 
@@ -248,13 +248,11 @@ try {
 ### Recommended Alert Rules
 
 1. **Critical Errors**
-
    - Condition: `level:fatal OR level:error`
    - Action: Email + Slack
    - Frequency: Immediately
 
 2. **High Error Rate**
-
    - Condition: `>100 events in 1 hour`
    - Action: Email
    - Frequency: Once per hour
