@@ -358,7 +358,7 @@ export default function MarketReportPage() {
 
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
+          Last Updated: November 2026
         </div>
       </main>
       <div className="container mx-auto px-4">

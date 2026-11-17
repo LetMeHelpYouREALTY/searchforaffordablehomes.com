@@ -40,23 +40,16 @@ export const metadata: Metadata = {
 };
 
 const pageSchemas = combineSchemas(
-  generateWebPageSchema({
-    name: "Contact Dr. Jan Duffy",
-    description:
-      "Call, email, or book Calendly with Dr. Jan Duffy for affordable homes in Las Vegas.",
-    url: "/contact",
-    dateModified: "2026-11-17",
-    pageType: "ContactPage",
-    speakableCssSelectors: ["h1"],
-  }),
-  generateBreadcrumbSchema([
-    { name: "Home", url: "/" },
-    { name: "Contact", url: "/contact" },
-  ]),
   {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "@id": "https://www.searchforaffordablehomes.com/contact#contact",
+    ...generateWebPageSchema({
+      name: "Contact Dr. Jan Duffy",
+      description:
+        "Call, email, or book Calendly with Dr. Jan Duffy for affordable homes in Las Vegas.",
+      url: "/contact",
+      dateModified: "2026-11-17",
+      pageType: "ContactPage",
+      speakableCssSelectors: ["h1"],
+    }),
     mainEntity: {
       "@id": "https://www.searchforaffordablehomes.com#business",
       telephone: "+1-702-500-1942",
@@ -71,6 +64,10 @@ const pageSchemas = combineSchemas(
       },
     },
   },
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ]),
 );
 
 export default function ContactPage() {
@@ -378,7 +375,7 @@ export default function ContactPage() {
 
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
+          Last Updated: November 2026
         </div>
       </main>
       <div className="container mx-auto px-4">

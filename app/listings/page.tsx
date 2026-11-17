@@ -67,22 +67,6 @@ const listingsSchema = combineSchemas(
       { name: "New Construction", url: "/new-construction" },
     ],
   }),
-  {
-    "@context": "https://schema.org",
-    "@type": "RealEstateListing",
-    name: "Las Vegas MLS Property Listings",
-    description:
-      "Live MLS property listings for Las Vegas, Henderson, and Summerlin homes for sale",
-    url: "https://www.searchforaffordablehomes.com/listings",
-    provider: {
-      "@id": "https://www.searchforaffordablehomes.com#business",
-    },
-    areaServed: [
-      { "@type": "City", name: "Las Vegas, NV" },
-      { "@type": "City", name: "Henderson, NV" },
-      { "@type": "Place", name: "Summerlin, NV" },
-    ],
-  },
 );
 
 const popularSearches = [
