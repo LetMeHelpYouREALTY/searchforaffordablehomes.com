@@ -8,6 +8,7 @@
  */
 
 import { combineSchemas, schemaToJsonLd } from "@/lib/schema";
+import { siteConfig } from "@/lib/site-config";
 
 interface SchemaScriptProps {
   /** Single schema object */
@@ -68,7 +69,7 @@ export function BreadcrumbSchema({
       name: item.name,
       item: item.url.startsWith("http")
         ? item.url
-        : `https://heyberkshire.com${item.url}`,
+        : `${siteConfig.url}${item.url.startsWith("/") ? "" : "/"}${item.url}`,
     })),
   };
 
@@ -119,16 +120,16 @@ export function ReviewSchema({
     reviewCount: number;
   };
 }) {
-  const businessId = "https://www.searchforaffordablehomes.com#business";
+  const businessId = `${siteConfig.url}#business`;
   const reviewNodes =
     reviews?.map((review, index) => ({
       "@type": "Review",
-      "@id": `https://www.searchforaffordablehomes.com#review-${index + 1}`,
+      "@id": `${siteConfig.url}#review-${index + 1}`,
       itemReviewed: {
         "@type": "RealEstateAgent",
         "@id": businessId,
         name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-        url: "https://www.searchforaffordablehomes.com",
+        url: siteConfig.url,
       },
       author: {
         "@type": "Person",
@@ -148,7 +149,7 @@ export function ReviewSchema({
     "@type": ["RealEstateAgent", "LocalBusiness"],
     "@id": businessId,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.searchforaffordablehomes.com",
+    url: siteConfig.url,
   };
 
   if (aggregateRating) {
@@ -194,7 +195,7 @@ export function NeighborhoodSchema({
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Place",
-    "@id": `https://heyberkshire.com/neighborhoods/${slug}#place`,
+    "@id": `${siteConfig.url}/neighborhoods/${slug}#place`,
     name: `${name}, Las Vegas`,
     description,
     address: {
