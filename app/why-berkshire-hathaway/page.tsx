@@ -33,7 +33,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Berkshire Hathaway HomeServices",
   url: "https://www.bhhs.com",
-  logo: "https://heyberkshire.com/favicon-32x32.png",
+  logo: "https://www.searchforaffordablehomes.com/favicon-32x32.png",
   description:
     "Berkshire Hathaway HomeServices is a real estate brokerage network, part of Berkshire Hathaway Inc., one of the world's most respected and trusted companies.",
   parentOrganization: {

@@ -8,6 +8,7 @@ import SectionExtras from "@/components/brand/SectionExtras";
 import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
 import {
   combineSchemas,
   generateBreadcrumbSchema,
@@ -160,6 +161,7 @@ export default function AffordableFirstTimeBuyersPage() {
           </section>
         </div>
 
+        <InternalLinkHub title="Next steps for first-time buyers" />
         <CalendlyBookingSection title="Schedule Your First-Time Buyer Consult" />
       </main>
       <Footer />

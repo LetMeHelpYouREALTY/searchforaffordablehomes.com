@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Dr. Jan Duffy - Las Vegas REALTOR®",
     description:
       "Trusted Las Vegas REALTOR® in real estate since 1983. Summerlin, Henderson, luxury homes, 55+ communities.",
-    url: "https://heyberkshire.com/google-business",
+    url: "https://www.searchforaffordablehomes.com/google-business",
     type: "profile",
   },
 };

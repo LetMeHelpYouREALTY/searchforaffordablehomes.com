@@ -8,6 +8,7 @@ import SectionExtras from "@/components/brand/SectionExtras";
 import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
 import {
   combineSchemas,
   generateBreadcrumbSchema,
@@ -155,6 +156,7 @@ export default function Under400kPage() {
           </section>
         </div>
 
+        <InternalLinkHub title="More affordable homes paths" />
         <CalendlyBookingSection title="Book an Under-$400K Strategy Call" />
       </main>
       <Footer />

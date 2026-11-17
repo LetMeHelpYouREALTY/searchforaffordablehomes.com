@@ -33,7 +33,7 @@ Whether you're buying your first home in Henderson, selling in Summerlin, or loo
 Call Dr. Jan Duffy at (702) 500-1942 for a free market analysis of your home or neighborhood.`,
     cta: {
       text: "Get Free Market Analysis",
-      url: "https://heyberkshire.com/home-valuation",
+      url: "https://www.searchforaffordablehomes.com/home-valuation",
     },
     publishDate: "2026-01-20",
     keywords: [
@@ -60,7 +60,7 @@ A $1.2M California home could buy you a luxury property in Summerlin or The Ridg
 Call (702) 500-1942 for a free California equity comparison.`,
     cta: {
       text: "California Relocation Guide",
-      url: "https://heyberkshire.com/buyers/california-relocator",
+      url: "https://www.searchforaffordablehomes.com/buyers/california-relocator",
     },
     publishDate: "2026-01-13",
     keywords: [
@@ -87,7 +87,7 @@ Each offers different amenities, price points, and lifestyles. Dr. Jan Duffy spe
 Schedule a community tour: (702) 500-1942`,
     cta: {
       text: "Explore 55+ Communities",
-      url: "https://heyberkshire.com/55-plus-communities",
+      url: "https://www.searchforaffordablehomes.com/55-plus-communities",
     },
     publishDate: "2026-01-06",
     keywords: [
@@ -119,7 +119,7 @@ Popular first-time buyer neighborhoods:
 Call (702) 500-1942 to start your homeownership journey.`,
     cta: {
       text: "First-Time Buyer Guide",
-      url: "https://heyberkshire.com/buyers/first-time-buyers",
+      url: "https://www.searchforaffordablehomes.com/buyers/first-time-buyers",
     },
     publishDate: "2025-12-30",
     keywords: [
@@ -150,7 +150,7 @@ Current seller stats:
 Get a free home valuation from Dr. Jan Duffy: (702) 500-1942`,
     cta: {
       text: "Get Free Home Valuation",
-      url: "https://heyberkshire.com/home-valuation",
+      url: "https://www.searchforaffordablehomes.com/home-valuation",
     },
     publishDate: "2025-12-23",
     keywords: [
@@ -181,7 +181,7 @@ Why luxury buyers choose Las Vegas:
 Confidential luxury home search: (702) 500-1942`,
     cta: {
       text: "Luxury Home Search",
-      url: "https://heyberkshire.com/buyers/luxury-homes-las-vegas",
+      url: "https://www.searchforaffordablehomes.com/buyers/luxury-homes-las-vegas",
     },
     publishDate: "2025-12-16",
     keywords: [

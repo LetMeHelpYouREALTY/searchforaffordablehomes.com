@@ -9,6 +9,8 @@ import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AuthorityLinks from "@/components/seo/AuthorityLinks";
 import Link from "next/link";
 import {
   Phone,
@@ -24,8 +26,33 @@ import {
   generateFAQSchema,
   generateWebPageSchema,
   generateBreadcrumbSchema,
+  generateReviewSchema,
 } from "@/lib/schema";
 import type { Metadata } from "next";
+
+const homeReviewSchema = generateReviewSchema([
+  {
+    author: "Tom Sanders",
+    rating: 5,
+    reviewBody:
+      "Dr. Duffy made our home buying experience seamless. Her knowledge of the Las Vegas market is unmatched, and she guided us through every step with professionalism and care.",
+    datePublished: "2025-11-15",
+  },
+  {
+    author: "Vitor Palmer",
+    rating: 5,
+    reviewBody:
+      "We couldn't be happier with our new home! The entire process was smooth, and Dr. Duffy's attention to detail and negotiation skills saved us thousands. Highly recommend!",
+    datePublished: "2025-10-22",
+  },
+  {
+    author: "Emily Rodriguez",
+    rating: 5,
+    reviewBody:
+      "As first-time homebuyers, we were nervous about the process. Dr. Duffy patiently explained everything and helped us find the perfect home in our budget. Thank you!",
+    datePublished: "2025-09-08",
+  },
+]);
 
 export const metadata: Metadata = {
   title: "Affordable Homes Las Vegas | Search MLS Listings",
@@ -76,6 +103,7 @@ export default async function Home() {
       { name: "Affordable Homes", url: "/affordable-homes" },
     ]),
     generateFAQSchema(homeFaqs),
+    homeReviewSchema,
   );
 
   return (
@@ -309,6 +337,8 @@ export default async function Home() {
 
         <WhyChooseUs />
         <ReviewsSection />
+        <InternalLinkHub />
+        <AuthorityLinks />
         <FAQSection
           faqs={homeFaqs}
           title="Affordable Homes FAQ"

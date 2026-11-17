@@ -43,7 +43,7 @@ const personSchema = {
     "Licensed real estate agent serving Las Vegas, Henderson, and Summerlin, in real estate since 1983.",
   telephone: "+17025001942",
   email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com/about",
+  url: "https://www.searchforaffordablehomes.com/about",
   worksFor: {
     "@type": "RealEstateAgent",
     name: "Berkshire Hathaway HomeServices Nevada Properties",
