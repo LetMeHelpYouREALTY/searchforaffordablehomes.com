@@ -8,6 +8,8 @@ import SectionExtras from "@/components/brand/SectionExtras";
 import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AuthorityLinks from "@/components/seo/AuthorityLinks";
 import {
   combineSchemas,
   generateBreadcrumbSchema,
@@ -233,6 +235,11 @@ export default function AffordableHomesPage() {
           </section>
         </div>
 
+        <InternalLinkHub
+          title="Related affordable homes guides"
+          subtitle="Keep exploring payment-fit neighborhoods, programs, and live MLS inventory."
+        />
+        <AuthorityLinks />
         <CalendlyBookingSection />
       </main>
       <Footer />

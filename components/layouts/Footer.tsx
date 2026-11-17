@@ -77,13 +77,37 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/affordable-homes/under-400k"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Homes Under $400K
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/affordable-homes/first-time-buyers"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  First-Time Buyers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/listings"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Live MLS Listings
+                </Link>
+              </li>
+              <li>
                 <a
                   href="http://drjanduffy.realscout.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  All Properties
+                  RealScout Search
                 </a>
               </li>
               <li>
@@ -92,6 +116,14 @@ export default function Footer() {
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
                   Neighborhoods
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/neighborhoods/north-las-vegas"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  North Las Vegas
                 </Link>
               </li>
               <li>
@@ -226,6 +258,75 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Authority / external citations */}
+        <div className="mt-10 border-t border-slate-800 pt-8">
+          <p className="mb-3 text-center text-xs font-medium uppercase tracking-wide text-slate-500">
+            Trusted resources
+          </p>
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-slate-400">
+            <li>
+              <a
+                href="https://www.bhhsnv.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                BHHS Nevada Properties
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://red.nv.gov/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                Nevada Real Estate Division
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nar.realtor/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                NAR
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.hud.gov/buying"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                HUD Buying a Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.consumerfinance.gov/owning-a-home/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                CFPB Owning a Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.glvar.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                GLVAR
+              </a>
+            </li>
+          </ul>
+        </div>
+
         {/* Copyright */}
         <div className="border-t border-slate-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -240,11 +341,17 @@ export default function Footer() {
                 FAQ
               </Link>
               <Link
-                href="/sitemap.xml"
+                href="/google-business"
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                Google Business
+              </Link>
+              <a
+                href="https://www.searchforaffordablehomes.com/sitemap.xml"
                 className="text-slate-400 hover:text-white transition-colors"
               >
                 Sitemap
-              </Link>
+              </a>
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-4 text-center">

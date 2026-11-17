@@ -119,11 +119,19 @@ export function ReviewSchema({
     reviewCount: number;
   };
 }) {
+  const itemReviewed = {
+    "@type": "RealEstateAgent",
+    "@id": "https://www.searchforaffordablehomes.com#business",
+    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    url: "https://www.searchforaffordablehomes.com",
+  };
+
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": "https://heyberkshire.com#organization",
+    "@id": "https://www.searchforaffordablehomes.com#business",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    url: "https://www.searchforaffordablehomes.com",
   };
 
   if (aggregateRating) {
@@ -139,6 +147,7 @@ export function ReviewSchema({
   if (reviews && reviews.length > 0) {
     schema.review = reviews.map((review) => ({
       "@type": "Review",
+      itemReviewed,
       author: {
         "@type": "Person",
         name: review.author,

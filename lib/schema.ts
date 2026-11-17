@@ -7,6 +7,7 @@
  */
 
 import { siteConfig, agentInfo, officeInfo, agentStats } from "./site-config";
+import { sameAsProfiles } from "./seo-links";
 
 // ============================================================================
 // Types
@@ -184,12 +185,14 @@ export function generateRealEstateAgentSchema() {
       },
       identifier: agentInfo.license,
     },
-    sameAs: Object.values(socialProfiles),
+    sameAs: Array.from(
+      new Set([...sameAsProfiles, ...Object.values(socialProfiles)]),
+    ),
     parentOrganization: {
       "@type": "Organization",
       "@id": `${BASE_URL}#parent-organization`,
       name: "Berkshire Hathaway HomeServices Nevada Properties",
-      url: "https://www.bfrre.com",
+      url: "https://www.bhhsnv.com/",
       parentOrganization: {
         "@type": "Organization",
         name: "Berkshire Hathaway HomeServices",
@@ -333,17 +336,26 @@ export function generateAggregateRatingSchema(
  * Generate Review schema for individual testimonials
  */
 export function generateReviewSchema(reviews: ReviewItem[]) {
+  const itemReviewed = {
+    "@type": "RealEstateAgent",
+    "@id": `${BASE_URL}#business`,
+    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    url: BASE_URL,
+  };
+
   return {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "@id": `${BASE_URL}#organization`,
+    "@id": `${BASE_URL}#business`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    url: BASE_URL,
     aggregateRating: generateAggregateRatingSchema(
       agentStats.averageRating,
       agentStats.reviewCount,
     ),
     review: reviews.map((review) => ({
       "@type": "Review",
+      itemReviewed,
       author: {
         "@type": "Person",
         name: review.author,

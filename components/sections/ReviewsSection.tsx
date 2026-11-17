@@ -116,6 +116,21 @@ export default function ReviewsSection({
               itemScope
               itemType="https://schema.org/Review"
             >
+              <div
+                itemProp="itemReviewed"
+                itemScope
+                itemType="https://schema.org/RealEstateAgent"
+                className="sr-only"
+              >
+                <meta
+                  itemProp="name"
+                  content="Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties"
+                />
+                <link
+                  itemProp="url"
+                  href="https://www.searchforaffordablehomes.com"
+                />
+              </div>
               <div className="flex items-center mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
                   {review.image ? (
@@ -133,8 +148,12 @@ export default function ReviewsSection({
                     </div>
                   )}
                 </div>
-                <div>
-                  <h3 className="font-bold text-slate-900" itemProp="author">
+                <div
+                  itemProp="author"
+                  itemScope
+                  itemType="https://schema.org/Person"
+                >
+                  <h3 className="font-bold text-slate-900" itemProp="name">
                     {review.name}
                   </h3>
                   <p className="text-sm text-slate-600">{review.location}</p>
