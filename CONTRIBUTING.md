@@ -1,4 +1,4 @@
-# Contributing to HeyBerkshire.com
+# Contributing to SearchForAffordableHomes.com
 
 ## Development Setup
 
@@ -11,8 +11,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/DrJanDuffy/heyberkshire.com.git
-cd heyberkshire.com
+git clone https://github.com/DrJanDuffy/searchforaffordablehomes.com.git
+cd searchforaffordablehomes.com
 
 # Install dependencies
 pnpm install
@@ -24,7 +24,7 @@ pnpm dev
 ## Project Structure
 
 ```
-heyberkshire.com/
+searchforaffordablehomes.com/
 ├── app/                    # Next.js App Router pages
 ├── components/             # React components
 │   ├── calendly/          # Calendly widget integration

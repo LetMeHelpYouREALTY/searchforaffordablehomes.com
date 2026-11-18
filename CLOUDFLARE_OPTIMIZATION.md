@@ -1,6 +1,6 @@
 # Cloudflare Optimization Guide
 
-**Complete guide to deploying and optimizing heyberkshire.com on Cloudflare Pages and Workers**
+**Complete guide to deploying and optimizing searchforaffordablehomes.com on Cloudflare Pages and Workers**
 
 ---
 
@@ -55,7 +55,7 @@ This guide covers the complete Cloudflare optimization setup including:
 1. **Cloudflare Account**
 
    - Sign up at https://dash.cloudflare.com/sign-up
-   - Add your domain (heyberkshire.com)
+   - Add your domain (searchforaffordablehomes.com)
    - Update nameservers to Cloudflare
 
 2. **Cloudflare API Token**
@@ -110,7 +110,7 @@ npm run dev
 #### Option A: GitHub Actions (Recommended)
 
 1. Push to `main` branch - automatically deploys to production
-2. Create PR - deploys preview to `<branch-name>.heyberkshire-com.pages.dev`
+2. Create PR - deploys preview to `<branch-name>.searchforaffordablehomes.pages.dev`
 
 #### Option B: Manual Deployment
 
@@ -313,7 +313,7 @@ wrangler deploy
 **Edit `wrangler.toml` for:**
 
 - Account ID
-- Zone name (heyberkshire.com)
+- Zone name (searchforaffordablehomes.com)
 - Routes (URL patterns)
 - Environment-specific settings
 - KV namespaces (optional)
@@ -323,7 +323,7 @@ wrangler deploy
 
 **In Cloudflare Dashboard:**
 
-1. Go to Pages → heyberkshire-com
+1. Go to Pages → searchforaffordablehomes
 2. Settings → Builds & deployments
 3. Configure:
    - **Build command:** `npm run build:cloudflare`

@@ -169,7 +169,7 @@ After deployment, verify:
   - [ ] Static assets cached for 1 year
   - [ ] Security headers present (check with securityheaders.com)
   - [ ] Images optimized automatically
-  - [ ] www redirect works (heyberkshire.com → www.heyberkshire.com)
+  - [ ] www redirect works (searchforaffordablehomes.com → www.searchforaffordablehomes.com)
 
 ---
 

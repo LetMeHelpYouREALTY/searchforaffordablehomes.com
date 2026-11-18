@@ -1,6 +1,6 @@
 # Follow Up Boss CRM Optimization Guide
 
-**Complete guide to integrating and optimizing Follow Up Boss for heyberkshire.com**
+**Complete guide to integrating and optimizing Follow Up Boss for searchforaffordablehomes.com**
 
 **Last Updated:** February 13, 2026
 

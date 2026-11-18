@@ -1,6 +1,6 @@
 # Anthropic Claude API Optimization Guide
 
-**Complete guide to integrating and optimizing Claude AI for heyberkshire.com**
+**Complete guide to integrating and optimizing Claude AI for searchforaffordablehomes.com**
 
 **Last Updated:** February 13, 2026
 

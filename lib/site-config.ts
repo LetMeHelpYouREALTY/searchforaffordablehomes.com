@@ -1,4 +1,4 @@
-// Site Configuration - HeyBerkshire.com
+// Site Configuration - www.searchforaffordablehomes.com
 // Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
@@ -23,7 +23,7 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
-  email: "homes@heyberkshire.com",
+  email: "homes@searchforaffordablehomes.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 

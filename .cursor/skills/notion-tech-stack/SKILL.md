@@ -148,7 +148,7 @@ Paste or adapt the bullets into the task body or a “Criteria” property so im
 
 When creating database rows or suggesting schema:
 
-- **Project / Area**: single-select or multi-select — e.g. `heyberkshire`, `searchforhomesinhenderson`, `RealScout`, `FUB`.
+- **Project / Area**: single-select or multi-select — e.g. `searchforaffordablehomes`, `searchforhomesinhenderson`, `RealScout`, `FUB`.
 - **Service (We Do)**: single-select or multi-select — `SEO`, `SEM/PPC`, `Link Building`, `AI Search Engine Optimization`, `Web Design & Creative`, `A/B Testing`, `HubSpot Implementation`, `Content`.
 - **Category** (or **Categories**): single-select or multi-select — `SEO Strategy`, `SEO`, `Paid Media`, `PPC`, `Local Search`, `Link Building`, `Generative AI`, `Digital Strategy`, `Digital Marketing`, `Content Strategy`, `Content Creation`, `Content`.
 - **Optimization (GEO/AEO/LLMO/AIO)**: single-select or multi-select — `GEO`, `AEO`, `LLMO`, `AIO` (see definitions above).
@@ -174,7 +174,7 @@ When creating database rows or suggesting schema:
 ## Tasks-build (implement from a Notion task)
 
 - Before coding:
-  - **Resolve scope**: Identify which app (e.g. heyberkshire vs searchforhomesinhenderson) and which parts of the stack (Next.js, RealScout, FUB).
+  - **Resolve scope**: Identify which app (e.g. searchforaffordablehomes vs searchforhomesinhenderson) and which parts of the stack (Next.js, RealScout, FUB).
   - **Follow project rules**: No duplicate platform features (use native RealScout↔FUB integration where it exists); research-first; current Next.js 15 / React 19 patterns; GBP/NAP and IDX compliance where applicable.
 - **Implementation**:
   - Use **App Router** patterns only (no `pages/`, no `getStaticProps`/`getServerSideProps`).

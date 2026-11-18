@@ -1,7 +1,7 @@
 # ✅ GitHub & Vercel Optimization - COMPLETE
 
 **Date:** February 13, 2026  
-**PR:** https://github.com/DrJanDuffy/heyberkshire.com/pull/9  
+**PR:** https://github.com/DrJanDuffy/searchforaffordablehomes.com/pull/9  
 **Status:** Ready for Review & Merge
 
 ---
@@ -76,7 +76,7 @@
 ```json
 "analyze": "ANALYZE=true npm run build",
 "lighthouse": "lhci autorun",
-"lighthouse:manual": "lighthouse https://heyberkshire.com --view --preset=desktop",
+"lighthouse:manual": "lighthouse https://www.searchforaffordablehomes.com --view --preset=desktop",
 "perf": "npm run analyze && npm run lighthouse",
 "vercel:build": "vercel build",
 "vercel:deploy": "vercel deploy --prebuilt",

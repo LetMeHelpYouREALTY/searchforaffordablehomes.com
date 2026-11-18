@@ -21,7 +21,7 @@ Write-Host "Log file: $LogFile`n"
 
 # All your real estate sites
 $Sites = @(
-    "heyberkshire.com-2",
+    "searchforaffordablehomes.com-2",
     "justcalldrjan.com",
     "heritageatstonebridgehomes.com",
     "openhousemarketplace.com",

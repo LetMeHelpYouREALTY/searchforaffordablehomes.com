@@ -20,20 +20,20 @@ Sentry is now integrated into your Next.js application for comprehensive error t
 2. Sign up (free tier: 5,000 errors/month, 10,000 performance units/month)
 3. Create a new project:
    - Platform: **Next.js**
-   - Project name: `heyberkshire-com`
+   - Project name: `searchforaffordablehomes`
    - Alert frequency: **On every new issue**
 
 ### 2. Get Your DSN
 
 1. After project creation, you'll see your DSN (looks like `https://xxx@o0.ingest.sentry.io/0`)
-2. Or find it at: **Settings → Projects → heyberkshire-com → Client Keys (DSN)**
+2. Or find it at: **Settings → Projects → searchforaffordablehomes → Client Keys (DSN)**
 3. Copy the **DSN** value
 
 ### 3. Create Auth Token
 
 1. Go to **Settings → Account → API → Auth Tokens**
 2. Click **Create New Token**
-3. Name: `heyberkshire-ci-cd`
+3. Name: `searchforaffordablehomes-ci-cd`
 4. Scopes:
    - ✅ `project:releases`
    - ✅ `project:write`
@@ -49,7 +49,7 @@ Sentry is now integrated into your Next.js application for comprehensive error t
 NEXT_PUBLIC_SENTRY_DSN=https://your-public-key@o0.ingest.sentry.io/your-project-id
 SENTRY_AUTH_TOKEN=your-auth-token-here
 SENTRY_ORG=your-org-slug
-SENTRY_PROJECT=heyberkshire-com
+SENTRY_PROJECT=searchforaffordablehomes
 NEXT_PUBLIC_SENTRY_ENVIRONMENT=development
 ```
 
@@ -57,14 +57,14 @@ NEXT_PUBLIC_SENTRY_ENVIRONMENT=development
 
 Add these to **Vercel Dashboard → Your Project → Settings → Environment Variables**:
 
-| Variable                         | Value              | Environment                      |
-| -------------------------------- | ------------------ | -------------------------------- |
-| `NEXT_PUBLIC_SENTRY_DSN`         | Your DSN           | Production, Preview, Development |
-| `SENTRY_AUTH_TOKEN`              | Your auth token    | Production, Preview (⚠️ SECRET)  |
-| `SENTRY_ORG`                     | Your org slug      | Production, Preview              |
-| `SENTRY_PROJECT`                 | `heyberkshire-com` | Production, Preview              |
-| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `production`       | Production only                  |
-| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `preview`          | Preview only                     |
+| Variable                         | Value                      | Environment                      |
+| -------------------------------- | -------------------------- | -------------------------------- |
+| `NEXT_PUBLIC_SENTRY_DSN`         | Your DSN                   | Production, Preview, Development |
+| `SENTRY_AUTH_TOKEN`              | Your auth token            | Production, Preview (⚠️ SECRET)  |
+| `SENTRY_ORG`                     | Your org slug              | Production, Preview              |
+| `SENTRY_PROJECT`                 | `searchforaffordablehomes` | Production, Preview              |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `production`               | Production only                  |
+| `NEXT_PUBLIC_SENTRY_ENVIRONMENT` | `preview`                  | Preview only                     |
 
 ### 5. Test Error Tracking
 
@@ -268,7 +268,7 @@ try {
 
 1. Sentry Dashboard → **Settings → Integrations**
 2. Find **Slack** → Click **Add to Slack**
-3. Choose channel (e.g., `#heyberkshire-errors`)
+3. Choose channel (e.g., `#searchforaffordablehomes-errors`)
 4. Configure notification rules
 
 ## Best Practices

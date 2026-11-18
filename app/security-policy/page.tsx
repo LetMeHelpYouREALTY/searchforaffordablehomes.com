@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Security Policy",
   description:
-    "Security policy and responsible disclosure information for heyberkshire.com",
+    "Security policy and responsible disclosure information for searchforaffordablehomes.com",
   robots: {
     index: true,
     follow: true,
@@ -50,10 +50,10 @@ export default function SecurityPolicyPage() {
                 <li>
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:security@heyberkshire.com"
+                    href="mailto:security@searchforaffordablehomes.com"
                     className="underline"
                   >
-                    security@heyberkshire.com
+                    security@searchforaffordablehomes.com
                   </a>
                 </li>
                 <li>
@@ -233,7 +233,7 @@ export default function SecurityPolicyPage() {
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
               <li>
                 Ensure you're on the correct domain:{" "}
-                <strong>heyberkshire.com</strong>
+                <strong>searchforaffordablehomes.com</strong>
               </li>
               <li>Look for the padlock icon (HTTPS)</li>
               <li>Don't share sensitive information via email</li>
@@ -261,10 +261,10 @@ export default function SecurityPolicyPage() {
               <p className="mb-2">
                 Email:{" "}
                 <a
-                  href="mailto:info@heyberkshire.com"
+                  href="mailto:info@searchforaffordablehomes.com"
                   className="text-blue-600 underline"
                 >
-                  info@heyberkshire.com
+                  info@searchforaffordablehomes.com
                 </a>
               </p>
               <p>
