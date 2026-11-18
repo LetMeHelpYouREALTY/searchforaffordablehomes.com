@@ -7,13 +7,23 @@ import {
   MapPin,
   CheckCircle,
   ArrowRight,
-  Phone,
   Home,
+  Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BrandPortrait from "@/components/brand/BrandPortrait";
+import CalendlyButton from "@/components/calendly/CalendlyButton";
 import type { AffordableAreaPage } from "@/lib/featured-properties";
 import { featuredProperties } from "@/lib/featured-properties";
+
+const CALENDLY_SHOWING = "https://calendly.com/drjanduffy/showing";
+
+const primaryCalendlyClass =
+  "inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1840b0]";
+const outlineCalendlyClass =
+  "inline-flex w-full items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50";
+const heroCalendlyClass =
+  "inline-flex items-center justify-center rounded-md border border-white/40 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/20";
 
 export function PropertyHero({ property }: { property: AffordableAreaPage }) {
   return (
@@ -40,8 +50,8 @@ export function PropertyHero({ property }: { property: AffordableAreaPage }) {
           {property.headline}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-slate-200">
-          Work with Dr. Jan Duffy to search, tour, and close affordable homes in{" "}
-          {property.neighborhood} — payment first, then the right MLS match.
+          Click a live MLS photo below to explore homes, or schedule a tour with
+          Dr. Jan Duffy on Calendly.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-100">
           <span className="inline-flex items-center gap-1.5">
@@ -54,21 +64,16 @@ export function PropertyHero({ property }: { property: AffordableAreaPage }) {
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button asChild className="bg-[#1e4fd6] hover:bg-[#1840b0]">
-            <Link href={property.searchHref}>
-              Search {property.neighborhood} homes
+            <a href="#affordable-homes-listings">
+              Browse live MLS photos
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="border-white/40 bg-white/10 text-white hover:bg-white/20"
-          >
-            <a href="tel:+17025001942">
-              <Phone className="mr-2 h-4 w-4" />
-              Call Dr. Jan (702) 500-1942
             </a>
           </Button>
+          <CalendlyButton
+            url={CALENDLY_SHOWING}
+            text="Schedule a showing"
+            className={heroCalendlyClass}
+          />
         </div>
       </div>
     </section>
@@ -98,6 +103,16 @@ export function PropertyFacts({ property }: { property: AffordableAreaPage }) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mx-auto mt-8 flex max-w-6xl flex-wrap gap-3 px-4">
+        <Button asChild className="bg-[#1e4fd6] hover:bg-[#1840b0]">
+          <a href="#affordable-homes-listings">Click a home photo to view it</a>
+        </Button>
+        <CalendlyButton
+          url={CALENDLY_SHOWING}
+          text="Or schedule on Calendly"
+          className={outlineCalendlyClass.replace("w-full ", "")}
+        />
       </div>
     </section>
   );
@@ -129,6 +144,19 @@ export function PropertyOverview({
               </li>
             ))}
           </ul>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild className="bg-[#1e4fd6] hover:bg-[#1840b0]">
+              <a href="#affordable-homes-listings">
+                Back to MLS photos
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+            <CalendlyButton
+              url={CALENDLY_SHOWING}
+              text="Schedule your consultation"
+              className={outlineCalendlyClass.replace("w-full ", "")}
+            />
+          </div>
         </div>
         <aside className="lg:col-span-5">
           <div className="rounded-2xl border border-slate-200 bg-white p-6">
@@ -142,15 +170,29 @@ export function PropertyOverview({
               </div>
             </div>
             <h3 className="text-xl font-semibold text-slate-900">
-              What you get as her buyer client
+              Two ways to move forward
             </h3>
-            <ul className="mt-4 space-y-3 text-slate-700">
-              {property.buyerOutcomes.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1e4fd6]" />
-                  <span>{item}</span>
-                </li>
-              ))}
+            <ul className="mt-4 space-y-4 text-slate-700">
+              <li className="flex gap-3">
+                <Home
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#1e4fd6]"
+                  aria-hidden
+                />
+                <span>
+                  Click any RealScout home photo above to open listing details
+                  and save homes you like.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <Calendar
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#1e4fd6]"
+                  aria-hidden
+                />
+                <span>
+                  Book a showing or buyer consult on Calendly — Dr. Jan maps
+                  payment fit to live MLS.
+                </span>
+              </li>
             </ul>
             <h3 className="mt-8 text-xl font-semibold text-slate-900">
               Hyperlocal focus
@@ -166,15 +208,19 @@ export function PropertyOverview({
                 </li>
               ))}
             </ul>
-            <Button
-              asChild
-              className="mt-8 w-full bg-[#1e4fd6] hover:bg-[#1840b0]"
+            <a
+              href="#affordable-homes-listings"
+              className={`${primaryCalendlyClass} mt-8 w-full`}
             >
-              <a href="tel:+17025001942">Call (702) 500-1942</a>
-            </Button>
-            <Button asChild variant="outline" className="mt-3 w-full">
-              <Link href="/contact">Request a payment shortlist</Link>
-            </Button>
+              Browse MLS photos
+            </a>
+            <div className="mt-3">
+              <CalendlyButton
+                url={CALENDLY_SHOWING}
+                text="Schedule on Calendly"
+                className={outlineCalendlyClass}
+              />
+            </div>
           </div>
         </aside>
       </div>
@@ -192,35 +238,57 @@ export function RelatedPropertyShowcases({ currentId }: { currentId: string }) {
           More hyperlocal affordable home searches
         </h2>
         <p className="mt-3 max-w-2xl text-slate-600">
-          Dr. Jan Duffy covers Las Vegas, Henderson, and Summerlin with the same
-          payment-first process.
+          Open an area page, click RealScout photos, or schedule with Dr. Jan on
+          Calendly.
         </p>
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {related.map((property) => (
-            <Link
+            <div
               key={property.id}
-              href={`/listings/${property.slug}`}
-              className="group overflow-hidden rounded-2xl border border-slate-200 transition hover:border-slate-300"
+              className="overflow-hidden rounded-2xl border border-slate-200"
             >
-              <div className="relative h-52">
-                <Image
-                  src={property.image}
-                  alt={`Affordable homes in ${property.neighborhood} with Dr. Jan Duffy`}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+              <Link
+                href={`/listings/${property.slug}#affordable-homes-listings`}
+                className="group block"
+              >
+                <div className="relative h-52">
+                  <Image
+                    src={property.image}
+                    alt={`Affordable homes in ${property.neighborhood} with Dr. Jan Duffy`}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <div className="p-5 pb-3">
+                  <p className="text-sm font-medium text-[#1e4fd6]">
+                    {property.priceBand}
+                  </p>
+                  <h3 className="mt-1 text-xl font-semibold text-slate-900">
+                    {property.name}
+                  </h3>
+                  <p className="mt-2 text-slate-600">{property.headline}</p>
+                </div>
+              </Link>
+              <div className="flex flex-wrap gap-2 px-5 pb-5">
+                <Button
+                  asChild
+                  size="sm"
+                  className="bg-[#1e4fd6] hover:bg-[#1840b0]"
+                >
+                  <Link
+                    href={`/listings/${property.slug}#affordable-homes-listings`}
+                  >
+                    View MLS photos
+                  </Link>
+                </Button>
+                <CalendlyButton
+                  url={CALENDLY_SHOWING}
+                  text="Schedule"
+                  className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-semibold text-slate-900 hover:bg-slate-50"
                 />
               </div>
-              <div className="p-5">
-                <p className="text-sm font-medium text-[#1e4fd6]">
-                  {property.priceBand}
-                </p>
-                <h3 className="mt-1 text-xl font-semibold text-slate-900">
-                  {property.name}
-                </h3>
-                <p className="mt-2 text-slate-600">{property.headline}</p>
-              </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

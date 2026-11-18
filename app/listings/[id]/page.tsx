@@ -77,7 +77,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
     {
       question: "How do I start working with Dr. Jan Duffy?",
       answer:
-        "Call or text (702) 500-1942, book a consultation on Calendly, or use the contact form. She confirms payment fit, then starts a live MLS search for your hyperlocal area.",
+        "Click any RealScout home photo on this page to explore live MLS listings, then schedule a showing or buyer consult on Calendly. Dr. Jan confirms payment fit and runs your hyperlocal search.",
     },
   ];
 
@@ -112,7 +112,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
         <PropertyFacts property={property} />
         <OfficeListingsUnderHero
           title={`Live affordable homes in ${property.neighborhood}`}
-          subtitle={`MLS inventory Dr. Jan Duffy uses for payment-fit buyers in ${property.city}.`}
+          subtitle={`Click a home photo to open details. Want a tour in ${property.city}? Schedule with Dr. Jan on Calendly.`}
         />
         <PropertyOverview property={property} />
         <section className="border-y border-slate-200 bg-white py-14">
