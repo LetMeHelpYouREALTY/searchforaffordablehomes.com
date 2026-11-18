@@ -56,8 +56,6 @@ export default function DownsizingPage() {
               Embrace Low-Maintenance Living
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Simplify. Downsize. Enjoy.
             </h1>
@@ -73,6 +71,9 @@ export default function DownsizingPage() {
               Let's Talk About Your Options → (702) 500-1942
             </a>
           </div>
+
+          <RealScoutListings />
+
           {/* Equity Extraction */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">

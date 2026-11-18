@@ -74,8 +74,6 @@ export default function MarketInsightsPage() {
               2026 Economic & Real Estate Analysis
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Market Insights
             </h1>
@@ -84,6 +82,9 @@ export default function MarketInsightsPage() {
               Las Vegas real estate in 2026 and beyond.
             </p>
           </div>
+
+          <RealScoutListings />
+
           {/* Key Drivers */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">

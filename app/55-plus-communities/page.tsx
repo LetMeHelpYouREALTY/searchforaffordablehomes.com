@@ -361,8 +361,6 @@ export default function FiftyFiveCommunitiesPage() {
               Active Adult Living Specialist
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Find Your Perfect 55+ Community in Las Vegas
             </h1>
@@ -390,6 +388,9 @@ export default function FiftyFiveCommunitiesPage() {
               </a>
             </div>
           </div>
+
+          <RealScoutListings />
+
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">

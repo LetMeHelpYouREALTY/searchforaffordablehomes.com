@@ -88,8 +88,6 @@ export default function TrilogySummerlinPage() {
               Luxury Resort-Style 55+ Living
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Trilogy at Summerlin
             </h1>
@@ -98,6 +96,8 @@ export default function TrilogySummerlinPage() {
               dining, world-class spa, and contemporary homes.
             </p>
           </div>
+
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

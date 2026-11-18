@@ -88,8 +88,6 @@ export default function HeritageAtStonebridgePage() {
               Guard-Gated Summerlin 55+ Community
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Heritage at Stonebridge
             </h1>
@@ -98,6 +96,8 @@ export default function HeritageAtStonebridgePage() {
               Summerlin.
             </p>
           </div>
+
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

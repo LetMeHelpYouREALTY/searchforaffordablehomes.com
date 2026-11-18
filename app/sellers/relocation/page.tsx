@@ -56,8 +56,6 @@ export default function RelocationPage() {
               Nationwide Referral Network
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               New Opportunity?
               <br />
@@ -75,6 +73,8 @@ export default function RelocationPage() {
               Start Your Relocation → (702) 500-1942
             </a>
           </div>
+
+          <RealScoutListings />
 
           {/* Network Advantage */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">

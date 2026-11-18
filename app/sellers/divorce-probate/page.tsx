@@ -56,8 +56,6 @@ export default function DivorceProbatePage() {
               Handled with Discretion & Professionalism
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Difficult Situations,
               <br />
@@ -75,6 +73,9 @@ export default function DivorceProbatePage() {
               Confidential Consultation → (702) 500-1942
             </a>
           </div>
+
+          <RealScoutListings />
+
           {/* Situations We Help With */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">

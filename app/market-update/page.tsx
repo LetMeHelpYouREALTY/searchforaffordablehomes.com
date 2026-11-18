@@ -84,8 +84,6 @@ export default function MarketUpdatePage() {
               Week of January 20, 2026
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
               Las Vegas Market Update
             </h1>
@@ -97,6 +95,9 @@ export default function MarketUpdatePage() {
               <span>By Dr. Jan Duffy, REALTOR®</span>
             </div>
           </div>
+
+          <RealScoutListings />
+
           {/* Key Statistics */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">

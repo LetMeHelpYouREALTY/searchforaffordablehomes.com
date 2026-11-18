@@ -186,21 +186,6 @@ export default function ListingsPage() {
 
           <RealScoutListings />
 
-          {/* RealScout Widget - Live MLS Listings */}
-          <section className="mb-16">
-            <div className="max-w-7xl mx-auto">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-office-listings 
-                    agent-encoded-id="QWdlbnQtMjI1MDUw" 
-                    sort-order="NEWEST" 
-                    listing-status="For Sale" 
-                    property-types=",SFR,MF,TC"
-                  ></realscout-office-listings>`,
-                }}
-              />
-            </div>
-          </section>
           {/* Popular Searches Section */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">

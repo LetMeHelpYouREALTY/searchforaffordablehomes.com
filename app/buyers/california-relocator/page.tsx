@@ -134,8 +134,6 @@ export default function CaliforniaRelocatorPage() {
               37% of Las Vegas Buyers Are From California
             </div>
 
-            <RealScoutListings />
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Relocating from California?
               <br />
@@ -152,6 +150,9 @@ export default function CaliforniaRelocatorPage() {
               Start Your Tax-Free Life → (702) 500-1942
             </a>
           </div>
+
+          <RealScoutListings />
+
           {/* Tax Savings Comparison */}
           <section className="mb-16 bg-gradient-to-br from-green-600 to-green-700 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="flex items-center justify-center mb-6">
