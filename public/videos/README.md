@@ -10,11 +10,11 @@ videos/
 
 ## Recommended Specifications
 
-| Type | Resolution | Format | Max Size | Notes |
-|------|------------|--------|----------|-------|
-| Hero background | 1920x1080 | MP4 (H.264) | 5MB | Loop, no audio |
-| Property tour | 1920x1080 | MP4 (H.264) | 50MB | Include audio |
-| Testimonial | 1080x1920 or 1920x1080 | MP4 | 20MB | Portrait or landscape |
+| Type            | Resolution             | Format      | Max Size | Notes                 |
+| --------------- | ---------------------- | ----------- | -------- | --------------------- |
+| Hero background | 1920x1080              | MP4 (H.264) | 5MB      | Loop, no audio        |
+| Property tour   | 1920x1080              | MP4 (H.264) | 50MB     | Include audio         |
+| Testimonial     | 1080x1920 or 1920x1080 | MP4         | 20MB     | Portrait or landscape |
 
 ## Naming Conventions
 
@@ -25,12 +25,14 @@ videos/
 ## Video Optimization
 
 ### Using HandBrake (Free)
+
 1. Open video in HandBrake
 2. Select "Web" preset
 3. Set quality: RF 23-28
 4. Export as MP4
 
 ### Using FFmpeg (CLI)
+
 ```bash
 # Compress for web
 ffmpeg -i input.mp4 -vcodec h264 -acodec aac -crf 23 output.mp4
@@ -46,10 +48,10 @@ ffmpeg -i input.mp4 -an -vcodec h264 -crf 23 output-noaudio.mp4
 
 ```tsx
 // Background video (hero)
-<video 
-  autoPlay 
-  muted 
-  loop 
+<video
+  autoPlay
+  muted
+  loop
   playsInline
   className="absolute inset-0 w-full h-full object-cover"
 >

@@ -2,6 +2,8 @@
 
 import { Star, Quote } from "lucide-react";
 import Image from "next/image";
+import BrandPortrait from "@/components/brand/BrandPortrait";
+import SectionExtras from "@/components/brand/SectionExtras";
 
 export interface Review {
   id: number;
@@ -13,7 +15,7 @@ export interface Review {
   date?: string;
 }
 
-// Default reviews
+// Default reviews (visual only — Review rich results come from JSON-LD)
 export const defaultReviews: Review[] = [
   {
     id: 1,
@@ -21,7 +23,6 @@ export const defaultReviews: Review[] = [
     location: "Las Vegas, NV",
     rating: 5,
     text: "Dr. Duffy made our home buying experience seamless. Her knowledge of the Las Vegas market is unmatched, and she guided us through every step with professionalism and care.",
-    image: "/Image/person1.jpeg",
     date: "2025-11-15",
   },
   {
@@ -30,7 +31,6 @@ export const defaultReviews: Review[] = [
     location: "Henderson, NV",
     rating: 5,
     text: "We couldn't be happier with our new home! The entire process was smooth, and Dr. Duffy's attention to detail and negotiation skills saved us thousands. Highly recommend!",
-    image: "/Image/person_2-min.jpg",
     date: "2025-10-22",
   },
   {
@@ -39,7 +39,6 @@ export const defaultReviews: Review[] = [
     location: "Summerlin, NV",
     rating: 5,
     text: "As first-time homebuyers, we were nervous about the process. Dr. Duffy patiently explained everything and helped us find the perfect home in our budget. Thank you!",
-    image: "/Image/person_4-min.jpg",
     date: "2025-09-08",
   },
 ];
@@ -76,11 +75,13 @@ export default function ReviewsSection({
     <section className={`py-16 md:py-24 bg-slate-50 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
+          <div className="mb-5 flex justify-center">
+            <BrandPortrait size="md" />
+          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
             {title}
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">{subtitle}</p>
-          {/* Aggregate Rating Display */}
           <div className="flex items-center justify-center gap-2 mt-4">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
@@ -108,8 +109,6 @@ export default function ReviewsSection({
             <div
               key={review.id}
               className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-              itemScope
-              itemType="https://schema.org/Review"
             >
               <div className="flex items-center mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden mr-4 flex-shrink-0">
@@ -129,24 +128,12 @@ export default function ReviewsSection({
                   )}
                 </div>
                 <div>
-                  <h3 className="font-bold text-slate-900" itemProp="author">
-                    {review.name}
-                  </h3>
+                  <h3 className="font-bold text-slate-900">{review.name}</h3>
                   <p className="text-sm text-slate-600">{review.location}</p>
                 </div>
               </div>
 
-              <div
-                className="flex items-center mb-4"
-                itemProp="reviewRating"
-                itemScope
-                itemType="https://schema.org/Rating"
-              >
-                <meta
-                  itemProp="ratingValue"
-                  content={review.rating.toString()}
-                />
-                <meta itemProp="bestRating" content="5" />
+              <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
@@ -161,10 +148,7 @@ export default function ReviewsSection({
 
               <div className="relative">
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-blue-100" />
-                <p
-                  className="text-slate-700 relative z-10 pl-4"
-                  itemProp="reviewBody"
-                >
+                <p className="text-slate-700 relative z-10 pl-4">
                   {review.text}
                 </p>
               </div>
@@ -172,7 +156,6 @@ export default function ReviewsSection({
           ))}
         </div>
 
-        {/* Google Reviews CTA */}
         <div className="text-center mt-12">
           <a
             href={googleReviewsUrl}
@@ -184,6 +167,9 @@ export default function ReviewsSection({
             <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
           </a>
         </div>
+        <div className="mx-auto max-w-6xl">
+          <SectionExtras headline="Hear why buyers schedule with Dr. Jan next" />
+        </div>
       </div>
     </section>
   );
@@ -191,7 +177,6 @@ export default function ReviewsSection({
 
 /**
  * Helper to convert reviews to schema format for ReviewSchema component
- * Use with: <ReviewSchema reviews={getReviewSchemaData(reviews)} aggregateRating={aggregateRating} />
  */
 export function getReviewSchemaData(reviews: Review[]) {
   return reviews.map((review) => ({

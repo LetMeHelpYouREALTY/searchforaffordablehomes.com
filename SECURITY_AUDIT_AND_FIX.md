@@ -3,8 +3,9 @@
 ## 🚨 Current Status: 29 Vulnerabilities Found
 
 ### Severity Breakdown
+
 - **CRITICAL**: 1 vulnerability
-- **HIGH**: 11 vulnerabilities  
+- **HIGH**: 11 vulnerabilities
 - **MODERATE**: 9 vulnerabilities
 - **LOW**: 8 vulnerabilities
 
@@ -13,6 +14,7 @@
 ## 🔴 CRITICAL PRIORITY (Fix Immediately)
 
 ### 1. Next.js - Authorization Bypass (GHSA-f82v-jwr5-mffw)
+
 **CVSS Score**: 9.1 (Critical)  
 **Current Version**: 14.1.2  
 **Fix**: Upgrade to Next.js 14.2.35 or higher
@@ -21,6 +23,7 @@
 **Risk**: Direct security breach, data exposure
 
 **Fix Command**:
+
 ```bash
 npm install next@latest
 ```
@@ -30,7 +33,9 @@ npm install next@latest
 ## 🟠 HIGH PRIORITY (Fix This Week)
 
 ### 2. Next.js - Multiple DoS & Security Issues
-**Issues**: 
+
+**Issues**:
+
 - DoS with Server Components (GHSA-5j59-xgg2-r9c4)
 - HTTP deserialization DoS (GHSA-h25m-26qc-wcjf)
 - Image Optimizer DoS (GHSA-9g9p-9gw9-jx7f)
@@ -41,26 +46,31 @@ npm install next@latest
 **Fix**: Upgrade to Next.js 15.5.10+
 
 ### 3. eslint-config-next - glob Command Injection
+
 **CVSS Score**: 7.5 (High)  
 **Current**: 14.1.2  
 **Fix**: Upgrade to 16.1.6
 
 **Fix Command**:
+
 ```bash
 npm install eslint-config-next@latest
 ```
 
 ### 4. braces - Uncontrolled Resource Consumption
+
 **CVSS Score**: 7.5 (High)  
 **Current**: <3.0.3  
 **Fix**: Auto-fixable
 
 ### 5. cross-spawn - ReDoS
+
 **CVSS Score**: 7.5 (High)  
 **Current**: 7.0.0-7.0.4  
 **Fix**: Auto-fixable
 
 ### 6. ws - DoS with Many HTTP Headers
+
 **CVSS Score**: 7.5 (High)  
 **Current**: 8.0.0-8.17.0  
 **Fix**: Via @lhci/cli upgrade
@@ -70,23 +80,28 @@ npm install eslint-config-next@latest
 ## 🟡 MODERATE PRIORITY (Fix This Month)
 
 ### 7. wrangler - esbuild & miniflare issues
+
 **Current**: 3.78.12  
 **Fix**: Upgrade to 4.65.0 (MAJOR version!)
 
 **Fix Command**:
+
 ```bash
 npm install wrangler@latest --save-dev --legacy-peer-deps
 ```
 
 ### 8. @cloudflare/next-on-pages - DEPRECATED
+
 **Status**: No fix available  
 **Reason**: Package is deprecated
 
-**Recommendation**: 
+**Recommendation**:
+
 - Remove and use **OpenNext** adapter for Cloudflare
 - Or stick with Vercel deployment (current primary)
 
 ### 9. Other Moderate Issues
+
 - lodash - Prototype pollution
 - js-yaml - Prototype pollution (merge)
 - mdast-util-to-hast - Unsanitized class
@@ -95,6 +110,7 @@ npm install wrangler@latest --save-dev --legacy-peer-deps
 - esbuild - Dev server security issue
 
 **Fix Command**:
+
 ```bash
 npm audit fix
 ```
@@ -104,14 +120,17 @@ npm audit fix
 ## 🟢 LOW PRIORITY (Fix When Convenient)
 
 ### 10. @lhci/cli - Multiple dependencies with issues
+
 **Current**: 0.13.0  
 **Issues**: lighthouse, puppeteer-core, cookie, tmp
 
-**Recommendation**: 
+**Recommendation**:
+
 - Keep for now (dev-only tool)
 - Or remove and use Vercel Lighthouse integration
 
 ### 11. Other Low Issues
+
 - brace-expansion - ReDoS (low impact)
 - cookie - Out of bounds characters
 - tmp - Symlink write issue
@@ -193,11 +212,13 @@ git push origin main
 ## 📊 Expected Results After Fix
 
 ### Before
+
 - ❌ 29 vulnerabilities
 - ❌ 1 critical (authorization bypass)
 - ❌ 11 high (DoS, injection, SSRF)
 
 ### After
+
 - ✅ ~5-8 vulnerabilities (low severity only)
 - ✅ 0 critical
 - ✅ 0-2 high (unfixable dev dependencies)
@@ -211,6 +232,7 @@ git push origin main
 ### Your 37 Projects Need the Same Fixes
 
 **Affected sites** (from your list):
+
 - justcalldrjan.com
 - heritageatstonebridgehomes.com
 - openhousemarketplace.com
@@ -224,7 +246,7 @@ git push origin main
 - goodtoknowrealtor
 - goodtoknowrealtor-1
 - las-vegas-relocation-services-com
-- lone-mountain-homes-* (4 variants)
+- lone-mountain-homes-\* (4 variants)
 - lonemountainvistas.com
 - mesquiteestates.com
 - nextjs-boilerplate
@@ -248,26 +270,26 @@ SITES=(
 
 for site in "${SITES[@]}"; do
   echo "🔧 Fixing $site..."
-  
+
   cd "/path/to/$site" || continue
-  
+
   # Backup
   cp package.json package.json.backup
-  
+
   # Critical fixes
   npm install next@latest eslint-config-next@latest --legacy-peer-deps
-  
+
   # Auto-fix
   npm audit fix --legacy-peer-deps
-  
+
   # Test build
   npm run build || echo "⚠️ Build failed for $site"
-  
+
   # Commit
   git add package.json package-lock.json
   git commit -m "🔒 security: Fix critical vulnerabilities"
   git push origin main
-  
+
   echo "✅ $site fixed!"
   echo "---"
 done
@@ -293,7 +315,7 @@ name: Auto-Fix Security Vulnerabilities
 
 on:
   schedule:
-    - cron: '0 0 * * 1' # Every Monday at midnight
+    - cron: "0 0 * * 1" # Every Monday at midnight
   workflow_dispatch: # Manual trigger
 
 jobs:
@@ -301,34 +323,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-      
+          node-version: "20"
+          cache: "npm"
+
       - name: Upgrade critical packages
         run: |
           npm install next@latest eslint-config-next@latest --legacy-peer-deps
           npm audit fix --legacy-peer-deps
-      
+
       - name: Run tests
         run: npm test:run || true
-      
+
       - name: Create PR
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: '🔒 security: Auto-fix vulnerabilities'
-          title: 'Security: Auto-fix vulnerabilities'
+          commit-message: "🔒 security: Auto-fix vulnerabilities"
+          title: "Security: Auto-fix vulnerabilities"
           body: |
             ## Automated Security Fix
-            
+
             This PR automatically upgrades vulnerable dependencies.
-            
+
             **Changes:**
             - Upgraded Next.js to latest
             - Fixed npm audit issues
-            
+
             **Please review and test before merging!**
           branch: security/auto-fix
           labels: security, automated
@@ -357,12 +379,14 @@ After fixing each site:
 ### heritageatstonebridgehomes (Manual Fix Required)
 
 This site needs special attention. Common reasons:
+
 - Custom build process
-- Monorepo structure  
+- Monorepo structure
 - Non-standard dependencies
 - Broken package-lock.json
 
 **Steps:**
+
 1. Clone fresh: `git clone ...`
 2. Delete `node_modules` and `package-lock.json`
 3. Run `npm install --legacy-peer-deps`
@@ -372,6 +396,7 @@ This site needs special attention. Common reasons:
 ### californiaforeverbroker.com (Manual Investigation)
 
 Unable to auto-detect. Check:
+
 1. Is it a Next.js site?
 2. Does it have a `package.json`?
 3. Is it using a different framework? (Gatsby, Nuxt, etc.)
@@ -423,16 +448,19 @@ Unable to auto-detect. Check:
 ## ⏰ Time Investment
 
 ### This Site (heyberkshire.com)
+
 - Critical fixes: 5 minutes
 - Full remediation: 30 minutes
 - Testing & deploy: 10 minutes
 - **Total: 45 minutes**
 
 ### All 37 Sites (Manual)
+
 - Per site: 45 minutes
 - **Total: ~28 hours**
 
 ### All 37 Sites (Automated)
+
 - Script setup: 2 hours
 - Script execution: 4-6 hours (unattended)
 - Review/fix failures: 4 hours
@@ -464,6 +492,7 @@ updates:
 ### 2. Add Security GitHub Action
 
 Already have this! Our workflow includes:
+
 ```yaml
 - name: Run npm audit
   run: npm audit --audit-level=high
@@ -476,6 +505,7 @@ Already have this! Our workflow includes:
 ### 3. Monthly Security Review
 
 Schedule:
+
 - 1st Monday: Run `npm audit` on all sites
 - Auto-merge Dependabot PRs for patches
 - Manually review major version upgrades
@@ -520,5 +550,5 @@ git push origin main
 
 ---
 
-*Generated: February 13, 2026*  
-*Next audit: March 13, 2026*
+_Generated: February 13, 2026_  
+_Next audit: March 13, 2026_

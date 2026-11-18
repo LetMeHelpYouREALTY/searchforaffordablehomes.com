@@ -26,34 +26,39 @@ This optimization package provides a production-ready Follow Up Boss integration
 
 ### Core Features
 
-| Feature | Description | Benefit |
-|---------|-------------|---------|
-| **API Client** | Optimized REST client with caching | Faster, more reliable |
-| **Rate Limiting** | Sliding 10-second window | Prevent API errors |
-| **Webhooks** | Real-time event handlers | Instant lead capture |
-| **Lead Capture API** | Form submission endpoint | Easy integration |
-| **Automation** | Bulk operations, stage progression | Save hours |
-| **Deduplication** | Auto-detect duplicate leads | Clean database |
-| **AI Qualification** | Claude-powered lead scoring | Prioritize best leads |
-| **Source Tracking** | UTM + referrer enrichment | Better attribution |
+| Feature              | Description                        | Benefit               |
+| -------------------- | ---------------------------------- | --------------------- |
+| **API Client**       | Optimized REST client with caching | Faster, more reliable |
+| **Rate Limiting**    | Sliding 10-second window           | Prevent API errors    |
+| **Webhooks**         | Real-time event handlers           | Instant lead capture  |
+| **Lead Capture API** | Form submission endpoint           | Easy integration      |
+| **Automation**       | Bulk operations, stage progression | Save hours            |
+| **Deduplication**    | Auto-detect duplicate leads        | Clean database        |
+| **AI Qualification** | Claude-powered lead scoring        | Prioritize best leads |
+| **Source Tracking**  | UTM + referrer enrichment          | Better attribution    |
 
 ### Files Created (6 new files)
 
 **Library (`lib/fub/`):**
+
 - `client.ts` - Main FUB client (~500 lines)
 - `automation.ts` - Automation utilities (~400 lines)
 
 **API Routes:**
+
 - `app/api/webhooks/fub/route.ts` - Webhook handler (~400 lines)
 - `app/api/leads/capture/route.ts` - Lead capture endpoint (~300 lines)
 
 **Components:**
+
 - `components/forms/LeadCaptureForm.tsx` - React form component (~300 lines)
 
 **Configuration:**
+
 - `.env.fub.example` - Environment template
 
 **Documentation:**
+
 - `FUB_OPTIMIZATION.md` - This file
 
 ---
@@ -93,7 +98,7 @@ No additional dependencies needed! Uses native `fetch` API.
 ### Example 1: Basic Lead Capture
 
 ```typescript
-import { FollowUpBossClient } from '@/lib/fub/client';
+import { FollowUpBossClient } from "@/lib/fub/client";
 
 const fub = new FollowUpBossClient({
   apiKey: process.env.FUB_API_KEY!,
@@ -102,11 +107,11 @@ const fub = new FollowUpBossClient({
 
 // Create or update lead
 const person = await fub.upsertPerson({
-  name: 'John Doe',
-  emails: [{ value: 'john@example.com' }],
-  phones: [{ value: '7025551234' }],
-  source: 'website',
-  stage: 'New Lead',
+  name: "John Doe",
+  emails: [{ value: "john@example.com" }],
+  phones: [{ value: "7025551234" }],
+  source: "website",
+  stage: "New Lead",
 });
 
 console.log(`Lead created: ${person.id}`);
@@ -117,11 +122,11 @@ console.log(`Lead created: ${person.id}`);
 ```typescript
 // Search by email
 const existingPerson = await fub.findPerson({
-  email: 'john@example.com'
+  email: "john@example.com",
 });
 
 if (existingPerson) {
-  console.log('Lead already exists!');
+  console.log("Lead already exists!");
 } else {
   // Create new lead
 }
@@ -130,24 +135,24 @@ if (existingPerson) {
 ### Example 3: Add Tags
 
 ```typescript
-await fub.addTag(personId, 'summerlin');
-await fub.addTag(personId, 'active-buyer');
-await fub.addTag(personId, 'luxury');
+await fub.addTag(personId, "summerlin");
+await fub.addTag(personId, "active-buyer");
+await fub.addTag(personId, "luxury");
 ```
 
 ### Example 4: Create Event (Activity)
 
 ```typescript
 await fub.createEvent({
-  source: 'website',
-  type: 'Property Search',
-  message: 'Client searched for 3-bed homes in Henderson, $400k-$600k',
+  source: "website",
+  type: "Property Search",
+  message: "Client searched for 3-bed homes in Henderson, $400k-$600k",
   personId: person.id,
   data: {
     priceMin: 400000,
     priceMax: 600000,
     bedrooms: 3,
-    neighborhoods: ['Henderson', 'Green Valley'],
+    neighborhoods: ["Henderson", "Green Valley"],
   },
 });
 ```
@@ -157,10 +162,10 @@ await fub.createEvent({
 ```typescript
 // Get all active buyers created in last 30 days
 const results = await fub.listPeople({
-  stage: 'Active Buyer',
+  stage: "Active Buyer",
   createdAfter: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString(),
   limit: 50,
-  orderBy: 'created:desc',
+  orderBy: "created:desc",
 });
 
 console.log(`Found ${results.people.length} active buyers`);
@@ -170,7 +175,7 @@ console.log(`Found ${results.people.length} active buyers`);
 
 ```typescript
 // Automatically handles pagination
-for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
+for await (const person of fub.getAllPeople({ stage: "New Lead" })) {
   console.log(`${person.name} - ${person.emails?.[0]?.value}`);
 }
 ```
@@ -193,13 +198,13 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
 
 ### Supported Events
 
-| Event | Description | Handler Action |
-|-------|-------------|----------------|
-| **peopleCreated** | New person added | Auto-tag, AI qualification, welcome note |
-| **peopleUpdated** | Person info changed | Duplicate check, sync updates |
-| **peopleStageUpdated** | Stage changed | Trigger workflows, add tags |
-| **peopleTagsCreated** | Tags added | Location-based search, recommendations |
-| **peopleDeleted** | Person removed | Cleanup external integrations |
+| Event                  | Description         | Handler Action                           |
+| ---------------------- | ------------------- | ---------------------------------------- |
+| **peopleCreated**      | New person added    | Auto-tag, AI qualification, welcome note |
+| **peopleUpdated**      | Person info changed | Duplicate check, sync updates            |
+| **peopleStageUpdated** | Stage changed       | Trigger workflows, add tags              |
+| **peopleTagsCreated**  | Tags added          | Location-based search, recommendations   |
+| **peopleDeleted**      | Person removed      | Cleanup external integrations            |
 
 ### What Happens When Lead is Created
 
@@ -227,7 +232,7 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
   "source": "website-contact-form",
   "stage": "New Lead",
   "message": "Looking for a home in Summerlin",
-  
+
   "priceMin": 400000,
   "priceMax": 600000,
   "bedrooms": 3,
@@ -235,7 +240,7 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
   "neighborhoods": ["Summerlin", "Southern Highlands"],
   "timeline": "3-6 months",
   "preApproved": true,
-  
+
   "tags": ["summerlin", "active-buyer"],
   "customFields": {
     "referralSource": "Google Ads"
@@ -304,24 +309,18 @@ Priority: HIGH - Active buyer, ready to transact
 ### 1. Bulk Operations
 
 ```typescript
-import { FUBAutomation } from '@/lib/fub/automation';
+import { FUBAutomation } from "@/lib/fub/automation";
 
 const automation = new FUBAutomation(
   process.env.FUB_API_KEY!,
-  process.env.FUB_SYSTEM_KEY
+  process.env.FUB_SYSTEM_KEY,
 );
 
 // Add tag to all active buyers
-await automation.bulkAddTag(
-  { stage: 'Active Buyer' },
-  'needs-follow-up'
-);
+await automation.bulkAddTag({ stage: "Active Buyer" }, "needs-follow-up");
 
 // Update stage for stale leads
-await automation.bulkUpdateStage(
-  { updatedAfter: '2024-01-01' },
-  'Nurture'
-);
+await automation.bulkUpdateStage({ updatedAfter: "2024-01-01" }, "Nurture");
 ```
 
 ### 2. Lead Sync from External Sources
@@ -330,10 +329,10 @@ await automation.bulkUpdateStage(
 // Sync leads from Zillow, Realtor.com, etc.
 const results = await automation.syncLeadsFromSource([
   {
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    source: 'zillow',
-    message: 'Interested in property XYZ',
+    name: "Jane Smith",
+    email: "jane@example.com",
+    source: "zillow",
+    message: "Interested in property XYZ",
   },
   // ... more leads
 ]);
@@ -357,7 +356,7 @@ const duplicates = await automation.findDuplicates();
 
 for (const dup of duplicates) {
   console.log(`Duplicate found: ${dup.email || dup.phone}`);
-  console.log(`  People: ${dup.people.map(p => p.name).join(', ')}`);
+  console.log(`  People: ${dup.people.map((p) => p.name).join(", ")}`);
 }
 ```
 
@@ -397,22 +396,22 @@ const stageFunnel = await automation.generateStageFunnel();
 ### React Component
 
 ```tsx
-import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
+import { LeadCaptureForm } from "@/components/forms/LeadCaptureForm";
 
 export default function ContactPage() {
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1>Contact Dr. Jan Duffy</h1>
-      
+
       <LeadCaptureForm
         source="website-contact-page"
         stage="New Lead"
-        defaultTags={['website-lead']}
+        defaultTags={["website-lead"]}
         formType="contact"
         onSuccess={() => {
           // Track conversion
-          gtag('event', 'lead_submitted', {
-            form_type: 'contact',
+          gtag("event", "lead_submitted", {
+            form_type: "contact",
           });
         }}
       />
@@ -427,8 +426,8 @@ export default function ContactPage() {
 <LeadCaptureForm
   source="website-property-search"
   stage="Active Buyer"
-  defaultTags={['property-search', 'active-buyer']}
-  formType="property-search"  // Shows price, bedrooms, etc.
+  defaultTags={["property-search", "active-buyer"]}
+  formType="property-search" // Shows price, bedrooms, etc.
 />
 ```
 
@@ -438,7 +437,7 @@ export default function ContactPage() {
 <LeadCaptureForm
   source="website-home-valuation"
   stage="Active Seller"
-  defaultTags={['home-valuation', 'active-seller']}
+  defaultTags={["home-valuation", "active-seller"]}
   formType="home-valuation"
 />
 ```
@@ -449,12 +448,12 @@ export default function ContactPage() {
 
 ### Limits (per 10-second sliding window)
 
-| Endpoint | With System Key | Without System Key |
-|----------|----------------|-------------------|
-| **Global** | 250 requests | 125 requests |
-| **Events POST** | Unlimited | Unlimited |
-| **Events GET** | 20 requests | 10 requests |
-| **People PUT** | 25 requests | 25 requests |
+| Endpoint        | With System Key | Without System Key |
+| --------------- | --------------- | ------------------ |
+| **Global**      | 250 requests    | 125 requests       |
+| **Events POST** | Unlimited       | Unlimited          |
+| **Events GET**  | 20 requests     | 10 requests        |
+| **People PUT**  | 25 requests     | 25 requests        |
 
 ### How Rate Limiting Works
 
@@ -473,22 +472,22 @@ export default function ContactPage() {
 
 ```typescript
 await fub.upsertPerson({
-  name: 'John Doe',
-  emails: [{ value: 'john@example.com' }],
+  name: "John Doe",
+  emails: [{ value: "john@example.com" }],
   customFields: {
     // Your custom fields
-    propertyType: 'Single Family',
+    propertyType: "Single Family",
     priceMin: 400000,
     priceMax: 600000,
     bedrooms: 3,
     bathrooms: 2.5,
-    neighborhoods: 'Summerlin, Southern Highlands',
-    timeline: '3-6 months',
+    neighborhoods: "Summerlin, Southern Highlands",
+    timeline: "3-6 months",
     preApproved: true,
-    referralSource: 'Google Ads',
-    utmSource: 'google',
-    utmMedium: 'cpc',
-    utmCampaign: 'summerlin-luxury',
+    referralSource: "Google Ads",
+    utmSource: "google",
+    utmMedium: "cpc",
+    utmCampaign: "summerlin-luxury",
   },
 });
 ```
@@ -497,17 +496,17 @@ await fub.upsertPerson({
 
 ```typescript
 // Update stage
-await fub.updateStage(personId, 'Active Buyer');
+await fub.updateStage(personId, "Active Buyer");
 
 // Stage progression workflow
 const stageMap = {
-  'New Lead': 'Contacted',
-  'Contacted': 'Active Buyer',
-  'Active Buyer': 'Under Contract',
-  'Under Contract': 'Closed',
+  "New Lead": "Contacted",
+  Contacted: "Active Buyer",
+  "Active Buyer": "Under Contract",
+  "Under Contract": "Closed",
 };
 
-const currentStage = person.stage || 'New Lead';
+const currentStage = person.stage || "New Lead";
 const nextStage = stageMap[currentStage];
 
 if (nextStage) {
@@ -538,7 +537,7 @@ await automation.enrichLead(personId, {
 
 ```typescript
 // Before creating new lead
-const existing = await fub.findPerson({ email: 'john@example.com' });
+const existing = await fub.findPerson({ email: "john@example.com" });
 
 if (existing) {
   // Update existing
@@ -553,33 +552,33 @@ if (existing) {
 
 ```typescript
 // ✅ GOOD: Detailed source tracking
-source: 'website/contact-form/header-cta'
-source: 'google-ads/cpc/summerlin-luxury'
-source: 'facebook/organic/neighborhood-post'
+source: "website/contact-form/header-cta";
+source: "google-ads/cpc/summerlin-luxury";
+source: "facebook/organic/neighborhood-post";
 
 // ❌ BAD: Vague sources
-source: 'website'
-source: 'ads'
+source: "website";
+source: "ads";
 ```
 
 ### 3. Add Relevant Tags
 
 ```typescript
 // Location tags
-await fub.addTag(personId, 'summerlin');
-await fub.addTag(personId, 'southern-highlands');
+await fub.addTag(personId, "summerlin");
+await fub.addTag(personId, "southern-highlands");
 
 // Intent tags
-await fub.addTag(personId, 'active-buyer');
-await fub.addTag(personId, 'first-time-buyer');
+await fub.addTag(personId, "active-buyer");
+await fub.addTag(personId, "first-time-buyer");
 
 // Budget tags
-await fub.addTag(personId, 'luxury');
-await fub.addTag(personId, 'affordable');
+await fub.addTag(personId, "luxury");
+await fub.addTag(personId, "affordable");
 
 // Status tags
-await fub.addTag(personId, 'pre-approved');
-await fub.addTag(personId, 'cash-buyer');
+await fub.addTag(personId, "pre-approved");
+await fub.addTag(personId, "cash-buyer");
 ```
 
 ### 4. Track All Interactions
@@ -587,14 +586,14 @@ await fub.addTag(personId, 'cash-buyer');
 ```typescript
 // Create events for every meaningful interaction
 await fub.createEvent({
-  source: 'website',
-  type: 'Property Viewed',
-  message: '123 Main St, Summerlin - $575,000',
+  source: "website",
+  type: "Property Viewed",
+  message: "123 Main St, Summerlin - $575,000",
   personId,
   data: {
-    listingId: 'MLS-12345',
+    listingId: "MLS-12345",
     price: 575000,
-    url: '/listings/mls-12345',
+    url: "/listings/mls-12345",
   },
 });
 ```
@@ -604,8 +603,8 @@ await fub.createEvent({
 ```typescript
 const fub = new FollowUpBossClient({
   apiKey: process.env.FUB_API_KEY!,
-  enableCaching: true,  // Default: true
-  enableRateLimiting: true,  // Default: true
+  enableCaching: true, // Default: true
+  enableRateLimiting: true, // Default: true
 });
 ```
 
@@ -616,15 +615,18 @@ const fub = new FollowUpBossClient({
 ### Caching Strategy
 
 **What's Cached:**
+
 - Individual person lookups (1 minute TTL)
 - List queries (1 minute TTL)
 
 **What's NOT Cached:**
+
 - Person updates (upsert)
 - Event creation
 - Tag additions
 
 **Cache Invalidation:**
+
 - Automatic after person updates
 - Prefix-based clearing for related queries
 
@@ -646,7 +648,7 @@ do {
 } while (next);
 
 // ✅ BETTER: Use async generator
-for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
+for await (const person of fub.getAllPeople({ stage: "New Lead" })) {
   // Process person...
 }
 ```
@@ -662,6 +664,7 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
 ### Error: "Rate limit exceeded (429)"
 
 **Solutions:**
+
 1. Add `FUB_SYSTEM_KEY` for 2x rate limit
 2. Reduce request frequency
 3. Enable caching (default: enabled)
@@ -670,6 +673,7 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
 ### Webhook Not Receiving Events
 
 **Check:**
+
 1. Webhook URL is publicly accessible (not localhost)
 2. HTTPS is enabled (required)
 3. Webhook is configured in FUB Admin → Webhooks
@@ -679,6 +683,7 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
 ### Duplicate Leads
 
 **Solutions:**
+
 1. Use `findPerson()` before creating
 2. Enable auto-deduplication in webhook handler
 3. Run `automation.findDuplicates()` regularly
@@ -689,12 +694,14 @@ for await (const person of fub.getAllPeople({ stage: 'New Lead' })) {
 ## 📚 Resources
 
 ### Follow Up Boss Documentation
+
 - [API Docs](https://docs.followupboss.com/)
 - [Webhooks Guide](https://docs.followupboss.com/reference/webhooks-guide)
 - [Authentication](https://docs.followupboss.com/reference/authentication)
 - [Rate Limiting](https://docs.followupboss.com/reference/rate-limiting)
 
 ### Support
+
 - [Help Center](https://help.followupboss.com/)
 - [API Support](mailto:api@followupboss.com)
 
@@ -715,6 +722,7 @@ This FUB optimization provides:
 - ✅ **Production-ready** with error handling
 
 **Expected Results:**
+
 - 90% faster lead capture (webhooks vs polling)
 - 100% lead capture rate (no missed forms)
 - 50% time savings on lead management
@@ -723,7 +731,7 @@ This FUB optimization provides:
 
 ---
 
-*Generated: February 13, 2026*  
-*Based on: Follow Up Boss API v1*  
-*Files Created: 6*  
-*Lines of Code: ~2,000*
+_Generated: February 13, 2026_  
+_Based on: Follow Up Boss API v1_  
+_Files Created: 6_  
+_Lines of Code: ~2,000_

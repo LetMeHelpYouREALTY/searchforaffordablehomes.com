@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import AgentPortrait from "@/components/brand/AgentPortrait";
 import { SITE_BRAND } from "@/lib/affordable-homes-content";
@@ -52,6 +53,15 @@ export default function ScheduleConsultSection({
               </a>
             </p>
           </div>
+        </div>
+        <div className="relative mx-auto mb-8 aspect-[21/9] max-w-4xl overflow-hidden">
+          <Image
+            src="/images/sections/schedule-private-showing.jpg"
+            alt="Open front door ready for a private Las Vegas home showing"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 896px"
+          />
         </div>
         <div className="mx-auto max-w-4xl overflow-hidden border border-slate-200 bg-[var(--luxury-surface)]">
           <CalendlyWidget url={calendlyUrl} height="700px" />

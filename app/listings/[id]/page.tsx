@@ -1,23 +1,17 @@
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-
-/**
- * Dynamic MLS detail pages are not served from this app (RealScout hosts live
- * listing URLs). Returning notFound() prevents soft-404 / duplicate-canonical
- * spam from placeholder IDs Google may invent or discover.
- */
-export const metadata: Metadata = {
-  title: "Listing not found",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
 
 type PropertyPageProps = {
-  params: { id: string } | Promise<{ id: string }>;
+  params: Promise<{ id: string }>;
 };
 
+/**
+ * Listing detail URLs are not served from this site yet (RealScout hosts
+ * live MLS detail pages). Returning a placeholder 200 with indexable HTML
+ * created soft 404s and thin duplicates in Google Search Console.
+ *
+ * Until a real MLS/RealScout detail fetch exists, every /listings/[id]
+ * must be a hard 404 (app/not-found.tsx → noindex, follow).
+ */
 export default async function PropertyPage({ params }: PropertyPageProps) {
   await params;
   notFound();

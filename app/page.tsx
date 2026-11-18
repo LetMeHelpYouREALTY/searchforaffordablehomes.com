@@ -41,10 +41,10 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: `${SITE_BRAND.url}/images/hero/luxury-vegas-estate.jpg`,
+          url: `${SITE_BRAND.url}/images/hero/luxury-representation-under-500k.jpg`,
           width: 1920,
-          height: 1280,
-          alt: "Las Vegas estate exterior — luxury realtor service for homes under $500K",
+          height: 1080,
+          alt: "Modern Las Vegas home exterior — luxury representation for homes under $500K",
         },
       ],
     },
@@ -63,8 +63,8 @@ export default async function Home() {
         {/* Hero — brand-first luxury composition: brand, H1, one line, one CTA, full-bleed */}
         <section className="relative flex min-h-[88vh] items-end overflow-hidden text-white md:items-center">
           <Image
-            src="/images/hero/luxury-vegas-estate.jpg"
-            alt="Las Vegas estate exterior — luxury realtor service for homes under $500K"
+            src="/images/hero/luxury-representation-under-500k.jpg"
+            alt="Modern Las Vegas home at golden hour — luxury representation for homes under $500K"
             fill
             priority
             className="object-cover motion-safe:animate-ken-slow"
@@ -192,19 +192,27 @@ export default async function Home() {
         </section>
 
         {/* Market snapshot — answer-first H2 */}
-        <section className="py-16 bg-slate-950 text-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-3 max-w-3xl">
+        <section className="relative overflow-hidden py-16 text-white">
+          <Image
+            src="/images/sections/market-affordable-valley.jpg"
+            alt="Aerial view of Las Vegas Valley rooftops illustrating the under-$500K housing band"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-ink/85" />
+          <div className="relative z-10 container mx-auto px-4">
+            <h2 className="mb-3 max-w-3xl font-display text-3xl font-semibold md:text-4xl">
               What does affordable mean in Las Vegas right now?
             </h2>
-            <p className="aeo-answer text-lg text-slate-300 max-w-3xl mb-10">
+            <p className="aeo-answer mb-10 max-w-3xl text-lg text-white/85">
               As of {MARKET_SNAPSHOT.asOf}, most affordable-home shoppers target
               under $500,000 — the valley’s deepest inventory band. Valley
               median list context sits near {MARKET_SNAPSHOT.valleyMedianList},
               with {MARKET_SNAPSHOT.daysOnMarket} typical market time on
               well-priced homes.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl">
+            <div className="grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
               {[
                 {
                   value: MARKET_SNAPSHOT.valleyMedianList,
@@ -243,19 +251,25 @@ export default async function Home() {
               corridors, and Henderson’s Cadence consistently show stronger
               under-$500K selection than Summerlin or The Ridges.
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {AFFORDABLE_NEIGHBORHOODS.map((n) => (
-                <article
-                  key={n.name}
-                  className="border-t-2 border-amber-700 pt-5"
-                >
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                <article key={n.name} className="group">
+                  <div className="relative mb-4 aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={n.image}
+                      alt={n.imageAlt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                  <h3 className="mb-2 font-display text-xl font-semibold text-ink">
                     {n.name}
                   </h3>
-                  <p className="text-amber-800 font-medium text-sm mb-2">
+                  <p className="mb-2 text-sm font-medium text-champagne-deep">
                     {n.priceBand}
                   </p>
-                  <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                  <p className="mb-4 text-sm leading-relaxed text-slate-600">
                     {n.description}
                   </p>
                   <Link
@@ -265,7 +279,7 @@ export default async function Home() {
                         "",
                       ) || "/neighborhoods"
                     }
-                    className="text-sm font-semibold text-slate-900 underline underline-offset-4"
+                    className="text-sm font-semibold text-ink underline underline-offset-4"
                   >
                     Explore {n.name.split("/")[0].trim()} homes
                   </Link>
@@ -288,10 +302,10 @@ export default async function Home() {
                   tour with intent, then write a comps-backed offer — typically
                   closing in 30–45 days.
                 </p>
-                <div className="relative aspect-[16/10] overflow-hidden mb-6">
+                <div className="relative mb-6 aspect-[16/10] overflow-hidden">
                   <Image
-                    src="/images/affordable/vegas-starter-home.jpg"
-                    alt="Affordable Las Vegas single-family home with curb appeal for first-time buyers"
+                    src="/images/affordable/buy-process-keys-closing.jpg"
+                    alt="House keys and closing documents for buying an affordable Las Vegas home"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -389,15 +403,26 @@ export default async function Home() {
                 </a>
               </div>
             </div>
-            <div className="aspect-video w-full overflow-hidden bg-slate-200">
-              <iframe
-                title="Map to Affordable Homes Las Vegas at 8850 W. Sunset Suite 200"
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE_BRAND.address.full)}&z=15&output=embed`}
-                className="w-full h-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+            <div className="grid gap-4">
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
+                  src="/images/sections/office-sunset-corporate.jpg"
+                  alt="Las Vegas corporate office exterior near Sunset Road for Affordable Homes Las Vegas"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="aspect-video w-full overflow-hidden bg-slate-200">
+                <iframe
+                  title="Map to Affordable Homes Las Vegas at 8850 W. Sunset Suite 200"
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE_BRAND.address.full)}&z=15&output=embed`}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -405,8 +430,8 @@ export default async function Home() {
         {/* Final CTA */}
         <section className="relative py-20 text-white overflow-hidden">
           <Image
-            src="/images/hero/luxury-modern-home.jpg"
-            alt="Modern luxury Las Vegas home — book a buyer consultation with Dr. Jan Duffy"
+            src="/images/sections/schedule-private-showing.jpg"
+            alt="Open front door inviting a private Las Vegas home showing"
             fill
             className="object-cover"
             sizes="100vw"

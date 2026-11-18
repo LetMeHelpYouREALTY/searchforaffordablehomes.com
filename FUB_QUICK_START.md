@@ -32,7 +32,7 @@ Test the API:
 
 ```typescript
 // test-fub.ts
-import { FollowUpBossClient } from '@/lib/fub/client';
+import { FollowUpBossClient } from "@/lib/fub/client";
 
 const fub = new FollowUpBossClient({
   apiKey: process.env.FUB_API_KEY!,
@@ -41,18 +41,18 @@ const fub = new FollowUpBossClient({
 
 // Create test lead
 const person = await fub.upsertPerson({
-  name: 'Test Lead',
-  emails: [{ value: 'test@example.com' }],
-  source: 'api-test',
-  stage: 'New Lead',
+  name: "Test Lead",
+  emails: [{ value: "test@example.com" }],
+  source: "api-test",
+  stage: "New Lead",
 });
 
 console.log(`Lead created: ${person.id}`);
 
 // Add tag
-await fub.addTag(person.id, 'test-lead');
+await fub.addTag(person.id, "test-lead");
 
-console.log('Success!');
+console.log("Success!");
 ```
 
 Run it:
@@ -69,16 +69,13 @@ npx tsx test-fub.ts
 
 ```tsx
 // app/contact/page.tsx
-import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
+import { LeadCaptureForm } from "@/components/forms/LeadCaptureForm";
 
 export default function ContactPage() {
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h1>Contact Dr. Jan Duffy</h1>
-      <LeadCaptureForm
-        source="website-contact-page"
-        formType="contact"
-      />
+      <LeadCaptureForm source="website-contact-page" formType="contact" />
     </div>
   );
 }
@@ -90,8 +87,8 @@ export default function ContactPage() {
 <LeadCaptureForm
   source="website-property-search"
   stage="Active Buyer"
-  defaultTags={['property-search']}
-  formType="property-search"  // Shows price, bedrooms, etc.
+  defaultTags={["property-search"]}
+  formType="property-search" // Shows price, bedrooms, etc.
 />
 ```
 
@@ -136,35 +133,35 @@ Create a test lead in FUB manually and check server logs:
 ### 2. Search for Existing Lead
 
 ```typescript
-const existing = await fub.findPerson({ email: 'john@example.com' });
+const existing = await fub.findPerson({ email: "john@example.com" });
 
 if (existing) {
   console.log(`Found: ${existing.name}`);
 } else {
-  console.log('Lead not found - create new');
+  console.log("Lead not found - create new");
 }
 ```
 
 ### 3. Add Tag
 
 ```typescript
-await fub.addTag(personId, 'summerlin');
-await fub.addTag(personId, 'active-buyer');
+await fub.addTag(personId, "summerlin");
+await fub.addTag(personId, "active-buyer");
 ```
 
 ### 4. Update Stage
 
 ```typescript
-await fub.updateStage(personId, 'Active Buyer');
+await fub.updateStage(personId, "Active Buyer");
 ```
 
 ### 5. Create Event (Activity)
 
 ```typescript
 await fub.createEvent({
-  source: 'website',
-  type: 'Property Search',
-  message: 'Searched for 3-bed homes in Henderson',
+  source: "website",
+  type: "Property Search",
+  message: "Searched for 3-bed homes in Henderson",
   personId,
 });
 ```
@@ -173,7 +170,7 @@ await fub.createEvent({
 
 ```typescript
 const results = await fub.listPeople({
-  stage: 'New Lead',
+  stage: "New Lead",
   createdAfter: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
   limit: 50,
 });
@@ -247,14 +244,17 @@ FUB_DEFAULT_SOURCE=website
 ## 🆘 Troubleshooting
 
 **"API key not configured"**
+
 - Add `FUB_API_KEY` to `.env.local`
 - Restart dev server (`npm run dev`)
 
 **"Rate limit exceeded"**
+
 - Add `FUB_SYSTEM_KEY` for 2x limit
 - Enable caching (default: enabled)
 
 **Webhook not working**
+
 - Check URL is publicly accessible (not localhost)
 - Verify HTTPS is enabled
 - Check FUB Admin → Webhooks settings
@@ -269,4 +269,4 @@ FUB_DEFAULT_SOURCE=website
 
 ---
 
-*Ready to scale? See `FUB_OPTIMIZATION.md` for automation, bulk operations, and advanced features.*
+_Ready to scale? See `FUB_OPTIMIZATION.md` for automation, bulk operations, and advanced features._

@@ -72,6 +72,36 @@
       "source": "/home",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/rental/(.*)",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/single-family/(.*)",
+      "destination": "/affordable-homes",
+      "permanent": true
+    },
+    {
+      "source": "/condo-townhouse/(.*)",
+      "destination": "/affordable-homes",
+      "permanent": true
+    },
+    {
+      "source": "/vacant-land/(.*)",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/homes/sale/(.*)",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/homes/(.*)",
+      "destination": "/listings",
+      "permanent": true
     }
   ]
 }

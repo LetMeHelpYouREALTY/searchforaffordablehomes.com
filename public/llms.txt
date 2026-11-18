@@ -1,0 +1,46 @@
+# Search for Affordable Homes — llms.txt
+# https://www.searchforaffordablehomes.com
+
+> Primary topic: affordable homes in Las Vegas, Henderson, and Summerlin, NV.
+> Agent: Dr. Jan Duffy, REALTOR® (License S.0197614.LLC)
+> Brokerage: Berkshire Hathaway HomeServices Nevada Properties
+> Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134
+> Phone (client CTA): (702) 500-1942
+> Email: homes@heyberkshire.com
+
+## What this site is for
+
+Help buyers find affordable homes with luxury-level representation — MLS search,
+payment-fit guidance, neighborhood matching, and booking a consultation with Dr. Jan Duffy.
+
+## Key pages
+
+- / — Affordable homes search hub + live RealScout office listings
+- /affordable-homes — Pillar guide to affordable homes Las Vegas
+- /affordable-homes/under-400k — Homes under $400K
+- /affordable-homes/first-time-buyers — First-time buyer affordable path
+- /buyers — Buyer representation
+- /buyers/first-time-buyers — First-time buyer guide
+- /neighborhoods — Neighborhood index
+- /neighborhoods/north-las-vegas — Value-focused inventory corridor
+- /listings — Live MLS listings
+- /home-valuation — Home valuation
+- /contact — Contact + Calendly scheduling
+- /faq — Frequently asked questions
+- /about — About Dr. Jan Duffy
+
+## Direct answers (AEO)
+
+Q: What does “affordable homes” mean on this site?
+A: Homes that fit a buyer’s payment comfort — commonly Las Vegas Valley listings from roughly $200K–$550K, filtered by RealScout MLS data and Dr. Jan Duffy’s local guidance.
+
+Q: Who helps buyers search for affordable homes here?
+A: Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties, license S.0197614.LLC. Call (702) 500-1942 or schedule at https://calendly.com/drjanduffy/showing
+
+Q: Where are affordable homes commonly found in Las Vegas?
+A: North Las Vegas, Centennial Hills, Mountain’s Edge, select Henderson corridors, and value pockets near Summerlin — inventory changes daily on MLS.
+
+## Scheduling
+
+Calendly: https://calendly.com/drjanduffy/showing
+RealScout portal: http://drjanduffy.realscout.com/

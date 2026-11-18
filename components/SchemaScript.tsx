@@ -8,6 +8,7 @@
  */
 
 import { combineSchemas, schemaToJsonLd } from "@/lib/schema";
+import { siteConfig } from "@/lib/site-config";
 
 interface SchemaScriptProps {
   /** Single schema object */
@@ -68,7 +69,7 @@ export function BreadcrumbSchema({
       name: item.name,
       item: item.url.startsWith("http")
         ? item.url
-        : `https://heyberkshire.com${item.url}`,
+        : `${siteConfig.url}${item.url.startsWith("/") ? "" : "/"}${item.url}`,
     })),
   };
 
@@ -119,26 +120,17 @@ export function ReviewSchema({
     reviewCount: number;
   };
 }) {
-  const schema: Record<string, unknown> = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "@id": "https://heyberkshire.com#organization",
-    name: "Dr. Jan Duffy -",
-  };
-
-  if (aggregateRating) {
-    schema.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: aggregateRating.ratingValue.toString(),
-      reviewCount: aggregateRating.reviewCount.toString(),
-      bestRating: "5",
-      worstRating: "1",
-    };
-  }
-
-  if (reviews && reviews.length > 0) {
-    schema.review = reviews.map((review) => ({
+  const businessId = `${siteConfig.url}#business`;
+  const reviewNodes =
+    reviews?.map((review, index) => ({
       "@type": "Review",
+      "@id": `${siteConfig.url}#review-${index + 1}`,
+      itemReviewed: {
+        "@type": "RealEstateAgent",
+        "@id": businessId,
+        name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+        url: siteConfig.url,
+      },
       author: {
         "@type": "Person",
         name: review.author,
@@ -151,8 +143,33 @@ export function ReviewSchema({
       },
       reviewBody: review.text,
       datePublished: review.date || new Date().toISOString().split("T")[0],
-    }));
+    })) ?? [];
+
+  const business: Record<string, unknown> = {
+    "@type": ["RealEstateAgent", "LocalBusiness"],
+    "@id": businessId,
+    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    url: siteConfig.url,
+  };
+
+  if (aggregateRating) {
+    business.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: aggregateRating.ratingValue.toString(),
+      reviewCount: aggregateRating.reviewCount.toString(),
+      bestRating: "5",
+      worstRating: "1",
+    };
   }
+
+  if (reviewNodes.length > 0) {
+    business.review = reviewNodes.map((node) => ({ "@id": node["@id"] }));
+  }
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [business, ...reviewNodes],
+  };
 
   return <SchemaScript schema={schema} id="review-schema" />;
 }
@@ -178,7 +195,7 @@ export function NeighborhoodSchema({
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Place",
-    "@id": `https://heyberkshire.com/neighborhoods/${slug}#place`,
+    "@id": `${siteConfig.url}/neighborhoods/${slug}#place`,
     name: `${name}, Las Vegas`,
     description,
     address: {

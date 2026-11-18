@@ -11,11 +11,13 @@ npm install --save-dev @cloudflare/next-on-pages @cloudflare/workers-types wrang
 ### Step 2: Get Cloudflare Credentials (3 min)
 
 **Account ID:**
+
 1. Go to https://dash.cloudflare.com/
 2. Select your domain
 3. Copy Account ID from right sidebar
 
 **API Token:**
+
 1. Go to https://dash.cloudflare.com/profile/api-tokens
 2. Click "Create Token"
 3. Use "Edit Cloudflare Workers" template
@@ -102,15 +104,18 @@ curl -H "Accept: image/webp" https://heyberkshire.com/Image/hero.jpg
 ## 📊 Check Performance
 
 ### Cloudflare Dashboard
+
 https://dash.cloudflare.com/ → Your Domain → Analytics
 
 **Monitor:**
+
 - Requests per second
 - Cache hit ratio (target: 85%+)
 - Bandwidth savings
 - Response times
 
 ### Lighthouse Score
+
 ```bash
 npm run lighthouse
 # Target scores: 90+ across all metrics
@@ -123,6 +128,7 @@ npm run lighthouse
 ### Build Fails
 
 **Check:**
+
 - Node version is 20 (see `.nvmrc`)
 - All dependencies installed
 - `CLOUDFLARE_ACCOUNT_ID` is set correctly
@@ -130,6 +136,7 @@ npm run lighthouse
 ### Workers Not Deploying
 
 **Check:**
+
 - `wrangler.toml` has correct account_id
 - API token has proper permissions
 - GitHub secrets are added
@@ -137,6 +144,7 @@ npm run lighthouse
 ### Cache Not Working
 
 **Check:**
+
 - Cloudflare proxying is enabled (orange cloud)
 - Cache rules in dashboard aren't conflicting
 - Headers are being set correctly
@@ -146,6 +154,7 @@ npm run lighthouse
 ## 📖 Full Documentation
 
 For detailed setup, configuration, and troubleshooting:
+
 - **CLOUDFLARE_OPTIMIZATION.md** - Complete guide
 
 ---

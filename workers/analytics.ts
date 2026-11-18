@@ -1,19 +1,23 @@
 /**
  * Cloudflare Worker - Analytics & Monitoring
- * 
+ *
  * Collects performance metrics and sends them to Cloudflare Analytics.
  * Tracks Core Web Vitals and custom performance metrics.
  */
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext,
+  ): Promise<Response> {
     const startTime = Date.now();
     const url = new URL(request.url);
-    
+
     // Fetch response
     const response = await fetch(request);
     const responseTime = Date.now() - startTime;
-    
+
     // Collect analytics data
     const analyticsData = {
       timestamp: new Date().toISOString(),
@@ -21,20 +25,20 @@ export default {
       method: request.method,
       status: response.status,
       responseTime,
-      userAgent: request.headers.get('User-Agent'),
-      country: request.cf?.country || 'unknown',
-      colo: request.cf?.colo || 'unknown',
-      cacheStatus: response.headers.get('CF-Cache-Status'),
-      contentType: response.headers.get('Content-Type'),
+      userAgent: request.headers.get("User-Agent"),
+      country: request.cf?.country || "unknown",
+      colo: request.cf?.colo || "unknown",
+      cacheStatus: response.headers.get("CF-Cache-Status"),
+      contentType: response.headers.get("Content-Type"),
     };
-    
+
     // Send analytics asynchronously (don't block response)
     ctx.waitUntil(sendAnalytics(analyticsData, env));
-    
+
     // Add performance timing header
     const newResponse = new Response(response.body, response);
-    newResponse.headers.set('Server-Timing', `edge;dur=${responseTime}`);
-    
+    newResponse.headers.set("Server-Timing", `edge;dur=${responseTime}`);
+
     return newResponse;
   },
 };
@@ -60,7 +64,7 @@ async function sendAnalytics(data: AnalyticsData, env: Env): Promise<void> {
         blobs: [
           data.url,
           data.method,
-          data.userAgent || '',
+          data.userAgent || "",
           data.country,
           data.colo,
         ],
@@ -68,13 +72,13 @@ async function sendAnalytics(data: AnalyticsData, env: Env): Promise<void> {
         indexes: [data.url],
       });
     } catch (error) {
-      console.error('Failed to send analytics:', error);
+      console.error("Failed to send analytics:", error);
     }
   }
-  
+
   // Log to console for debugging
-  if (env.DEBUG === 'true') {
-    console.log('Analytics:', JSON.stringify(data, null, 2));
+  if (env.DEBUG === "true") {
+    console.log("Analytics:", JSON.stringify(data, null, 2));
   }
 }
 

@@ -21,7 +21,7 @@ export const SITE_BRAND = {
   smsHref: "sms:+17025001942",
   email: "homes@heyberkshire.com",
   portraitSrc: "/images/agent/dr-jan-duffy-portrait.png",
-  logoSrc: "/images/logos/las-vegas-affordable-homes-logo.png",
+  logoSrc: "/images/logos/brand-mark-affordable-homes.jpg",
   /** GBP business location */
   address: {
     street: "8850 W. Sunset, Suite 200",
@@ -131,6 +131,9 @@ export const AFFORDABLE_NEIGHBORHOODS = [
     medianHint: "Southwest Enterprise entry band near 89139",
     description:
       "Primary GBP focus area for entry-level single-family and townhome inventory with parks, schools, and Beltway access.",
+    image: "/images/neighborhoods/mountains-edge.jpg",
+    imageAlt:
+      "Mountain's Edge Las Vegas southwest neighborhood street with newer stucco homes",
     highlights: [
       "Southwest Las Vegas entry prices",
       "Condos, townhomes & SFH",
@@ -144,6 +147,8 @@ export const AFFORDABLE_NEIGHBORHOODS = [
     medianHint: "Enterprise 89141 — golf-community edge of the affordable band",
     description:
       "Buyers weigh golf-community amenities against price, square footage, and HOA dues while staying in southwest Las Vegas.",
+    image: "/images/neighborhoods/southern-highlands.jpg",
+    imageAlt: "Southern Highlands Las Vegas homes with desert mountains beyond",
     highlights: ["Resort-style amenities", "89141 ZIP", "New & resale mix"],
   },
   {
@@ -153,6 +158,8 @@ export const AFFORDABLE_NEIGHBORHOODS = [
     medianHint: "Spring Valley / southwest corridor near Sunset",
     description:
       "Close to the Affordable Homes Las Vegas office on W. Sunset — strong for comparing condos, townhomes, and single-family by price and HOA.",
+    image: "/images/neighborhoods/rhodes-ranch.jpg",
+    imageAlt: "Rhodes Ranch Las Vegas residential street with tile-roof homes",
     highlights: [
       "Near 8850 W. Sunset office",
       "HOA comparison friendly",
@@ -167,6 +174,9 @@ export const AFFORDABLE_NEIGHBORHOODS = [
       "Most affordable major sub-market; ~$425K 90-day sold median (Jul 2026 NLV reports)",
     description:
       "Entry floor near Eldorado and older 89031/89032 stock, starter sweet spot around Craig Ranch and Aliante, and new-build entry in Tule Springs — often with builder incentives and rate buydowns.",
+    image: "/images/neighborhoods/north-las-vegas.jpg",
+    imageAlt:
+      "North Las Vegas affordable single-family homes on a quiet street",
     highlights: [
       "446+ actives under $400K reported mid-2026",
       "Aliante & Tule Springs",
@@ -181,6 +191,8 @@ export const AFFORDABLE_NEIGHBORHOODS = [
       "ZIPs 89121 / 89122 / 89142 hold many of the valley’s under-$400K listings",
     description:
       "Established east and central corridors with the densest under-$400K single-family selection and lower price-per-square-foot than west-valley master plans.",
+    image: "/images/neighborhoods/east-las-vegas.jpg",
+    imageAlt: "East Las Vegas established neighborhood with ranch-style homes",
     highlights: [
       "Lowest price-per-sq-ft clusters",
       "Established stock",
@@ -195,6 +207,8 @@ export const AFFORDABLE_NEIGHBORHOODS = [
       "Citywide medians run higher; under-$500K focuses on condos/townhomes and older SFH",
     description:
       "City services and master-plan pockets; under-$500K often means attached product or smaller lots versus Summerlin west pricing.",
+    image: "/images/neighborhoods/henderson-entry.jpg",
+    imageAlt: "Henderson Nevada entry-level townhomes with desert landscaping",
     highlights: ["City amenities", "Green Valley adjacent", "Attached options"],
   },
 ];

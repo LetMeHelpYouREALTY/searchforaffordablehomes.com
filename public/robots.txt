@@ -1,9 +1,0 @@
-# Fallback static robots — App Router app/robots.ts is authoritative in Next.js.
-# Keep this file aligned so static hosts / CDNs never advertise the wrong sitemap.
-
-User-agent: *
-Allow: /
-Disallow: /api/
-Disallow: /monitoring/
-
-Sitemap: https://www.searchforaffordablehomes.com/sitemap.xml
