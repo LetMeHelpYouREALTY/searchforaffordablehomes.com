@@ -4,9 +4,19 @@ const config = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      extend: {
-        fontFamily: {
-          sans: ["var(--font-geist-sans)"],
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
+      },
+      colors: {
+        ink: {
+          DEFAULT: "#0c1222",
+          soft: "#1e293b",
+        },
+        champagne: {
+          DEFAULT: "#c5a572",
+          soft: "#d4bc91",
+          deep: "#8a6d3b",
         },
       },
       keyframes: {
@@ -18,10 +28,22 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "ken-slow": {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.06)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.7s ease-out both",
+        "fade-up-delay": "fade-up 0.7s ease-out 0.15s both",
+        "fade-up-delay-2": "fade-up 0.7s ease-out 0.3s both",
+        "ken-slow": "ken-slow 18s ease-out forwards",
       },
     },
   },

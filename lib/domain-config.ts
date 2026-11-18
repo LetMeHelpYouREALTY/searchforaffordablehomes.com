@@ -432,26 +432,26 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "searchforaffordablehomes.com": {
     domain: "searchforaffordablehomes.com",
     neighborhood: "Las Vegas",
-    tagline: "Affordable Homes for Sale in Las Vegas",
+    tagline: "Luxury realtor service for homes under $500K",
     description:
-      "Buy an affordable home in Las Vegas with luxury-level buyer representation from Dr. Jan Duffy. Search under-$500K homes in North Las Vegas, Mountain's Edge, Centennial Hills, and Henderson.",
-    heroHeadline: "Buy an Affordable Home in Las Vegas",
+      "Luxury buyer representation for Las Vegas homes under $500K with Dr. Jan Duffy. Private tours, comps-backed offers, and closing advocacy in Mountain's Edge, Southern Highlands, and Rhodes Ranch.",
+    heroHeadline: "Luxury representation for homes under $500K",
     heroSubheadline:
-      "Las Vegas Affordable Homes by Dr. Jan Duffy — luxury realtor service for under-$500K buyers with private tours, data-backed offers, and closing advocacy.",
+      "Private tours, data-backed offers, and closing advocacy — white-glove service at entry-level prices.",
     keywords: [
       "affordable homes Las Vegas",
+      "luxury realtor Las Vegas",
       "homes under 500000 Las Vegas",
-      "cheap homes Las Vegas NV",
       "first time home buyer Las Vegas",
-      "North Las Vegas affordable homes",
+      "Mountain's Edge homes for sale",
       "buy affordable house Las Vegas",
     ],
     pageType: "search",
     realscoutAgentId: REALSCOUT_AGENT_ID,
-    ctaBadge: "Affordable Home Specialist",
-    ctaHeadline: "Start Your Affordable Home Search",
+    ctaBadge: "Luxury Buyer Representation",
+    ctaHeadline: "Start a White-Glove Home Search",
     ctaSubheadline:
-      "Call or text Dr. Jan at 702-500-1942 — white-glove buyer help at entry-level prices.",
+      "Call or text Dr. Jan at 702-500-1942 — luxury process, under-$500K inventory.",
   },
   "searchforhomesinhenderson.com": {
     domain: "searchforhomesinhenderson.com",
@@ -689,12 +689,12 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
 export const DEFAULT_CONFIG: DomainConfig = {
   domain: "searchforaffordablehomes.com",
   neighborhood: "Las Vegas",
-  tagline: "Affordable Homes for Sale in Las Vegas",
+  tagline: "Luxury realtor service for homes under $500K",
   description:
-    "Buy an affordable home in Las Vegas with luxury-level buyer representation from Dr. Jan Duffy. Search under-$500K homes across the Las Vegas Valley.",
-  heroHeadline: "Buy an Affordable Home in Las Vegas",
+    "Luxury buyer representation for Las Vegas homes under $500K with Dr. Jan Duffy. Private tours, comps-backed offers, and closing advocacy across the valley.",
+  heroHeadline: "Luxury representation for homes under $500K",
   heroSubheadline:
-    "Luxury realtor service for under-$500K buyers — private tours, data-backed offers, and closing advocacy from Dr. Jan Duffy.",
+    "Private tours, data-backed offers, and closing advocacy — white-glove service at entry-level prices.",
   keywords: [
     "affordable homes Las Vegas",
     "homes under 500000 Las Vegas",

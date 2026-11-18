@@ -30,13 +30,12 @@ import { homepageSectionGraph } from "@/lib/section-schemas";
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getPageDomainConfig();
   return {
-    title:
-      "Buy an Affordable Home in Las Vegas | Luxury Buyer Representation — Dr. Jan Duffy",
+    title: `${config.heroHeadline} | ${SITE_BRAND.name} — Dr. Jan Duffy`,
     description: config.description,
     keywords: config.keywords,
     alternates: { canonical: SITE_BRAND.url },
     openGraph: {
-      title: "Buy an Affordable Home in Las Vegas",
+      title: config.heroHeadline,
       description: config.description,
       url: SITE_BRAND.url,
       type: "website",
@@ -45,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: `${SITE_BRAND.url}/images/hero/luxury-vegas-estate.jpg`,
           width: 1920,
           height: 1280,
-          alt: "Luxury Las Vegas home exterior — affordable home buying with white-glove realtor service",
+          alt: "Las Vegas estate exterior — luxury realtor service for homes under $500K",
         },
       ],
     },
@@ -61,54 +60,46 @@ export default async function Home() {
       <SchemaScript schema={schemas} id="homepage-section-schemas" />
       <Navbar />
       <main>
-        {/* Hero — brand + one H1 + one answer + one CTA + full-bleed luxury image */}
-        <section className="relative min-h-[88vh] flex items-end md:items-center text-white overflow-hidden">
+        {/* Hero — brand-first luxury composition: brand, H1, one line, one CTA, full-bleed */}
+        <section className="relative flex min-h-[88vh] items-end overflow-hidden text-white md:items-center">
           <Image
             src="/images/hero/luxury-vegas-estate.jpg"
-            alt="Luxury Las Vegas estate exterior representing white-glove realtor service for affordable home buyers"
+            alt="Las Vegas estate exterior — luxury realtor service for homes under $500K"
             fill
             priority
-            className="object-cover"
+            className="object-cover motion-safe:animate-ken-slow"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/55 to-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/65 to-ink/25" />
           <div className="relative z-10 container mx-auto px-4 pb-16 pt-32 md:py-28">
-            <p className="text-sm md:text-base tracking-[0.2em] uppercase text-amber-200/90 mb-4 font-medium">
-              {SITE_BRAND.shortName} · {SITE_BRAND.agent}
+            <p className="mb-3 font-display text-3xl font-semibold tracking-tight text-champagne-soft motion-safe:animate-fade-up md:text-4xl lg:text-5xl">
+              {SITE_BRAND.name}
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl leading-[1.1] mb-5">
+            <h1 className="mb-5 max-w-3xl font-display text-4xl font-semibold leading-[1.08] motion-safe:animate-fade-up-delay md:text-5xl lg:text-6xl">
               {config.heroHeadline}
             </h1>
-            <p className="aeo-answer text-lg md:text-xl text-white/90 max-w-2xl mb-8 leading-relaxed">
-              {SITE_BRAND.gbpDescription}
+            <p className="aeo-answer mb-8 max-w-xl text-lg leading-relaxed text-white/85 motion-safe:animate-fade-up-delay-2 md:text-xl">
+              {config.heroSubheadline}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <div className="flex flex-col gap-3 sm:flex-row motion-safe:animate-fade-up-delay-2">
               <a
-                href="tel:+17025001942"
-                className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-slate-950 px-7 py-3.5 font-semibold transition-colors"
+                href="#listings"
+                className="inline-flex items-center justify-center bg-champagne px-7 py-3.5 font-semibold text-ink no-underline transition-colors hover:bg-champagne-soft"
               >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Browse Homes
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-              <Link
-                href="/buyers"
-                className="inline-flex items-center justify-center border border-white/70 hover:bg-white/10 px-7 py-3.5 font-semibold transition-colors"
+              <a
+                href="#schedule"
+                className="inline-flex items-center justify-center border border-white/60 px-7 py-3.5 font-semibold text-white no-underline transition-colors hover:bg-white/10"
               >
-                How Buying Works
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Link>
-            </div>
-            <div className="mb-4 max-w-xl">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-simple-search agent-encoded-id="${config.realscoutAgentId}"></realscout-simple-search>`,
-                }}
-              />
+                Schedule a Showing
+              </a>
             </div>
           </div>
         </section>
 
-        <RealScoutListings />
+        <RealScoutListings agentEncodedId={config.realscoutAgentId} />
 
         {/* NAP / GEO strip */}
         <section
@@ -428,21 +419,40 @@ export default async function Home() {
             <p className="text-xl text-white/85 mb-8 max-w-2xl mx-auto">
               {config.ctaSubheadline}
             </p>
-            <a
-              href={`tel:${SITE_BRAND.phoneTel}`}
-              className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-4 font-bold text-lg transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Call {SITE_BRAND.phoneDisplay}
-            </a>
-            <p className="mt-6 text-white/70 text-sm">
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="#listings"
+                className="inline-flex items-center justify-center bg-champagne px-8 py-4 text-lg font-bold text-ink no-underline transition-colors hover:bg-champagne-soft"
+              >
+                Click a Home Photo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+              <a
+                href="#schedule"
+                className="inline-flex items-center justify-center border border-white/70 px-8 py-4 text-lg font-bold text-white no-underline transition-colors hover:bg-white/10"
+              >
+                Book on Calendly
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-white/70">
               {SITE_BRAND.name} · {SITE_BRAND.agent}, REALTOR® ·{" "}
-              {SITE_BRAND.address.full}
+              {SITE_BRAND.address.full} ·{" "}
+              <a
+                href={`tel:${SITE_BRAND.phoneTel}`}
+                className="text-white underline underline-offset-2"
+              >
+                {SITE_BRAND.phoneDisplay}
+              </a>
             </p>
           </div>
         </section>
+
+        <ScheduleConsultSection
+          heading="Schedule a private showing"
+          subheading={`Pick a time with ${SITE_BRAND.agent} on Calendly — tour homes under $500K or review your offer plan.`}
+          calendlyUrl={SITE_BRAND.calendlyShowingUrl}
+        />
       </main>
-      <ScheduleConsultSection />
       <Footer />
     </>
   );

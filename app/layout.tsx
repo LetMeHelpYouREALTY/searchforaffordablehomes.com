@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
@@ -7,6 +8,13 @@ import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import { SITE_BRAND } from "@/lib/affordable-homes-content";
 import CalendlyBadge from "@/components/calendly/CalendlyBadge";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
@@ -59,7 +67,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistSans.className} ${display.variable}`}
+    >
       <head>
         {/* RealScout — load once globally (em.realscout.com script + www.realscout.com API) */}
         <Script
@@ -126,7 +137,7 @@ export default function RootLayout({
         <CalendlyBadge
           url={SITE_BRAND.calendlyShowingUrl}
           text="Schedule with Dr. Jan"
-          color="#1e3a8a"
+          color="#0c1222"
           textColor="#ffffff"
         />
         <Analytics />
