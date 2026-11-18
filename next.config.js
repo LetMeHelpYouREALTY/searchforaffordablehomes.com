@@ -20,7 +20,7 @@ const nextConfig = {
   // Performance optimizations
   swcMinify: true,
 
-  // Redirect non-www to www
+  // Redirect apex → www for production hosts
   async redirects() {
     return [
       {
@@ -32,6 +32,17 @@ const nextConfig = {
           },
         ],
         destination: 'https://www.heyberkshire.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'searchforaffordablehomes.com',
+          },
+        ],
+        destination: 'https://www.searchforaffordablehomes.com/:path*',
         permanent: true,
       },
     ]

@@ -1,242 +1,152 @@
 import { MetadataRoute } from "next";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://heyberkshire.com";
+  const baseUrl = SITE_BRAND.url.replace(/\/$/, "");
   const lastModified = new Date();
 
-  // Core pages
-  const corePages = [
-    { url: baseUrl, priority: 1.0, changeFrequency: "weekly" as const },
+  const paths: Array<{
+    path: string;
+    priority: number;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  }> = [
+    { path: "", priority: 1.0, changeFrequency: "weekly" },
+    { path: "/about", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/contact", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/listings", priority: 0.9, changeFrequency: "daily" },
+    { path: "/faq", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/google-business", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/market-report", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/market-update", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/market-insights", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/buyers", priority: 0.8, changeFrequency: "monthly" },
     {
-      url: `${baseUrl}/about`,
-      priority: 0.9,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      priority: 0.9,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/listings`,
-      priority: 0.9,
-      changeFrequency: "daily" as const,
-    },
-    {
-      url: `${baseUrl}/why-berkshire-hathaway`,
-      priority: 0.9,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/market-report`,
-      priority: 0.9,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/market-update`,
-      priority: 0.9,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/market-insights`,
-      priority: 0.9,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/google-business`,
-      priority: 0.9,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/faq`,
+      path: "/buyers/california-relocator",
       priority: 0.8,
-      changeFrequency: "monthly" as const,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/buyers/first-time-buyers",
+      priority: 0.8,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/buyers/luxury-homes-las-vegas",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    { path: "/sellers", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/sellers/move-up", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/sellers/downsizing", priority: 0.7, changeFrequency: "monthly" },
+    {
+      path: "/sellers/divorce-probate",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    { path: "/sellers/relocation", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/luxury-homes", priority: 0.7, changeFrequency: "weekly" },
+    { path: "/new-construction", priority: 0.8, changeFrequency: "weekly" },
+    {
+      path: "/investment-properties",
+      priority: 0.7,
+      changeFrequency: "weekly",
+    },
+    { path: "/relocation", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/home-valuation", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/services", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/55-plus-communities", priority: 0.8, changeFrequency: "monthly" },
+    {
+      path: "/55-plus-communities/sun-city-summerlin",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/55-plus-communities/sun-city-anthem",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/55-plus-communities/del-webb-lake-las-vegas",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/55-plus-communities/sun-city-aliante",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/55-plus-communities/heritage-stonebridge",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/55-plus-communities/solera-anthem",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/55-plus-communities/trilogy-summerlin",
+      priority: 0.7,
+      changeFrequency: "monthly",
+    },
+    { path: "/neighborhoods", priority: 0.8, changeFrequency: "weekly" },
+    {
+      path: "/neighborhoods/summerlin",
+      priority: 0.8,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/henderson",
+      priority: 0.8,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/green-valley",
+      priority: 0.7,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/the-ridges",
+      priority: 0.6,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/southern-highlands",
+      priority: 0.8,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/north-las-vegas",
+      priority: 0.8,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/skye-canyon",
+      priority: 0.7,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/centennial-hills",
+      priority: 0.7,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/inspirada",
+      priority: 0.7,
+      changeFrequency: "weekly",
+    },
+    {
+      path: "/neighborhoods/mountains-edge",
+      priority: 0.9,
+      changeFrequency: "weekly",
     },
   ];
 
-  // Service pages
-  const servicePages = [
-    {
-      url: `${baseUrl}/buyers`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/sellers`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/luxury-homes`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/new-construction`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/investment-properties`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/relocation`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/home-valuation`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/55-plus-communities`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/services`,
-      priority: 0.7,
-      changeFrequency: "monthly" as const,
-    },
-  ];
-
-  // Buyer persona pages
-  const buyerPersonaPages = [
-    {
-      url: `${baseUrl}/buyers/california-relocator`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/buyers/first-time-buyers`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/buyers/luxury-homes-las-vegas`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-  ];
-
-  // Seller persona pages
-  const sellerPersonaPages = [
-    {
-      url: `${baseUrl}/sellers/move-up`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/sellers/downsizing`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/sellers/divorce-probate`,
-      priority: 0.7,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/sellers/relocation`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-  ];
-
-  // 55+ community sub-pages
-  const fiftyPlusCommunityPages = [
-    {
-      url: `${baseUrl}/55-plus-communities/sun-city-summerlin`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/55-plus-communities/sun-city-anthem`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-    {
-      url: `${baseUrl}/55-plus-communities/del-webb-lake-las-vegas`,
-      priority: 0.8,
-      changeFrequency: "monthly" as const,
-    },
-  ];
-
-  // Neighborhood pages
-  const neighborhoodPages = [
-    {
-      url: `${baseUrl}/neighborhoods`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/summerlin`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/henderson`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/green-valley`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/the-ridges`,
-      priority: 0.8,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/southern-highlands`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/north-las-vegas`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/skye-canyon`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/centennial-hills`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/inspirada`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-    {
-      url: `${baseUrl}/neighborhoods/mountains-edge`,
-      priority: 0.7,
-      changeFrequency: "weekly" as const,
-    },
-  ];
-
-  const allPages = [
-    ...corePages,
-    ...servicePages,
-    ...buyerPersonaPages,
-    ...sellerPersonaPages,
-    ...fiftyPlusCommunityPages,
-    ...neighborhoodPages,
-  ];
-
-  return allPages.map((page) => ({
-    url: page.url,
+  return paths.map(({ path, priority, changeFrequency }) => ({
+    url: `${baseUrl}${path}`,
     lastModified,
-    changeFrequency: page.changeFrequency,
-    priority: page.priority,
+    changeFrequency,
+    priority,
   }));
 }
