@@ -224,7 +224,7 @@ export default function AboutPage() {
                     </div>
                     <div className="flex items-center text-slate-700">
                       <Clock className="h-5 w-5 mr-3 text-blue-600" />
-                      Mon-Fri 9am-6pm, Sat 10am-4pm, Sun by appointment
+                      Open daily 8:00 AM–8:00 PM
                     </div>
                   </div>
                 </div>

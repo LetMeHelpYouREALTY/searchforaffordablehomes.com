@@ -432,10 +432,10 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "searchforaffordablehomes.com": {
     domain: "searchforaffordablehomes.com",
     neighborhood: "Las Vegas",
-    tagline: "Affordable Homes Las Vegas in Las Vegas",
+    tagline: "Affordable Homes in Las Vegas",
     description:
       "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy helps value-focused buyers with MLS access, payment planning, and luxury-level negotiation. Call (702) 500-1942.",
-    heroHeadline: "Affordable Homes Las Vegas in Las Vegas",
+    heroHeadline: "Affordable Homes in Las Vegas",
     heroSubheadline:
       "Luxury-level representation for buyers who want the right home at the right payment — updated MLS listings daily.",
     keywords: [
@@ -691,10 +691,10 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
 export const DEFAULT_CONFIG: DomainConfig = {
   domain: "searchforaffordablehomes.com",
   neighborhood: "Las Vegas",
-  tagline: "Affordable Homes Las Vegas in Las Vegas",
+  tagline: "Affordable Homes in Las Vegas",
   description:
     "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, REALTOR®. Luxury-level advocacy for value-focused buyers. Call (702) 500-1942.",
-  heroHeadline: "Affordable Homes Las Vegas in Las Vegas",
+  heroHeadline: "Affordable Homes in Las Vegas",
   heroSubheadline:
     "Expert guidance from Dr. Jan Duffy — in real estate since 1983, 500+ families helped find homes that fit their budget.",
   keywords: [

@@ -94,7 +94,7 @@ export default async function Home() {
 
   const pageSchemas = combineSchemas(
     generateWebPageSchema({
-      name: "Affordable Homes Las Vegas in Las Vegas",
+      name: "Affordable Homes in Las Vegas",
       description: config.description,
       url: "/",
     }),

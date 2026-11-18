@@ -108,7 +108,7 @@ export default function ContactPage() {
                       (702) 500-1942
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
-                      Available 7 days a week, 9am-6pm
+                      Available daily 8:00 AM–8:00 PM
                     </p>
                   </div>
                 </div>
@@ -340,7 +340,7 @@ export default function ContactPage() {
                 },
                 {
                   q: "How quickly can you respond to inquiries?",
-                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
+                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (8:00 AM–8:00 PM daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
                 },
                 {
                   q: "Do you charge for consultations?",
