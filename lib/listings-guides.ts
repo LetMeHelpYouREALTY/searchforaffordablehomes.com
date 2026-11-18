@@ -288,7 +288,10 @@ export const listingGuides: ListingGuide[] = [
       },
     ],
     related: [
-      { href: "/neighborhoods/henderson", label: "Henderson neighborhood guide" },
+      {
+        href: "/neighborhoods/henderson",
+        label: "Henderson neighborhood guide",
+      },
       { href: "/neighborhoods/green-valley", label: "Green Valley" },
       { href: "/neighborhoods/inspirada", label: "Inspirada" },
       { href: "/listings#schedule", label: "Book Calendly" },

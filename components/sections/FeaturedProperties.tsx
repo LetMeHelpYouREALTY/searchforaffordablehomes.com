@@ -12,7 +12,10 @@ import { listingGuides } from "@/lib/listings-guides";
  */
 export default function FeaturedProperties() {
   return (
-    <section className="bg-slate-50 py-16 md:py-24" aria-labelledby="featured-search-heading">
+    <section
+      className="bg-slate-50 py-16 md:py-24"
+      aria-labelledby="featured-search-heading"
+    >
       <div className="container mx-auto mb-10 px-4">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>

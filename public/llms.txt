@@ -1,17 +1,22 @@
-# Search for Affordable Homes — llms.txt
+# Affordable Homes Las Vegas — llms.txt
 # https://www.searchforaffordablehomes.com
 
-> Primary topic: affordable homes in Las Vegas, Henderson, and Summerlin, NV.
+> GBP business name: Affordable Homes Las Vegas
+> Primary topic: affordable / entry-level homes in southwest Las Vegas, NV
 > Agent: Dr. Jan Duffy, REALTOR® (License S.0197614.LLC)
 > Brokerage: Berkshire Hathaway HomeServices Nevada Properties
-> Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134
-> Phone (client CTA): (702) 500-1942
+> Office: 8850 W. Sunset, Suite 200, Las Vegas, NV 89148
+> Phone / SMS: (702) 500-1942 · sms:+17025001942
+> Hours: Daily 8:00 AM–8:00 PM
 > Email: homes@heyberkshire.com
+> Opened: September 2013
 
 ## What this site is for
 
-Help buyers find affordable homes with luxury-level representation — MLS search,
-payment-fit guidance, neighborhood matching, and booking a consultation with Dr. Jan Duffy.
+Help buyers find homes at entry-level prices across southwest Las Vegas
+(Mountain's Edge, Southern Highlands, Rhodes Ranch, and nearby corridors).
+Compare condos, townhomes, and single-family homes by price, square footage,
+and HOA dues. Book a consultation or private tour with Dr. Jan Duffy.
 
 ## Key pages
 
@@ -22,31 +27,39 @@ payment-fit guidance, neighborhood matching, and booking a consultation with Dr.
 - /buyers — Buyer representation
 - /buyers/first-time-buyers — First-time buyer guide
 - /neighborhoods — Neighborhood index
-- /neighborhoods/north-las-vegas — Value-focused inventory corridor
+- /neighborhoods/mountains-edge — Mountain's Edge corridor
+- /neighborhoods/southern-highlands — Southern Highlands
 - /listings — Live MLS listings (click photos or book Calendly)
 - /listings/single-family — Single-family MLS photos + tour booking
 - /listings/condos-townhomes — Condo/townhome MLS photos + tour booking
 - /listings/under-500k — Homes under $500K with live office listings
 - /listings/newest — Newest MLS listings first
-- /listings/henderson — Henderson-focused MLS photos + tours
-- /home-valuation — Home valuation
 - /contact — Contact + Calendly scheduling
 - /faq — Frequently asked questions
 - /about — About Dr. Jan Duffy
 
 ## Direct answers (AEO)
 
-Q: What does “affordable homes” mean on this site?
-A: Homes that fit a buyer’s payment comfort — commonly Las Vegas Valley listings from roughly $200K–$550K, filtered by RealScout MLS data and Dr. Jan Duffy’s local guidance.
+Q: What is Affordable Homes Las Vegas?
+A: A Google-listed real estate practice helping buyers find entry-level priced homes across southwest Las Vegas. Agent: Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Office: 8850 W. Sunset, Suite 200, Las Vegas, NV 89148. Call or text (702) 500-1942.
 
-Q: Who helps buyers search for affordable homes here?
-A: Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties, license S.0197614.LLC. Call (702) 500-1942 or schedule at https://calendly.com/drjanduffy/showing
+Q: What does “affordable homes” mean here?
+A: Homes at entry-level prices buyers can compare by list price, square footage, and HOA dues—commonly condos, townhomes, and single-family inventory in Mountain's Edge, Southern Highlands, Rhodes Ranch, and nearby corridors.
 
-Q: Where are affordable homes commonly found in Las Vegas?
-A: North Las Vegas, Centennial Hills, Mountain’s Edge, select Henderson corridors, and value pockets near Summerlin — inventory changes daily on MLS.
+Q: How do I book a consultation or private tour?
+A: Schedule at https://calendly.com/drjanduffy/showing, call or text (702) 500-1942, or use the contact page. Appointment is not required when the schedule allows. Hours are daily 8:00 AM–8:00 PM.
 
-Q: How does a buyer see a real listing or book a tour from this site?
-A: Click any RealScout office listing photo for live MLS details, or schedule a showing at https://calendly.com/drjanduffy/showing. Paste addresses from RealScout into the Calendly notes.
+Q: How does a buyer see a real listing from this site?
+A: Click any RealScout office listing photo for live MLS details, then book Calendly and paste the address in the notes.
+
+## Social profiles (GBP)
+
+- https://www.linkedin.com/company/drjanduffy/
+- https://www.facebook.com/DrJanDuffyLasVegasStrip/
+- https://twitter.com/DrJanDuffy
+- https://www.youtube.com/@DrDuffy
+- https://www.pinterest.com/DrJanDuffy/
+- https://www.instagram.com/drjanduffy/
 
 ## Scheduling
 

@@ -85,7 +85,7 @@ const homeFaqs = [
   {
     question: "How do I schedule a tour with Dr. Jan Duffy?",
     answer:
-      "Book instantly on Calendly, call (702) 500-1942, or use the schedule section on any page. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+      "Book instantly on Calendly, call (702) 500-1942, or use the schedule section on any page. Office: 8850 W. Sunset, Suite 200, Las Vegas, NV 89148.",
   },
 ];
 

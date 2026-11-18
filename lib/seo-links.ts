@@ -153,9 +153,15 @@ export const authorityExternalLinks: SeoLink[] = [
   },
 ];
 
+/** GBP + authority sameAs profiles */
 export const sameAsProfiles = [
   "https://www.bhhsnv.com/",
   "https://calendly.com/drjanduffy/showing",
   "http://drjanduffy.realscout.com/",
-  "https://www.linkedin.com/in/drjanduffy",
+  "https://www.linkedin.com/company/drjanduffy/",
+  "https://www.facebook.com/DrJanDuffyLasVegasStrip/",
+  "https://twitter.com/DrJanDuffy",
+  "https://www.youtube.com/@DrDuffy",
+  "https://www.pinterest.com/DrJanDuffy/",
+  "https://www.instagram.com/drjanduffy/",
 ];

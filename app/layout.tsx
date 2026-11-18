@@ -31,8 +31,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: `${config.neighborhood} Affordable Homes | Dr. Jan Duffy, REALTOR®`,
-      template: "%s | Search for Affordable Homes",
+      default: `Affordable Homes Las Vegas | Dr. Jan Duffy, REALTOR®`,
+      template: "%s | Affordable Homes Las Vegas",
     },
     description: config.description,
     keywords: config.keywords,
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: config.description,
       type: "website",
       locale: "en_US",
-      siteName: "Search for Affordable Homes",
+      siteName: "Affordable Homes Las Vegas",
       url: canonicalUrl,
       images: [
         {

@@ -66,7 +66,9 @@ export default function ListingGuidePage({ guide }: ListingGuidePageProps) {
               {guide.h1}
             </h1>
             <p className="mb-4 text-xl text-slate-600">{guide.intro}</p>
-            <p className="mb-6 text-base text-slate-700">{guide.directAnswer}</p>
+            <p className="mb-6 text-base text-slate-700">
+              {guide.directAnswer}
+            </p>
             <p className="mb-8 text-sm text-slate-500">
               {agentInfo.brokerage} · {officeInfo.address.full} ·{" "}
               <a
@@ -139,7 +141,9 @@ export default function ListingGuidePage({ guide }: ListingGuidePageProps) {
                   key={item.title}
                   className="rounded-xl border border-slate-200 p-5"
                 >
-                  <h3 className="mb-2 font-bold text-slate-900">{item.title}</h3>
+                  <h3 className="mb-2 font-bold text-slate-900">
+                    {item.title}
+                  </h3>
                   <p className="text-sm text-slate-600">{item.text}</p>
                 </div>
               ))}

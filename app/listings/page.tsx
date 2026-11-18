@@ -1,12 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
-import {
-  Phone,
-  DollarSign,
-  CheckCircle,
-  ArrowRight,
-} from "lucide-react";
+import { Phone, DollarSign, CheckCircle, ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
@@ -137,7 +132,8 @@ const neighborhoodLinks = [
   {
     name: "Summerlin",
     href: "/neighborhoods/summerlin",
-    description: "Master-planned living with parks, trails, and Red Rock access",
+    description:
+      "Master-planned living with parks, trails, and Red Rock access",
     medianPrice: marketStats.summerlin.medianPriceFormatted,
   },
   {
@@ -267,7 +263,9 @@ export default function ListingsPage() {
                     <h3 className="font-bold text-slate-900 group-hover:text-blue-600">
                       {search.name}
                     </h3>
-                    <span className="text-sm text-slate-500">{search.blurb}</span>
+                    <span className="text-sm text-slate-500">
+                      {search.blurb}
+                    </span>
                   </div>
                   <ArrowRight className="h-5 w-5 text-slate-400 group-hover:text-blue-600" />
                 </Link>
@@ -295,7 +293,9 @@ export default function ListingsPage() {
                   <div className="mb-2 flex items-center md:mb-0">
                     <DollarSign className="mr-3 h-5 w-5 text-green-600" />
                     <div>
-                      <h3 className="font-bold text-slate-900">{price.range}</h3>
+                      <h3 className="font-bold text-slate-900">
+                        {price.range}
+                      </h3>
                       <p className="text-sm text-slate-600">
                         {price.description}
                       </p>
@@ -345,7 +345,8 @@ export default function ListingsPage() {
                 href="/neighborhoods"
                 className="inline-flex items-center font-semibold text-blue-600 hover:text-blue-700"
               >
-                Explore all neighborhoods <ArrowRight className="ml-2 h-4 w-4" />
+                Explore all neighborhoods{" "}
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
           </section>
@@ -362,7 +363,10 @@ export default function ListingsPage() {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               <div className="rounded-lg bg-blue-50 p-6 text-center">
                 <div className="mb-1 text-3xl font-bold text-blue-600">
-                  {marketStats.lasVegas.medianPriceFormatted.replace(",000", "K")}
+                  {marketStats.lasVegas.medianPriceFormatted.replace(
+                    ",000",
+                    "K",
+                  )}
                 </div>
                 <div className="text-sm text-slate-600">Median home price</div>
               </div>
@@ -410,8 +414,8 @@ export default function ListingsPage() {
               Ready to tour a home you clicked?
             </h2>
             <p className="mb-8 text-xl text-blue-100">
-              Book Calendly with Dr. Jan Duffy and paste the RealScout
-              addresses in the notes—or call to line up same-day access.
+              Book Calendly with Dr. Jan Duffy and paste the RealScout addresses
+              in the notes—or call to line up same-day access.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <CalendlyButton

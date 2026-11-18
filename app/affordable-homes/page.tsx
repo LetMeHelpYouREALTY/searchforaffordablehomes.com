@@ -92,8 +92,8 @@ export default function AffordableHomesPage() {
               day one.
             </p>
             <p className="text-sm text-slate-500">
-              Berkshire Hathaway HomeServices Nevada Properties · 9406 W Lake
-              Mead Blvd, Suite 100, Las Vegas, NV 89134 ·{" "}
+              Affordable Homes Las Vegas · 8850 W. Sunset, Suite 200, Las Vegas,
+              NV 89148 ·{" "}
               <a href="tel:+17025001942" className="font-medium text-[#1e4fd6]">
                 (702) 500-1942
               </a>
