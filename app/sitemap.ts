@@ -241,6 +241,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const featuredShowcasePages = [
+    {
+      url: `${baseUrl}/listings/north-las-vegas-starter`,
+      priority: 0.8,
+      changeFrequency: "weekly" as const,
+      lastModified: staggered(1),
+    },
+    {
+      url: `${baseUrl}/listings/henderson-value`,
+      priority: 0.8,
+      changeFrequency: "weekly" as const,
+      lastModified: staggered(1),
+    },
+    {
+      url: `${baseUrl}/listings/summerlin-entry`,
+      priority: 0.8,
+      changeFrequency: "weekly" as const,
+      lastModified: staggered(1),
+    },
+  ];
+
   const neighborhoodPages = [
     {
       url: `${baseUrl}/neighborhoods`,
@@ -316,6 +337,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...buyerPersonaPages,
     ...sellerPersonaPages,
     ...fiftyPlusCommunityPages,
+    ...featuredShowcasePages,
     ...neighborhoodPages,
   ];
 }

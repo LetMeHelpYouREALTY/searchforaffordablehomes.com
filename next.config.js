@@ -76,13 +76,7 @@ const nextConfig = {
         destination: "/listings",
         permanent: true,
       },
-      // Placeholder /listings/[id] detail pages were soft-404 bait (same
-      // fake "Modern Luxury Home" HTML for every id). Collapse to inventory.
-      {
-        source: "/listings/:id",
-        destination: "/listings",
-        permanent: true,
-      },
+      // Legacy singular listing URL shapes → inventory hub
       {
         source: "/property/:path*",
         destination: "/listings",

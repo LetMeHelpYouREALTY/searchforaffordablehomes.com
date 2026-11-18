@@ -104,11 +104,6 @@
       "permanent": true
     },
     {
-      "source": "/listings/:id",
-      "destination": "/listings",
-      "permanent": true
-    },
-    {
       "source": "/property/(.*)",
       "destination": "/listings",
       "permanent": true
