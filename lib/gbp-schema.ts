@@ -35,6 +35,25 @@ export const businessInfo = {
     sunday: "08:00-20:00",
   },
 
+  /** GBP special hours — closed dates */
+  specialHours: [
+    {
+      date: "2026-11-11",
+      label: "Veterans Day",
+      closed: true,
+    },
+    {
+      date: "2026-11-26",
+      label: "Thanksgiving",
+      closed: true,
+    },
+    {
+      date: "2026-11-27",
+      label: "Black Friday",
+      closed: true,
+    },
+  ],
+
   // Geo coordinates for 8850 W Sunset Rd, Las Vegas NV 89148
   geo: {
     latitude: 36.071662,
@@ -43,11 +62,16 @@ export const businessInfo = {
 
   // Service areas from GBP
   serviceAreas: [
+    "Nevada, USA",
     "Las Vegas, NV",
     "Enterprise, NV",
     "Winchester, NV",
     "Clark County, NV",
     "Desert Hills, NV",
+    "Las Vegas, NV 89134",
+    "Las Vegas, NV 89135",
+    "Las Vegas, NV 89144",
+    "Las Vegas, NV 89148",
     "Summerlin South, NV",
     "Summerlin West, NV",
     "Rhodes Ranch, NV",
@@ -263,6 +287,15 @@ export function generateLocalBusinessSchema() {
       dayOfWeek: day,
       opens: "08:00",
       closes: "20:00",
+    })),
+    specialOpeningHoursSpecification: businessInfo.specialHours.map((day) => ({
+      "@type": "OpeningHoursSpecification",
+      validFrom: day.date,
+      validThrough: day.date,
+      // Closed all day — identical opens/closes signals no open window
+      opens: "00:00",
+      closes: "00:00",
+      description: day.label,
     })),
     areaServed: businessInfo.serviceAreas.map((area) => ({
       "@type": "Place",
