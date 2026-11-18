@@ -40,6 +40,24 @@ export const SITE_BRAND = {
       closes: "20:00",
     },
   ],
+  /** GBP special hours (closed) — keep in sync with Google Business Profile */
+  specialHours: [
+    {
+      date: "2026-11-11",
+      label: "Veterans Day",
+      closed: true,
+    },
+    {
+      date: "2026-11-26",
+      label: "Thanksgiving",
+      closed: true,
+    },
+    {
+      date: "2026-11-27",
+      label: "Black Friday",
+      closed: true,
+    },
+  ] as const,
   foundingDate: "2013-09",
   gbpShareUrl: "https://share.google/BQPiVVuYidhVW5iAD",
   calendlyShowingUrl: "https://calendly.com/drjanduffy/showing",

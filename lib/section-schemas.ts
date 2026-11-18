@@ -61,6 +61,11 @@ export function agentOrganizationSchema() {
         closes: "20:00",
       },
     ],
+    specialOpeningHoursSpecification: SITE_BRAND.specialHours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      validFrom: h.date,
+      validThrough: h.date,
+    })),
     areaServed: SITE_BRAND.serviceAreas.map((name) => ({
       "@type": "Place",
       name,

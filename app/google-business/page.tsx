@@ -11,13 +11,9 @@ import {
   Star,
   CheckCircle,
   MessageSquare,
-  Camera,
-  FileText,
   Award,
   Users,
   Home,
-  Building,
-  Heart,
 } from "lucide-react";
 import type { Metadata } from "next";
 import {
@@ -27,27 +23,37 @@ import {
   generateLocalBusinessSchema,
   generateFAQSchema,
 } from "@/lib/gbp-schema";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export const metadata: Metadata = {
-  title: "Dr. Jan Duffy, REALTOR® Las Vegas",
-  description:
-    "Dr. Jan Duffy is a trusted Las Vegas REALTOR®. Specializing in Summerlin, Henderson, 55+ communities, California relocation, and luxury homes. Call (702) 500-1942.",
+  title: `${SITE_BRAND.name} | Google Business Profile — Dr. Jan Duffy`,
+  description: SITE_BRAND.gbpDescription,
   keywords: [
+    "Affordable Homes Las Vegas",
     "Dr. Jan Duffy realtor",
+    "Mountain's Edge homes",
+    "Southern Highlands homes",
+    "Rhodes Ranch homes",
     "Las Vegas real estate agent",
-    "Summerlin realtor",
-    "Henderson real estate agent",
-    "55+ communities Las Vegas",
-    "California relocation Las Vegas",
   ],
+  alternates: { canonical: `${SITE_BRAND.url}/google-business` },
   openGraph: {
-    title: "Dr. Jan Duffy - Las Vegas REALTOR®",
-    description:
-      "Trusted Las Vegas REALTOR® in real estate since 1983. Summerlin, Henderson, luxury homes, 55+ communities.",
-    url: "https://heyberkshire.com/google-business",
-    type: "profile",
+    title: `${SITE_BRAND.name} — Google Business Profile`,
+    description: SITE_BRAND.gbpDescription,
+    url: `${SITE_BRAND.url}/google-business`,
+    type: "website",
   },
 };
+
+const WEEKDAYS = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+] as const;
 
 export default function GoogleBusinessPage() {
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -66,185 +72,204 @@ export default function GoogleBusinessPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
+      <main className="pb-16 pt-24">
         <div className="container mx-auto px-4">
-          {/* Hero - NAP Prominent */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white rounded-2xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+          <section className="mb-16 max-w-5xl mx-auto">
+            <div className="rounded-2xl bg-ink p-8 text-white md:p-12">
+              <div className="grid items-center gap-8 md:grid-cols-2">
                 <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Award className="h-6 w-6 text-yellow-400" />
-                    <span className="text-yellow-400 font-semibold">
-                      Top 1% Las Vegas REALTOR®
-                    </span>
-                  </div>
-
-                  <RealScoutListings />
-
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    Dr. Jan Duffy
+                  <p className="mb-2 text-sm font-medium uppercase tracking-[0.18em] text-champagne-soft">
+                    Google Business Profile
+                  </p>
+                  <h1 className="mb-3 font-display text-4xl font-semibold md:text-5xl">
+                    {SITE_BRAND.name}
                   </h1>
-                  <p className="text-xl text-blue-200 mb-2">
-                    REALTOR® | In Real Estate Since 1983
+                  <p className="mb-2 text-lg text-white/85">
+                    {SITE_BRAND.agent}, REALTOR® · Primary category:{" "}
+                    {SITE_BRAND.categories.primary}
                   </p>
-                  <p className="text-slate-300 mb-6">
-                    Top 1% Las Vegas REALTOR®
+                  <p className="mb-6 text-sm text-white/70">
+                    Also listed as:{" "}
+                    {SITE_BRAND.categories.secondary.join(" · ")}
                   </p>
 
-                  {/* NAP - Exact match to GBP */}
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
+                      <MapPin className="mt-1 h-5 w-5 shrink-0 text-champagne" />
                       <div>
                         <p className="font-medium">
-                          {businessInfo.address.streetAddress}
+                          {SITE_BRAND.address.street}
                         </p>
                         <p>
-                          {businessInfo.address.addressLocality},{" "}
-                          {businessInfo.address.addressRegion}{" "}
-                          {businessInfo.address.postalCode}
+                          {SITE_BRAND.address.city}, {SITE_BRAND.address.state}{" "}
+                          {SITE_BRAND.address.zip}
                         </p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                      <Phone className="h-5 w-5 shrink-0 text-champagne" />
                       <a
-                        href={`tel:${businessInfo.phone.tel}`}
-                        className="font-medium hover:text-blue-300"
+                        href={`tel:${SITE_BRAND.phoneTel}`}
+                        className="font-medium text-white no-underline hover:text-champagne-soft"
                       >
-                        {businessInfo.phone.display}
+                        {SITE_BRAND.phoneDisplay}
                       </a>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
+                      <MessageSquare className="h-5 w-5 shrink-0 text-champagne" />
                       <a
-                        href={`mailto:${businessInfo.email}`}
-                        className="hover:text-blue-300"
+                        href={SITE_BRAND.smsHref}
+                        className="font-medium text-white no-underline hover:text-champagne-soft"
                       >
-                        {businessInfo.email}
+                        SMS {SITE_BRAND.phoneDisplay}
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Mail className="h-5 w-5 shrink-0 text-champagne" />
+                      <a
+                        href={`mailto:${SITE_BRAND.email}`}
+                        className="text-white no-underline hover:text-champagne-soft"
+                      >
+                        {SITE_BRAND.email}
                       </a>
                     </div>
                   </div>
                 </div>
 
-                {/* Rating & CTA */}
-                <div className="text-center bg-white/10 rounded-xl p-8">
-                  <div className="flex justify-center mb-4">
+                <div className="bg-white/10 p-8 text-center">
+                  <div className="mb-4 flex justify-center">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
                         key={star}
-                        className="h-8 w-8 text-yellow-400 fill-yellow-400"
+                        className="h-8 w-8 fill-champagne text-champagne"
                       />
                     ))}
                   </div>
-                  <p className="text-3xl font-bold mb-2">4.9 / 5.0</p>
-                  <p className="text-blue-200 mb-6">200+ Client Reviews</p>
-                  <a
-                    href={`tel:${businessInfo.phone.tel}`}
-                    className="inline-block w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-lg font-bold text-lg transition-colors"
-                  >
-                    Call Now: {businessInfo.phone.display}
-                  </a>
-                  <p className="text-sm text-blue-300 mt-3">
-                    Free Consultation
-                  </p>
+                  <p className="mb-2 text-3xl font-semibold">4.9 / 5.0</p>
+                  <p className="mb-6 text-white/75">Google reviews</p>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="#listings"
+                      className="inline-block bg-champagne px-6 py-3.5 font-semibold text-ink no-underline hover:bg-champagne-soft"
+                    >
+                      Browse Homes
+                    </a>
+                    <a
+                      href="#schedule"
+                      className="inline-block border border-white/50 px-6 py-3.5 font-semibold text-white no-underline hover:bg-white/10"
+                    >
+                      Schedule on Calendly
+                    </a>
+                    <a
+                      href={SITE_BRAND.gbpShareUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-champagne-soft underline underline-offset-2"
+                    >
+                      View Google Business Profile
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
-          {/* Business Hours */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <div className="bg-slate-50 rounded-xl p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Clock className="h-5 w-5 text-blue-600" />
-                <h2 className="text-xl font-bold text-slate-900">
-                  Business Hours
+
+          <RealScoutListings />
+
+          <section className="mb-16 max-w-5xl mx-auto">
+            <div className="border border-slate-200 bg-[var(--luxury-surface)] p-6">
+              <div className="mb-4 flex items-center gap-2">
+                <Clock className="h-5 w-5 text-champagne-deep" />
+                <h2 className="font-display text-xl font-semibold text-ink">
+                  Business hours
                 </h2>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div>
-                  <span className="font-medium">Monday:</span> 9am - 6pm
-                </div>
-                <div>
-                  <span className="font-medium">Tuesday:</span> 9am - 6pm
-                </div>
-                <div>
-                  <span className="font-medium">Wednesday:</span> 9am - 6pm
-                </div>
-                <div>
-                  <span className="font-medium">Thursday:</span> 9am - 6pm
-                </div>
-                <div>
-                  <span className="font-medium">Friday:</span> 9am - 6pm
-                </div>
-                <div>
-                  <span className="font-medium">Saturday:</span> 10am - 4pm
-                </div>
-                <div>
-                  <span className="font-medium">Sunday:</span> By Appointment
-                </div>
+              <p className="mb-4 text-sm text-slate-600">
+                Open with main hours · daily 8:00 AM–8:00 PM · since September
+                2013
+              </p>
+              <div className="grid grid-cols-2 gap-3 text-sm md:grid-cols-4">
+                {WEEKDAYS.map((day) => (
+                  <div key={day}>
+                    <span className="font-medium text-ink">{day}:</span>{" "}
+                    <span className="text-slate-700">8:00 AM–8:00 PM</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 border-t border-slate-200 pt-4">
+                <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
+                  Special hours
+                </h3>
+                <ul className="space-y-1 text-sm text-slate-700">
+                  {SITE_BRAND.specialHours.map((h) => (
+                    <li key={h.date}>
+                      {h.label} ({h.date}):{" "}
+                      <span className="font-medium text-ink">Closed</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </section>
 
-          {/* About - 750 Word Description Structure */}
-          <section className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              About Dr. Jan Duffy
+          <section className="mb-16 max-w-4xl mx-auto">
+            <h2 className="mb-8 text-center font-display text-3xl font-semibold text-ink">
+              About {SITE_BRAND.name}
             </h2>
-
-            {/* Section 1: Who We Are */}
             <div className="mb-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <Users className="h-5 w-5 text-blue-600" />
-                Experience & Background
+              <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold text-ink">
+                <Users className="h-5 w-5 text-champagne-deep" />
+                Description
               </h3>
-              <p className="text-slate-700 leading-relaxed">
+              <p className="leading-relaxed text-slate-700">
                 {gbpDescription.whoWeAre}
               </p>
             </div>
-
-            {/* Section 2: What We Do */}
             <div className="mb-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <Home className="h-5 w-5 text-blue-600" />
-                Services & Value
+              <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold text-ink">
+                <Home className="h-5 w-5 text-champagne-deep" />
+                Services & value
               </h3>
-              <p className="text-slate-700 leading-relaxed">
+              <p className="leading-relaxed text-slate-700">
                 {gbpDescription.whatWeDo}
               </p>
             </div>
-
-            {/* Section 3: Where We Serve */}
             <div className="mb-8">
-              <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <MapPin className="h-5 w-5 text-blue-600" />
-                Areas Served
+              <h3 className="mb-4 flex items-center gap-2 text-xl font-semibold text-ink">
+                <MapPin className="h-5 w-5 text-champagne-deep" />
+                Areas served
               </h3>
-              <p className="text-slate-700 leading-relaxed">
+              <p className="mb-4 leading-relaxed text-slate-700">
                 {gbpDescription.whereWeServe}
               </p>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {SITE_BRAND.serviceAreas.map((area) => (
+                  <li
+                    key={area}
+                    className="flex items-start gap-2 text-sm text-slate-700"
+                  >
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-champagne-deep" />
+                    {area}
+                  </li>
+                ))}
+              </ul>
             </div>
           </section>
 
-          {/* Services - Each creates searchable GBP field */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Real Estate Services
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="mb-8 text-center font-display text-3xl font-semibold text-ink">
+              Real estate services
             </h2>
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid gap-4 md:grid-cols-3">
               {businessInfo.services.map((service) => (
                 <div
                   key={service.name}
-                  className="bg-white border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                  className="border border-slate-200 bg-white p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-champagne-deep" />
                     <div>
-                      <h3 className="font-semibold text-slate-900">
-                        {service.name}
-                      </h3>
+                      <h3 className="font-semibold text-ink">{service.name}</h3>
                       <p className="text-sm text-slate-600">
                         {service.description}
                       </p>
@@ -255,170 +280,156 @@ export default function GoogleBusinessPage() {
             </div>
           </section>
 
-          {/* Service Areas - Distance factor */}
-          <section className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Service Areas
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="mb-8 text-center font-display text-3xl font-semibold text-ink">
+              From the business
             </h2>
-            <div className="bg-blue-50 rounded-xl p-8">
-              <div className="grid md:grid-cols-3 gap-8">
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-3">
-                    Primary Markets
-                  </h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Las Vegas, NV
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Summerlin, NV
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-3">
-                    Secondary Markets
-                  </h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Henderson, NV
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> North Las
-                      Vegas, NV
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-900 mb-3">
-                    Full Coverage
-                  </h3>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> Clark County,
-                      NV
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-blue-600" /> All Las Vegas
-                      Valley
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Neighborhood Specialties */}
-              <div className="mt-8 pt-8 border-t border-blue-200">
-                <h3 className="font-bold text-slate-900 mb-4">
-                  Neighborhood Expertise
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="border border-slate-200 p-5">
+                <h3 className="mb-3 flex items-center gap-2 font-semibold text-ink">
+                  <Award className="h-5 w-5 text-champagne-deep" />
+                  Highlights
                 </h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Summerlin",
-                    "Henderson",
-                    "Green Valley",
-                    "The Ridges",
-                    "Southern Highlands",
-                    "Centennial Hills",
-                    "Skye Canyon",
-                    "Inspirada",
-                    "Mountains Edge",
-                    "North Las Vegas",
-                  ].map((area) => (
-                    <Link
-                      key={area}
-                      href={`/neighborhoods/${area.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="bg-white px-3 py-1 rounded-full text-sm text-slate-700 hover:bg-blue-100 transition-colors"
-                    >
-                      {area}
-                    </Link>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  {SITE_BRAND.attributes.highlights.map((item) => (
+                    <li key={item}>• {item}</li>
                   ))}
-                </div>
+                  {SITE_BRAND.attributes.planning.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                  {SITE_BRAND.attributes.serviceOptions.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="border border-slate-200 p-5">
+                <h3 className="mb-3 font-semibold text-ink">Accessibility</h3>
+                <ul className="mb-4 space-y-2 text-sm text-slate-700">
+                  {SITE_BRAND.attributes.accessibility.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+                <h3 className="mb-3 font-semibold text-ink">Amenities</h3>
+                <ul className="mb-4 space-y-2 text-sm text-slate-700">
+                  {SITE_BRAND.attributes.amenities.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
+                <h3 className="mb-3 font-semibold text-ink">Crowd</h3>
+                <ul className="space-y-2 text-sm text-slate-700">
+                  {SITE_BRAND.attributes.crowd.map((item) => (
+                    <li key={item}>• {item}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           </section>
 
-          {/* FAQ Section - Extra ranking boost */}
-          <section className="max-w-4xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Frequently Asked Questions
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="mb-6 text-center font-display text-3xl font-semibold text-ink">
+              Languages
             </h2>
-            <div className="space-y-4">
-              {gbpFAQs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-slate-200 rounded-lg p-6"
+            <p className="mx-auto mb-4 max-w-3xl text-center text-slate-600">
+              Service options include these languages:
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {SITE_BRAND.languages.map((lang) => (
+                <span
+                  key={lang}
+                  className="border border-slate-300 px-3 py-1.5 text-sm text-ink"
                 >
-                  <h3 className="font-bold text-slate-900 mb-3 flex items-start gap-2">
-                    <MessageSquare className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                    {faq.question}
-                  </h3>
-                  <p className="text-slate-600 ml-7">{faq.answer}</p>
-                </div>
+                  {lang}
+                </span>
               ))}
             </div>
           </section>
 
-          {/* Review CTA - Prominence factor */}
-          <section className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 rounded-xl p-8 text-center">
-              <Star className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">
-                Your Review Helps Others Find Quality Service
-              </h2>
-              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-                If Dr. Jan helped you buy or sell a home, please consider
-                sharing your experience. Mention your neighborhood, type of
-                transaction, and what made the experience valuable.
-              </p>
-              <a
-                href="https://search.google.com/local/writereview?placeid=ChIJ7XLw8ta5yIARjTZPjgHJWVQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
-              >
-                Leave a Google Review
-              </a>
+          <section className="mb-16 max-w-5xl mx-auto">
+            <h2 className="mb-6 text-center font-display text-3xl font-semibold text-ink">
+              Social profiles
+            </h2>
+            <ul className="mx-auto max-w-2xl space-y-2 text-center text-sm">
+              {SITE_BRAND.socialProfiles.map((url) => (
+                <li key={url}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink underline underline-offset-2"
+                  >
+                    {url}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mb-16 max-w-4xl mx-auto">
+            <h2 className="mb-8 text-center font-display text-3xl font-semibold text-ink">
+              Frequently asked questions
+            </h2>
+            <div className="space-y-4">
+              {gbpFAQs.map((faq) => (
+                <details
+                  key={faq.question}
+                  className="border border-slate-200 bg-white p-4"
+                >
+                  <summary className="cursor-pointer font-semibold text-ink">
+                    {faq.question}
+                  </summary>
+                  <p className="mt-3 text-slate-700">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </section>
 
-          {/* Contact CTA */}
-          <section className="max-w-4xl mx-auto">
-            <div className="bg-slate-900 text-white rounded-2xl p-8 md:p-12 text-center">
-              <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-              <p className="text-xl text-slate-300 mb-8">
-                Contact Dr. Jan Duffy for a free consultation about buying or
-                selling in Las Vegas.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href={`tel:${businessInfo.phone.tel}`}
-                  className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
-                >
-                  <Phone className="h-5 w-5 mr-2" />
-                  {businessInfo.phone.display}
-                </a>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-colors"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Send Message
-                </Link>
-              </div>
-              <p className="text-slate-400 text-sm mt-6">
-                {businessInfo.address.streetAddress},{" "}
-                {businessInfo.address.addressLocality},{" "}
-                {businessInfo.address.addressRegion}{" "}
-                {businessInfo.address.postalCode}
-              </p>
+          <section className="mb-8 max-w-5xl mx-auto text-center">
+            <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href={`tel:${SITE_BRAND.phoneTel}`}
+                className="inline-flex items-center bg-ink px-6 py-3 font-semibold text-white no-underline"
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                Call {SITE_BRAND.phoneDisplay}
+              </a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE_BRAND.address.full)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center border border-ink px-6 py-3 font-semibold text-ink no-underline"
+              >
+                Directions
+              </a>
+              <a
+                href={SITE_BRAND.gbpShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center border border-ink px-6 py-3 font-semibold text-ink no-underline"
+              >
+                Google Reviews
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center border border-ink px-6 py-3 font-semibold text-ink no-underline"
+              >
+                Contact
+              </Link>
             </div>
+            <p className="mt-4 text-sm text-slate-500">
+              Website:{" "}
+              <a href={SITE_BRAND.url} className="underline">
+                {SITE_BRAND.url}
+              </a>
+            </p>
           </section>
         </div>
-        <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
-        </div>
+
+        <ScheduleConsultSection
+          heading="Book a consultation or private tour"
+          subheading={`Schedule with ${SITE_BRAND.agent} on Calendly — or call ${SITE_BRAND.phoneDisplay}.`}
+          calendlyUrl={SITE_BRAND.calendlyShowingUrl}
+        />
       </main>
-      <ScheduleConsultSection />
       <Footer />
     </>
   );

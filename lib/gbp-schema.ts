@@ -35,6 +35,8 @@ export const businessInfo = {
     saturday: "08:00-20:00",
   },
 
+  specialHours: [...SITE_BRAND.specialHours],
+
   geo: {
     latitude: SITE_BRAND.geo.lat,
     longitude: SITE_BRAND.geo.lng,
@@ -118,7 +120,7 @@ export const gbpFAQs = [
   },
   {
     question: "Where is the office and what are the hours?",
-    answer: `${SITE_BRAND.address.full}. Open 8:00 AM–8:00 PM every day. Call or text ${SITE_BRAND.phoneDisplay}, or book online.`,
+    answer: `${SITE_BRAND.address.full}. Open 8:00 AM–8:00 PM every day. Closed Veterans Day (Nov 11, 2026), Thanksgiving (Nov 26, 2026), and Black Friday (Nov 27, 2026). Call or text ${SITE_BRAND.phoneDisplay}, or book online.`,
   },
   {
     question: "How do sellers get pricing?",
@@ -168,6 +170,17 @@ export function generateLocalBusinessSchema() {
       dayOfWeek,
       opens: "08:00",
       closes: "20:00",
+    })),
+    specialOpeningHoursSpecification: businessInfo.specialHours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      validFrom: h.date,
+      validThrough: h.date,
+      ...(h.closed
+        ? {}
+        : {
+            opens: "08:00",
+            closes: "20:00",
+          }),
     })),
     areaServed: businessInfo.serviceAreas.map((area) => ({
       "@type": "Place",
