@@ -432,12 +432,12 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "searchforaffordablehomes.com": {
     domain: "searchforaffordablehomes.com",
     neighborhood: "Las Vegas",
-    tagline: "Search for Affordable Homes in Las Vegas",
+    tagline: "Affordable Homes by Dr. Jan Duffy, REALTOR®",
     description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy helps value-focused buyers with MLS access, payment planning, and luxury-level negotiation. Call (702) 500-1942.",
-    heroHeadline: "Search for Affordable Homes in Las Vegas",
+      "Affordable Homes by Dr. Jan Duffy, REALTOR® — Las Vegas, Henderson, and Summerlin MLS search with payment planning and luxury-level negotiation. Call (702) 500-1942.",
+    heroHeadline: "Affordable Homes in Las Vegas",
     heroSubheadline:
-      "Luxury-level representation for buyers who want the right home at the right payment — updated MLS listings daily.",
+      "By Dr. Jan Duffy, REALTOR® — luxury-level representation for buyers who want the right home at the right payment.",
     keywords: [
       "affordable homes",
       "affordable homes Las Vegas",
@@ -687,16 +687,16 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   },
 };
 
-// Default config — tuned for Search for Affordable Homes positioning
+// Default config — Affordable Homes / By Dr. Jan Duffy, REALTOR®
 export const DEFAULT_CONFIG: DomainConfig = {
   domain: "searchforaffordablehomes.com",
   neighborhood: "Las Vegas",
-  tagline: "Search for Affordable Homes in Las Vegas",
+  tagline: "Affordable Homes by Dr. Jan Duffy, REALTOR®",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, REALTOR®. Luxury-level advocacy for value-focused buyers. Call (702) 500-1942.",
-  heroHeadline: "Search for Affordable Homes in Las Vegas",
+    "Affordable Homes by Dr. Jan Duffy, REALTOR® — Las Vegas, Henderson, and Summerlin MLS search with luxury-level advocacy for value-focused buyers. Call (702) 500-1942.",
+  heroHeadline: "Affordable Homes in Las Vegas",
   heroSubheadline:
-    "Expert guidance from Dr. Jan Duffy — in real estate since 1983, 500+ families helped find homes that fit their budget.",
+    "By Dr. Jan Duffy, REALTOR® — in real estate since 1983, 500+ families helped find homes that fit their budget.",
   keywords: [
     "affordable homes",
     "affordable homes Las Vegas",

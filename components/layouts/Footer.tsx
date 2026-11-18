@@ -7,8 +7,9 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import BrandPortrait from "@/components/brand/BrandPortrait";
+import BrandLockup from "@/components/brand/BrandLockup";
 import SectionExtras from "@/components/brand/SectionExtras";
+import { siteConfig, agentInfo } from "@/lib/site-config";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,19 +20,18 @@ export default function Footer() {
         <div className="mb-10">
           <SectionExtras
             tone="dark"
-            headline="Search for affordable homes — schedule with Dr. Jan"
+            headline="Affordable Homes — schedule with Dr. Jan Duffy"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <BrandPortrait size="md" className="ring-offset-slate-900" />
+              <BrandLockup tone="dark" asLink={false} />
             </div>
-            <h3 className="font-bold text-xl mb-4">Dr. Jan Duffy, REALTOR®</h3>
             <p className="text-slate-300 mb-4 text-sm">
-              Search for affordable homes in Las Vegas, Henderson, and
-              Summerlin. In real estate since 1983.
+              {siteConfig.brandLine} — Las Vegas, Henderson, and Summerlin MLS
+              search. Berkshire Hathaway HomeServices Nevada Properties.
             </p>
             <div className="flex space-x-4">
               <a
@@ -248,10 +248,10 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
                 <Link
-                  href="mailto:homes@heyberkshire.com"
+                  href="mailto:homes@searchforaffordablehomes.com"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  Homes@HeyBerkshire.com
+                  Homes@SearchForAffordableHomes.com
                 </Link>
               </li>
             </ul>
@@ -331,7 +331,8 @@ export default function Footer() {
         <div className="border-t border-slate-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm text-center md:text-left">
-              © {currentYear} Dr. Jan Duffy, REALTOR®. All Rights Reserved.
+              © {currentYear} {siteConfig.name} · {agentInfo.name},{" "}
+              {agentInfo.title}. All Rights Reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <Link

@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BrandLockup from "@/components/brand/BrandLockup";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,26 +51,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/images/agent/dr-jan-duffy-portrait.png"
-              alt="Dr. Jan Duffy, REALTOR® — Search for Affordable Homes"
-              width={44}
-              height={44}
-              className="h-11 w-11 rounded-full object-cover ring-2 ring-[#1e4fd6]"
-              priority
-            />
-            <span className="flex flex-col">
-              <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
-                Dr. Jan Duffy
-                <span className="text-blue-600"> REALTOR®</span>
-              </span>
-              <span className="text-xs text-slate-500 hidden sm:block">
-                Search for Affordable Homes
-              </span>
-            </span>
-          </Link>
+          {/* Brand Logo — Affordable Homes / By Dr. Jan Duffy, REALTOR® */}
+          <BrandLockup className="min-w-0" />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-5">
