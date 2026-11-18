@@ -432,17 +432,18 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "searchforaffordablehomes.com": {
     domain: "searchforaffordablehomes.com",
     neighborhood: "Las Vegas",
-    tagline: "Search for Affordable Homes in Las Vegas",
+    tagline: "Affordable Homes Las Vegas",
     description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy helps value-focused buyers with MLS access, payment planning, and luxury-level negotiation. Call (702) 500-1942.",
-    heroHeadline: "Search for Affordable Homes in Las Vegas",
+      "Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Call or text (702) 500-1942.",
+    heroHeadline: "Affordable Homes Las Vegas",
     heroSubheadline:
-      "Luxury-level representation for buyers who want the right home at the right payment — updated MLS listings daily.",
+      "Compare condos, townhomes, and single-family homes by price, square footage, and HOA dues — then book a consultation or private tour.",
     keywords: [
-      "affordable homes",
+      "Affordable Homes Las Vegas",
       "affordable homes Las Vegas",
-      "search for affordable homes",
-      "cheap homes Las Vegas",
+      "Mountain's Edge homes",
+      "Southern Highlands homes",
+      "Rhodes Ranch homes",
       "homes under 400k Las Vegas",
       "first time buyer Las Vegas",
       "Henderson affordable homes",
@@ -450,10 +451,10 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ],
     pageType: "search",
     realscoutAgentId: REALSCOUT_AGENT_ID,
-    ctaBadge: "Affordable Homes Specialist",
-    ctaHeadline: "Find Affordable Homes That Still Feel Like a Win",
+    ctaBadge: "Affordable Homes Las Vegas",
+    ctaHeadline: "Book a consultation or private tour",
     ctaSubheadline:
-      "Tell me your payment comfort zone — I'll match live MLS inventory across Las Vegas and Henderson.",
+      "Call or text (702) 500-1942 — open daily 8:00 AM–8:00 PM at 8850 W. Sunset, Suite 200.",
   },
   "searchforhomesinhenderson.com": {
     domain: "searchforhomesinhenderson.com",
@@ -687,29 +688,30 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   },
 };
 
-// Default config — tuned for Search for Affordable Homes positioning
+// Default config — matches GBP: Affordable Homes Las Vegas
 export const DEFAULT_CONFIG: DomainConfig = {
   domain: "searchforaffordablehomes.com",
   neighborhood: "Las Vegas",
-  tagline: "Search for Affordable Homes in Las Vegas",
+  tagline: "Affordable Homes Las Vegas",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, REALTOR®. Luxury-level advocacy for value-focused buyers. Call (702) 500-1942.",
-  heroHeadline: "Search for Affordable Homes in Las Vegas",
+    "Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Call or text (702) 500-1942.",
+  heroHeadline: "Affordable Homes Las Vegas",
   heroSubheadline:
-    "Expert guidance from Dr. Jan Duffy — in real estate since 1983, 500+ families helped find homes that fit their budget.",
+    "Compare condos, townhomes, and single-family homes by price, square footage, and HOA dues — then book a consultation or private tour with Dr. Jan Duffy.",
   keywords: [
-    "affordable homes",
     "affordable homes Las Vegas",
-    "search for affordable homes",
-    "Las Vegas homes for sale",
+    "Affordable Homes Las Vegas",
+    "Mountain's Edge homes",
+    "Southern Highlands homes",
+    "Rhodes Ranch homes",
     "Dr Jan Duffy",
   ],
   pageType: "search",
   realscoutAgentId: REALSCOUT_AGENT_ID,
-  ctaBadge: "Affordable Homes Specialist",
-  ctaHeadline: "Find Your Affordable Las Vegas Home",
+  ctaBadge: "Affordable Homes Las Vegas",
+  ctaHeadline: "Book a consultation or private tour",
   ctaSubheadline:
-    "Call or text Dr. Jan at 702-500-1942 — I answer my own phone.",
+    "Call or text Dr. Jan at (702) 500-1942 — open daily 8:00 AM–8:00 PM.",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {
