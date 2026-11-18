@@ -136,6 +136,10 @@ export default function ContactPage() {
                       Office Address
                     </h3>
                     <address className="not-italic text-slate-700">
+                      Affordable Homes Las Vegas
+                      <br />
+                      Berkshire Hathaway HomeServices Nevada Properties
+                      <br />
                       8850 W. Sunset, Suite 200
                       <br />
                       Las Vegas, NV 89148
@@ -149,13 +153,9 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-slate-900 mb-1">
                       Office Hours
                     </h3>
-                    <p className="text-slate-700">
-                      Monday - Friday: 9:00 AM - 6:00 PM
-                      <br />
-                      Saturday - Sunday: 10:00 AM - 4:00 PM
-                    </p>
+                    <p className="text-slate-700">Open daily 8:00 AM–8:00 PM</p>
                     <p className="text-sm text-slate-500 mt-1">
-                      Available by appointment outside these hours
+                      Appointment not required · Online appointments available
                     </p>
                   </div>
                 </div>
