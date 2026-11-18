@@ -10,6 +10,10 @@ export type AffordableAreaPage = {
   neighborhood: string;
   city: string;
   priceBand: string;
+  /** RealScout office-listings price-min attribute */
+  priceMin: string;
+  /** RealScout office-listings price-max attribute */
+  priceMax: string;
   image: string;
   bedrooms: string;
   bathrooms: string;
@@ -31,6 +35,8 @@ export const featuredProperties: AffordableAreaPage[] = [
     neighborhood: "North Las Vegas",
     city: "North Las Vegas, NV",
     priceBand: "Under $400K focus",
+    priceMin: "200000",
+    priceMax: "400000",
     image: "/images/properties/affordable-home-north-vegas.jpg",
     bedrooms: "3–4 bed",
     bathrooms: "2–3 bath",
@@ -65,6 +71,8 @@ export const featuredProperties: AffordableAreaPage[] = [
     neighborhood: "Henderson",
     city: "Henderson, NV",
     priceBand: "$400K–$550K focus",
+    priceMin: "400000",
+    priceMax: "550000",
     image: "/images/properties/affordable-home-henderson.jpg",
     bedrooms: "3–4 bed",
     bathrooms: "2–3 bath",
@@ -99,6 +107,8 @@ export const featuredProperties: AffordableAreaPage[] = [
     neighborhood: "Summerlin",
     city: "Las Vegas, NV",
     priceBand: "$500K–$650K focus",
+    priceMin: "500000",
+    priceMax: "650000",
     image: "/images/properties/affordable-home-summerlin.jpg",
     bedrooms: "3–4 bed",
     bathrooms: "2–3 bath",

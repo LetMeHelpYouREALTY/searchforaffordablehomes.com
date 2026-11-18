@@ -113,6 +113,8 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
         <OfficeListingsUnderHero
           title={`Live affordable homes in ${property.neighborhood}`}
           subtitle={`Click a home photo to open details. Want a tour in ${property.city}? Schedule with Dr. Jan on Calendly.`}
+          priceMin={property.priceMin}
+          priceMax={property.priceMax}
         />
         <PropertyOverview property={property} />
         <section className="border-y border-slate-200 bg-white py-14">
