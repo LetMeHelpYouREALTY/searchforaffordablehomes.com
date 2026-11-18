@@ -238,7 +238,9 @@ export default function ListingsPage() {
         <div id="live-listings">
           <OfficeListingsUnderHero
             title="Click a listing photo for MLS details"
-            subtitle="Live office listings for Las Vegas, Henderson, and Summerlin. Ready to walk through? Book Calendly."
+            subtitle="Live office listings for Las Vegas, Henderson, and Summerlin across a wide price band. Ready to walk through? Book Calendly with Berkshire Hathaway HomeServices Nevada Properties agent Dr. Jan Duffy."
+            priceMin="100000"
+            priceMax="2500000"
           />
         </div>
 

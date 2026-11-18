@@ -70,7 +70,8 @@ export default function ListingGuidePage({ guide }: ListingGuidePageProps) {
               {guide.directAnswer}
             </p>
             <p className="mb-8 text-sm text-slate-500">
-              {agentInfo.brokerage} · {officeInfo.address.full} ·{" "}
+              Affordable Homes Las Vegas · {agentInfo.brokerage} ·{" "}
+              {officeInfo.address.full} ·{" "}
               <a
                 href={agentInfo.phoneTel}
                 className="font-medium text-[#1e4fd6]"
