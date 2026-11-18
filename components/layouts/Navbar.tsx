@@ -55,7 +55,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/agent/dr-jan-duffy-portrait.png"
-              alt="Dr. Jan Duffy, REALTOR® — Search for Affordable Homes"
+              alt="Dr. Jan Duffy, REALTOR® — Affordable Homes Las Vegas"
               width={44}
               height={44}
               className="h-11 w-11 rounded-full object-cover ring-2 ring-[#1e4fd6]"
@@ -63,11 +63,10 @@ export default function Navbar() {
             />
             <span className="flex flex-col">
               <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
-                Dr. Jan Duffy
-                <span className="text-blue-600"> REALTOR®</span>
+                Affordable Homes Las Vegas
               </span>
               <span className="text-xs text-slate-500 hidden sm:block">
-                Search for Affordable Homes
+                By Dr. Jan Duffy, REALTOR®
               </span>
             </span>
           </Link>

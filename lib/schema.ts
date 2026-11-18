@@ -1,12 +1,18 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
- * Following Google's 2025 Structured Data Guidelines
+ * Schema.org Structured Data Generators for searchforaffordablehomes.com
+ * Following Google's Structured Data Guidelines — NAP must match GBP.
  *
  * @see https://schema.org
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-import { siteConfig, agentInfo, officeInfo, agentStats } from "./site-config";
+import {
+  siteConfig,
+  agentInfo,
+  officeInfo,
+  agentStats,
+  socialProfiles as gbpSocialProfiles,
+} from "./site-config";
 import { sameAsProfiles } from "./seo-links";
 
 // ============================================================================
@@ -64,14 +70,8 @@ export interface SeniorCommunityData {
 
 const BASE_URL = siteConfig.url;
 
-// Social media profiles (to be updated with actual URLs)
-export const socialProfiles = {
-  facebook: "https://www.facebook.com/heyberkshire",
-  instagram: "https://www.instagram.com/heyberkshire",
-  linkedin: "https://www.linkedin.com/in/drjanduffy",
-  tiktok: "https://www.tiktok.com/@heyberkshire",
-  youtube: "https://www.youtube.com/@heyberkshire",
-};
+// Social media profiles — match GBP exactly
+export const socialProfiles = gbpSocialProfiles;
 
 // ============================================================================
 // Core Schema Generators
@@ -86,20 +86,20 @@ export function generateRealEstateAgentSchema() {
     "@context": "https://schema.org",
     "@type": ["RealEstateAgent", "LocalBusiness"],
     "@id": `${BASE_URL}#business`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: siteConfig.name,
     alternateName: [
-      "Search for Affordable Homes",
-      "HeyBerkshire",
+      siteConfig.alternateName,
+      "Dr. Jan Duffy",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],
     url: BASE_URL,
     logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
     image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy — luxury-level representation for value-focused buyers.",
+    description: siteConfig.description,
     telephone: "+1-702-500-1942",
     email: agentInfo.email,
+    foundingDate: siteConfig.foundingDate,
     employee: {
       "@type": "Person",
       "@id": `${BASE_URL}#person`,
@@ -115,10 +115,10 @@ export function generateRealEstateAgentSchema() {
     brand: {
       "@type": "Brand",
       "@id": `${BASE_URL}#agent`,
-      name: "Search for Affordable Homes",
+      name: siteConfig.name,
       logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
     },
-    priceRange: "$385K - $10M+",
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       streetAddress: officeInfo.address.street,
@@ -138,22 +138,15 @@ export function generateRealEstateAgentSchema() {
         name: "Las Vegas",
         sameAs: "https://en.wikipedia.org/wiki/Las_Vegas",
       },
+      { "@type": "Place", name: "Mountain's Edge" },
+      { "@type": "Place", name: "Southern Highlands" },
+      { "@type": "Place", name: "Rhodes Ranch" },
+      { "@type": "Place", name: "Enterprise" },
+      { "@type": "Place", name: "Summerlin South" },
+      { "@type": "Place", name: "Spring Valley" },
       {
-        "@type": "City",
-        name: "Henderson",
-        sameAs: "https://en.wikipedia.org/wiki/Henderson,_Nevada",
-      },
-      {
-        "@type": "Place",
-        name: "Summerlin",
-      },
-      {
-        "@type": "City",
-        name: "North Las Vegas",
-      },
-      {
-        "@type": "Place",
-        name: "Green Valley",
+        "@type": "AdministrativeArea",
+        name: "Clark County",
       },
     ],
     openingHoursSpecification: [

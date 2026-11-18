@@ -28,36 +28,39 @@ export default function Footer() {
             <div className="mb-4">
               <BrandPortrait size="md" className="ring-offset-slate-900" />
             </div>
-            <h3 className="font-bold text-xl mb-4">Dr. Jan Duffy, REALTOR®</h3>
+            <h3 className="font-bold text-xl mb-4">
+              Affordable Homes Las Vegas
+            </h3>
             <p className="text-slate-300 mb-4 text-sm">
-              Search for affordable homes in Las Vegas, Henderson, and
-              Summerlin. In real estate since 1983.
+              By Dr. Jan Duffy, REALTOR® — entry-level homes across southwest
+              Las Vegas, including Mountain&apos;s Edge, Southern Highlands, and
+              Rhodes Ranch. Open daily 8:00 AM–8:00 PM.
             </p>
             <div className="flex space-x-4">
               <a
-                href="http://drjanduffy.realscout.com/"
+                href="https://www.facebook.com/DrJanDuffyLasVegasStrip/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+                aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="http://drjanduffy.realscout.com/"
+                href="https://www.instagram.com/drjanduffy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+                aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="http://drjanduffy.realscout.com/"
+                href="https://www.linkedin.com/company/drjanduffy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -231,9 +234,9 @@ export default function Footer() {
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">
-                  9406 W Lake Mead Blvd, Suite 100
+                  8850 W. Sunset, Suite 200
                   <br />
-                  Las Vegas, NV 89134
+                  Las Vegas, NV 89148
                 </span>
               </li>
               <li className="flex items-center">
@@ -248,10 +251,10 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
                 <Link
-                  href="mailto:homes@heyberkshire.com"
+                  href="mailto:homes@searchforaffordablehomes.com"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  Homes@HeyBerkshire.com
+                  Homes@SearchForAffordableHomes.com
                 </Link>
               </li>
             </ul>

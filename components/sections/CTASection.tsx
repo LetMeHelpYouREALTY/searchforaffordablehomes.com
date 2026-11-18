@@ -61,8 +61,8 @@ export default function CTASection() {
           </div>
 
           <p className="text-sm text-blue-100">
-            Berkshire Hathaway HomeServices Nevada Properties · 9406 W Lake Mead
-            Blvd, Suite 100, Las Vegas, NV 89134
+            Affordable Homes Las Vegas · 8850 W. Sunset, Suite 200, Las Vegas,
+            NV 89148
           </p>
 
           <SectionExtras

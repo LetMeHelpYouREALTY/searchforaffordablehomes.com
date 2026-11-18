@@ -85,7 +85,7 @@ const homeFaqs = [
   {
     question: "How do I schedule a tour with Dr. Jan Duffy?",
     answer:
-      "Book instantly on Calendly, call (702) 500-1942, or use the schedule section on any page. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+      "Book instantly on Calendly, call (702) 500-1942, or use the schedule section on any page. Office: 8850 W. Sunset, Suite 200, Las Vegas, NV 89148.",
   },
 ];
 
@@ -94,7 +94,7 @@ export default async function Home() {
 
   const pageSchemas = combineSchemas(
     generateWebPageSchema({
-      name: "Search for Affordable Homes in Las Vegas",
+      name: "Affordable Homes in Las Vegas",
       description: config.description,
       url: "/",
     }),
@@ -126,7 +126,7 @@ export default async function Home() {
               className="mb-6 ring-offset-slate-950"
             />
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-              Search for Affordable Homes
+              Affordable Homes Las Vegas
             </p>
             <h1 className="mb-5 max-w-4xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               {config.heroHeadline}
