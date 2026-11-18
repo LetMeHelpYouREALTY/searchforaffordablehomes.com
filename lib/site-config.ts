@@ -1,19 +1,21 @@
-// Site Configuration - HeyBerkshire.com
-// Berkshire Hathaway HomeServices Nevada Properties
+// Site Configuration — Affordable Homes Las Vegas
+// Matches Google Business Profile NAP exactly
 
 export const siteConfig = {
-  name: "Search for Affordable Homes",
+  name: "Affordable Homes Las Vegas",
+  alternateName: "Search for Affordable Homes",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Affordable Homes · Luxury-Level Representation",
+  tagline: "By Dr. Jan Duffy, REALTOR®",
   /** Full brand line for titles and OG */
-  brandLine:
-    "Search for Affordable Homes | Berkshire Hathaway HomeServices Nevada Properties",
+  brandLine: "Affordable Homes Las Vegas | By Dr. Jan Duffy, REALTOR®",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   /** Prefer www — Vercel redirects apex → www; keep canonicals aligned. */
   url: "https://www.searchforaffordablehomes.com",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy. Luxury-level representation for value-focused buyers.",
+    "Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Buyers compare condos, townhomes, and single-family homes by price, square footage, and HOA dues, and get guidance on Nevada down payment assistance programs through participating lenders. New-construction buyers get representation paid by the builder. Sellers get pricing built on recent nearby sales. Book a consultation or a private tour.",
+  foundingDate: "2013-09",
+  sms: "sms:+17025001942",
 };
 
 export const agentInfo = {
@@ -23,26 +25,64 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
-  email: "homes@heyberkshire.com",
+  email: "homes@searchforaffordablehomes.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 
 export const officeInfo = {
-  name: "Berkshire Hathaway HomeServices Nevada Properties",
+  name: "Affordable Homes Las Vegas",
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
+    street: "8850 W. Sunset, Suite 200",
     city: "Las Vegas",
     state: "NV",
-    zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    zip: "89148",
+    full: "8850 W. Sunset, Suite 200, Las Vegas, NV 89148",
   },
+  /** Approximate geo for 8850 W Sunset Rd, Las Vegas NV 89148 */
   coordinates: {
-    lat: 36.1893,
+    lat: 36.0716,
     lng: -115.2821,
   },
   phone: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
+  hours: {
+    opens: "08:00",
+    closes: "20:00",
+    display: "8:00 AM–8:00 PM daily",
+  },
 };
+
+export const socialProfiles = {
+  linkedin: "https://www.linkedin.com/company/drjanduffy/",
+  facebook: "https://www.facebook.com/DrJanDuffyLasVegasStrip/",
+  twitter: "https://twitter.com/DrJanDuffy",
+  youtube: "https://www.youtube.com/@DrDuffy",
+  pinterest: "https://www.pinterest.com/DrJanDuffy/",
+  instagram: "https://www.instagram.com/drjanduffy/",
+};
+
+export const serviceAreas = [
+  "Nevada, USA",
+  "Las Vegas, NV, USA",
+  "Enterprise, NV, USA",
+  "Winchester, NV, USA",
+  "Clark County, NV, USA",
+  "Desert Hills, NV, USA",
+  "Las Vegas, NV 89148, USA",
+  "Las Vegas, NV 89135, USA",
+  "Las Vegas, NV 89144, USA",
+  "Las Vegas, NV 89148, USA",
+  "Summerlin South, NV, USA",
+  "Sovana, Spring Valley, NV, USA",
+  "Arden, Enterprise, NV 89139, USA",
+  "Summerlin West, Las Vegas, NV, USA",
+  "Rhodes Ranch, Spring Valley, NV, USA",
+  "Queensridge, Las Vegas, NV 89145, USA",
+  "Boulder Junction, Paradise, NV 89118, USA",
+  "Mountain's Edge, Enterprise, NV 89139, USA",
+  "Canyon Gate Master, Las Vegas, NV 89117, USA",
+  "Southern Highlands, Enterprise, NV 89141, USA",
+] as const;
 
 // Market Statistics (Updated January 2026)
 export const marketStats = {
@@ -80,9 +120,9 @@ export const marketStats = {
   },
 };
 
-// Agent Stats
+// Agent Stats — GBP opening date September 2013
 export const agentStats = {
-  servingSince: 2008,
+  servingSince: 2013,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
   averageRating: 4.9,
@@ -95,11 +135,37 @@ export const valuePropositions = {
   trust:
     "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
   expertise:
-    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
+    "Serving Las Vegas since 2013 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand—especially across Mountain's Edge, Southern Highlands, and Rhodes Ranch.",
 };
 
 // Neighborhoods served
 export const neighborhoods = [
+  {
+    name: "Mountain's Edge",
+    slug: "mountains-edge",
+    description: "Southwest Las Vegas master-planned community",
+    medianPrice: "$475,000",
+    highlights: [
+      "Mountain views",
+      "Parks",
+      "Entry-level SFR stock",
+      "Growing area",
+    ],
+  },
+  {
+    name: "Southern Highlands",
+    slug: "southern-highlands",
+    description: "Master-planned community in Enterprise with golf and trails",
+    medianPrice: "$550,000",
+    highlights: ["Golf community", "Mountain views", "Condo and SFR mix"],
+  },
+  {
+    name: "Rhodes Ranch",
+    slug: "rhodes-ranch",
+    description: "Spring Valley golf community with varied price bands",
+    medianPrice: "$450,000",
+    highlights: ["Golf", "Townhomes and SFR", "HOA amenities"],
+  },
   {
     name: "Summerlin",
     slug: "summerlin",
@@ -146,18 +212,6 @@ export const neighborhoods = [
     ],
   },
   {
-    name: "Southern Highlands",
-    slug: "southern-highlands",
-    description: "Master-planned luxury community with championship golf",
-    medianPrice: "$750,000",
-    highlights: [
-      "Golf community",
-      "Guard-gated",
-      "Mountain views",
-      "Luxury amenities",
-    ],
-  },
-  {
     name: "North Las Vegas",
     slug: "north-las-vegas",
     description: "Rapidly growing area with affordable new construction",
@@ -195,18 +249,6 @@ export const neighborhoods = [
       "Nearby public schools",
     ],
   },
-  {
-    name: "Mountains Edge",
-    slug: "mountains-edge",
-    description: "Southwest Las Vegas master-planned community",
-    medianPrice: "$475,000",
-    highlights: [
-      "Mountain views",
-      "Parks",
-      "Growing area",
-      "Affordable luxury",
-    ],
-  },
 ];
 
 // Services offered
@@ -234,7 +276,7 @@ export const services = [
   {
     name: "New Construction",
     slug: "new-construction",
-    description: "Free buyer representation for new home purchases",
+    description: "Buyer representation paid by the builder",
     icon: "Building",
   },
   {
@@ -284,20 +326,19 @@ export const commonFAQs = {
         "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
     },
     {
-      question:
-        "What areas does Berkshire Hathaway HomeServices Nevada Properties cover?",
+      question: "What areas does Affordable Homes Las Vegas cover?",
       answer:
-        "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and Henderson's master-planned communities.",
+        "Primary focus is southwest Las Vegas — Mountain's Edge, Southern Highlands, and Rhodes Ranch — plus Summerlin, Henderson, Enterprise, Spring Valley, and Clark County. Dr. Jan Duffy helps buyers compare condos, townhomes, and single-family homes by price, square footage, and HOA dues.",
     },
     {
       question: "How do Berkshire Hathaway HomeServices agents get paid?",
       answer:
-        "Commission structures are negotiable. Dr. Jan Duffy offers transparent pricing and will walk you through all costs before you sign anything. For buyers, our services are typically free as commissions are paid by the seller.",
+        "Commission structures are negotiable. Dr. Jan Duffy offers transparent pricing and will walk you through all costs before you sign anything. For buyers, our services are typically free as commissions are paid by the seller. New-construction buyers get representation paid by the builder.",
     },
     {
       question: "What is Dr. Jan Duffy's experience in Las Vegas real estate?",
       answer:
-        "Dr. Jan Duffy has been serving Las Vegas since 2008, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
+        "Affordable Homes Las Vegas opened in September 2013. Dr. Jan Duffy has $127M+ in closed transactions and hundreds of satisfied clients across residential, investment, and new construction properties throughout Southern Nevada.",
     },
   ],
   buying: [
@@ -309,19 +350,19 @@ export const commonFAQs = {
     {
       question: "Do I need a pre-approval before looking at homes?",
       answer:
-        "Yes, a pre-approval letter is essential. It shows sellers you're serious and gives you a clear budget. Dr. Jan can connect you with trusted local lenders who offer competitive rates.",
+        "Yes, a pre-approval letter is essential. It shows sellers you're serious and gives you a clear budget. Dr. Jan can connect you with trusted local lenders who offer competitive rates and Nevada down payment assistance programs.",
     },
     {
       question: "How much do I need for a down payment?",
       answer:
-        "Down payment requirements vary: FHA loans require 3.5%, conventional loans typically 3-20%, and VA/USDA loans may require 0% down. Dr. Jan can connect you with lenders who specialize in various loan programs.",
+        "Down payment requirements vary: FHA loans require 3.5%, conventional loans typically 3-20%, and VA/USDA loans may require 0% down. Dr. Jan connects buyers with participating lenders for Nevada down payment assistance guidance.",
     },
   ],
   selling: [
     {
       question: "What is my home worth in today's Las Vegas market?",
       answer:
-        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise serving Las Vegas since 2008.",
+        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free valuations built on recent nearby sales using current MLS data.",
     },
     {
       question: "How long will it take to sell my home?",
