@@ -49,10 +49,10 @@ const personSchema = {
     name: "Berkshire Hathaway HomeServices Nevada Properties",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "8850 W. Sunset, Suite 200",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
-      postalCode: "89134",
+      postalCode: "89148",
     },
   },
   hasCredential: {
@@ -217,14 +217,14 @@ export default function AboutPage() {
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
                       <address className="not-italic">
-                        9406 W Lake Mead Blvd, Suite 100
+                        8850 W. Sunset, Suite 200
                         <br />
-                        Las Vegas, NV 89134
+                        Las Vegas, NV 89148
                       </address>
                     </div>
                     <div className="flex items-center text-slate-700">
                       <Clock className="h-5 w-5 mr-3 text-blue-600" />
-                      Mon-Fri 9am-6pm, Sat 10am-4pm, Sun by appointment
+                      Open daily 8:00 AM–8:00 PM
                     </div>
                   </div>
                 </div>

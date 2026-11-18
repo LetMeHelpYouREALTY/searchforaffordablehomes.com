@@ -36,15 +36,15 @@ const contactSchema = {
   "@type": "ContactPage",
   mainEntity: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Affordable Homes Las Vegas",
     telephone: "+17025001942",
     email: "homes@heyberkshire.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "8850 W. Sunset, Suite 200",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
-      postalCode: "89134",
+      postalCode: "89148",
       addressCountry: "US",
     },
   },
@@ -105,10 +105,18 @@ export default function ContactPage() {
                       href="tel:+17025001942"
                       className="text-2xl font-bold text-blue-600 hover:text-blue-700"
                     >
-                      (702) 500-1942
+                      Call (702) 500-1942
                     </a>
+                    <p className="mt-1">
+                      <a
+                        href="sms:+17025001942"
+                        className="text-sm font-medium text-blue-600 hover:text-blue-700"
+                      >
+                        Text (702) 500-1942
+                      </a>
+                    </p>
                     <p className="text-sm text-slate-500 mt-1">
-                      Available 7 days a week, 9am-6pm
+                      Open daily 8:00 AM–8:00 PM · Appointment not required
                     </p>
                   </div>
                 </div>
@@ -136,9 +144,9 @@ export default function ContactPage() {
                       Office Address
                     </h3>
                     <address className="not-italic text-slate-700">
-                      9406 W Lake Mead Blvd, Suite 100
+                      8850 W. Sunset, Suite 200
                       <br />
-                      Las Vegas, NV 89134
+                      Las Vegas, NV 89148
                     </address>
                   </div>
                 </div>
@@ -150,12 +158,12 @@ export default function ContactPage() {
                       Office Hours
                     </h3>
                     <p className="text-slate-700">
-                      Monday - Friday: 9:00 AM - 6:00 PM
+                      Open daily: 8:00 AM – 8:00 PM
                       <br />
-                      Saturday - Sunday: 10:00 AM - 4:00 PM
+                      Sunday through Saturday
                     </p>
                     <p className="text-sm text-slate-500 mt-1">
-                      Available by appointment outside these hours
+                      Appointment not required · Online booking available
                     </p>
                   </div>
                 </div>
@@ -164,7 +172,7 @@ export default function ContactPage() {
               {/* Google Map Embed */}
               <div className="rounded-xl overflow-hidden shadow-md mb-4">
                 <iframe
-                  src="https://maps.google.com/maps?q=9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=8850+W+Sunset+Suite+200,+Las+Vegas,+NV+89148&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
@@ -179,7 +187,7 @@ export default function ContactPage() {
               {/* Map Action Buttons */}
               <div className="flex gap-3 mb-8">
                 <a
-                  href="https://www.google.com/maps/dir//9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134"
+                  href="https://www.google.com/maps/dir/?api=1&destination=8850+W+Sunset+Suite+200,+Las+Vegas,+NV+89148"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
@@ -188,7 +196,7 @@ export default function ContactPage() {
                   Get Directions
                 </a>
                 <a
-                  href="https://maps.google.com/?q=Berkshire+Hathaway+HomeServices+Nevada+Properties+9406+W+Lake+Mead+Blvd+Las+Vegas+NV"
+                  href="https://maps.google.com/?q=Affordable+Homes+Las+Vegas+8850+W+Sunset+Suite+200+Las+Vegas+NV+89148"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
@@ -338,7 +346,7 @@ export default function ContactPage() {
                 },
                 {
                   q: "How quickly can you respond to inquiries?",
-                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
+                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (8:00 AM–8:00 PM daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
                 },
                 {
                   q: "Do you charge for consultations?",

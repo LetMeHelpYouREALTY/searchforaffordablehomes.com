@@ -226,14 +226,20 @@ export default function Footer() {
 
           {/* Contact Info - NAP (Name, Address, Phone) */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact Dr. Jan Duffy</h3>
+            <h3 className="font-bold text-lg mb-4">
+              Affordable Homes Las Vegas
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">
-                  9406 W Lake Mead Blvd, Suite 100
+                  8850 W. Sunset, Suite 200
                   <br />
-                  Las Vegas, NV 89134
+                  Las Vegas, NV 89148
+                  <br />
+                  <span className="text-slate-400">
+                    Open daily 8:00 AM–8:00 PM
+                  </span>
                 </span>
               </li>
               <li className="flex items-center">
@@ -242,7 +248,16 @@ export default function Footer() {
                   href="tel:+17025001942"
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  (702) 500-1942
+                  Call (702) 500-1942
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <Phone className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
+                <Link
+                  href="sms:+17025001942"
+                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                >
+                  Text (702) 500-1942
                 </Link>
               </li>
               <li className="flex items-center">

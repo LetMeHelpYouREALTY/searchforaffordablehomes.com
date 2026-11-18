@@ -32,7 +32,32 @@ export const pillarInternalLinks: SeoLink[] = [
   {
     href: "/listings",
     label: "Live MLS Listings",
-    description: "Current office listings via RealScout",
+    description: "Click RealScout photos or book Calendly",
+  },
+  {
+    href: "/listings/single-family",
+    label: "Single-Family Homes",
+    description: "SFR MLS photos + schedule a showing",
+  },
+  {
+    href: "/listings/under-500k",
+    label: "Homes Under $500K",
+    description: "Payment-band search with live office listings",
+  },
+  {
+    href: "/listings/newest",
+    label: "Newest Listings",
+    description: "Just-listed MLS inventory, newest first",
+  },
+  {
+    href: "/listings/condos-townhomes",
+    label: "Condos & Townhomes",
+    description: "MF/TC inventory with Calendly tour booking",
+  },
+  {
+    href: "/listings/henderson",
+    label: "Henderson Homes",
+    description: "Henderson-focused MLS photos + tours",
   },
   {
     href: "/buyers/first-time-buyers",
@@ -128,9 +153,15 @@ export const authorityExternalLinks: SeoLink[] = [
   },
 ];
 
+/** GBP + authority sameAs profiles */
 export const sameAsProfiles = [
   "https://www.bhhsnv.com/",
   "https://calendly.com/drjanduffy/showing",
   "http://drjanduffy.realscout.com/",
-  "https://www.linkedin.com/in/drjanduffy",
+  "https://www.linkedin.com/company/drjanduffy/",
+  "https://www.facebook.com/DrJanDuffyLasVegasStrip/",
+  "https://twitter.com/DrJanDuffy",
+  "https://www.youtube.com/@DrDuffy",
+  "https://www.pinterest.com/DrJanDuffy/",
+  "https://www.instagram.com/drjanduffy/",
 ];

@@ -1,19 +1,19 @@
-// Site Configuration - HeyBerkshire.com
-// Berkshire Hathaway HomeServices Nevada Properties
+// Site Configuration — Affordable Homes Las Vegas (GBP)
+// Agent: Dr. Jan Duffy · Berkshire Hathaway HomeServices Nevada Properties
 
 export const siteConfig = {
-  name: "Search for Affordable Homes",
+  /** GBP business name — must match Google Business Profile exactly */
+  name: "Affordable Homes Las Vegas",
   fullName: "Berkshire Hathaway HomeServices Nevada Properties",
   tagline: "Affordable Homes · Luxury-Level Representation",
   /** Full brand line for titles and OG */
-  brandLine:
-    "Search for Affordable Homes | Berkshire Hathaway HomeServices Nevada Properties",
+  brandLine: "Affordable Homes Las Vegas | Dr. Jan Duffy, REALTOR®",
   brandName: "Berkshire Hathaway HomeServices",
   shortName: "BHHS",
   /** Prefer www — Vercel redirects apex → www; keep canonicals aligned. */
   url: "https://www.searchforaffordablehomes.com",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy. Luxury-level representation for value-focused buyers.",
+    "Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Book a consultation or a private tour with Dr. Jan Duffy.",
 };
 
 export const agentInfo = {
@@ -23,25 +23,37 @@ export const agentInfo = {
   phone: "(702) 500-1942",
   phoneFormatted: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
+  /** GBP Chat / SMS */
+  phoneSms: "sms:+17025001942",
   email: "homes@heyberkshire.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
 
 export const officeInfo = {
-  name: "Berkshire Hathaway HomeServices Nevada Properties",
+  /** GBP business name shown with NAP */
+  name: "Affordable Homes Las Vegas",
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
+    street: "8850 W. Sunset, Suite 200",
     city: "Las Vegas",
     state: "NV",
-    zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    zip: "89148",
+    full: "8850 W. Sunset, Suite 200, Las Vegas, NV 89148",
   },
+  /** 8850 W Sunset Rd, Las Vegas NV 89148 */
   coordinates: {
-    lat: 36.1893,
-    lng: -115.2821,
+    lat: 36.071662,
+    lng: -115.284632,
   },
   phone: "(702) 500-1942",
   phoneTel: "tel:+17025001942",
+  phoneSms: "sms:+17025001942",
+  /** GBP main hours: daily 8:00 AM–8:00 PM */
+  hours: {
+    opens: "08:00",
+    closes: "20:00",
+    display: "Open daily 8:00 AM–8:00 PM",
+  },
+  foundingDate: "2013-09",
 };
 
 // Market Statistics (Updated January 2026)
@@ -129,7 +141,7 @@ export const neighborhoods = [
   {
     name: "Green Valley",
     slug: "green-valley",
-    description: "Established Henderson community with mature landscaping",
+    description: "Henderson community with mature landscaping",
     medianPrice: "$520,000",
     highlights: ["Golf courses", "Walking trails", "Shopping", "Parks"],
   },

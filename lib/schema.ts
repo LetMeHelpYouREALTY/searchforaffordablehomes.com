@@ -66,11 +66,12 @@ const BASE_URL = siteConfig.url;
 
 // Social media profiles (to be updated with actual URLs)
 export const socialProfiles = {
-  facebook: "https://www.facebook.com/heyberkshire",
-  instagram: "https://www.instagram.com/heyberkshire",
-  linkedin: "https://www.linkedin.com/in/drjanduffy",
-  tiktok: "https://www.tiktok.com/@heyberkshire",
-  youtube: "https://www.youtube.com/@heyberkshire",
+  facebook: "https://www.facebook.com/DrJanDuffyLasVegasStrip/",
+  instagram: "https://www.instagram.com/drjanduffy/",
+  linkedin: "https://www.linkedin.com/company/drjanduffy/",
+  youtube: "https://www.youtube.com/@DrDuffy",
+  twitter: "https://twitter.com/DrJanDuffy",
+  pinterest: "https://www.pinterest.com/DrJanDuffy/",
 };
 
 // ============================================================================
@@ -86,20 +87,20 @@ export function generateRealEstateAgentSchema() {
     "@context": "https://schema.org",
     "@type": ["RealEstateAgent", "LocalBusiness"],
     "@id": `${BASE_URL}#business`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: siteConfig.name,
     alternateName: [
       "Search for Affordable Homes",
-      "HeyBerkshire",
+      "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],
     url: BASE_URL,
     logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
     image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy — luxury-level representation for value-focused buyers.",
+    description: siteConfig.description,
     telephone: "+1-702-500-1942",
     email: agentInfo.email,
+    foundingDate: officeInfo.foundingDate,
     employee: {
       "@type": "Person",
       "@id": `${BASE_URL}#person`,
@@ -115,7 +116,7 @@ export function generateRealEstateAgentSchema() {
     brand: {
       "@type": "Brand",
       "@id": `${BASE_URL}#agent`,
-      name: "Search for Affordable Homes",
+      name: siteConfig.name,
       logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
     },
     priceRange: "$385K - $10M+",
@@ -138,23 +139,12 @@ export function generateRealEstateAgentSchema() {
         name: "Las Vegas",
         sameAs: "https://en.wikipedia.org/wiki/Las_Vegas",
       },
-      {
-        "@type": "City",
-        name: "Henderson",
-        sameAs: "https://en.wikipedia.org/wiki/Henderson,_Nevada",
-      },
-      {
-        "@type": "Place",
-        name: "Summerlin",
-      },
-      {
-        "@type": "City",
-        name: "North Las Vegas",
-      },
-      {
-        "@type": "Place",
-        name: "Green Valley",
-      },
+      { "@type": "Place", name: "Mountain's Edge" },
+      { "@type": "Place", name: "Southern Highlands" },
+      { "@type": "Place", name: "Rhodes Ranch" },
+      { "@type": "Place", name: "Enterprise" },
+      { "@type": "Place", name: "Summerlin South" },
+      { "@type": "Place", name: "Clark County" },
     ],
     openingHoursSpecification: [
       {
@@ -168,8 +158,8 @@ export function generateRealEstateAgentSchema() {
           "Saturday",
           "Sunday",
         ],
-        opens: "08:00",
-        closes: "20:00",
+        opens: officeInfo.hours.opens,
+        closes: officeInfo.hours.closes,
       },
     ],
     hasCredential: {
@@ -220,7 +210,7 @@ export function generateRealEstateAgentSchema() {
       "First-time homebuyers",
       "Budget-friendly MLS search",
     ],
-    slogan: "Search for affordable homes with luxury-level representation",
+    slogan: "Affordable Homes Las Vegas — book a consultation or private tour",
   };
 }
 

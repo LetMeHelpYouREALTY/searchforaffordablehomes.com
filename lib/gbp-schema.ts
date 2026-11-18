@@ -1,19 +1,20 @@
 // Google Business Profile Schema Data
-// Supports GBP ranking factors: Relevance, Distance, Prominence
+// NAP / hours / categories must match GBP exactly (Affordable Homes Las Vegas)
 
 export const businessInfo = {
   // NAP - Must match GBP exactly
-  name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+  name: "Affordable Homes Las Vegas",
   address: {
-    streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+    streetAddress: "8850 W. Sunset, Suite 200",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
-    postalCode: "89134",
+    postalCode: "89148",
     addressCountry: "US",
   },
   phone: {
     display: "(702) 500-1942",
     tel: "+17025001942",
+    sms: "sms:+17025001942",
   },
   email: "homes@heyberkshire.com",
   url: "https://www.searchforaffordablehomes.com",
@@ -21,223 +22,237 @@ export const businessInfo = {
   // Business Details
   license: "S.0197614.LLC",
   priceRange: "$$",
+  foundingDate: "2013-09",
 
-  // Hours - Match GBP exactly
+  // Hours - Match GBP exactly (daily 8 AM–8 PM)
   hours: {
-    monday: "09:00-18:00",
-    tuesday: "09:00-18:00",
-    wednesday: "09:00-18:00",
-    thursday: "09:00-18:00",
-    friday: "09:00-18:00",
-    saturday: "10:00-16:00",
-    sunday: "By Appointment",
+    monday: "08:00-20:00",
+    tuesday: "08:00-20:00",
+    wednesday: "08:00-20:00",
+    thursday: "08:00-20:00",
+    friday: "08:00-20:00",
+    saturday: "08:00-20:00",
+    sunday: "08:00-20:00",
   },
 
-  // Geo coordinates for distance ranking
+  /** GBP special hours — closed dates */
+  specialHours: [
+    {
+      date: "2026-11-11",
+      label: "Veterans Day",
+      closed: true,
+    },
+    {
+      date: "2026-11-26",
+      label: "Thanksgiving",
+      closed: true,
+    },
+    {
+      date: "2026-11-27",
+      label: "Black Friday",
+      closed: true,
+    },
+  ],
+
+  // Geo coordinates for 8850 W Sunset Rd, Las Vegas NV 89148
   geo: {
-    latitude: 36.1941,
-    longitude: -115.2678,
+    latitude: 36.071662,
+    longitude: -115.284632,
   },
 
-  // Service areas - Start focused, expand with prominence
+  // Service areas from GBP
   serviceAreas: [
-    // Primary (immediate city)
+    "Nevada, USA",
     "Las Vegas, NV",
-    "Summerlin, NV",
-    // Secondary (close ZIPs)
-    "Henderson, NV",
-    "North Las Vegas, NV",
-    // Tertiary (county expansion)
+    "Enterprise, NV",
+    "Winchester, NV",
     "Clark County, NV",
+    "Desert Hills, NV",
+    "Las Vegas, NV 89134",
+    "Las Vegas, NV 89135",
+    "Las Vegas, NV 89144",
+    "Las Vegas, NV 89148",
+    "Summerlin South, NV",
+    "Summerlin West, NV",
+    "Rhodes Ranch, NV",
+    "Mountain's Edge, NV",
+    "Southern Highlands, NV",
+    "Queensridge, NV",
+    "Sovana, Spring Valley, NV",
+    "Canyon Gate, NV",
+    "Boulder Junction, Paradise, NV",
+    "Arden, Enterprise, NV",
   ],
 
   // Categories - Primary + Secondary for GBP
   categories: {
     primary: "Real Estate Agent",
-    secondary: ["Real Estate Agency", "Real Estate Consultant"],
+    secondary: [
+      "Real Estate Agency",
+      "Real Estate Consultant",
+      "Property Management Company",
+    ],
   },
 
   // Services - Each creates searchable fields in GBP
   services: [
-    // Core Services
     {
       name: "Buyer Representation",
-      description: "Full-service home buying assistance",
+      description:
+        "Help buyers compare condos, townhomes, and single-family homes by price, square footage, and HOA dues",
     },
     {
       name: "Seller Representation",
-      description: "List and sell your home for top dollar",
+      description: "Pricing built on recent nearby sales",
     },
-    { name: "Luxury Home Sales", description: "High-end properties $1M+" },
-    // Niche Services (trigger intent phrases)
+    {
+      name: "New Construction Representation",
+      description: "Buyer representation paid by the builder",
+    },
+    {
+      name: "Nevada Down Payment Assistance Guidance",
+      description: "Guidance through participating lenders",
+    },
+    {
+      name: "Private Tours & Consultations",
+      description: "Book a consultation or a private tour",
+    },
+    {
+      name: "First-Time Home Buyer Guidance",
+      description: "FHA, VA, and entry-level purchase paths",
+    },
+    {
+      name: "Southwest Las Vegas Home Search",
+      description:
+        "Mountain's Edge, Southern Highlands, Rhodes Ranch, and nearby corridors",
+    },
     {
       name: "California Relocation Services",
       description: "Helping CA buyers transition to Las Vegas",
     },
     {
-      name: "55+ Community Specialist",
-      description: "Sun City, Anthem, Del Webb communities",
-    },
-    {
-      name: "First-Time Home Buyer Guidance",
-      description: "FHA, VA, down payment assistance",
-    },
-    {
-      name: "Probate Real Estate Sales",
-      description: "Estate and probate property transactions",
-    },
-    {
-      name: "Divorce Real Estate Sales",
-      description: "Neutral representation for marital asset division",
-    },
-    {
-      name: "Relocation Services",
-      description: "Corporate and individual relocation assistance",
-    },
-    {
       name: "Investment Property Consulting",
       description: "Rental properties and investment analysis",
     },
-    {
-      name: "New Construction Representation",
-      description: "Builder negotiations and buyer protection",
-    },
-    {
-      name: "Military/VA Home Buying",
-      description: "Specialized service for veterans",
-    },
-    {
-      name: "Downsizing Consultation",
-      description: "Transition to smaller, maintenance-free living",
-    },
-    {
-      name: "Luxury Condo Sales",
-      description: "High-rise and resort-style condominiums",
-    },
   ],
 
-  // Attributes for GBP - Fill out ALL available
+  // Attributes for GBP - mirror profile selections
   attributes: {
-    // Accessibility (important for GBP)
     accessibility: [
       "Wheelchair accessible entrance",
       "Wheelchair accessible parking lot",
       "Wheelchair accessible restroom",
+      "Wheelchair accessible seating",
     ],
-    // Service options
-    serviceOptions: [
-      "Online appointments",
-      "Onsite services",
-      "Same-day appointments",
+    serviceOptions: ["Online appointments", "Onsite services"],
+    highlights: [
+      "Identifies as women-owned",
+      "Identifies as veteran-owned",
+      "LGBTQ+ friendly",
+      "Transgender safespace",
     ],
-    // Highlights
-    highlights: ["Identifies as women-owned", "LGBTQ+ friendly", "Veteran-led"],
-    // Offerings
-    offerings: ["Free consultation", "Free estimates"],
-    // Amenities
-    amenities: ["Free Wi-Fi", "Free parking"],
-    // Planning
-    planning: ["Appointment required", "Accepts new clients"],
-    // Payments (if applicable)
-    payments: ["Credit cards", "Checks", "Wire transfer"],
+    amenities: ["Gender-neutral restroom"],
+    planning: ["Appointment not required", "Accepts new clients"],
   },
 
-  // Social profiles for sameAs schema
+  // Social profiles from GBP
   socialProfiles: [
-    "https://www.facebook.com/drjanduffy",
-    "https://www.instagram.com/drjanduffy",
-    "https://www.linkedin.com/in/drjanduffy",
-    "https://www.youtube.com/@drjanduffy",
-    "https://twitter.com/drjanduffy",
+    "https://www.linkedin.com/company/drjanduffy/",
+    "https://www.facebook.com/DrJanDuffyLasVegasStrip/",
+    "https://twitter.com/DrJanDuffy",
+    "https://www.youtube.com/@DrDuffy",
+    "https://www.pinterest.com/DrJanDuffy/",
+    "https://www.instagram.com/drjanduffy/",
   ],
 
-  // Languages spoken
-  languages: ["English", "Spanish"],
+  // Languages from GBP
+  languages: [
+    "English",
+    "Spanish",
+    "Arabic",
+    "Mandarin",
+    "Romanian",
+    "Vietnamese",
+    "American Sign Language",
+    "Filipino",
+    "Ukrainian",
+    "Russian",
+  ],
 
-  // Payment methods accepted
   paymentAccepted: ["Credit Card", "Check", "Wire Transfer"],
-
-  // Year established
-  foundingDate: "2010",
 };
 
-// 750-word GBP Description (3 sections)
+/** Official GBP business description */
+export const gbpProfileDescription = `Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Buyers compare condos, townhomes, and single-family homes by price, square footage, and HOA dues, and get guidance on Nevada down payment assistance programs through participating lenders. New-construction buyers get representation paid by the builder. Sellers get pricing built on recent nearby sales. Book a consultation or a private tour.`;
+
+// 750-word GBP Description (3 sections) — aligned to profile copy
 export const gbpDescription = {
-  // Section 1: Who you are/mission (~250 words)
-  whoWeAre: `Dr. Jan Duffy is a trusted REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, serving the Las Vegas real estate market since 2008. Backed by Warren Buffett's Berkshire Hathaway—the most recognized name in real estate—Dr. Jan combines local expertise with world-class resources to deliver exceptional results for buyers and sellers alike.
+  whoWeAre: `Affordable Homes Las Vegas is Dr. Jan Duffy's buyer- and seller-focused practice with Berkshire Hathaway HomeServices Nevada Properties. Since September 2013, the office has helped shoppers find entry-level priced homes across southwest Las Vegas—Mountain's Edge, Southern Highlands, Rhodes Ranch, and nearby corridors—with luxury-level representation.
 
-With $127 million in closed transactions and hundreds of satisfied clients, Dr. Jan has earned a reputation for integrity, market knowledge, and personalized service. Whether you're a first-time buyer navigating the process, a luxury home seeker exploring The Ridges or MacDonald Highlands, or a California family relocating for Nevada's tax advantages, Dr. Jan provides the guidance you need to make confident real estate decisions.`,
+Clients work with a licensed Nevada REALTOR® (S.0197614.LLC) who filters live MLS inventory by payment fit, square footage, and HOA dues—not vague marketing labels. The office is open daily 8:00 AM–8:00 PM at 8850 W. Sunset, Suite 200, Las Vegas, NV 89148. Call or text (702) 500-1942, or book online.`,
 
-  // Section 2: What/why - Value proposition (~250 words)
-  whatWeDo: `What sets Dr. Jan apart is a commitment to education and advocacy. Clients receive comprehensive market analysis, expert negotiation, and honest advice—not sales pressure. As a Berkshire Hathaway HomeServices agent, Dr. Jan offers access to a global network of 50,000+ agents, world-class marketing for sellers, and off-market opportunities for buyers.
+  whatWeDo: `Buyers compare condos, townhomes, and single-family homes side by side, then get clear guidance on Nevada down payment assistance programs through participating lenders. New-construction buyers receive representation paid by the builder. Sellers get pricing built on recent nearby sales so list price matches what the market will support.
 
-Specialized services include: buyer and seller representation, luxury home sales, 55+ active adult community expertise (Sun City Summerlin, Sun City Anthem, Del Webb Lake Las Vegas), California relocation assistance, probate and divorce real estate, investment property consulting, new construction representation, and first-time buyer programs including FHA, VA, and down payment assistance guidance.
+Appointments are available online; walk-up consults are welcome when the schedule allows (appointment not required). Tours and consultations can be booked on Calendly or by calling the office. Languages available through the practice and partners include English, Spanish, Arabic, Mandarin, Romanian, Vietnamese, Filipino, Ukrainian, Russian, and American Sign Language.`,
 
-Dr. Jan's approach is simple: treat every client like family, know the market inside and out, and never stop working until the deal closes successfully.`,
+  whereWeServe: `Primary focus is southwest Las Vegas and Clark County service areas listed on Google Business Profile—including Enterprise, Summerlin South and West, Rhodes Ranch, Mountain's Edge, Southern Highlands, Queensridge, and related ZIPs such as 89148, 89139, 89141, 89134, 89135, and 89144.
 
-  // Section 3: Where - Areas served (~250 words)
-  whereWeServe: `Dr. Jan serves the entire Las Vegas Valley with specialized knowledge of Las Vegas, Summerlin, Henderson, North Las Vegas, and all of Clark County. Neighborhood expertise includes Summerlin's master-planned communities, Henderson's Green Valley and Inspirada, the luxury enclaves of The Ridges and Southern Highlands, Centennial Hills and Skye Canyon, and affordable options in Mountains Edge and North Las Vegas.
-
-55+ active adult community specialization covers Sun City Summerlin (Nevada's largest 55+ community), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Investment property expertise spans single-family rentals, multi-family opportunities, and short-term rental analysis across the Las Vegas metro area.
-
-Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Available Monday through Friday 9am-6pm, Saturday 10am-4pm, and Sunday by appointment. Call (702) 500-1942 for a free consultation or visit www.searchforaffordablehomes.com to start your Las Vegas real estate journey today.`,
+Office: Affordable Homes Las Vegas, 8850 W. Sunset, Suite 200, Las Vegas, NV 89148. Hours: Sunday–Saturday 8:00 AM–8:00 PM. Phone/SMS: (702) 500-1942. Website: https://www.searchforaffordablehomes.com/. Book a consultation or a private tour today.`,
 };
 
 // FAQ Schema for GBP Q&A section
 export const gbpFAQs = [
   {
-    question: "What areas does Dr. Jan Duffy serve in Las Vegas?",
+    question: "What areas does Affordable Homes Las Vegas serve?",
     answer:
-      "Dr. Jan serves all of Las Vegas, Summerlin, Henderson, North Las Vegas, and Clark County. Specialized neighborhood expertise includes Summerlin, Green Valley, The Ridges, Southern Highlands, Centennial Hills, Skye Canyon, Inspirada, and Mountains Edge.",
+      "Southwest Las Vegas corridors including Mountain's Edge, Southern Highlands, and Rhodes Ranch, plus broader Clark County areas listed on our Google Business Profile such as Enterprise, Summerlin South/West, Queensridge, and related Las Vegas ZIPs.",
   },
   {
-    question: "Does Dr. Jan help buyers relocating from California?",
+    question: "Where is the Affordable Homes Las Vegas office?",
     answer:
-      "Yes! California relocation is a specialty. Dr. Jan helps CA buyers understand Nevada's 0% state income tax advantage, compare home values (40-60% lower than comparable CA properties), and find the perfect Las Vegas neighborhood. Call (702) 500-1942 for California relocation assistance.",
+      "8850 W. Sunset, Suite 200, Las Vegas, NV 89148. Open daily 8:00 AM–8:00 PM. Call or text (702) 500-1942.",
   },
   {
-    question: "What 55+ communities does Dr. Jan specialize in?",
+    question: "How do I book a consultation or private tour?",
     answer:
-      "Dr. Jan specializes in Sun City Summerlin (Nevada's largest 55+ community with 7,700+ homes), Sun City Anthem in Henderson, Del Webb Lake Las Vegas, and Solera at Anthem. Each community offers different amenities and price points for active adult living.",
+      "Book online at https://calendly.com/drjanduffy/showing, call or text (702) 500-1942, or visit https://www.searchforaffordablehomes.com/. Appointment is not required when the schedule allows.",
   },
   {
-    question:
-      "Does Berkshire Hathaway HomeServices help with new construction?",
+    question: "Do you help with Nevada down payment assistance?",
     answer:
-      "Yes! Dr. Jan provides free buyer representation for new construction purchases from builders like Toll Brothers, Lennar, and Century Communities. The builder pays the commission, but Dr. Jan works exclusively for you—protecting your interests during the build process.",
+      "Yes. Buyers get guidance on Nevada down payment assistance programs through participating lenders while comparing homes by price, square footage, and HOA dues.",
   },
   {
-    question:
-      "How does Dr. Jan help with probate or divorce real estate sales?",
+    question: "Do new-construction buyers pay for representation?",
     answer:
-      "Dr. Jan handles sensitive transactions with discretion and professionalism. For probate sales, she coordinates with estate attorneys and ensures court compliance. For divorce sales, she provides neutral representation and works with both parties' attorneys. Call (702) 500-1942 for a confidential consultation.",
+      "New-construction buyers get representation paid by the builder. Dr. Jan Duffy still works for the buyer on upgrades, contracts, and closing timing.",
   },
   {
-    question: "What is the average home price in Las Vegas in 2026?",
+    question: "How do sellers get pricing?",
     answer:
-      "As of January 2026, the Las Vegas median home price is $450,000, up 4.2% year-over-year. Henderson's median is slightly higher at $485,000. Luxury communities like Summerlin average $625,000, while The Ridges averages $2.5 million. Contact Dr. Jan for current market data.",
+      "Sellers get pricing built on recent nearby sales so the list price reflects what comparable homes actually closed for—not a guess.",
   },
   {
-    question: "Does Dr. Jan work with first-time home buyers?",
+    question: "What types of homes can I compare?",
     answer:
-      "Absolutely! Dr. Jan guides first-time buyers through every step, including pre-approval, loan programs (FHA 3.5% down, VA 0% down, conventional options), Nevada down payment assistance programs, and new construction incentives. Free buyer consultations available.",
+      "Condos, townhomes, and single-family homes filtered by price, square footage, and HOA dues across southwest Las Vegas inventory.",
   },
   {
-    question: "Why choose Berkshire Hathaway HomeServices over other agencies?",
+    question: "What are your business hours?",
     answer:
-      "Berkshire Hathaway HomeServices is backed by Warren Buffett's Berkshire Hathaway Inc.—the only real estate brand with this level of financial stability and trust. You get a global network of 50,000+ agents, world-class marketing, and a name synonymous with integrity.",
-  },
-  {
-    question: "How do I schedule a consultation with Dr. Jan Duffy?",
-    answer:
-      "Call or text (702) 500-1942 for immediate assistance, or email homes@heyberkshire.com. Office visits available at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134. Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday by appointment.",
-  },
-  {
-    question: "Does Dr. Jan help with investment properties in Las Vegas?",
-    answer:
-      "Yes! Dr. Jan provides investment property consulting including rental property analysis, cap rate calculations, short-term rental regulations, and multi-family opportunities across the Las Vegas Valley. Contact (702) 500-1942 for investment property guidance.",
+      "Open daily Sunday through Saturday, 8:00 AM–8:00 PM. Special holiday closures are posted on Google Business Profile.",
   },
 ];
+
+const weekdays = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+] as const;
 
 // Generate LocalBusiness Schema
 export function generateLocalBusinessSchema() {
@@ -246,12 +261,18 @@ export function generateLocalBusinessSchema() {
     "@type": "RealEstateAgent",
     "@id": "https://www.searchforaffordablehomes.com#business",
     name: businessInfo.name,
+    alternateName: [
+      "Search for Affordable Homes",
+      "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    ],
     image:
       "https://www.searchforaffordablehomes.com/images/agent/dr-jan-duffy-portrait.png",
     url: businessInfo.url,
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,
     priceRange: businessInfo.priceRange,
+    foundingDate: businessInfo.foundingDate,
+    description: gbpProfileDescription,
     address: {
       "@type": "PostalAddress",
       ...businessInfo.address,
@@ -261,48 +282,26 @@ export function generateLocalBusinessSchema() {
       latitude: businessInfo.geo.latitude,
       longitude: businessInfo.geo.longitude,
     },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Monday",
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Tuesday",
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Wednesday",
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Thursday",
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Friday",
-        opens: "09:00",
-        closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "10:00",
-        closes: "16:00",
-      },
-    ],
+    openingHoursSpecification: weekdays.map((day) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: day,
+      opens: "08:00",
+      closes: "20:00",
+    })),
+    specialOpeningHoursSpecification: businessInfo.specialHours.map((day) => ({
+      "@type": "OpeningHoursSpecification",
+      validFrom: day.date,
+      validThrough: day.date,
+      // Closed all day — identical opens/closes signals no open window
+      opens: "00:00",
+      closes: "00:00",
+      description: day.label,
+    })),
     areaServed: businessInfo.serviceAreas.map((area) => ({
-      "@type": "City",
+      "@type": "Place",
       name: area,
     })),
+    knowsLanguage: businessInfo.languages,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Real Estate Services",
@@ -321,11 +320,7 @@ export function generateLocalBusinessSchema() {
       reviewCount: "200",
       bestRating: "5",
     },
-    sameAs: [
-      "https://www.facebook.com/drjanduffy",
-      "https://www.instagram.com/drjanduffy",
-      "https://www.linkedin.com/in/drjanduffy",
-    ],
+    sameAs: businessInfo.socialProfiles,
   };
 }
 

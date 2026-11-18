@@ -10,17 +10,20 @@ type OfficeListingsUnderHeroProps = {
   /** Affordable band defaults for this site's primary keyword */
   priceMin?: string;
   priceMax?: string;
+  /** RealScout property-types attribute (e.g. ",SFR" or ",SFR,MF,TC") */
+  propertyTypes?: string;
 };
 
 /**
  * RealScout office listings placed directly under every page hero.
- * Tuned for affordable homes search intent.
+ * Conversion path: buyer clicks a listing photo (MLS detail) or books Calendly.
  */
 export default function OfficeListingsUnderHero({
   title = "Affordable Homes on the Market Now",
-  subtitle = "Live MLS listings for value-focused buyers across Las Vegas, Henderson, and Summerlin.",
+  subtitle = "Live MLS listings for value-focused buyers across Las Vegas, Henderson, and Summerlin. Click a photo for details, or book a tour on Calendly.",
   priceMin = "200000",
   priceMax = "550000",
+  propertyTypes = ",SFR,MF,TC",
 }: OfficeListingsUnderHeroProps) {
   return (
     <section
@@ -48,7 +51,7 @@ export default function OfficeListingsUnderHero({
           <div className="flex flex-wrap gap-3">
             <CalendlyButton
               url="https://calendly.com/drjanduffy/showing"
-              text="Tour These Homes"
+              text="Schedule a showing"
             />
             <Button asChild variant="outline">
               <a
@@ -56,11 +59,16 @@ export default function OfficeListingsUnderHero({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open Full Search
+                Open full RealScout search
               </a>
             </Button>
           </div>
         </div>
+
+        <p className="mb-4 text-sm font-medium text-slate-600">
+          Click any listing photo for live MLS details — then book Calendly to
+          tour.
+        </p>
 
         <div
           dangerouslySetInnerHTML={{
@@ -68,7 +76,7 @@ export default function OfficeListingsUnderHero({
               agent-encoded-id="QWdlbnQtMjI1MDUw" 
               sort-order="NEWEST" 
               listing-status="For Sale" 
-              property-types=",SFR,MF,TC" 
+              property-types="${propertyTypes}" 
               price-min="${priceMin}" 
               price-max="${priceMax}"
             ></realscout-office-listings>`,
