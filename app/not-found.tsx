@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "Page Not Found",
   description:
     "This page is no longer available. Browse affordable homes in Las Vegas with Dr. Jan Duffy.",
+  // Intentional: dead/legacy URLs should stay out of Google's index.
+  // GSC "Excluded by noindex" for unmatched paths is expected, not a bug.
   robots: {
     index: false,
     follow: true,
