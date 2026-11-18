@@ -23,7 +23,12 @@ payment-fit guidance, neighborhood matching, and booking a consultation with Dr.
 - /buyers/first-time-buyers — First-time buyer guide
 - /neighborhoods — Neighborhood index
 - /neighborhoods/north-las-vegas — Value-focused inventory corridor
-- /listings — Live MLS listings
+- /listings — Live MLS listings (click photos or book Calendly)
+- /listings/single-family — Single-family MLS photos + tour booking
+- /listings/condos-townhomes — Condo/townhome MLS photos + tour booking
+- /listings/under-500k — Homes under $500K with live office listings
+- /listings/newest — Newest MLS listings first
+- /listings/henderson — Henderson-focused MLS photos + tours
 - /home-valuation — Home valuation
 - /contact — Contact + Calendly scheduling
 - /faq — Frequently asked questions
@@ -39,6 +44,9 @@ A: Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties, license S.0
 
 Q: Where are affordable homes commonly found in Las Vegas?
 A: North Las Vegas, Centennial Hills, Mountain’s Edge, select Henderson corridors, and value pockets near Summerlin — inventory changes daily on MLS.
+
+Q: How does a buyer see a real listing or book a tour from this site?
+A: Click any RealScout office listing photo for live MLS details, or schedule a showing at https://calendly.com/drjanduffy/showing. Paste addresses from RealScout into the Calendly notes.
 
 ## Scheduling
 

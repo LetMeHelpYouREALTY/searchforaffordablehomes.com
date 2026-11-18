@@ -54,6 +54,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: staggered(0),
     },
     {
+      url: `${baseUrl}/listings/single-family`,
+      priority: 0.9,
+      changeFrequency: "daily" as const,
+      lastModified: staggered(0),
+    },
+    {
+      url: `${baseUrl}/listings/condos-townhomes`,
+      priority: 0.85,
+      changeFrequency: "daily" as const,
+      lastModified: staggered(1),
+    },
+    {
+      url: `${baseUrl}/listings/under-500k`,
+      priority: 0.9,
+      changeFrequency: "daily" as const,
+      lastModified: staggered(0),
+    },
+    {
+      url: `${baseUrl}/listings/newest`,
+      priority: 0.9,
+      changeFrequency: "daily" as const,
+      lastModified: staggered(0),
+    },
+    {
+      url: `${baseUrl}/listings/henderson`,
+      priority: 0.85,
+      changeFrequency: "daily" as const,
+      lastModified: staggered(1),
+    },
+    {
       url: `${baseUrl}/why-berkshire-hathaway`,
       priority: 0.8,
       changeFrequency: "monthly" as const,

@@ -15,6 +15,8 @@ declare namespace JSX {
         "sort-order"?: string;
         "listing-status"?: string;
         "property-types"?: string;
+        "price-min"?: string;
+        "price-max"?: string;
       },
       HTMLElement
     >;
