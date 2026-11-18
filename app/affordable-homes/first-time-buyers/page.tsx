@@ -9,11 +9,13 @@ import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderH
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import SchemaScript from "@/components/SchemaScript"; // schema.org JSON-LD
 import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AnswerBlock from "@/components/seo/AnswerBlock";
 import {
   combineSchemas,
   generateBreadcrumbSchema,
   generateFAQSchema,
   generateWebPageSchema,
+  generateHowToSchema,
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -55,6 +57,8 @@ const pageSchemas = combineSchemas(
     description:
       "Step-by-step path for first-time buyers searching for affordable homes in Las Vegas.",
     url: "/affordable-homes/first-time-buyers",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
   }),
   generateBreadcrumbSchema([
     { name: "Home", url: "/" },
@@ -65,6 +69,35 @@ const pageSchemas = combineSchemas(
     },
   ]),
   generateFAQSchema(faqs),
+  generateHowToSchema({
+    name: "How first-time buyers find affordable homes in Las Vegas",
+    description:
+      "Payment-first process with Dr. Jan Duffy for first-time buyers searching affordable Las Vegas MLS inventory.",
+    url: "/affordable-homes/first-time-buyers",
+    totalTime: "P45D",
+    steps: [
+      {
+        name: "Confirm payment comfort with a trusted lender",
+        text: "Get a pre-approval that states a sustainable monthly payment, not just a max purchase price.",
+      },
+      {
+        name: "Map commute and square-footage must-haves",
+        text: "List non-negotiables (beds, commute, HOA) so MLS filtering stays payment-fit.",
+      },
+      {
+        name: "Tour a shortlist of affordable homes that fit",
+        text: "Dr. Jan Duffy schedules tours of homes that match payment comfort and location needs.",
+      },
+      {
+        name: "Write a clean offer with inspection protection",
+        text: "Negotiate with inspection contingencies and clear timelines that protect first-time buyers.",
+      },
+      {
+        name: "Close with coordinated title, lender, and escrow",
+        text: "Most financed purchases close in 30–45 days after offer acceptance.",
+      },
+    ],
+  }),
 );
 
 export default function AffordableFirstTimeBuyersPage() {
@@ -92,6 +125,10 @@ export default function AffordableFirstTimeBuyersPage() {
           title="Starter Inventory for First-Time Buyers"
           subtitle="Affordable homes currently listed for sale — filtered for value-focused buyers."
         />
+
+        <div className="container mx-auto px-4 py-10">
+          <AnswerBlock title="First-time buyer quick answers" items={faqs} />
+        </div>
 
         <div className="container mx-auto px-4 py-12">
           <section className="mx-auto mb-12 max-w-4xl">

@@ -1,6 +1,6 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
- * Following Google's 2025 Structured Data Guidelines
+ * Schema.org Structured Data Generators for searchforaffordablehomes.com
+ * Following Google's Structured Data Guidelines (2026)
  *
  * @see https://schema.org
  * @see https://developers.google.com/search/docs/appearance/structured-data
@@ -64,13 +64,12 @@ export interface SeniorCommunityData {
 
 const BASE_URL = siteConfig.url;
 
-// Social media profiles (to be updated with actual URLs)
+/** Verified / primary social profiles for sameAs (aligned with GBP) */
 export const socialProfiles = {
-  facebook: "https://www.facebook.com/heyberkshire",
-  instagram: "https://www.instagram.com/heyberkshire",
+  facebook: "https://www.facebook.com/drjanduffy",
+  instagram: "https://www.instagram.com/drjanduffy",
   linkedin: "https://www.linkedin.com/in/drjanduffy",
-  tiktok: "https://www.tiktok.com/@heyberkshire",
-  youtube: "https://www.youtube.com/@heyberkshire",
+  youtube: "https://www.youtube.com/@drjanduffy",
 };
 
 // ============================================================================
@@ -89,9 +88,9 @@ export function generateRealEstateAgentSchema() {
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
       "Search for Affordable Homes",
-      "HeyBerkshire",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
+      "Dr. Jan Duffy REALTOR®",
     ],
     url: BASE_URL,
     logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
@@ -244,6 +243,44 @@ export function generateOrganizationSchema() {
         "https://www.linkedin.com/company/berkshire-hathaway-homeservices/",
       ],
     },
+  };
+}
+
+/**
+ * Standalone Person entity (#person) for GEO entity graph
+ */
+export function generatePersonSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE_URL}#person`,
+    name: "Dr. Jan Duffy",
+    jobTitle: "REALTOR®",
+    image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+    telephone: "+1-702-500-1942",
+    email: agentInfo.email,
+    url: `${BASE_URL}/about`,
+    worksFor: { "@id": `${BASE_URL}#business` },
+    affiliation: { "@id": `${BASE_URL}#parent-organization` },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Real Estate License",
+      identifier: agentInfo.license,
+      recognizedBy: {
+        "@type": "Organization",
+        name: "Nevada Real Estate Division",
+      },
+    },
+    knowsAbout: [
+      "Affordable homes Las Vegas",
+      "First-time homebuyers",
+      "Las Vegas real estate",
+      "Henderson homes",
+      "Summerlin properties",
+      "California relocation",
+      "55+ communities",
+    ],
+    sameAs: sameAsProfiles,
   };
 }
 
@@ -602,7 +639,7 @@ export function generateServiceSchema(service: {
 }
 
 /**
- * Generate WebPage schema
+ * Generate WebPage schema (optional Speakable for AEO / voice / AI extractors)
  */
 export function generateWebPageSchema(page: {
   name: string;
@@ -610,22 +647,149 @@ export function generateWebPageSchema(page: {
   url: string;
   datePublished?: string;
   dateModified?: string;
+  /** CSS selectors for speakable / extractable answer regions */
+  speakableCssSelectors?: string[];
+  /** Override @type — e.g. ContactPage, AboutPage, CollectionPage */
+  pageType?: string | string[];
 }) {
+  const absoluteUrl = page.url.startsWith("http")
+    ? page.url
+    : `${BASE_URL}${page.url}`;
+  const pageType = page.pageType || "WebPage";
+
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${page.url.startsWith("http") ? page.url : `${BASE_URL}${page.url}`}#webpage`,
+    "@type": pageType,
+    "@id": `${absoluteUrl}#webpage`,
     name: page.name,
     description: page.description,
-    url: page.url.startsWith("http") ? page.url : `${BASE_URL}${page.url}`,
+    url: absoluteUrl,
     isPartOf: {
       "@id": `${BASE_URL}#website`,
     },
     about: {
       "@id": `${BASE_URL}#business`,
     },
+    author: { "@id": `${BASE_URL}#person` },
     ...(page.datePublished && { datePublished: page.datePublished }),
     ...(page.dateModified && { dateModified: page.dateModified }),
+    ...(page.speakableCssSelectors &&
+      page.speakableCssSelectors.length > 0 && {
+        speakable: {
+          "@type": "SpeakableSpecification",
+          cssSelector: page.speakableCssSelectors,
+        },
+      }),
+  };
+}
+
+/**
+ * HowTo schema for step-by-step buyer / seller processes (AEO)
+ */
+export function generateHowToSchema(howTo: {
+  name: string;
+  description: string;
+  steps: Array<{ name: string; text: string }>;
+  totalTime?: string;
+  url?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: howTo.name,
+    description: howTo.description,
+    ...(howTo.totalTime && { totalTime: howTo.totalTime }),
+    ...(howTo.url && {
+      url: howTo.url.startsWith("http") ? howTo.url : `${BASE_URL}${howTo.url}`,
+    }),
+    step: howTo.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
+/**
+ * ItemList for neighborhood / corridor indexes (SEO crawl + rich results)
+ */
+export function generateItemListSchema(list: {
+  name: string;
+  description?: string;
+  items: Array<{ name: string; url: string; description?: string }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: list.name,
+    ...(list.description && { description: list.description }),
+    numberOfItems: list.items.length,
+    itemListElement: list.items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: item.url.startsWith("http") ? item.url : `${BASE_URL}${item.url}`,
+      ...(item.description && { description: item.description }),
+    })),
+  };
+}
+
+/**
+ * Article schema with dateModified for market reports / insights (AEO freshness)
+ */
+export function generateArticleSchema(article: {
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  image?: string;
+}) {
+  const absoluteUrl = article.url.startsWith("http")
+    ? article.url
+    : `${BASE_URL}${article.url}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${absoluteUrl}#article`,
+    headline: article.headline,
+    description: article.description,
+    url: absoluteUrl,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    author: { "@id": `${BASE_URL}#person` },
+    publisher: { "@id": `${BASE_URL}#business` },
+    mainEntityOfPage: { "@id": `${absoluteUrl}#webpage` },
+    image:
+      article.image || `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
+  };
+}
+
+/**
+ * OfferCatalog for service menu (GEO / LocalBusiness completeness)
+ */
+export function generateOfferCatalogSchema(
+  offers: Array<{ name: string; description: string; url: string }>,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "@id": `${BASE_URL}#offer-catalog`,
+    name: "Real Estate Services — Search for Affordable Homes",
+    itemListElement: offers.map((offer) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: offer.name,
+        description: offer.description,
+        url: offer.url.startsWith("http")
+          ? offer.url
+          : `${BASE_URL}${offer.url}`,
+        provider: { "@id": `${BASE_URL}#business` },
+      },
+    })),
   };
 }
 

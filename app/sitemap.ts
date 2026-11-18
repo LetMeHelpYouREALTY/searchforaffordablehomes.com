@@ -89,6 +89,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       lastModified: staggered(3),
     },
+    {
+      url: `${baseUrl}/security-policy`,
+      priority: 0.3,
+      changeFrequency: "yearly" as const,
+      lastModified: staggered(14),
+    },
   ];
 
   const servicePages = [

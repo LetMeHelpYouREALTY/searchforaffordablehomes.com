@@ -11,6 +11,7 @@ import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection
 import SchemaScript from "@/components/SchemaScript";
 import InternalLinkHub from "@/components/seo/InternalLinkHub";
 import AuthorityLinks from "@/components/seo/AuthorityLinks";
+import AnswerBlock from "@/components/seo/AnswerBlock";
 import Link from "next/link";
 import {
   Phone,
@@ -97,6 +98,8 @@ export default async function Home() {
       name: "Search for Affordable Homes in Las Vegas",
       description: config.description,
       url: "/",
+      dateModified: "2026-11-17",
+      speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
     }),
     generateBreadcrumbSchema([
       { name: "Home", url: "/" },
@@ -164,6 +167,15 @@ export default async function Home() {
 
         {/* RealScout office listings under hero on every page pattern */}
         <OfficeListingsUnderHero />
+
+        <section className="bg-slate-50 py-14 md:py-16">
+          <div className="container mx-auto px-4">
+            <AnswerBlock
+              title="Affordable homes — direct answers"
+              items={homeFaqs}
+            />
+          </div>
+        </section>
 
         {/* Value Proposition */}
         <section className="bg-white py-16 md:py-20">

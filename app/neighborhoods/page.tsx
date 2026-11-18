@@ -7,6 +7,17 @@ import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AuthorityLinks from "@/components/seo/AuthorityLinks";
+import AnswerBlock from "@/components/seo/AnswerBlock";
+import {
+  combineSchemas,
+  generateBreadcrumbSchema,
+  generateItemListSchema,
+  generateWebPageSchema,
+  generateFAQSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Las Vegas Neighborhoods",
@@ -164,9 +175,49 @@ const neighborhoods = [
   },
 ];
 
+const neighborhoodFaqs = [
+  {
+    question: "Which Las Vegas neighborhoods are more affordable?",
+    answer:
+      "North Las Vegas, Centennial Hills, and Mountain’s Edge often list more payment-friendly inventory. Henderson and Summerlin span a wide price range—Dr. Jan Duffy matches corridors to your payment comfort.",
+  },
+  {
+    question: "How do I choose the right neighborhood?",
+    answer:
+      "Start with commute, school preferences, and HOA tolerance, then tour 2–3 corridors. Dr. Jan provides area tours and home matching across Las Vegas and Henderson.",
+  },
+];
+
+const pageSchemas = combineSchemas(
+  generateWebPageSchema({
+    name: "Las Vegas Neighborhoods Guide",
+    description:
+      "Explore Las Vegas and Henderson neighborhoods with Dr. Jan Duffy for affordable and lifestyle-fit homes.",
+    url: "/neighborhoods",
+    dateModified: "2026-11-17",
+    speakableCssSelectors: ["h1", ".aeo-answers h3", ".aeo-answers p"],
+  }),
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Neighborhoods", url: "/neighborhoods" },
+  ]),
+  generateItemListSchema({
+    name: "Las Vegas Valley neighborhoods",
+    description:
+      "Neighborhood guides for buyers searching affordable and lifestyle-fit homes",
+    items: neighborhoods.map((n) => ({
+      name: n.name,
+      url: `/neighborhoods/${n.slug}`,
+      description: n.description,
+    })),
+  }),
+  generateFAQSchema(neighborhoodFaqs),
+);
+
 export default function NeighborhoodsPage() {
   return (
     <>
+      <SchemaScript schema={pageSchemas} id="neighborhoods-index-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -188,6 +239,13 @@ export default function NeighborhoodsPage() {
           </div>
 
           <RealScoutListings />
+
+          <div className="mb-12">
+            <AnswerBlock
+              title="Neighborhood quick answers"
+              items={neighborhoodFaqs}
+            />
+          </div>
 
           {/* Neighborhood Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
@@ -304,11 +362,13 @@ export default function NeighborhoodsPage() {
 
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
+          Last Updated: November 2026
         </div>
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Affordable homes by corridor" />
+        <AuthorityLinks />
       </div>
       <CalendlyBookingSection />
       <Footer />

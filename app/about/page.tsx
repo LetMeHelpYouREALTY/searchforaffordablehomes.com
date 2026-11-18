@@ -20,6 +20,15 @@ import type { Metadata } from "next";
 import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import SectionExtras from "@/components/brand/SectionExtras";
+import SchemaScript from "@/components/SchemaScript";
+import InternalLinkHub from "@/components/seo/InternalLinkHub";
+import AuthorityLinks from "@/components/seo/AuthorityLinks";
+import {
+  combineSchemas,
+  generateBreadcrumbSchema,
+  generatePersonSchema,
+  generateWebPageSchema,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Las Vegas",
@@ -33,43 +42,22 @@ export const metadata: Metadata = {
   ],
 };
 
-// Person Schema for Dr. Jan Duffy
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "RealEstateAgent",
-  name: "Dr. Jan Duffy",
-  jobTitle: "REALTOR®",
-  description:
-    "Licensed real estate agent serving Las Vegas, Henderson, and Summerlin, in real estate since 1983.",
-  telephone: "+17025001942",
-  email: "homes@heyberkshire.com",
-  url: "https://www.searchforaffordablehomes.com/about",
-  worksFor: {
-    "@type": "RealEstateAgent",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
-    },
-  },
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "Real Estate License",
-    credentialNumber: "S.0197614.LLC",
-  },
-  knowsAbout: [
-    "Las Vegas real estate",
-    "Henderson properties",
-    "Summerlin homes",
-    "Luxury real estate",
-    "Investment properties",
-    "55+ communities",
-    "California relocation",
-  ],
-};
+const pageSchemas = combineSchemas(
+  generateWebPageSchema({
+    name: "About Dr. Jan Duffy",
+    description:
+      "Meet Dr. Jan Duffy, REALTOR® — affordable homes and luxury-level representation in Las Vegas.",
+    url: "/about",
+    dateModified: "2026-11-17",
+    pageType: "AboutPage",
+    speakableCssSelectors: ["h1"],
+  }),
+  generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about" },
+  ]),
+  generatePersonSchema(),
+);
 
 const specializations = [
   {
@@ -122,10 +110,7 @@ const areasServed = [
 export default function AboutPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
+      <SchemaScript schema={pageSchemas} id="about-page-schema" />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -208,11 +193,11 @@ export default function AboutPage() {
                       <span className="font-semibold">(702) 500-1942</span>
                     </a>
                     <a
-                      href="mailto:homes@heyberkshire.com"
+                      href="mailto:homes@searchforaffordablehomes.com"
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                      Homes@HeyBerkshire.com
+                      Homes@SearchForAffordableHomes.com
                     </a>
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
@@ -517,11 +502,13 @@ export default function AboutPage() {
 
         {/* Last Updated */}
         <div className="text-center text-sm text-slate-500 mt-8">
-          Last Updated: January 2026
+          Last Updated: November 2026
         </div>
       </main>
       <div className="container mx-auto px-4">
         <SectionExtras headline="Talk affordable homes with Dr. Jan" />
+        <InternalLinkHub title="Work with Dr. Jan — start here" />
+        <AuthorityLinks />
       </div>
       <CalendlyBookingSection />
       <Footer />
