@@ -3,7 +3,9 @@ import OpenAI from "openai";
 
 function getOpenRouterClient() {
   const apiKey = process.env.OPENROUTER_API_KEY;
-  if (!apiKey) return null;
+  if (!apiKey) {
+    throw new Error("OPENROUTER_API_KEY is not configured");
+  }
   return new OpenAI({
     apiKey,
     baseURL: "https://openrouter.ai/api/v1",
@@ -21,13 +23,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const openrouter = getOpenRouterClient();
-    if (!openrouter) {
+    if (!process.env.OPENROUTER_API_KEY) {
       return NextResponse.json(
         { error: "OpenRouter API key not configured" },
         { status: 500 },
       );
     }
+
+    const openrouter = getOpenRouterClient();
 
     const prompt = `Generate a compelling, SEO-friendly property description for a real estate listing in Las Vegas or Henderson, Nevada. 
 

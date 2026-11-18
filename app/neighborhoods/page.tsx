@@ -1,12 +1,10 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import { MapPin, Phone, Home, Users, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Las Vegas Neighborhoods",
@@ -175,9 +173,6 @@ export default function NeighborhoodsPage() {
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas & Henderson Neighborhoods
             </h1>
@@ -233,7 +228,6 @@ export default function NeighborhoodsPage() {
               ))}
             </div>
           </section>
-
           {/* Expert Quote */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-50 rounded-lg p-8">
@@ -307,10 +301,7 @@ export default function NeighborhoodsPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

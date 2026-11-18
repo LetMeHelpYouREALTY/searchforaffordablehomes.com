@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -23,9 +24,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title:
@@ -110,11 +108,11 @@ const faqSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+  name: "Dr. Jan Duffy -",
   description:
     "55+ community specialist helping active adults find their perfect Las Vegas retirement home",
   telephone: "(702) 500-1942",
-  url: "https://www.searchforaffordablehomes.com/55-plus-communities",
+  url: "https://heyberkshire.com/55-plus-communities",
   areaServed: {
     "@type": "City",
     name: "Las Vegas",
@@ -362,9 +360,7 @@ export default function FiftyFiveCommunitiesPage() {
               <Sun className="h-4 w-4 mr-2" />
               Active Adult Living Specialist
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Find Your Perfect 55+ Community in Las Vegas
             </h1>
@@ -391,9 +387,9 @@ export default function FiftyFiveCommunitiesPage() {
                 <ArrowRight className="h-5 w-5 ml-2" />
               </a>
             </div>
-
-            <RealScoutListings />
           </div>
+
+          <RealScoutListings />
 
           {/* Quick Stats */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -427,7 +423,6 @@ export default function FiftyFiveCommunitiesPage() {
               </div>
             </div>
           </section>
-
           {/* California Relocator Section */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 rounded-r-xl p-8">
@@ -905,10 +900,7 @@ export default function FiftyFiveCommunitiesPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

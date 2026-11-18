@@ -7,7 +7,6 @@
  */
 
 import { siteConfig, agentInfo, officeInfo, agentStats } from "./site-config";
-import { sameAsProfiles } from "./seo-links";
 
 // ============================================================================
 // Types
@@ -84,40 +83,20 @@ export const socialProfiles = {
 export function generateRealEstateAgentSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["RealEstateAgent", "LocalBusiness"],
-    "@id": `${BASE_URL}#business`,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    "@type": "RealEstateAgent",
+    "@id": `${BASE_URL}#organization`,
+    name: siteConfig.name,
     alternateName: [
+      "Affordable Homes Las Vegas",
+      "Dr. Jan Duffy",
       "Search for Affordable Homes",
-      "HeyBerkshire",
-      "BHHS Nevada Properties",
-      "Berkshire Hathaway HomeServices",
     ],
     url: BASE_URL,
-    logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy — luxury-level representation for value-focused buyers.",
+    logo: `${BASE_URL}/images/dr-jan-duffy.jpg`,
+    image: `${BASE_URL}/images/dr-jan-duffy.jpg`,
+    description: siteConfig.description,
     telephone: "+1-702-500-1942",
     email: agentInfo.email,
-    employee: {
-      "@type": "Person",
-      "@id": `${BASE_URL}#person`,
-      name: "Dr. Jan Duffy",
-      jobTitle: "REALTOR®",
-      image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-      telephone: "+1-702-500-1942",
-      email: agentInfo.email,
-      url: `${BASE_URL}/about`,
-      worksFor: { "@id": `${BASE_URL}#business` },
-    },
-    founder: { "@id": `${BASE_URL}#person` },
-    brand: {
-      "@type": "Brand",
-      "@id": `${BASE_URL}#agent`,
-      name: "Search for Affordable Homes",
-      logo: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    },
     priceRange: "$385K - $10M+",
     address: {
       "@type": "PostalAddress",
@@ -185,21 +164,7 @@ export function generateRealEstateAgentSchema() {
       },
       identifier: agentInfo.license,
     },
-    sameAs: Array.from(
-      new Set([...sameAsProfiles, ...Object.values(socialProfiles)]),
-    ),
-    parentOrganization: {
-      "@type": "Organization",
-      "@id": `${BASE_URL}#parent-organization`,
-      name: "Berkshire Hathaway HomeServices Nevada Properties",
-      url: "https://www.bhhsnv.com/",
-      parentOrganization: {
-        "@type": "Organization",
-        name: "Berkshire Hathaway HomeServices",
-        url: "https://www.bhhs.com",
-        sameAs: "https://en.wikipedia.org/wiki/Berkshire_Hathaway_HomeServices",
-      },
-    },
+    sameAs: Object.values(socialProfiles),
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: agentStats.averageRating.toString(),
@@ -208,7 +173,6 @@ export function generateRealEstateAgentSchema() {
       worstRating: "1",
     },
     knowsAbout: [
-      "Affordable homes Las Vegas",
       "Las Vegas real estate",
       "Henderson homes",
       "Summerlin properties",
@@ -218,32 +182,26 @@ export function generateRealEstateAgentSchema() {
       "Relocation services",
       "55+ communities",
       "First-time homebuyers",
-      "Budget-friendly MLS search",
+      "Mountain's Edge",
+      "Southern Highlands",
+      "Rhodes Ranch",
     ],
-    slogan: "Search for affordable homes with luxury-level representation",
+    slogan: "Affordable Homes Las Vegas — entry-level prices, clear guidance",
   };
 }
 
 /**
- * Generate Organization schema for BHHS brand
+ * Generate Organization schema for GBP brand
  */
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": `${BASE_URL}#parent-organization`,
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://www.bhhsnv.com/",
+    "@id": `${BASE_URL}#organization`,
+    name: siteConfig.name,
+    url: siteConfig.url,
     logo: `${BASE_URL}/favicon-32x32.png`,
-    parentOrganization: {
-      "@type": "Organization",
-      name: "Berkshire Hathaway HomeServices",
-      url: "https://www.bhhs.com",
-      sameAs: [
-        "https://en.wikipedia.org/wiki/Berkshire_Hathaway_HomeServices",
-        "https://www.linkedin.com/company/berkshire-hathaway-homeservices/",
-      ],
-    },
+    description: siteConfig.description,
   };
 }
 
@@ -279,7 +237,7 @@ export function generateWebSiteSchema() {
     url: BASE_URL,
     description: siteConfig.description,
     publisher: {
-      "@id": `${BASE_URL}#business`,
+      "@id": `${BASE_URL}#organization`,
     },
     potentialAction: {
       "@type": "SearchAction",
@@ -333,44 +291,20 @@ export function generateAggregateRatingSchema(
 }
 
 /**
- * Generate Review schema for individual testimonials.
- * Emits an @graph so each Review is a first-class node with required
- * itemReviewed (fixes GSC “Missing field itemReviewed”).
+ * Generate Review schema for individual testimonials
  */
 export function generateReviewSchema(reviews: ReviewItem[]) {
-  const businessId = `${BASE_URL}#business`;
-  const business = {
-    "@type": ["RealEstateAgent", "LocalBusiness"],
-    "@id": businessId,
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    url: BASE_URL,
-    image: `${BASE_URL}/images/agent/dr-jan-duffy-portrait.png`,
-    telephone: "+1-702-500-1942",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: officeInfo.address.street,
-      addressLocality: officeInfo.address.city,
-      addressRegion: officeInfo.address.state,
-      postalCode: officeInfo.address.zip,
-      addressCountry: "US",
-    },
+  return {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "@id": `${BASE_URL}#organization`,
+    name: "Dr. Jan Duffy -",
     aggregateRating: generateAggregateRatingSchema(
       agentStats.averageRating,
       agentStats.reviewCount,
     ),
-  };
-
-  const reviewNodes = reviews.map((review, index) => {
-    const reviewId = `${BASE_URL}#review-${index + 1}`;
-    return {
+    review: reviews.map((review) => ({
       "@type": "Review",
-      "@id": reviewId,
-      itemReviewed: {
-        "@type": "RealEstateAgent",
-        "@id": businessId,
-        name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-        url: BASE_URL,
-      },
       author: {
         "@type": "Person",
         name: review.author,
@@ -384,18 +318,7 @@ export function generateReviewSchema(reviews: ReviewItem[]) {
       reviewBody: review.reviewBody,
       datePublished:
         review.datePublished || new Date().toISOString().split("T")[0],
-    };
-  });
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        ...business,
-        review: reviewNodes.map((node) => ({ "@id": node["@id"] })),
-      },
-      ...reviewNodes,
-    ],
+    })),
   };
 }
 
@@ -589,7 +512,7 @@ export function generateServiceSchema(service: {
       ? service.url
       : `${BASE_URL}${service.url}`,
     provider: {
-      "@id": `${BASE_URL}#business`,
+      "@id": `${BASE_URL}#organization`,
     },
     areaServed: service.areaServed || [
       "Las Vegas",
@@ -622,7 +545,7 @@ export function generateWebPageSchema(page: {
       "@id": `${BASE_URL}#website`,
     },
     about: {
-      "@id": `${BASE_URL}#business`,
+      "@id": `${BASE_URL}#organization`,
     },
     ...(page.datePublished && { datePublished: page.datePublished }),
     ...(page.dateModified && { dateModified: page.dateModified }),
@@ -640,22 +563,13 @@ export function combineSchemas(...schemas: Record<string, unknown>[]) {
   if (schemas.length === 1) {
     return schemas[0];
   }
-
-  const graph: Record<string, unknown>[] = [];
-  for (const schema of schemas) {
-    const { "@context": _ctx, ...rest } = schema;
-    if (Array.isArray(rest["@graph"])) {
-      for (const node of rest["@graph"] as Record<string, unknown>[]) {
-        graph.push(node);
-      }
-    } else {
-      graph.push(rest);
-    }
-  }
-
   return {
     "@context": "https://schema.org",
-    "@graph": graph,
+    "@graph": schemas.map((schema) => {
+      // Remove @context from individual schemas when combining
+      const { "@context": _, ...rest } = schema;
+      return rest;
+    }),
   };
 }
 

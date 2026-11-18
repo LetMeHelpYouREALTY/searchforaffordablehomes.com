@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -17,20 +18,18 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
-  title: "First-Time Home Buyers Las Vegas",
+  title: "First-Time Home Buyers Las Vegas | Affordable Homes Guide",
   description:
-    "First-time buyer in Las Vegas? Down payment assistance, builder incentives, and expert guidance from Dr. Jan Duffy. Call (702) 500-1942.",
+    "First-time buyer in Las Vegas? Down payment assistance, builder incentives, and luxury-level guidance from Dr. Jan Duffy. Call (702) 500-1942.",
   keywords: [
     "first time home buyer Las Vegas",
     "first time buyer Nevada",
     "down payment assistance Las Vegas",
     "FHA loans Las Vegas",
     "VA loans Las Vegas",
+    "affordable homes Las Vegas",
   ],
 };
 
@@ -59,7 +58,7 @@ const faqSchema = {
       name: "What neighborhoods are best for first-time buyers in Las Vegas?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Top neighborhoods for first-time buyers include North Las Vegas ($350K-$450K), Mountains Edge ($380K-$480K), and Centennial Hills ($398K median). These areas offer new construction options, nearby public schools, and strong appreciation potential.",
+        text: "Strong value bands for first-time buyers include North Las Vegas ($280K–$450K), Mountain's Edge ($350K–$500K), Centennial Hills ($380K–$480K), and Henderson's Cadence ($350K–$500K). These areas offer newer floor plans, HOA amenities, and 215 Beltway commute access.",
       },
     },
     {
@@ -104,9 +103,7 @@ export default function FirstTimeBuyersPage() {
               <Key className="h-4 w-4 mr-2" />
               Down Payment Assistance Available
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Your First Home in Las Vegas
               <br />
@@ -183,7 +180,6 @@ export default function FirstTimeBuyersPage() {
               </div>
             </div>
           </section>
-
           {/* Top Neighborhoods */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
@@ -541,7 +537,8 @@ export default function FirstTimeBuyersPage() {
                 have."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, REALTOR®
+                — Dr. Jan Duffy, REALTOR® · Affordable Homes Las Vegas Nevada
+                Properties
               </cite>
             </div>
           </section>
@@ -577,10 +574,7 @@ export default function FirstTimeBuyersPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,7 +22,6 @@ export default function Navbar() {
 
   const mainNavLinks = [
     { href: "/", label: "Home", external: false },
-    { href: "/affordable-homes", label: "Affordable Homes", external: false },
     {
       href: "http://drjanduffy.realscout.com/",
       label: "Properties",
@@ -33,41 +33,43 @@ export default function Navbar() {
   ];
 
   const serviceLinks = [
-    { href: "/affordable-homes", label: "Affordable Homes" },
-    { href: "/affordable-homes/under-400k", label: "Homes Under $400K" },
     { href: "/buyers", label: "Home Buying" },
     { href: "/sellers", label: "Home Selling" },
     { href: "/luxury-homes", label: "Luxury Homes" },
     { href: "/55-plus-communities", label: "55+ Communities" },
     { href: "/new-construction", label: "New Construction" },
     { href: "/market-report", label: "Market Report" },
+    { href: "/market-insights", label: "Market Insights" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300 ${
-        isScrolled ? "py-2" : "py-3"
+      className={`fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-md transition-all duration-300 ${
+        isScrolled ? "py-2 shadow-sm" : "py-3"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 min-w-0"
+            aria-label={SITE_BRAND.name}
+          >
             <Image
-              src="/images/agent/dr-jan-duffy-portrait.png"
-              alt="Dr. Jan Duffy, REALTOR® — Search for Affordable Homes"
-              width={44}
-              height={44}
-              className="h-11 w-11 rounded-full object-cover ring-2 ring-[#1e4fd6]"
+              src={SITE_BRAND.logoSrc}
+              alt=""
+              width={48}
+              height={48}
+              className="h-11 w-11 shrink-0 rounded-full border border-champagne object-cover"
               priority
             />
-            <span className="flex flex-col">
-              <span className="text-lg md:text-xl lg:text-2xl font-bold text-slate-900 hover:text-blue-600 transition-colors leading-tight">
-                Dr. Jan Duffy
-                <span className="text-blue-600"> REALTOR®</span>
+            <span className="flex min-w-0 flex-col">
+              <span className="truncate font-display text-base font-semibold leading-tight text-ink transition-colors hover:text-champagne-deep md:text-lg">
+                {SITE_BRAND.name}
               </span>
-              <span className="text-xs text-slate-500 hidden sm:block">
-                Search for Affordable Homes
+              <span className="hidden text-xs tracking-wide text-slate-500 sm:block">
+                by {SITE_BRAND.agent}
               </span>
             </span>
           </Link>
@@ -81,7 +83,7 @@ export default function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm"
+                  className="text-sm font-medium text-slate-700 no-underline transition-colors hover:text-ink"
                 >
                   {link.label}
                 </a>
@@ -89,7 +91,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm"
+                  className="text-sm font-medium text-slate-700 no-underline transition-colors hover:text-ink"
                 >
                   {link.label}
                 </Link>
@@ -99,7 +101,7 @@ export default function Navbar() {
             {/* Services Dropdown */}
             <div className="relative">
               <button
-                className="flex items-center text-slate-700 hover:text-blue-600 font-medium transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-md px-2 py-1"
+                className="flex items-center rounded-md px-2 py-1 text-sm font-medium text-slate-700 transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2"
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onKeyDown={(e) => {
@@ -129,7 +131,7 @@ export default function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 focus-visible:outline-none focus-visible:bg-blue-50 focus-visible:text-blue-600"
+                      className="block px-4 py-2 text-sm text-slate-700 no-underline hover:bg-slate-50 hover:text-ink focus-visible:bg-slate-50 focus-visible:text-ink focus-visible:outline-none"
                       onClick={() => setIsServicesOpen(false)}
                       role="menuitem"
                     >
@@ -140,24 +142,35 @@ export default function Navbar() {
               )}
             </div>
 
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17025001942" className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">(702) 500-1942</span>
-                <span className="xl:hidden">Call</span>
+            <Link
+              href="/#listings"
+              className="text-sm font-medium text-slate-700 no-underline transition-colors hover:text-ink"
+            >
+              Browse Homes
+            </Link>
+            <Button asChild className="rounded-none bg-ink hover:bg-ink-soft">
+              <Link href="/#schedule" className="no-underline">
+                Schedule Showing
               </Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-3">
-            <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Link href="tel:+17025001942">
+          <div className="flex items-center gap-3 lg:hidden">
+            <Button
+              asChild
+              size="sm"
+              className="rounded-none bg-ink hover:bg-ink-soft"
+            >
+              <Link
+                href={`tel:${SITE_BRAND.phoneTel}`}
+                className="no-underline"
+              >
                 <Phone className="h-4 w-4" />
               </Link>
             </Button>
             <button
-              className="text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-md p-1"
+              className="rounded-md p-1 text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -182,7 +195,7 @@ export default function Navbar() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors py-2 px-3 rounded"
+                    className="rounded px-3 py-2 font-medium text-slate-700 no-underline transition-colors hover:bg-slate-50 hover:text-ink"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -191,7 +204,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors py-2 px-3 rounded"
+                    className="rounded px-3 py-2 font-medium text-slate-700 no-underline transition-colors hover:bg-slate-50 hover:text-ink"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -199,16 +212,31 @@ export default function Navbar() {
                 ),
               )}
 
+              <Link
+                href="/#listings"
+                className="rounded px-3 py-2 font-medium text-ink no-underline hover:bg-slate-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Browse Homes
+              </Link>
+              <Link
+                href="/#schedule"
+                className="rounded px-3 py-2 font-medium text-ink no-underline hover:bg-slate-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Schedule a Showing
+              </Link>
+
               {/* Services Section */}
-              <div className="border-t border-slate-200 pt-2 mt-2">
-                <span className="text-xs font-semibold text-slate-500 px-3 uppercase">
+              <div className="mt-2 border-t border-slate-200 pt-2">
+                <span className="px-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
                   Services
                 </span>
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-slate-700 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors py-2 px-3 rounded block"
+                    className="block rounded px-3 py-2 font-medium text-slate-700 no-underline transition-colors hover:bg-slate-50 hover:text-ink"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -216,17 +244,30 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="pt-4">
+              <div className="flex flex-col gap-2 pt-4">
                 <Button
                   asChild
-                  className="bg-blue-600 hover:bg-blue-700 w-full"
+                  className="w-full rounded-none bg-ink hover:bg-ink-soft"
                 >
                   <Link
-                    href="tel:+17025001942"
-                    className="flex items-center justify-center gap-2"
+                    href="/#schedule"
+                    className="flex items-center justify-center gap-2 no-underline"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Book on Calendly
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full rounded-none border-ink"
+                >
+                  <Link
+                    href={`tel:${SITE_BRAND.phoneTel}`}
+                    className="flex items-center justify-center gap-2 no-underline"
                   >
                     <Phone className="h-4 w-4" />
-                    Call Dr. Jan: (702) 500-1942
+                    Call {SITE_BRAND.phoneDisplay}
                   </Link>
                 </Button>
               </div>

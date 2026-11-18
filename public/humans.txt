@@ -7,7 +7,7 @@ Site: https://heyberkshire.com
 Location: Las Vegas, Nevada, USA
 Phone: (702) 500-1942
 
-Brokerage: Berkshire Hathaway HomeServices Nevada Properties
+Brokerage:
 Site: https://www.bhhs.com
 
 /* THANKS */

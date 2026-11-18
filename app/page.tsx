@@ -1,352 +1,482 @@
-import Navbar from "@/components/layouts/Navbar";
-import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
-import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import ReviewsSection from "@/components/sections/ReviewsSection";
-import FAQSection from "@/components/sections/FAQSection";
-import CTASection from "@/components/sections/CTASection";
-import Footer from "@/components/layouts/Footer";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import SchemaScript from "@/components/SchemaScript";
-import InternalLinkHub from "@/components/seo/InternalLinkHub";
-import AuthorityLinks from "@/components/seo/AuthorityLinks";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Phone,
-  Home as HomeIcon,
-  TrendingUp,
-  Shield,
-  Users,
   MapPin,
+  Shield,
+  Key,
+  Search,
+  CheckCircle,
+  ArrowRight,
 } from "lucide-react";
+import type { Metadata } from "next";
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
+import ReviewsSection from "@/components/sections/ReviewsSection";
+import FAQSection from "@/components/sections/FAQSection";
+import SchemaScript from "@/components/SchemaScript";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import {
-  combineSchemas,
-  generateFAQSchema,
-  generateWebPageSchema,
-  generateBreadcrumbSchema,
-  generateReviewSchema,
-} from "@/lib/schema";
-import type { Metadata } from "next";
+  SITE_BRAND,
+  MARKET_SNAPSHOT,
+  AFFORDABLE_NEIGHBORHOODS,
+  BUYER_SERVICE_STEPS,
+  AFFORDABLE_HOME_FAQS,
+} from "@/lib/affordable-homes-content";
+import { homepageSectionGraph } from "@/lib/section-schemas";
 
-const homeReviewSchema = generateReviewSchema([
-  {
-    author: "Tom Sanders",
-    rating: 5,
-    reviewBody:
-      "Dr. Duffy made our home buying experience seamless. Her knowledge of the Las Vegas market is unmatched, and she guided us through every step with professionalism and care.",
-    datePublished: "2025-11-15",
-  },
-  {
-    author: "Vitor Palmer",
-    rating: 5,
-    reviewBody:
-      "We couldn't be happier with our new home! The entire process was smooth, and Dr. Duffy's attention to detail and negotiation skills saved us thousands. Highly recommend!",
-    datePublished: "2025-10-22",
-  },
-  {
-    author: "Emily Rodriguez",
-    rating: 5,
-    reviewBody:
-      "As first-time homebuyers, we were nervous about the process. Dr. Duffy patiently explained everything and helped us find the perfect home in our budget. Thank you!",
-    datePublished: "2025-09-08",
-  },
-]);
-
-export const metadata: Metadata = {
-  title: "Affordable Homes Las Vegas | Search MLS Listings",
-  description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties. Call (702) 500-1942.",
-  keywords: [
-    "affordable homes",
-    "affordable homes Las Vegas",
-    "search for affordable homes",
-    "Las Vegas homes for sale",
-  ],
-};
-
-const homeFaqs = [
-  {
-    question: "What counts as an affordable home in Las Vegas?",
-    answer:
-      "On this site, affordable homes usually means MLS listings that fit a buyer’s payment comfort—often $200K–$550K depending on down payment, rate, and HOA. Dr. Jan Duffy filters for payment fit, not just list price.",
-  },
-  {
-    question: "Can I search for affordable homes without a huge down payment?",
-    answer:
-      "Yes. FHA, VA, and some conventional programs start with low down payments. Dr. Jan connects buyers with trusted local lenders and matches inventory to the payment you can sustain.",
-  },
-  {
-    question: "Where are affordable homes in Las Vegas right now?",
-    answer:
-      "Value inventory commonly shows up in North Las Vegas, Centennial Hills, Mountain’s Edge, and select Henderson corridors. Listings change daily—use the live RealScout office listings below the hero on every page.",
-  },
-  {
-    question: "How do I schedule a tour with Dr. Jan Duffy?",
-    answer:
-      "Book instantly on Calendly, call (702) 500-1942, or use the schedule section on any page. Office: 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const config = await getPageDomainConfig();
+  return {
+    title: `${config.heroHeadline} | ${SITE_BRAND.name} — Dr. Jan Duffy`,
+    description: config.description,
+    keywords: config.keywords,
+    alternates: { canonical: SITE_BRAND.url },
+    openGraph: {
+      title: config.heroHeadline,
+      description: config.description,
+      url: SITE_BRAND.url,
+      type: "website",
+      images: [
+        {
+          url: `${SITE_BRAND.url}/images/hero/luxury-representation-under-500k.jpg`,
+          width: 1920,
+          height: 1080,
+          alt: "Modern Las Vegas home exterior — luxury representation for homes under $500K",
+        },
+      ],
+    },
+  };
+}
 
 export default async function Home() {
   const config = await getPageDomainConfig();
-
-  const pageSchemas = combineSchemas(
-    generateWebPageSchema({
-      name: "Search for Affordable Homes in Las Vegas",
-      description: config.description,
-      url: "/",
-    }),
-    generateBreadcrumbSchema([
-      { name: "Home", url: "/" },
-      { name: "Affordable Homes", url: "/affordable-homes" },
-    ]),
-    generateFAQSchema(homeFaqs),
-    homeReviewSchema,
-  );
+  const schemas = homepageSectionGraph();
 
   return (
     <>
-      <SchemaScript schema={pageSchemas} id="home-schema" />
+      <SchemaScript schema={schemas} id="homepage-section-schemas" />
       <Navbar />
       <main>
-        {/* Hero — brand first, one headline, one CTA group, full-bleed image */}
-        <section className="relative overflow-hidden bg-slate-950 text-white">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/Image/hero_bg_1.jpg')" }}
-            aria-hidden
+        {/* Hero — brand-first luxury composition: brand, H1, one line, one CTA, full-bleed */}
+        <section className="relative flex min-h-[88vh] items-end overflow-hidden text-white md:items-center">
+          <Image
+            src="/images/hero/luxury-representation-under-500k.jpg"
+            alt="Modern Las Vegas home at golden hour — luxury representation for homes under $500K"
+            fill
+            priority
+            className="object-cover motion-safe:animate-ken-slow"
+            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/70 to-slate-950/90" />
-          <div className="relative z-10 container mx-auto flex min-h-[88vh] flex-col items-center justify-center px-4 py-24 text-center md:py-28">
-            <BrandPortrait
-              size="xl"
-              priority
-              className="mb-6 ring-offset-slate-950"
-            />
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">
-              Search for Affordable Homes
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/65 to-ink/25" />
+          <div className="relative z-10 container mx-auto px-4 pb-16 pt-32 md:py-28">
+            <p className="mb-3 font-display text-3xl font-semibold tracking-tight text-champagne-soft motion-safe:animate-fade-up md:text-4xl lg:text-5xl">
+              {SITE_BRAND.name}
             </p>
-            <h1 className="mb-5 max-w-4xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mb-5 max-w-3xl font-display text-4xl font-semibold leading-[1.08] motion-safe:animate-fade-up-delay md:text-5xl lg:text-6xl">
               {config.heroHeadline}
             </h1>
-            <p className="mb-8 max-w-2xl text-lg text-white/85 md:text-xl">
+            <p className="aeo-answer mb-8 max-w-xl text-lg leading-relaxed text-white/85 motion-safe:animate-fade-up-delay-2 md:text-xl">
               {config.heroSubheadline}
             </p>
-
-            <div className="mb-8 flex w-full max-w-xl justify-center">
-              <div
-                className="w-full"
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-simple-search agent-encoded-id="${config.realscoutAgentId}"></realscout-simple-search>`,
-                }}
-              />
-            </div>
-
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row motion-safe:animate-fade-up-delay-2">
               <a
-                href="tel:+17025001942"
-                className="inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-700"
+                href="#listings"
+                className="inline-flex items-center justify-center bg-champagne px-7 py-3.5 font-semibold text-ink no-underline transition-colors hover:bg-champagne-soft"
               >
-                <Phone className="mr-2 h-5 w-5" />
-                Call (702) 500-1942
+                Browse Homes
+                <ArrowRight className="ml-2 h-4 w-4" />
               </a>
               <a
                 href="#schedule"
-                className="inline-flex items-center justify-center rounded-md border border-white/40 bg-white/10 px-7 py-3.5 text-base font-semibold text-white backdrop-blur transition-colors hover:bg-white/20"
+                className="inline-flex items-center justify-center border border-white/60 px-7 py-3.5 font-semibold text-white no-underline transition-colors hover:bg-white/10"
               >
-                Schedule on Calendly
+                Schedule a Showing
               </a>
             </div>
           </div>
         </section>
 
-        {/* RealScout office listings under hero on every page pattern */}
-        <OfficeListingsUnderHero />
+        <RealScoutListings agentEncodedId={config.realscoutAgentId} />
 
-        {/* Value Proposition */}
-        <section className="bg-white py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto mb-12 max-w-4xl text-center">
-              <div className="mb-5 flex justify-center">
-                <BrandPortrait size="md" />
+        {/* NAP / GEO strip */}
+        <section
+          className="bg-slate-100 border-b border-slate-200 py-6"
+          aria-label="Office location and contact"
+        >
+          <div className="container mx-auto px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-slate-700 text-sm">
+            <div className="flex items-start gap-2">
+              <MapPin className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
+              <div>
+                <p className="font-semibold text-slate-900">
+                  {SITE_BRAND.name}
+                </p>
+                <p>{SITE_BRAND.address.full}</p>
+                <p>Open daily 8:00 AM–8:00 PM · {SITE_BRAND.agent}</p>
               </div>
-              <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">
-                Luxury Representation for Affordable Homes
-              </h2>
-              <p className="text-lg text-slate-600">
-                Top 1% Las Vegas REALTOR® Dr. Jan Duffy helps buyers who want
-                payment comfort without cutting corners on negotiation or due
-                diligence.
-              </p>
             </div>
-            <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  icon: Shield,
-                  title: "Trusted Agent",
-                  desc: "Integrity-first advice for every offer and inspection",
-                },
-                {
-                  icon: Users,
-                  title: "Referral Network",
-                  desc: "Nationwide referrals for seamless moves into Nevada",
-                },
-                {
-                  icon: TrendingUp,
-                  title: "$127M+ Sold",
-                  desc: "Proven results across every Las Vegas price band",
-                },
-                {
-                  icon: HomeIcon,
-                  title: "Affordable Focus",
-                  desc: "MLS filters tuned to value and payment fit",
-                },
-              ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="p-6 text-center">
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 p-4">
-                    <Icon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-bold">{title}</h3>
-                  <p className="text-sm text-slate-600">{desc}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mx-auto max-w-6xl">
-              <SectionExtras headline="Get a payment-fit home shortlist this week" />
-            </div>
-          </div>
-        </section>
-
-        {/* Market Stats */}
-        <section className="bg-slate-900 py-16 text-white">
-          <div className="container mx-auto px-4">
-            <div className="mb-10 text-center">
-              <div className="mb-5 flex justify-center">
-                <BrandPortrait size="md" className="ring-offset-slate-900" />
-              </div>
-              <h2 className="mb-3 text-3xl font-bold">
-                Las Vegas Affordable Homes Snapshot
-              </h2>
-              <p className="text-slate-400">
-                Current market context — updated regularly
-              </p>
-            </div>
-            <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4">
-              {[
-                { value: "$450K", label: "Valley Median", sub: "+4.2% YoY" },
-                { value: "28", label: "Avg Days on Market", sub: "" },
-                { value: "4,850", label: "Active Listings", sub: "" },
-                { value: "2.1", label: "Months Inventory", sub: "" },
-              ].map(({ value, label, sub }) => (
-                <div key={label} className="text-center">
-                  <div className="mb-1 text-4xl font-bold text-blue-400">
-                    {value}
-                  </div>
-                  <div className="text-sm text-slate-300">{label}</div>
-                  {sub && (
-                    <div className="mt-1 text-xs text-emerald-400">{sub}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 text-center">
-              <Link
-                href="/affordable-homes"
-                className="inline-block rounded-md bg-blue-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-blue-700"
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`tel:${SITE_BRAND.phoneTel}`}
+                className="underline font-medium text-slate-900"
               >
-                Affordable Homes Guide
+                Call {SITE_BRAND.phoneDisplay}
+              </a>
+              <a
+                href={SITE_BRAND.gbpShareUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline font-medium text-slate-900"
+              >
+                View Google Business Profile
+              </a>
+              <Link
+                href="/contact"
+                className="underline font-medium text-slate-900"
+              >
+                Get Directions / Contact
               </Link>
             </div>
-            <div className="mx-auto max-w-4xl">
-              <SectionExtras
-                tone="dark"
-                headline="Want numbers for your ZIP and budget?"
+          </div>
+        </section>
+
+        {/* Why luxury service on affordable buys */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/images/agent/dr-jan-duffy-portrait.png"
+                alt="Dr. Jan Duffy — Las Vegas Affordable Homes by Dr. Jan Duffy"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
+                Why use a luxury realtor to buy an affordable Las Vegas home?
+              </h2>
+              <p className="aeo-answer text-lg text-slate-700 mb-6 leading-relaxed">
+                Affordable deals still need sharp negotiation. {SITE_BRAND.name}{" "}
+                helps you compare price, square footage, and HOA dues across
+                Mountain&apos;s Edge, Southern Highlands, and Rhodes Ranch so
+                you do not overpay, miss credits, or waive protections that
+                matter at closing.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Private showings scheduled around your workday",
+                  "Offer strategy built from current comps — not guesswork",
+                  "Inspection and repair advocacy before you fund",
+                  "Typically $0 buyer-side fee when seller pays commission",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-slate-700"
+                  >
+                    <CheckCircle className="h-5 w-5 text-amber-700 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/about"
+                className="inline-flex items-center font-semibold text-amber-800 hover:text-amber-950"
+              >
+                Meet Dr. Jan Duffy <ArrowRight className="h-4 w-4 ml-1" />
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Neighborhood value corridors */}
-        <section className="bg-slate-50 py-16 md:py-20">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="mb-5 flex justify-center">
-                <BrandPortrait size="md" />
-              </div>
-              <h2 className="mb-3 text-3xl font-bold text-slate-900 md:text-4xl">
-                Where Affordable Homes Still Show Up
-              </h2>
-              <p className="text-lg text-slate-600">
-                Explore value corridors with square footage, amenities, and
-                commute context—not vague lifestyle claims.
-              </p>
-            </div>
-            <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
+        {/* Market snapshot — answer-first H2 */}
+        <section className="relative overflow-hidden py-16 text-white">
+          <Image
+            src="/images/sections/market-affordable-valley.jpg"
+            alt="Aerial view of Las Vegas Valley rooftops illustrating the under-$500K housing band"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-ink/85" />
+          <div className="relative z-10 container mx-auto px-4">
+            <h2 className="mb-3 max-w-3xl font-display text-3xl font-semibold md:text-4xl">
+              What does affordable mean in Las Vegas right now?
+            </h2>
+            <p className="aeo-answer mb-10 max-w-3xl text-lg text-white/85">
+              As of {MARKET_SNAPSHOT.asOf}, most affordable-home shoppers target
+              under $500,000 — the valley’s deepest inventory band. Valley
+              median list context sits near {MARKET_SNAPSHOT.valleyMedianList},
+              with {MARKET_SNAPSHOT.daysOnMarket} typical market time on
+              well-priced homes.
+            </p>
+            <div className="grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
               {[
                 {
-                  href: "/neighborhoods/north-las-vegas",
-                  name: "North Las Vegas",
-                  note: "Often the strongest entry-price inventory",
+                  value: MARKET_SNAPSHOT.valleyMedianList,
+                  label: "Valley median list context",
                 },
+                { value: "Under $500K", label: "Primary search band" },
+                { value: "~28–31", label: "Days on market (priced right)" },
                 {
-                  href: "/neighborhoods/centennial-hills",
-                  name: "Centennial Hills",
-                  note: "Mountain proximity with mid-range pricing",
+                  value: "5,500+",
+                  label: "Under-$500K listings reported mid-2026",
                 },
-                {
-                  href: "/neighborhoods/mountains-edge",
-                  name: "Mountain's Edge",
-                  note: "Southwest master-planned value options",
-                },
-                {
-                  href: "/neighborhoods/henderson",
-                  name: "Henderson",
-                  note: "Master-planned communities across price bands",
-                },
-                {
-                  href: "/affordable-homes/under-400k",
-                  name: "Under $400K",
-                  note: "Payment-first shortlist for first-time buyers",
-                },
-                {
-                  href: "/buyers/first-time-buyers",
-                  name: "First-Time Buyers",
-                  note: "Programs, timelines, and offer strategy",
-                },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-xl border border-slate-200 bg-white p-5 transition-shadow hover:shadow-md"
-                >
-                  <div className="mb-2 flex items-center gap-2 text-[#1e4fd6]">
-                    <MapPin className="h-4 w-4" />
-                    <span className="font-semibold">{item.name}</span>
+              ].map(({ value, label }) => (
+                <div key={label}>
+                  <div className="text-3xl md:text-4xl font-semibold text-amber-400 mb-1">
+                    {value}
                   </div>
-                  <p className="text-sm text-slate-600">{item.note}</p>
-                </Link>
+                  <div className="text-slate-400 text-sm">{label}</div>
+                </div>
               ))}
             </div>
-            <div className="mx-auto max-w-5xl">
-              <SectionExtras headline="Tour the corridor that matches your commute" />
+            <p className="mt-8 text-xs text-slate-500 max-w-3xl">
+              Figures synthesize early–mid 2026 public market reports. Always
+              verify current MLS numbers before writing an offer.
+            </p>
+          </div>
+        </section>
+
+        {/* Neighborhoods ItemList section */}
+        <section className="py-16 md:py-20 bg-stone-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-3">
+              Which Las Vegas areas have more affordable homes?
+            </h2>
+            <p className="aeo-answer text-lg text-slate-600 max-w-3xl mb-10">
+              North Las Vegas, Mountain’s Edge, Centennial Hills, East Valley
+              corridors, and Henderson’s Cadence consistently show stronger
+              under-$500K selection than Summerlin or The Ridges.
+            </p>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {AFFORDABLE_NEIGHBORHOODS.map((n) => (
+                <article key={n.name} className="group">
+                  <div className="relative mb-4 aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={n.image}
+                      alt={n.imageAlt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                  <h3 className="mb-2 font-display text-xl font-semibold text-ink">
+                    {n.name}
+                  </h3>
+                  <p className="mb-2 text-sm font-medium text-champagne-deep">
+                    {n.priceBand}
+                  </p>
+                  <p className="mb-4 text-sm leading-relaxed text-slate-600">
+                    {n.description}
+                  </p>
+                  <Link
+                    href={
+                      `/neighborhoods/${n.slug === "neighborhoods" ? "" : n.slug}`.replace(
+                        /\/$/,
+                        "",
+                      ) || "/neighborhoods"
+                    }
+                    className="text-sm font-semibold text-ink underline underline-offset-4"
+                  >
+                    Explore {n.name.split("/")[0].trim()} homes
+                  </Link>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <WhyChooseUs />
+        {/* How-to / Service steps */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">
+                  How do you buy an affordable home in Las Vegas?
+                </h2>
+                <p className="aeo-answer text-lg text-slate-600 mb-8">
+                  Pre-approve, match neighborhoods to your commute and budget,
+                  tour with intent, then write a comps-backed offer — typically
+                  closing in 30–45 days.
+                </p>
+                <div className="relative mb-6 aspect-[16/10] overflow-hidden">
+                  <Image
+                    src="/images/affordable/buy-process-keys-closing.jpg"
+                    alt="House keys and closing documents for buying an affordable Las Vegas home"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+              <div className="space-y-8">
+                {BUYER_SERVICE_STEPS.map((step, i) => (
+                  <div key={step.heading} className="flex gap-4">
+                    <div className="shrink-0 w-10 h-10 rounded-full bg-slate-900 text-amber-400 flex items-center justify-center font-semibold">
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                        {step.heading}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed">
+                        {step.answer}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-12 grid sm:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: Search,
+                  title: "MLS + RealScout alerts",
+                  desc: "See matches the day they list",
+                },
+                {
+                  icon: Shield,
+                  title: "Buyer protection focus",
+                  desc: "Inspections, contingencies, credits",
+                },
+                {
+                  icon: Key,
+                  title: "Closing coordination",
+                  desc: "Lender, title, and key handoff",
+                },
+              ].map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="flex gap-3">
+                  <Icon className="h-6 w-6 text-amber-700 shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{title}</h3>
+                    <p className="text-sm text-slate-600">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         <ReviewsSection />
-        <InternalLinkHub />
-        <AuthorityLinks />
+
         <FAQSection
-          faqs={homeFaqs}
-          title="Affordable Homes FAQ"
-          subtitle="Direct answers for buyers searching Las Vegas value inventory"
+          faqs={AFFORDABLE_HOME_FAQS}
+          title="Affordable Las Vegas home buying FAQs"
+          subtitle="Direct answers AI and buyers can cite — verified against what appears on this page."
         />
 
-        <CalendlyBookingSection />
-        <CTASection />
+        {/* Map + reviews CTA */}
+        <section className="py-16 bg-stone-100">
+          <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-3xl font-semibold text-slate-900 mb-4">
+                Where is Dr. Jan Duffy’s Las Vegas office?
+              </h2>
+              <p className="aeo-answer text-slate-700 mb-4">
+                {SITE_BRAND.name} is at {SITE_BRAND.address.full}. Hours: 8:00
+                AM–8:00 PM daily. Call or text {SITE_BRAND.phoneDisplay}.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={`tel:${SITE_BRAND.phoneTel}`}
+                  className="inline-flex items-center bg-slate-900 text-white px-5 py-3 font-semibold"
+                >
+                  <Phone className="h-4 w-4 mr-2" /> Call
+                </a>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE_BRAND.address.full)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center border border-slate-900 px-5 py-3 font-semibold"
+                >
+                  Directions
+                </a>
+                <a
+                  href={SITE_BRAND.gbpShareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center border border-slate-900 px-5 py-3 font-semibold"
+                >
+                  Google Reviews
+                </a>
+              </div>
+            </div>
+            <div className="grid gap-4">
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
+                  src="/images/sections/office-sunset-corporate.jpg"
+                  alt="Las Vegas corporate office exterior near Sunset Road for Affordable Homes Las Vegas"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="aspect-video w-full overflow-hidden bg-slate-200">
+                <iframe
+                  title="Map to Affordable Homes Las Vegas at 8850 W. Sunset Suite 200"
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(SITE_BRAND.address.full)}&z=15&output=embed`}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="relative py-20 text-white overflow-hidden">
+          <Image
+            src="/images/sections/schedule-private-showing.jpg"
+            alt="Open front door inviting a private Las Vegas home showing"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-slate-950/80" />
+          <div className="relative z-10 container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+              {config.ctaHeadline}
+            </h2>
+            <p className="text-xl text-white/85 mb-8 max-w-2xl mx-auto">
+              {config.ctaSubheadline}
+            </p>
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <a
+                href="#listings"
+                className="inline-flex items-center justify-center bg-champagne px-8 py-4 text-lg font-bold text-ink no-underline transition-colors hover:bg-champagne-soft"
+              >
+                Click a Home Photo
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+              <a
+                href="#schedule"
+                className="inline-flex items-center justify-center border border-white/70 px-8 py-4 text-lg font-bold text-white no-underline transition-colors hover:bg-white/10"
+              >
+                Book on Calendly
+              </a>
+            </div>
+            <p className="mt-6 text-sm text-white/70">
+              {SITE_BRAND.name} · {SITE_BRAND.agent}, REALTOR® ·{" "}
+              {SITE_BRAND.address.full} ·{" "}
+              <a
+                href={`tel:${SITE_BRAND.phoneTel}`}
+                className="text-white underline underline-offset-2"
+              >
+                {SITE_BRAND.phoneDisplay}
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <ScheduleConsultSection
+          heading="Schedule a private showing"
+          subheading={`Pick a time with ${SITE_BRAND.agent} on Calendly — tour homes under $500K or review your offer plan.`}
+          calendlyUrl={SITE_BRAND.calendlyShowingUrl}
+        />
       </main>
       <Footer />
     </>

@@ -64,18 +64,18 @@
       },
       {
         "name": "phone-number-check",
-        "description": "Verify correct phone number is used",
-        "pattern": "702-222-1964|7022221964|702-500-1955|7025001955",
+        "description": "GBP phone is (702) 500-1942; flag retired or drifted numbers",
+        "pattern": "702-500-1955|7025001955|702-222-1964|7022221964",
         "severity": "error",
-        "message": "Old phone number detected! Use (702) 500-1942 for all phone numbers sitewide"
+        "message": "Wrong/retired phone number detected! Use GBP line (702) 500-1942"
       },
       {
-        "name": "berkshire-branding",
-        "description": "Ensure Berkshire Hathaway branding consistency",
+        "name": "gbp-brand-name",
+        "description": "Prefer Affordable Homes Las Vegas brand (GBP name)",
         "pattern": "page\\.tsx$",
-        "requiresContent": ["Berkshire Hathaway", "BHHS"],
-        "severity": "warning",
-        "message": "Page should include Berkshire Hathaway HomeServices branding"
+        "requiresContent": ["Affordable Homes", "Dr. Jan"],
+        "severity": "info",
+        "message": "Page should reinforce Affordable Homes Las Vegas / Dr. Jan Duffy branding"
       },
       {
         "name": "schema-markup",

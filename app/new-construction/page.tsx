@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -18,9 +19,6 @@ import {
   HelpCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "New Construction Las Vegas | Buyer's Guide",
@@ -253,9 +251,6 @@ export default function NewConstructionPage() {
             <div className="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Free Buyer Representation
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               New Construction Las Vegas
             </h1>
@@ -282,11 +277,11 @@ export default function NewConstructionPage() {
                     professional representation.
                   </p>
                 </div>
-
-                <RealScoutListings />
               </div>
             </div>
           </div>
+
+          <RealScoutListings />
 
           {/* Why Free Representation */}
           <section className="mb-16 bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
@@ -356,7 +351,6 @@ export default function NewConstructionPage() {
               </p>
             </div>
           </section>
-
           {/* Current Incentives Alert */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8">
@@ -745,10 +739,7 @@ export default function NewConstructionPage() {
           Last Updated: January 2026 | Incentives subject to change
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

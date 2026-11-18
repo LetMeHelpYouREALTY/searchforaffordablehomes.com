@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import {
@@ -14,9 +15,6 @@ import {
   DollarSign,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Free Home Valuation Las Vegas | What's Your Home Worth?",
@@ -102,9 +100,6 @@ export default function HomeValuationPage() {
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               What's Your Las Vegas Home Worth?
             </h1>
@@ -128,10 +123,7 @@ export default function HomeValuationPage() {
                   Book a consultation with Dr. Jan Duffy
                 </p>
               </div>
-              <CalendlyWidget
-                url="https://calendly.com/drjanduffy/showing"
-                height="650px"
-              />
+              <CalendlyWidget url="showing" height="650px" />
               <p className="text-xs text-slate-500 text-center p-4 border-t border-slate-200">
                 No obligation. No pressure. Just accurate information from Dr.
                 Jan Duffy.
@@ -324,7 +316,6 @@ export default function HomeValuationPage() {
               </div>
             </div>
           </section>
-
           {/* Factors Affecting Value */}
           <section className="max-w-5xl mx-auto mb-16 bg-slate-50 rounded-2xl p-8 md:p-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
@@ -625,10 +616,7 @@ export default function HomeValuationPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

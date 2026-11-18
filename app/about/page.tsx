@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -17,9 +18,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Las Vegas",
@@ -43,22 +41,17 @@ const personSchema = {
     "Licensed real estate agent serving Las Vegas, Henderson, and Summerlin, in real estate since 1983.",
   telephone: "+17025001942",
   email: "homes@heyberkshire.com",
-  url: "https://www.searchforaffordablehomes.com/about",
+  url: "https://heyberkshire.com/about",
   worksFor: {
     "@type": "RealEstateAgent",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Affordable Homes Las Vegas",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "8850 W. Sunset, Suite 200",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
-      postalCode: "89134",
+      postalCode: "89148",
     },
-  },
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "Real Estate License",
-    credentialNumber: "S.0197614.LLC",
   },
   knowsAbout: [
     "Las Vegas real estate",
@@ -133,9 +126,6 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
-            </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Meet Your Las Vegas REALTOR®
@@ -217,14 +207,14 @@ export default function AboutPage() {
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
                       <address className="not-italic">
-                        9406 W Lake Mead Blvd, Suite 100
+                        8850 W. Sunset, Suite 200
                         <br />
-                        Las Vegas, NV 89134
+                        Las Vegas, NV 89148
                       </address>
                     </div>
                     <div className="flex items-center text-slate-700">
                       <Clock className="h-5 w-5 mr-3 text-blue-600" />
-                      Mon-Fri 9am-6pm, Sat 10am-4pm, Sun by appointment
+                      Open daily 8:00 AM–8:00 PM
                     </div>
                   </div>
                 </div>
@@ -322,7 +312,6 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-
           {/* Specializations Section */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">
@@ -520,10 +509,7 @@ export default function AboutPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

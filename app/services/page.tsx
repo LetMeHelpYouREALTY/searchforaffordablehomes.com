@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Home,
@@ -20,19 +21,16 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
-  title: "Real Estate Services Las Vegas",
+  title: "Real Estate Services Las Vegas | Affordable Home Buying",
   description:
-    "Comprehensive real estate services from Dr. Jan Duffy. Buying, selling, luxury, investment, relocation, 55+ communities, and new construction. Call (702) 500-1942.",
+    "Luxury-level real estate services for affordable Las Vegas home buyers — buying, selling, new construction, relocation. Call (702) 500-1942.",
   keywords: [
     "Las Vegas real estate services",
-    "home buying Las Vegas",
+    "affordable home buying Las Vegas",
     "home selling Henderson",
-    "luxury real estate services",
+    "luxury realtor affordable homes",
     "55+ community specialist",
     "California relocation Las Vegas",
   ],
@@ -41,12 +39,16 @@ export const metadata: Metadata = {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
+  name: "Affordable Home Buying & Full-Service Las Vegas Real Estate",
+  description:
+    "Buyer representation for affordable Las Vegas homes plus selling, new construction, relocation, and 55+ community guidance.",
   provider: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Dr. Jan Duffy -",
     telephone: "+17025001942",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
+  areaServed:
+    "Las Vegas, Henderson, Summerlin, North Las Vegas, Clark County NV",
   serviceType: "Real Estate Services",
 };
 
@@ -227,9 +229,6 @@ export default function ServicesPage() {
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Real Estate Services
             </h1>
@@ -244,9 +243,6 @@ export default function ServicesPage() {
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
                 <span>In Real Estate Since 1983</span>
               </div>
-
-              <RealScoutListings />
-
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
                 <span>$127M+ in Transactions</span>
@@ -257,6 +253,8 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
+
+          <RealScoutListings />
 
           {/* Core Services Section */}
           <section className="mb-16 max-w-6xl mx-auto">
@@ -311,7 +309,6 @@ export default function ServicesPage() {
               })}
             </div>
           </section>
-
           {/* Specialized Services Section */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
@@ -596,10 +593,7 @@ export default function ServicesPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

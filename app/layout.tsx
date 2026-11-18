@@ -1,64 +1,30 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import SchemaScript from "@/components/SchemaScript";
-import {
-  combineSchemas,
-  generateRealEstateAgentSchema,
-  generateOrganizationSchema,
-  generateWebSiteSchema,
-} from "@/lib/schema";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
+import CalendlyBadge from "@/components/calendly/CalendlyBadge";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export async function generateMetadata(): Promise<Metadata> {
-  const headerList = headers();
-  const domain = headerList.get("x-domain") || "";
-  const pathname = headerList.get("x-pathname") || "/";
+  const domain = headers().get("x-domain") || "";
   const config = getDomainConfig(domain);
-  // Prefer www for this property (matches Vercel apex→www redirect).
-  const siteUrl =
-    config.domain === "searchforaffordablehomes.com"
-      ? "https://www.searchforaffordablehomes.com"
-      : config.domain !== "default"
-        ? `https://www.${config.domain.replace(/^www\./, "")}`
-        : "https://www.searchforaffordablehomes.com";
-  const canonicalPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
-  const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
-
   return {
-    metadataBase: new URL(siteUrl),
-    title: {
-      default: `${config.neighborhood} Affordable Homes | Dr. Jan Duffy, REALTOR®`,
-      template: "%s | Search for Affordable Homes",
-    },
+    metadataBase: new URL(SITE_BRAND.url),
+    // No title.template — child pages already include full branded titles
+    title: `${config.heroHeadline} | ${SITE_BRAND.name}`,
     description: config.description,
     keywords: config.keywords,
-    authors: [{ name: "Dr. Jan Duffy" }],
-    openGraph: {
-      title: config.heroHeadline,
-      description: config.description,
-      type: "website",
-      locale: "en_US",
-      siteName: "Search for Affordable Homes",
-      url: canonicalUrl,
-      images: [
-        {
-          url: "/images/agent/dr-jan-duffy-portrait.png",
-          width: 1270,
-          height: 1270,
-          alt: "Dr. Jan Duffy, Las Vegas REALTOR® for affordable homes",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary",
-      title: config.heroHeadline,
-      description: config.description,
-      images: ["/images/agent/dr-jan-duffy-portrait.png"],
-    },
     robots: {
       index: true,
       follow: true,
@@ -70,22 +36,30 @@ export async function generateMetadata(): Promise<Metadata> {
         "max-video-preview": -1,
       },
     },
-    // Per-URL canonical (was incorrectly set to homepage for every page).
-    alternates: {
-      canonical: canonicalUrl,
+    icons: {
+      icon: [
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
     },
-    // Optional HTML-tag verification for the www Search Console property.
-    verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
-      : undefined,
+    openGraph: {
+      title: config.heroHeadline,
+      description: config.description,
+      type: "website",
+      locale: "en_US",
+      siteName: SITE_BRAND.name,
+      images: [
+        {
+          url: `${SITE_BRAND.url}${SITE_BRAND.logoSrc}`,
+          width: 1270,
+          height: 1282,
+          alt: SITE_BRAND.name,
+        },
+      ],
+    },
   };
 }
-
-const globalSchemas = combineSchemas(
-  generateRealEstateAgentSchema(),
-  generateOrganizationSchema(),
-  generateWebSiteSchema(),
-);
 
 export default function RootLayout({
   children,
@@ -93,11 +67,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistSans.className} ${display.variable}`}
+    >
       <head>
+        {/* RealScout — load once globally (em.realscout.com script + www.realscout.com API) */}
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.js"
+          strategy="afterInteractive"
+        />
+        {/* Calendly — load once globally */}
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
+        />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="afterInteractive"
         />
         {/* WidgetTracker */}
         <Script id="widget-tracker" strategy="afterInteractive">{`
@@ -110,44 +97,28 @@ export default function RootLayout({
           window.widgetTracker("send","pageview");
         `}</Script>
       </head>
-      <body>
-        <SchemaScript schema={globalSchemas} id="global-entity-schema" />
-        {children}
-        <Analytics />
-
-        {/* RealScout — load once globally (em.realscout.com + www.realscout.com in CSP) */}
-        <Script
-          src="https://em.realscout.com/widgets/realscout-web-components.js"
-          type="module"
-          strategy="afterInteractive"
-        />
-
-        {/* Calendly — load once globally for inline + popup widgets */}
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
-
-        {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
-          <>
-            <Script
-              id="google-tag"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-tag-config" strategy="afterInteractive">
-              {`
+      {/* Google Tag */}
+      {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
+        <>
+          <Script
+            id="google-tag"
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-tag-config" strategy="afterInteractive">
+            {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}');
               `}
-            </Script>
-          </>
-        )}
-        {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
-          <Script id="facebook-pixel" strategy="afterInteractive">
-            {`
+          </Script>
+        </>
+      )}
+      {/* Facebook Pixel */}
+      {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
+        <Script id="facebook-pixel" strategy="afterInteractive">
+          {`
               !function(f,b,e,v,n,t,s)
               {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
               n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -159,8 +130,17 @@ export default function RootLayout({
               fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
               fbq('track', 'PageView');
             `}
-          </Script>
-        )}
+        </Script>
+      )}
+      <body>
+        {children}
+        <CalendlyBadge
+          url={SITE_BRAND.calendlyShowingUrl}
+          text="Schedule with Dr. Jan"
+          color="#0c1222"
+          textColor="#ffffff"
+        />
+        <Analytics />
       </body>
     </html>
   );

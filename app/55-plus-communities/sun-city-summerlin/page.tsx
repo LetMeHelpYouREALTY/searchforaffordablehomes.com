@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -15,9 +16,6 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Sun City Summerlin Homes for Sale",
@@ -80,9 +78,7 @@ export default function SunCitySummerlinPage() {
               <Trophy className="h-4 w-4 mr-2" />
               Nevada's Largest 55+ Community
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Sun City Summerlin
             </h1>
@@ -124,7 +120,6 @@ export default function SunCitySummerlinPage() {
               </div>
             </div>
           </section>
-
           {/* About */}
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="prose prose-lg max-w-none text-slate-700">
@@ -363,10 +358,7 @@ export default function SunCitySummerlinPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

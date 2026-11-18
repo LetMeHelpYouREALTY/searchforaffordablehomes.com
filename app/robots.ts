@@ -1,41 +1,22 @@
 import { MetadataRoute } from "next";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
-const AI_CRAWLERS = [
-  "GPTBot",
-  "ChatGPT-User",
-  "OAI-SearchBot",
-  "ClaudeBot",
-  "Claude-User",
-  "Claude-SearchBot",
-  "anthropic-ai",
-  "PerplexityBot",
-  "Google-Extended",
-  "cohere-ai",
-  "Applebot-Extended",
-  "Amazonbot",
-  "meta-externalagent",
-  "meta-externalfetcher",
-  "YouBot",
-  "Diffbot",
-  "CCBot",
-  "Bytespider",
-] as const;
-
+/**
+ * Production robots — keep marketing pages indexable.
+ * Preview / Vercel SSO hosts are noindexed via middleware X-Robots-Tag.
+ */
 export default function robots(): MetadataRoute.Robots {
+  const host = SITE_BRAND.url.replace(/\/$/, "");
+
   return {
     rules: [
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/monitoring/"],
       },
-      ...AI_CRAWLERS.map((userAgent) => ({
-        userAgent,
-        allow: "/",
-        disallow: ["/api/"],
-      })),
     ],
-    sitemap: "https://www.searchforaffordablehomes.com/sitemap.xml",
-    host: "https://www.searchforaffordablehomes.com",
+    sitemap: `${host}/sitemap.xml`,
+    host,
   };
 }

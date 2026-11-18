@@ -1,13 +1,11 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 import {
   generateBreadcrumbSchema,
   generateFAQSchema,
@@ -16,13 +14,13 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "FAQ | Las Vegas Real Estate",
+  title: "FAQ | Affordable Homes Las Vegas",
   description:
-    "Frequently asked questions about Las Vegas real estate, buying, selling, and working with Dr. Jan Duffy.",
+    "FAQs about buying an affordable home in Las Vegas, down payments, neighborhoods under $500K, and working with Dr. Jan Duffy. Call (702) 500-1942.",
   keywords: [
-    "Las Vegas real estate questions",
+    "affordable homes Las Vegas FAQ",
     "buying a home Las Vegas",
-    "selling a home Henderson",
+    "first time buyer Las Vegas questions",
   ],
 };
 
@@ -125,8 +123,8 @@ const faqCategories = [
         a: "Absolutely! A nationwide referral network makes relocations seamless. Dr. Jan can coordinate with agents in your current city while providing expert guidance on Las Vegas neighborhoods, schools, and communities.",
       },
       {
-        q: "What are the best neighborhoods for families?",
-        a: "Summerlin, Henderson (Green Valley, Inspirada), and Centennial Hills are top choices for families, offering nearby public schools, parks, and community amenities. Dr. Jan can match you with the right neighborhood based on your priorities.",
+        q: "Which Las Vegas areas fit relocating buyers on a budget?",
+        a: "North Las Vegas, Mountain's Edge, Centennial Hills, and Henderson's Cadence offer strong under-$500K inventory with parks, HOA amenities, and 215 Beltway access. Dr. Jan matches commute and floor-plan needs to specific listings.",
       },
       {
         q: "How is the cost of living in Las Vegas?",
@@ -143,7 +141,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: "Call or text (702) 500-1942 or email homes@heyberkshire.com. Office located at 8850 W. Sunset, Suite 200, Las Vegas, NV 89148.",
       },
       {
         q: "What areas does Dr. Jan cover?",
@@ -165,7 +163,7 @@ const allFaqs = faqCategories.flatMap((category) =>
 const pageSchemas = combineSchemas(
   generateBreadcrumbSchema(breadcrumbs),
   generateWebPageSchema({
-    name: "Frequently Asked Questions | Berkshire Hathaway HomeServices Las Vegas",
+    name: "Frequently Asked Questions | Affordable Homes Las Vegas",
     description:
       "Comprehensive FAQ about Las Vegas real estate, buying, selling, investing, and working with Dr. Jan Duffy.",
     url: "/faq",
@@ -186,9 +184,6 @@ export default function FAQPage() {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
-            </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Frequently Asked Questions
@@ -244,10 +239,7 @@ export default function FAQPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

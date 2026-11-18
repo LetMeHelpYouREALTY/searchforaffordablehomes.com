@@ -1,47 +1,46 @@
-// Site Configuration - HeyBerkshire.com
-// Berkshire Hathaway HomeServices Nevada Properties
+// Site Configuration — mirrors Google Business Profile
+// https://share.google/BQPiVVuYidhVW5iAD
+// Berkshire Hathaway + license appear in the site footer only.
+
+import { SITE_BRAND } from "./affordable-homes-content";
 
 export const siteConfig = {
-  name: "Search for Affordable Homes",
-  fullName: "Berkshire Hathaway HomeServices Nevada Properties",
-  tagline: "Affordable Homes · Luxury-Level Representation",
-  /** Full brand line for titles and OG */
-  brandLine:
-    "Search for Affordable Homes | Berkshire Hathaway HomeServices Nevada Properties",
-  brandName: "Berkshire Hathaway HomeServices",
-  shortName: "BHHS",
-  /** Prefer www — Vercel redirects apex → www; keep canonicals aligned. */
-  url: "https://www.searchforaffordablehomes.com",
-  description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy. Luxury-level representation for value-focused buyers.",
+  name: SITE_BRAND.name,
+  fullName: SITE_BRAND.name,
+  tagline: "Entry-level Las Vegas homes — private tours & buyer guidance",
+  brandLine: `${SITE_BRAND.name} | ${SITE_BRAND.agent}`,
+  brandName: SITE_BRAND.name,
+  shortName: SITE_BRAND.shortName,
+  url: SITE_BRAND.url,
+  description: SITE_BRAND.gbpDescription,
 };
 
 export const agentInfo = {
-  name: "Dr. Jan Duffy",
+  name: SITE_BRAND.agent,
   title: "REALTOR®",
-  license: "S.0197614.LLC",
-  phone: "(702) 500-1942",
-  phoneFormatted: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
-  email: "homes@heyberkshire.com",
-  brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
+  license: SITE_BRAND.license,
+  phone: SITE_BRAND.phoneDisplay,
+  phoneFormatted: SITE_BRAND.phoneDisplay,
+  phoneTel: `tel:${SITE_BRAND.phoneTel}`,
+  email: SITE_BRAND.email,
+  brokerage: SITE_BRAND.brokerage,
 };
 
 export const officeInfo = {
-  name: "Berkshire Hathaway HomeServices Nevada Properties",
+  name: SITE_BRAND.name,
   address: {
-    street: "9406 W Lake Mead Blvd, Suite 100",
-    city: "Las Vegas",
-    state: "NV",
-    zip: "89134",
-    full: "9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134",
+    street: SITE_BRAND.address.street,
+    city: SITE_BRAND.address.city,
+    state: SITE_BRAND.address.state,
+    zip: SITE_BRAND.address.zip,
+    full: SITE_BRAND.address.full,
   },
   coordinates: {
-    lat: 36.1893,
-    lng: -115.2821,
+    lat: SITE_BRAND.geo.lat,
+    lng: SITE_BRAND.geo.lng,
   },
-  phone: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: SITE_BRAND.phoneDisplay,
+  phoneTel: `tel:${SITE_BRAND.phoneTel}`,
 };
 
 // Market Statistics (Updated January 2026)
@@ -80,26 +79,70 @@ export const marketStats = {
   },
 };
 
-// Agent Stats
+export const testimonials = [
+  {
+    quote:
+      "Dr. Jan made our first purchase under $500K feel organized — we compared HOA dues and square footage the right way.",
+    author: "First-time buyers",
+    location: "Mountain's Edge",
+  },
+  {
+    quote:
+      "Builder registration saved us money on new construction. Clear guidance from day one.",
+    author: "New-construction buyers",
+    location: "Southwest Las Vegas",
+  },
+  {
+    quote:
+      "Pricing on our sale matched recent nearby comps. Fast, professional process.",
+    author: "Home sellers",
+    location: "Rhodes Ranch",
+  },
+];
+
 export const agentStats = {
-  servingSince: 2008,
+  servingSince: 2013,
   transactionsClosed: 500,
   volumeClosed: "$127M+",
   averageRating: 4.9,
   reviewCount: 200,
 };
 
-// Value Propositions
 export const valuePropositions = {
-  main: "When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength—the same principles that built Warren Buffett's empire.",
+  main: "Affordable Homes Las Vegas helps buyers find entry-level priced homes across southwest Las Vegas — Mountain's Edge, Southern Highlands, Rhodes Ranch, and beyond — with clear comparisons of price, square footage, and HOA dues.",
   trust:
-    "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
+    "Guidance on Nevada down payment assistance through participating lenders, builder-paid representation on new construction, and seller pricing built on recent nearby sales.",
   expertise:
-    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
+    "Led by Dr. Jan Duffy. Book a consultation or private tour — office hours 8:00 AM–8:00 PM daily at 8850 W. Sunset, Suite 200.",
 };
 
-// Neighborhoods served
 export const neighborhoods = [
+  {
+    name: "Mountain's Edge",
+    slug: "mountains-edge",
+    description: "Southwest Las Vegas master-planned community",
+    medianPrice: "$475,000",
+    highlights: [
+      "Entry-level inventory",
+      "Parks",
+      "Mountain views",
+      "HOA comparison",
+    ],
+  },
+  {
+    name: "Southern Highlands",
+    slug: "southern-highlands",
+    description: "Master-planned community with championship golf",
+    medianPrice: "$750,000",
+    highlights: ["Golf community", "89141", "Mountain views", "Amenities"],
+  },
+  {
+    name: "Rhodes Ranch",
+    slug: "neighborhoods",
+    description: "Southwest corridor near the W. Sunset office",
+    medianPrice: "$420,000",
+    highlights: ["Near office", "Condos & townhomes", "SFH options"],
+  },
   {
     name: "Summerlin",
     slug: "summerlin",
@@ -146,18 +189,6 @@ export const neighborhoods = [
     ],
   },
   {
-    name: "Southern Highlands",
-    slug: "southern-highlands",
-    description: "Master-planned luxury community with championship golf",
-    medianPrice: "$750,000",
-    highlights: [
-      "Golf community",
-      "Guard-gated",
-      "Mountain views",
-      "Luxury amenities",
-    ],
-  },
-  {
     name: "North Las Vegas",
     slug: "north-las-vegas",
     description: "Rapidly growing area with affordable new construction",
@@ -195,21 +226,8 @@ export const neighborhoods = [
       "Nearby public schools",
     ],
   },
-  {
-    name: "Mountains Edge",
-    slug: "mountains-edge",
-    description: "Southwest Las Vegas master-planned community",
-    medianPrice: "$475,000",
-    highlights: [
-      "Mountain views",
-      "Parks",
-      "Growing area",
-      "Affordable luxury",
-    ],
-  },
 ];
 
-// Services offered
 export const services = [
   {
     name: "Home Buying",
@@ -263,7 +281,6 @@ export const services = [
   },
 ];
 
-// Expert quotes from Dr. Jan Duffy
 export const expertQuotes = {
   market: `"The Las Vegas market remains strong heading into 2026. We're seeing continued demand from California relocators and remote workers, but the days of 20 offers on every listing are behind us. Buyers finally have some negotiating power."`,
   buyers: `"My job isn't just to show you houses—it's to make sure you don't overpay, that you understand what you're buying, and that you're protected through every step of the transaction."`,
@@ -272,32 +289,30 @@ export const expertQuotes = {
   investment: `"Las Vegas rental yields are among the best in the country right now. But you need to know which neighborhoods are appreciating and which have peaked."`,
   relocation: `"Moving to a new city is stressful enough. I handle everything from neighborhood tours to school research to contractor referrals so you can focus on your new beginning."`,
   newConstruction: `"Builders have sales agents who work for them, not you. Having your own representation costs you nothing but can save you tens of thousands in upgrades and negotiations."`,
-  valueProposition: `"When clients ask why they should choose a Berkshire Hathaway HomeServices agent, I tell them: you're not just getting me—you're getting a global network of 50,000 agents, world-class marketing, and a brand that's synonymous with trust."`,
+  valueProposition: `"Affordable Homes Las Vegas is about clear numbers — price, square footage, HOA dues — and getting you into the right southwest Las Vegas home without guesswork."`,
 };
 
-// Common FAQs
 export const commonFAQs = {
   general: [
     {
-      question: "Why should I choose a Berkshire Hathaway HomeServices agent?",
+      question: "What is Affordable Homes Las Vegas?",
       answer:
-        "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents. When you're making the biggest purchase of your life, that trust matters.",
+        "Affordable Homes Las Vegas helps buyers find homes at entry-level prices across southwest Las Vegas, including Mountain's Edge, Southern Highlands, and Rhodes Ranch. Compare condos, townhomes, and single-family homes by price, square footage, and HOA dues.",
     },
     {
-      question:
-        "What areas does Berkshire Hathaway HomeServices Nevada Properties cover?",
+      question: "What areas do you serve?",
       answer:
-        "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, and Henderson's master-planned communities.",
+        "Service areas include Las Vegas, Enterprise, Winchester, Clark County, Summerlin South/West, Rhodes Ranch, Mountain's Edge, Southern Highlands, and nearby ZIPs such as 89134, 89135, 89144, 89148, 89139, and 89141.",
     },
     {
-      question: "How do Berkshire Hathaway HomeServices agents get paid?",
+      question: "How do I book a consultation or private tour?",
       answer:
-        "Commission structures are negotiable. Dr. Jan Duffy offers transparent pricing and will walk you through all costs before you sign anything. For buyers, our services are typically free as commissions are paid by the seller.",
+        "Call or text (702) 500-1942, book online, or visit 8850 W. Sunset, Suite 200, Las Vegas, NV 89148. Open 8:00 AM–8:00 PM daily.",
     },
     {
-      question: "What is Dr. Jan Duffy's experience in Las Vegas real estate?",
+      question: "Who is Dr. Jan Duffy?",
       answer:
-        "Dr. Jan Duffy has been serving Las Vegas since 2008, with $127M+ in closed transactions and 500+ satisfied clients. Her expertise spans residential, luxury, investment, and new construction properties throughout Southern Nevada.",
+        "Dr. Jan Duffy leads Affordable Homes Las Vegas, helping buyers and sellers with entry-level pricing, new-construction representation paid by the builder, and seller pricing based on recent nearby sales.",
     },
   ],
   buying: [
@@ -309,29 +324,29 @@ export const commonFAQs = {
     {
       question: "Do I need a pre-approval before looking at homes?",
       answer:
-        "Yes, a pre-approval letter is essential. It shows sellers you're serious and gives you a clear budget. Dr. Jan can connect you with trusted local lenders who offer competitive rates.",
+        "Yes. A pre-approval letter shows sellers you're serious and clarifies budget. We can connect you with participating lenders familiar with Nevada down payment assistance programs.",
     },
     {
       question: "How much do I need for a down payment?",
       answer:
-        "Down payment requirements vary: FHA loans require 3.5%, conventional loans typically 3-20%, and VA/USDA loans may require 0% down. Dr. Jan can connect you with lenders who specialize in various loan programs.",
+        "Requirements vary: FHA often 3.5%, conventional 3–20%, and VA/USDA may allow 0% down. Ask about Nevada down payment assistance through participating lenders.",
     },
   ],
   selling: [
     {
       question: "What is my home worth in today's Las Vegas market?",
       answer:
-        "Home values depend on location, condition, size, and recent comparable sales. Dr. Jan provides free, comprehensive home valuations using current MLS data and her expertise serving Las Vegas since 2008.",
+        "Pricing is built on recent nearby sales. Call (702) 500-1942 for a free comparative market analysis.",
     },
     {
       question: "How long will it take to sell my home?",
       answer:
-        "Currently, well-priced homes in Las Vegas are selling in an average of 28 days. Luxury homes may take longer (45+ days). Pricing strategy is crucial—overpriced homes can sit for months.",
+        "Well-priced homes in Las Vegas often sell in roughly 28 days on average. Overpriced homes can sit longer — day-one pricing matters.",
     },
     {
       question: "What do I need to do to prepare my home for sale?",
       answer:
-        "Dr. Jan provides a personalized preparation checklist for every listing. Generally, decluttering, minor repairs, fresh paint, and professional photography are the highest-ROI improvements.",
+        "Expect a personalized prep checklist. Decluttering, minor repairs, fresh paint, and professional photography are usually the highest-ROI steps.",
     },
   ],
 };

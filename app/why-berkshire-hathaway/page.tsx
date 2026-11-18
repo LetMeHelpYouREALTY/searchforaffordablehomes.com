@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Shield,
@@ -12,9 +13,6 @@ import {
   Phone,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Why Brokerage Support Matters | Las Vegas Real Estate",
@@ -33,7 +31,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Berkshire Hathaway HomeServices",
   url: "https://www.bhhs.com",
-  logo: "https://www.searchforaffordablehomes.com/favicon-32x32.png",
+  logo: "https://heyberkshire.com/favicon-32x32.png",
   description:
     "Berkshire Hathaway HomeServices is a real estate brokerage network, part of Berkshire Hathaway Inc., one of the world's most respected and trusted companies.",
   parentOrganization: {
@@ -57,9 +55,6 @@ export default function WhyBerkshireHathawayPage() {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Las Vegas Real Estate Questions
-            </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Why Brokerage Support Matters
@@ -102,7 +97,6 @@ export default function WhyBerkshireHathawayPage() {
               </div>
             </div>
           </section>
-
           {/* Key Benefits */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">
@@ -285,10 +279,7 @@ export default function WhyBerkshireHathawayPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

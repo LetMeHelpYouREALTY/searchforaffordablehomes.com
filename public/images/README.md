@@ -4,13 +4,18 @@
 
 ```
 images/
-├── hero/           # Homepage hero backgrounds
-├── agent/          # Dr. Jan Duffy photos
+├── hero/           # Homepage hero backgrounds (luxury realtor visual plane)
+├── agent/          # Professional realtor / agent photos
+├── affordable/     # Affordable / starter-home lifestyle imagery
 ├── properties/     # Listing photos
 ├── neighborhoods/  # Area/community photos
 ├── testimonials/   # Client headshots
 └── logos/          # Brand assets
 ```
+
+## Stock photo credit
+
+Hero/agent/affordable JPEGs sourced from Unsplash (free license). Replace with owned MLS/agent photography when available.
 
 ## Recommended Specifications
 

@@ -2,19 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --luxury-ink: #0c1222;
+  --luxury-champagne: #c5a572;
+  --luxury-surface: #f7f5f2;
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+
   a,
   button {
     @apply transition;
   }
 
   a {
-    @apply text-emerald-500 underline hover:bg-emerald-100
-        outline-0 focus:ring-2 focus:ring-offset-1 focus:ring-emerald-500;
+    @apply text-ink underline-offset-4 outline-0 hover:text-champagne-deep focus-visible:ring-2 focus-visible:ring-champagne focus-visible:ring-offset-2;
   }
 
   ::selection {
-    @apply bg-emerald-200 text-emerald-950;
+    @apply bg-champagne/30 text-ink;
   }
 
   label,
@@ -27,7 +40,7 @@
   h2,
   h3,
   h4 {
-    @apply text-balance;
+    @apply text-balance font-display;
   }
 
   p {
@@ -35,25 +48,33 @@
   }
 }
 
-/* ===== RealScout Widget Styling ===== */
-
-/* RealScout Simple Search - Desktop */
-realscout-simple-search {
-  --rs-ss-font-primary-color: #1e293b;
-  --rs-ss-searchbar-border-color: #e2e8f0;
-  --rs-ss-box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
-  --rs-ss-widget-width: 600px !important;
-  --rs-ss-border-radius: 9999px;
-  --rs-ss-background-color: rgba(255, 255, 255, 0.95);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* RealScout Office Listings */
+/* ===== RealScout Widget Styling ===== */
+
+realscout-simple-search {
+  --rs-ss-font-primary-color: #0c1222;
+  --rs-ss-searchbar-border-color: #e2e8f0;
+  --rs-ss-box-shadow: 0 8px 24px -8px rgba(12, 18, 34, 0.18);
+  --rs-ss-widget-width: 100% !important;
+  --rs-ss-border-radius: 2px;
+  --rs-ss-background-color: #ffffff;
+}
+
 realscout-office-listings {
-  --rs-listing-divider-color: #2563eb;
+  --rs-listing-divider-color: #c5a572;
   width: 100%;
 }
 
-/* RealScout container wrapper */
 .realscout-wrapper {
   display: flex;
   justify-content: center;
@@ -62,26 +83,13 @@ realscout-office-listings {
   padding: 0 1rem;
 }
 
-/* Mobile Responsive: Tablet */
 @media (max-width: 768px) {
-  realscout-simple-search {
-    --rs-ss-widget-width: 100% !important;
-    max-width: 500px;
-  }
-
-  .realscout-wrapper {
-    padding: 0 1.5rem;
-  }
-}
-
-/* Mobile Responsive: Phone */
-@media (max-width: 480px) {
   realscout-simple-search {
     --rs-ss-widget-width: 100% !important;
     max-width: 100%;
   }
 
   .realscout-wrapper {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
 }

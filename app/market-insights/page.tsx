@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -15,9 +16,6 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Las Vegas Real Estate Market Insights 2026",
@@ -39,7 +37,7 @@ const reportSchema = {
   author: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy",
-    worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
+    worksFor: "Affordable Homes Las Vegas",
   },
   datePublished: "2026-01-23",
   about: {
@@ -75,9 +73,7 @@ export default function MarketInsightsPage() {
               <TrendingUp className="h-4 w-4 mr-2" />
               2026 Economic & Real Estate Analysis
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Market Insights
             </h1>
@@ -127,7 +123,6 @@ export default function MarketInsightsPage() {
               </div>
             </div>
           </section>
-
           {/* Tech Transformation */}
           <section className="mb-16 max-w-5xl mx-auto">
             <div className="flex items-center mb-6">
@@ -515,10 +510,7 @@ export default function MarketInsightsPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

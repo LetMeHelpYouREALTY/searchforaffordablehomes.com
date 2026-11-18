@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   TrendingUp,
@@ -12,9 +13,6 @@ import {
   Phone,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Las Vegas Real Estate Market Report January 2026",
@@ -36,7 +34,7 @@ const reportSchema = {
   author: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy",
-    worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
+    worksFor: "Affordable Homes Las Vegas",
   },
   datePublished: "2026-01-23",
   about: {
@@ -59,9 +57,6 @@ export default function MarketReportPage() {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Market Intelligence
-            </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Real Estate Market Report
@@ -119,7 +114,6 @@ export default function MarketReportPage() {
               </div>
             </div>
           </section>
-
           {/* Area Breakdown */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
@@ -349,10 +343,7 @@ export default function MarketReportPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

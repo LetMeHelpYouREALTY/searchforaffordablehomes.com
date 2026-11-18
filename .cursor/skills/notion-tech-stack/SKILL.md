@@ -17,7 +17,7 @@ When creating or updating Notion tasks, pages, databases, or docs in this worksp
 | **Deploy** | Vercel (primary), Cloudflare (optional) |
 | **Tools / Platforms** | Cursor (IDE, MCP, rules), GitHub (repos, Actions, CI/CD), Cloudflare (CDN, Workers, Pages, DNS), Vercel (deploy, previews, serverless) |
 | **Integrations** | RealScout (MLS/widgets), Follow Up Boss (FUB) CRM |
-| **Domain** | Real estate; Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties; Henderson/Las Vegas; 135+ domains |
+| **Domain** | Real estate; Dr. Jan Duffy,; Henderson/Las Vegas; 135+ domains |
 | **Code quality** | Biome (lint/format), strict TypeScript |
 
 Use this when naming tasks, tagging work, or writing Notion content so the agent and team know the context.

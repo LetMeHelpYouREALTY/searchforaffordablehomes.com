@@ -1,4 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import {
@@ -18,10 +20,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
-import OfficeListingsUnderHero from "@/components/realscout/OfficeListingsUnderHero";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Las Vegas Homes for Sale | MLS Property Search",
@@ -44,7 +42,7 @@ const listingsSchema = {
     "Live MLS property listings for Las Vegas, Henderson, and Summerlin homes for sale",
   provider: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Dr. Jan Duffy -",
     telephone: "+17025001942",
   },
   areaServed: [
@@ -162,9 +160,6 @@ export default function ListingsPage() {
             <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               Top 1% Las Vegas REALTOR®
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Las Vegas Homes for Sale
             </h1>
@@ -187,25 +182,9 @@ export default function ListingsPage() {
                 Active Listings
               </span>
             </div>
-
-            <OfficeListingsUnderHero />
           </div>
 
-          {/* RealScout Widget - Live MLS Listings */}
-          <section className="mb-16">
-            <div className="max-w-7xl mx-auto">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-office-listings 
-                    agent-encoded-id="QWdlbnQtMjI1MDUw" 
-                    sort-order="NEWEST" 
-                    listing-status="For Sale" 
-                    property-types=",SFR,MF,TC"
-                  ></realscout-office-listings>`,
-                }}
-              />
-            </div>
-          </section>
+          <RealScoutListings />
 
           {/* Popular Searches Section */}
           <section className="mb-16 max-w-6xl mx-auto">
@@ -613,10 +592,7 @@ export default function ListingsPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );

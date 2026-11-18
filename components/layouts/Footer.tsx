@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -7,8 +8,7 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
+import { SITE_BRAND } from "@/lib/affordable-homes-content";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,48 +16,54 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
-        <div className="mb-10">
-          <SectionExtras
-            tone="dark"
-            headline="Search for affordable homes — schedule with Dr. Jan"
-          />
-        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Company Info */}
+          {/* Company Info — GBP brand */}
           <div>
-            <div className="mb-4">
-              <BrandPortrait size="md" className="ring-offset-slate-900" />
+            <div className="mb-4 flex items-center gap-3">
+              <Image
+                src={SITE_BRAND.logoSrc}
+                alt=""
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full border-2 border-amber-500 object-cover"
+              />
+              <div>
+                <h3 className="text-lg font-bold leading-tight">
+                  {SITE_BRAND.name}
+                </h3>
+                <p className="text-sm text-slate-400">
+                  by {SITE_BRAND.agent}, REALTOR®
+                </p>
+              </div>
             </div>
-            <h3 className="font-bold text-xl mb-4">Dr. Jan Duffy, REALTOR®</h3>
-            <p className="text-slate-300 mb-4 text-sm">
-              Search for affordable homes in Las Vegas, Henderson, and
-              Summerlin. In real estate since 1983.
+            <p className="mb-4 text-sm text-slate-300">
+              {SITE_BRAND.gbpDescription}
             </p>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4">
               <a
-                href="http://drjanduffy.realscout.com/"
+                href={SITE_BRAND.socialProfiles[1]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+                className="text-slate-400 transition-colors hover:text-white"
+                aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="http://drjanduffy.realscout.com/"
+                href={SITE_BRAND.socialProfiles[5]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+                className="text-slate-400 transition-colors hover:text-white"
+                aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="http://drjanduffy.realscout.com/"
+                href={SITE_BRAND.socialProfiles[0]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-white transition-colors"
-                aria-label="Search Las Vegas Homes"
+                className="text-slate-400 transition-colors hover:text-white"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -66,78 +72,30 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+            <h3 className="mb-4 text-lg font-bold">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/affordable-homes"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  Affordable Homes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/affordable-homes/under-400k"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  Homes Under $400K
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/affordable-homes/first-time-buyers"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  First-Time Buyers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/listings"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  Live MLS Listings
-                </Link>
-              </li>
               <li>
                 <a
                   href="http://drjanduffy.realscout.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
-                  RealScout Search
+                  All Properties
                 </a>
               </li>
               <li>
                 <Link
                   href="/neighborhoods"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   Neighborhoods
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/neighborhoods/north-las-vegas"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  North Las Vegas
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/why-berkshire-hathaway"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  Why Brokerage Support Matters
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/market-report"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   Market Report
                 </Link>
@@ -145,7 +103,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   About Dr. Jan
                 </Link>
@@ -153,210 +111,140 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   Contact
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={SITE_BRAND.gbpShareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
+                >
+                  Google Business Profile
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Real Estate Services</h3>
+            <h3 className="mb-4 text-lg font-bold">Real Estate Services</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/buyers"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   Home Buying
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/buyers/california-relocator"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  California Relocators
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/sellers"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   Home Selling
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/luxury-homes"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  Luxury Homes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/55-plus-communities"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  55+ Communities
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/new-construction"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
                   New Construction
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/market-insights"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  href="/neighborhoods/mountains-edge"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
-                  Market Insights
+                  Mountain&apos;s Edge
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/neighborhoods/southern-highlands"
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
+                >
+                  Southern Highlands
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info - NAP (Name, Address, Phone) */}
+          {/* NAP — must match GBP */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact Dr. Jan Duffy</h3>
+            <h3 className="mb-4 text-lg font-bold">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-300 text-sm">
-                  9406 W Lake Mead Blvd, Suite 100
+                <MapPin className="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-blue-400" />
+                <span className="text-sm text-slate-300">
+                  {SITE_BRAND.address.street}
                   <br />
-                  Las Vegas, NV 89134
+                  {SITE_BRAND.address.city}, {SITE_BRAND.address.state}{" "}
+                  {SITE_BRAND.address.zip}
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
-                <Link
-                  href="tel:+17025001942"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
-                >
-                  (702) 500-1942
-                </Link>
+                <Phone className="mr-3 h-5 w-5 flex-shrink-0 text-blue-400" />
+                <div className="flex flex-col text-sm">
+                  <Link
+                    href={`tel:${SITE_BRAND.phoneTel}`}
+                    className="text-slate-300 transition-colors hover:text-white"
+                  >
+                    {SITE_BRAND.phoneDisplay}
+                  </Link>
+                  <a
+                    href={SITE_BRAND.smsHref}
+                    className="text-slate-400 transition-colors hover:text-white"
+                  >
+                    Text / SMS
+                  </a>
+                </div>
               </li>
               <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
+                <Mail className="mr-3 h-5 w-5 flex-shrink-0 text-blue-400" />
                 <Link
-                  href="mailto:homes@heyberkshire.com"
-                  className="text-slate-300 hover:text-white transition-colors text-sm"
+                  href={`mailto:${SITE_BRAND.email}`}
+                  className="text-sm text-slate-300 transition-colors hover:text-white"
                 >
-                  Homes@HeyBerkshire.com
+                  {SITE_BRAND.email}
                 </Link>
+              </li>
+              <li className="text-sm text-slate-400">
+                Open daily 8:00 AM–8:00 PM
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Authority / external citations */}
-        <div className="mt-10 border-t border-slate-800 pt-8">
-          <p className="mb-3 text-center text-xs font-medium uppercase tracking-wide text-slate-500">
-            Trusted resources
-          </p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-slate-400">
-            <li>
-              <a
-                href="https://www.bhhsnv.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                BHHS Nevada Properties
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://red.nv.gov/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                Nevada Real Estate Division
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.nar.realtor/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                NAR
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.hud.gov/buying"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                HUD Buying a Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.consumerfinance.gov/owning-a-home/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                CFPB Owning a Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.glvar.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                GLVAR
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Copyright */}
-        <div className="border-t border-slate-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-sm text-center md:text-left">
-              © {currentYear} Dr. Jan Duffy, REALTOR®. All Rights Reserved.
+        {/* Copyright + brokerage/license — FOOTER ONLY */}
+        <div className="mt-8 border-t border-slate-800 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-center text-sm text-slate-400 md:text-left">
+              © {currentYear} {SITE_BRAND.name}. All Rights Reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <Link
                 href="/faq"
-                className="text-slate-400 hover:text-white transition-colors"
+                className="text-slate-400 transition-colors hover:text-white"
               >
                 FAQ
               </Link>
               <Link
-                href="/google-business"
-                className="text-slate-400 hover:text-white transition-colors"
-              >
-                Google Business
-              </Link>
-              <a
-                href="https://www.searchforaffordablehomes.com/sitemap.xml"
-                className="text-slate-400 hover:text-white transition-colors"
+                href="/sitemap.xml"
+                className="text-slate-400 transition-colors hover:text-white"
               >
                 Sitemap
-              </a>
+              </Link>
             </div>
           </div>
-          <p className="text-slate-500 text-xs mt-4 text-center">
-            Berkshire Hathaway HomeServices Nevada Properties since September
-            2008 · License S.0197614.LLC
+          <p className="mt-4 text-center text-xs text-slate-500">
+            {SITE_BRAND.brokerage} · License {SITE_BRAND.license}
           </p>
         </div>
       </div>

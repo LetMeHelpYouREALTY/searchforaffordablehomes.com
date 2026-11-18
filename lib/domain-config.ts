@@ -230,7 +230,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     neighborhood: "Las Vegas",
     tagline: "Just Call Dr. Jan — Las Vegas Real Estate",
     description:
-      "Ready to buy or sell in Las Vegas? Just call Dr. Jan Duffy at 702-222-1964.",
+      "Ready to buy or sell in Las Vegas? Just call Dr. Jan Duffy at 702-500-1942.",
     heroHeadline: "Just Call Dr. Jan",
     heroSubheadline:
       "Since 1983. 500+ families. No runaround — just expert Las Vegas real estate guidance.",
@@ -240,7 +240,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Direct Access",
     ctaHeadline: "I Answer My Own Phone",
     ctaSubheadline:
-      "No assistant, no callback queue. Call or text 702-222-1964 and reach me directly.",
+      "No assistant, no callback queue. Call or text 702-500-1942 and reach me directly.",
   },
   "lasvegashomeexpert.com": {
     domain: "lasvegashomeexpert.com",
@@ -432,28 +432,26 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "searchforaffordablehomes.com": {
     domain: "searchforaffordablehomes.com",
     neighborhood: "Las Vegas",
-    tagline: "Search for Affordable Homes in Las Vegas",
+    tagline: "Luxury realtor service for homes under $500K",
     description:
-      "Search for affordable homes in Las Vegas, Henderson, and Summerlin. Dr. Jan Duffy helps value-focused buyers with MLS access, payment planning, and luxury-level negotiation. Call (702) 500-1942.",
-    heroHeadline: "Search for Affordable Homes in Las Vegas",
+      "Luxury buyer representation for Las Vegas homes under $500K with Dr. Jan Duffy. Private tours, comps-backed offers, and closing advocacy in Mountain's Edge, Southern Highlands, and Rhodes Ranch.",
+    heroHeadline: "Luxury representation for homes under $500K",
     heroSubheadline:
-      "Luxury-level representation for buyers who want the right home at the right payment — updated MLS listings daily.",
+      "Private tours, data-backed offers, and closing advocacy — white-glove service at entry-level prices.",
     keywords: [
-      "affordable homes",
       "affordable homes Las Vegas",
-      "search for affordable homes",
-      "cheap homes Las Vegas",
-      "homes under 400k Las Vegas",
-      "first time buyer Las Vegas",
-      "Henderson affordable homes",
-      "Dr Jan Duffy realtor",
+      "luxury realtor Las Vegas",
+      "homes under 500000 Las Vegas",
+      "first time home buyer Las Vegas",
+      "Mountain's Edge homes for sale",
+      "buy affordable house Las Vegas",
     ],
     pageType: "search",
     realscoutAgentId: REALSCOUT_AGENT_ID,
-    ctaBadge: "Affordable Homes Specialist",
-    ctaHeadline: "Find Affordable Homes That Still Feel Like a Win",
+    ctaBadge: "Luxury Buyer Representation",
+    ctaHeadline: "Start a White-Glove Home Search",
     ctaSubheadline:
-      "Tell me your payment comfort zone — I'll match live MLS inventory across Las Vegas and Henderson.",
+      "Call or text Dr. Jan at 702-500-1942 — luxury process, under-$500K inventory.",
   },
   "searchforhomesinhenderson.com": {
     domain: "searchforhomesinhenderson.com",
@@ -558,7 +556,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Cash Offer Specialist",
     ctaHeadline: "Get Your Cash Offer Today",
     ctaSubheadline:
-      "Call 702-222-1964 for a no-obligation cash offer on your Las Vegas home.",
+      "Call 702-500-1942 for a no-obligation cash offer on your Las Vegas home.",
   },
   "suncitysummerlinhomesforsale.com": {
     domain: "suncitysummerlinhomesforsale.com",
@@ -687,29 +685,29 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   },
 };
 
-// Default config — tuned for Search for Affordable Homes positioning
+// Default = SearchForAffordableHomes.com brand (this repository's primary domain)
 export const DEFAULT_CONFIG: DomainConfig = {
   domain: "searchforaffordablehomes.com",
   neighborhood: "Las Vegas",
-  tagline: "Search for Affordable Homes in Las Vegas",
+  tagline: "Luxury realtor service for homes under $500K",
   description:
-    "Search for affordable homes in Las Vegas, Henderson, and Summerlin with Dr. Jan Duffy, REALTOR®. Luxury-level advocacy for value-focused buyers. Call (702) 500-1942.",
-  heroHeadline: "Search for Affordable Homes in Las Vegas",
+    "Luxury buyer representation for Las Vegas homes under $500K with Dr. Jan Duffy. Private tours, comps-backed offers, and closing advocacy across the valley.",
+  heroHeadline: "Luxury representation for homes under $500K",
   heroSubheadline:
-    "Expert guidance from Dr. Jan Duffy — in real estate since 1983, 500+ families helped find homes that fit their budget.",
+    "Private tours, data-backed offers, and closing advocacy — white-glove service at entry-level prices.",
   keywords: [
-    "affordable homes",
     "affordable homes Las Vegas",
-    "search for affordable homes",
-    "Las Vegas homes for sale",
+    "homes under 500000 Las Vegas",
+    "first time home buyer Las Vegas",
+    "buy affordable house Las Vegas",
     "Dr Jan Duffy",
   ],
   pageType: "search",
   realscoutAgentId: REALSCOUT_AGENT_ID,
-  ctaBadge: "Affordable Homes Specialist",
-  ctaHeadline: "Find Your Affordable Las Vegas Home",
+  ctaBadge: "Affordable Home Specialist",
+  ctaHeadline: "Start Your Affordable Home Search",
   ctaSubheadline:
-    "Call or text Dr. Jan at 702-500-1942 — I answer my own phone.",
+    "Call or text Dr. Jan at 702-500-1942 — white-glove buyer help at entry-level prices.",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {

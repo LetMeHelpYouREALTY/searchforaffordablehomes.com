@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import ScheduleConsultSection from "@/components/sections/ScheduleConsultSection";
 import Link from "next/link";
 import {
   Phone,
@@ -17,9 +18,6 @@ import {
   TrendingUp,
 } from "lucide-react";
 import type { Metadata } from "next";
-import CalendlyBookingSection from "@/components/calendly/CalendlyBookingSection";
-import BrandPortrait from "@/components/brand/BrandPortrait";
-import SectionExtras from "@/components/brand/SectionExtras";
 
 export const metadata: Metadata = {
   title: "Relocating from California to Las Vegas",
@@ -84,15 +82,15 @@ const faqSchema = {
 const realEstateAgentSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+  name: "Dr. Jan Duffy -",
   telephone: "+17025001942",
-  url: "https://www.searchforaffordablehomes.com/buyers/california-relocator",
+  url: "https://heyberkshire.com/buyers/california-relocator",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+    streetAddress: "8850 W. Sunset, Suite 200",
     addressLocality: "Las Vegas",
     addressRegion: "NV",
-    postalCode: "89134",
+    postalCode: "89148",
   },
   areaServed: ["Las Vegas", "Henderson", "Summerlin", "North Las Vegas"],
   priceRange: "$350,000 - $10,000,000+",
@@ -135,9 +133,7 @@ export default function CaliforniaRelocatorPage() {
               <Sun className="h-4 w-4 mr-2" />
               37% of Las Vegas Buyers Are From California
             </div>
-            <div className="mb-6 flex justify-center">
-              <BrandPortrait size="lg" priority />
-            </div>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
               Relocating from California?
               <br />
@@ -196,7 +192,6 @@ export default function CaliforniaRelocatorPage() {
               </p>
             </div>
           </section>
-
           {/* What Your CA Equity Buys */}
           <section className="mb-16 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
@@ -545,10 +540,7 @@ export default function CaliforniaRelocatorPage() {
           Last Updated: January 2026
         </div>
       </main>
-      <div className="container mx-auto px-4">
-        <SectionExtras headline="Talk affordable homes with Dr. Jan" />
-      </div>
-      <CalendlyBookingSection />
+      <ScheduleConsultSection />
       <Footer />
     </>
   );
