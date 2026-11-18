@@ -76,6 +76,17 @@ const nextConfig = {
         destination: "/listings",
         permanent: true,
       },
+      // Legacy singular listing URL shapes → inventory hub
+      {
+        source: "/property/:path*",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/listing/:path*",
+        destination: "/listings",
+        permanent: true,
+      },
     ];
   },
 

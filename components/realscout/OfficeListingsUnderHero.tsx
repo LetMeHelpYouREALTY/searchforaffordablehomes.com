@@ -2,7 +2,6 @@
 
 import BrandPortrait from "@/components/brand/BrandPortrait";
 import CalendlyButton from "@/components/calendly/CalendlyButton";
-import { Button } from "@/components/ui/button";
 
 type OfficeListingsUnderHeroProps = {
   title?: string;
@@ -14,11 +13,11 @@ type OfficeListingsUnderHeroProps = {
 
 /**
  * RealScout office listings placed directly under every page hero.
- * Tuned for affordable homes search intent.
+ * Primary buyer actions: click a listing photo, or schedule on Calendly.
  */
 export default function OfficeListingsUnderHero({
   title = "Affordable Homes on the Market Now",
-  subtitle = "Live MLS listings for value-focused buyers across Las Vegas, Henderson, and Summerlin.",
+  subtitle = "Click any home photo to open details. Ready to tour? Schedule with Dr. Jan Duffy on Calendly.",
   priceMin = "200000",
   priceMax = "550000",
 }: OfficeListingsUnderHeroProps) {
@@ -48,19 +47,22 @@ export default function OfficeListingsUnderHero({
           <div className="flex flex-wrap gap-3">
             <CalendlyButton
               url="https://calendly.com/drjanduffy/showing"
-              text="Tour These Homes"
+              text="Schedule a showing"
+              className="inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1840b0]"
             />
-            <Button asChild variant="outline">
-              <a
-                href="http://drjanduffy.realscout.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open Full Search
-              </a>
-            </Button>
+            <a
+              href="#schedule"
+              className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50"
+            >
+              Or book below
+            </a>
           </div>
         </div>
+
+        <p className="mb-4 text-sm font-medium text-slate-700">
+          Tap a listing image to view the home → then schedule a tour on
+          Calendly when you find one you want to see.
+        </p>
 
         <div
           dangerouslySetInnerHTML={{
@@ -74,6 +76,23 @@ export default function OfficeListingsUnderHero({
             ></realscout-office-listings>`,
           }}
         />
+
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-6 sm:flex-row">
+          <div>
+            <p className="font-semibold text-slate-900">
+              Found a home in the photos?
+            </p>
+            <p className="text-sm text-slate-600">
+              Schedule a showing or buyer consult with Dr. Jan Duffy — free, no
+              obligation.
+            </p>
+          </div>
+          <CalendlyButton
+            url="https://calendly.com/drjanduffy/showing"
+            text="Schedule on Calendly"
+            className="inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1840b0]"
+          />
+        </div>
       </div>
     </section>
   );

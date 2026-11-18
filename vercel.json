@@ -102,6 +102,16 @@
       "source": "/homes/(.*)",
       "destination": "/listings",
       "permanent": true
+    },
+    {
+      "source": "/property/(.*)",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/listing/(.*)",
+      "destination": "/listings",
+      "permanent": true
     }
   ]
 }

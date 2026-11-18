@@ -45,15 +45,27 @@ export default function SectionExtras({
           </p>
         </div>
       </div>
-      <CalendlyButton
-        url="https://calendly.com/drjanduffy/showing"
-        text="Schedule a Call"
-        className={
-          isDark
-            ? "inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#1e4fd6] transition-colors hover:bg-blue-50"
-            : "inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-        }
-      />
+      <div className="flex flex-wrap gap-2">
+        <a
+          href="#affordable-homes-listings"
+          className={
+            isDark
+              ? "inline-flex items-center justify-center rounded-md border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              : "inline-flex items-center justify-center rounded-md border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50"
+          }
+        >
+          Browse MLS photos
+        </a>
+        <CalendlyButton
+          url="https://calendly.com/drjanduffy/showing"
+          text="Schedule on Calendly"
+          className={
+            isDark
+              ? "inline-flex items-center justify-center rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-[#1e4fd6] transition-colors hover:bg-blue-50"
+              : "inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
+          }
+        />
+      </div>
     </div>
   );
 }

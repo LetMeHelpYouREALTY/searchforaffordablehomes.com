@@ -2,120 +2,100 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Bed, Bath, Square, ArrowRight } from "lucide-react";
+import { Bed, Bath, Square } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CalendlyButton from "@/components/calendly/CalendlyButton";
+import {
+  featuredProperties,
+  type AffordableAreaPage,
+} from "@/lib/featured-properties";
 
-interface Property {
-  id: number;
-  name: string;
-  location: string;
-  price: string;
-  image: string;
-  bedrooms: number;
-  bathrooms: number;
-  squareFeet: number;
-}
+const CALENDLY_SHOWING = "https://calendly.com/drjanduffy/showing";
 
-const PropertyCard = ({ property }: { property: Property }) => (
-  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-    <div className="relative h-48 md:h-64">
-      <Image
-        src={property.image}
-        alt={property.name}
-        fill
-        className="object-cover"
-      />
-      <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-md text-sm font-semibold">
-        {property.price}
+const PropertyCard = ({ property }: { property: AffordableAreaPage }) => (
+  <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:border-slate-300">
+    <Link
+      href={`/listings/${property.slug}#affordable-homes-listings`}
+      className="block"
+    >
+      <div className="relative h-48 md:h-64">
+        <Image
+          src={property.image}
+          alt={`${property.name} with Dr. Jan Duffy, REALTOR®`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+        <div className="absolute right-4 top-4 rounded-md bg-[#1e4fd6] px-3 py-1 text-sm font-semibold text-white">
+          {property.priceBand}
+        </div>
       </div>
-    </div>
+    </Link>
     <div className="p-6">
-      <h3 className="text-xl font-bold text-slate-900 mb-2">{property.name}</h3>
-      <p className="text-slate-600 mb-4">{property.location}</p>
-      <div className="flex justify-between items-center text-slate-600 mb-4">
+      <p className="text-xs font-semibold uppercase tracking-wide text-[#1e4fd6]">
+        Dr. Jan Duffy · {property.neighborhood}
+      </p>
+      <h3 className="mt-1 text-xl font-bold text-slate-900">{property.name}</h3>
+      <p className="mb-4 mt-2 text-slate-600">{property.headline}</p>
+      <div className="mb-4 flex items-center justify-between text-slate-600">
         <div className="flex items-center gap-1">
-          <Bed className="h-4 w-4 text-blue-600" />
-          <span className="text-sm">{property.bedrooms} Beds</span>
+          <Bed className="h-4 w-4 text-[#1e4fd6]" aria-hidden />
+          <span className="text-sm">{property.bedrooms}</span>
         </div>
         <div className="flex items-center gap-1">
-          <Bath className="h-4 w-4 text-blue-600" />
-          <span className="text-sm">{property.bathrooms} Baths</span>
+          <Bath className="h-4 w-4 text-[#1e4fd6]" aria-hidden />
+          <span className="text-sm">{property.bathrooms}</span>
         </div>
         <div className="flex items-center gap-1">
-          <Square className="h-4 w-4 text-blue-600" />
-          <span className="text-sm">
-            {property.squareFeet.toLocaleString()} sq ft
-          </span>
+          <Square className="h-4 w-4 text-[#1e4fd6]" aria-hidden />
+          <span className="text-sm">{property.squareFeet}</span>
         </div>
       </div>
-      <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">
-        <Link href={`/listings/${property.id}`}>
-          View Details <ArrowRight className="h-4 w-4 ml-2" />
-        </Link>
-      </Button>
+      <div className="flex flex-col gap-2">
+        <Button asChild className="w-full bg-[#1e4fd6] hover:bg-[#1840b0]">
+          <Link href={`/listings/${property.slug}#affordable-homes-listings`}>
+            Click live MLS photos
+          </Link>
+        </Button>
+        <CalendlyButton
+          url={CALENDLY_SHOWING}
+          text="Schedule on Calendly"
+          className="inline-flex w-full items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-50"
+        />
+      </div>
     </div>
-  </div>
+  </article>
 );
-
-const properties: Property[] = [
-  {
-    id: 1,
-    name: "Modern Luxury Home",
-    location: "Summerlin, Las Vegas, NV",
-    price: "$850,000",
-    image: "/Image/hero_bg_1.jpg",
-    bedrooms: 4,
-    bathrooms: 3,
-    squareFeet: 3200,
-  },
-  {
-    id: 2,
-    name: "Spacious Family Home",
-    location: "Henderson, NV",
-    price: "$625,000",
-    image: "/Image/hero_bg_2.jpg",
-    bedrooms: 3,
-    bathrooms: 2,
-    squareFeet: 2400,
-  },
-  {
-    id: 3,
-    name: "Elegant Estate",
-    location: "Green Valley, Henderson, NV",
-    price: "$1,200,000",
-    image: "/Image/hero_bg_3.jpg",
-    bedrooms: 5,
-    bathrooms: 4,
-    squareFeet: 4500,
-  },
-];
 
 export default function FeaturedProperties() {
   return (
-    <section className="py-16 md:py-24 bg-slate-50">
+    <section className="bg-slate-50 py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+        <div className="mb-12 flex flex-col items-center justify-between md:flex-row">
           <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-              Featured Properties
+            <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl lg:text-5xl">
+              Affordable homes by hyperlocal area
             </h2>
-            <p className="text-slate-600 text-lg">
-              Discover exceptional homes in Las Vegas and Henderson
+            <p className="text-lg text-slate-600">
+              Browse RealScout MLS photos or schedule a tour with Dr. Jan Duffy
             </p>
           </div>
-          <Button asChild variant="outline" className="mt-4 md:mt-0">
-            <a
-              href="http://drjanduffy.realscout.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View All Properties
-            </a>
-          </Button>
+          <div className="mt-4 flex flex-wrap gap-3 md:mt-0">
+            <Button asChild variant="outline">
+              <Link href="/listings#affordable-homes-listings">
+                Live MLS listings
+              </Link>
+            </Button>
+            <CalendlyButton
+              url={CALENDLY_SHOWING}
+              text="Schedule a showing"
+              className="inline-flex items-center justify-center rounded-md bg-[#1e4fd6] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1840b0]"
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {properties.map((property) => (
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProperties.map((property) => (
             <PropertyCard key={property.id} property={property} />
           ))}
         </div>
