@@ -75,6 +75,84 @@
     },
     {
       "source": "/my-featured-listings",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/my-sold-properties",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/my-home-value",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/home-valuation",
+      "permanent": true
+    },
+    {
+      "source": "/default.aspx",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/",
+      "permanent": true
+    },
+    {
+      "source": "/Default.aspx",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/",
+      "permanent": true
+    },
+    {
+      "source": "/property-search-map",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/property-search-map/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/rental/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/single-family/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/affordable-homes",
+      "permanent": true
+    },
+    {
+      "source": "/condo-townhouse/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/affordable-homes",
+      "permanent": true
+    },
+    {
+      "source": "/vacant-land/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/homes/sale/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/homes/(.*)",
+      "has": [{ "type": "host", "value": "searchforaffordablehomes.com" }],
+      "destination": "https://www.searchforaffordablehomes.com/listings",
+      "permanent": true
+    },
+    {
+      "source": "/my-featured-listings",
       "destination": "/listings",
       "permanent": true
     },

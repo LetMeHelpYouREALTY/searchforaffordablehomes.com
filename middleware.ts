@@ -12,13 +12,13 @@ export function middleware(request: NextRequest) {
   const legacyDestination = resolveLegacyDestination(pathname);
   const apex = isApexSearchHost(hostname);
 
-  // Single-hop: apex + legacy path → www final URL (no www-then-path chain)
+  // Defense in depth: next.config already does single-hop apex+legacy first.
+  // Middleware still collapses chains in environments where host redirects differ.
   if (legacyDestination) {
     const target = new URL(`${PRIMARY_ORIGIN}${legacyDestination}${search}`);
     return NextResponse.redirect(target, 308);
   }
 
-  // Apex non-legacy → www same path
   if (apex) {
     const target = new URL(`${PRIMARY_ORIGIN}${pathname}${search}`);
     return NextResponse.redirect(target, 308);
@@ -33,6 +33,8 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
+    // Include `/` so apex homepage is handled when next.config host rules differ
+    "/",
     "/((?!api|_next/static|_next/image|favicon|images|videos|robots|sitemap).*)",
   ],
 };

@@ -1,8 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  isApexSearchHost,
-  resolveLegacyDestination,
-} from "./legacy-redirects";
+import { isApexSearchHost, resolveLegacyDestination } from "./legacy-redirects";
 
 describe("resolveLegacyDestination", () => {
   it("maps retired map search URLs to /listings", () => {

@@ -1,3 +1,5 @@
+const { buildNextRedirects } = require("./lib/legacy-redirects.shared");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Standalone output for Docker/Vercel optimization
@@ -20,100 +22,9 @@ const nextConfig = {
   // Performance optimizations
   swcMinify: true,
 
-  // Host + legacy IDX/ASP path redirects (middleware also collapses apex chains)
+  // Apex+legacy absolute destinations first (Next applies redirects before middleware)
   async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "heyberkshire.com",
-          },
-        ],
-        destination: "https://www.heyberkshire.com/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "searchforaffordablehomes.com",
-          },
-        ],
-        destination: "https://www.searchforaffordablehomes.com/:path*",
-        permanent: true,
-      },
-      // Legacy agent-portal / ASP.NET surfaces (GSC Performance still showing)
-      {
-        source: "/my-featured-listings",
-        destination: "/listings",
-        permanent: true,
-      },
-      {
-        source: "/my-sold-properties",
-        destination: "/listings",
-        permanent: true,
-      },
-      {
-        source: "/my-home-value",
-        destination: "/home-valuation",
-        permanent: true,
-      },
-      {
-        source: "/default.aspx",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/Default.aspx",
-        destination: "/",
-        permanent: true,
-      },
-      // Retired map search URL shapes (were 404 after apex→www)
-      {
-        source: "/property-search-map",
-        destination: "/listings",
-        permanent: true,
-      },
-      {
-        source: "/property-search-map/:path*",
-        destination: "/listings",
-        permanent: true,
-      },
-      // Legacy MLS/IDX listing URL shapes → living inventory pages
-      {
-        source: "/rental/:path*",
-        destination: "/listings",
-        permanent: true,
-      },
-      {
-        source: "/single-family/:path*",
-        destination: "/affordable-homes",
-        permanent: true,
-      },
-      {
-        source: "/condo-townhouse/:path*",
-        destination: "/affordable-homes",
-        permanent: true,
-      },
-      {
-        source: "/vacant-land/:path*",
-        destination: "/listings",
-        permanent: true,
-      },
-      {
-        source: "/homes/sale/:path*",
-        destination: "/listings",
-        permanent: true,
-      },
-      {
-        source: "/homes/:path*",
-        destination: "/listings",
-        permanent: true,
-      },
-    ];
+    return buildNextRedirects();
   },
 
   // Python API rewrites
