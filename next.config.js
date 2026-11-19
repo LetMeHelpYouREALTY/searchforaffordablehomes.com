@@ -20,7 +20,7 @@ const nextConfig = {
   // Performance optimizations
   swcMinify: true,
 
-  // Host + legacy IDX path redirects (retire dead listing URLs from GSC)
+  // Host + legacy IDX/ASP path redirects (middleware also collapses apex chains)
   async redirects() {
     return [
       {
@@ -43,6 +43,43 @@ const nextConfig = {
           },
         ],
         destination: "https://www.searchforaffordablehomes.com/:path*",
+        permanent: true,
+      },
+      // Legacy agent-portal / ASP.NET surfaces (GSC Performance still showing)
+      {
+        source: "/my-featured-listings",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/my-sold-properties",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/my-home-value",
+        destination: "/home-valuation",
+        permanent: true,
+      },
+      {
+        source: "/default.aspx",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/Default.aspx",
+        destination: "/",
+        permanent: true,
+      },
+      // Retired map search URL shapes (were 404 after apex→www)
+      {
+        source: "/property-search-map",
+        destination: "/listings",
+        permanent: true,
+      },
+      {
+        source: "/property-search-map/:path*",
+        destination: "/listings",
         permanent: true,
       },
       // Legacy MLS/IDX listing URL shapes → living inventory pages

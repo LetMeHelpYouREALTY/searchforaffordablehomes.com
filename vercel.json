@@ -74,6 +74,41 @@
       "permanent": true
     },
     {
+      "source": "/my-featured-listings",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/my-sold-properties",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/my-home-value",
+      "destination": "/home-valuation",
+      "permanent": true
+    },
+    {
+      "source": "/default.aspx",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/Default.aspx",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/property-search-map",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
+      "source": "/property-search-map/(.*)",
+      "destination": "/listings",
+      "permanent": true
+    },
+    {
       "source": "/rental/(.*)",
       "destination": "/listings",
       "permanent": true
